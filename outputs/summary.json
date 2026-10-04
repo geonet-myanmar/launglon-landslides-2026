@@ -1,0 +1,412 @@
+{
+ "sites": {
+  "kdnh": {
+   "key": "kdnh",
+   "name": "Ka Det Nge Htein",
+   "mmr": "ကဒက်ငယ်ထိန်",
+   "flown": "2026-10-03",
+   "gsd_cm": 8.0,
+   "file": "KadetNgelHtein_Ortho.kmz",
+   "survey_ha": 116.8,
+   "tiles": "kadet",
+   "n_landslides": 9,
+   "n_by_type": {
+    "open": 5,
+    "channel": 4,
+    "minor": 0
+   },
+   "area_total_m2": 161539,
+   "area_by_type_m2": {
+    "open": 34767,
+    "channel": 126772,
+    "minor": 0
+   },
+   "area_runout_flat_m2": 56175,
+   "outwash_m2": 156672,
+   "largest": "KD-01",
+   "buildings_surveyed": 245,
+   "buildings_status": {
+    "clear": 208,
+    "destroyed": 25,
+    "edge": 10,
+    "damaged": 2
+   },
+   "not_building": 1,
+   "overrides": 11,
+   "reach": {
+    "standing_in_A": 39,
+    "standing_in_B": 117,
+    "standing_outside": 62,
+    "affected": 27,
+    "affected_in_AB": 27
+   },
+   "runout": {
+    "alpha_open": 16.2,
+    "alpha_channel": 13.2,
+    "open_ids": [
+     "KD-02",
+     "KD-03",
+     "KD-04",
+     "KD-05"
+    ],
+    "channel_id": "KD-01",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 116.38,
+    "zoneB_ha": 36.18,
+    "calibration_share_inside": {
+     "KD-01": 0.903,
+     "KD-02": 1.0,
+     "KD-03": 1.0,
+     "KD-04": 1.0,
+     "KD-05": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 62,
+      "A": 33,
+      "B": 113
+     },
+     "damaged": {
+      "": 0,
+      "A": 0,
+      "B": 2
+     },
+     "destroyed": {
+      "": 0,
+      "A": 11,
+      "B": 14
+     },
+     "edge": {
+      "": 0,
+      "A": 6,
+      "B": 4
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": 0.25,
+    "dN": -0.75,
+    "grey_before": 0.672,
+    "grey_after": 0.68,
+    "n_used": 198
+   },
+   "report": {
+    "source": "Dawei Watch, 29 Sep - 2 Oct 2026",
+    "deaths": 15,
+    "recovered": 12,
+    "missing": 3,
+    "houses": "more than 30",
+    "houses_n": 30,
+    "lines": [
+     "15 people died, the highest toll of any village in the disaster (2 Oct).",
+     "12 bodies recovered and 3 people still missing on 1 Oct, when the body of a 27-year-old woman was found under the debris six days after the landslide.",
+     "More than 30 houses destroyed, according to residents (29 Sep); the village was designated a red-level disaster area and a rescue team reached it on 28 Sep.",
+     "In neighbouring Ka Det Gyi, outside the survey, a mother and her son died when a slope collapsed onto their garden."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Ka Det Nge Htein",
+     "pcode": "177156",
+     "where": "inside",
+     "mmr": "ကဒက်ငယ်ထိန်",
+     "lon": 98.13468933,
+     "lat": 13.88634014
+    }
+   ],
+   "vt": "Auk Yae Hpyu",
+   "vt_pcode": "MMR006002015",
+   "bounds": [
+    98.12762329545285,
+    13.881963952524698,
+    98.14165699122282,
+    13.895025810308296
+   ],
+   "n_exclusions": 1
+  },
+  "nmt": {
+   "key": "nmt",
+   "name": "Ngone Min Taung",
+   "mmr": "",
+   "flown": "2026-10-04",
+   "gsd_cm": 10.1,
+   "file": "NgoneMinTaung_Ortho.kmz",
+   "survey_ha": 178.1,
+   "tiles": "kadet",
+   "n_landslides": 26,
+   "n_by_type": {
+    "open": 4,
+    "channel": 8,
+    "minor": 14
+   },
+   "area_total_m2": 206952,
+   "area_by_type_m2": {
+    "open": 41899,
+    "channel": 158761,
+    "minor": 6292
+   },
+   "area_runout_flat_m2": 99957,
+   "outwash_m2": 0,
+   "largest": "NM-01",
+   "buildings_surveyed": 257,
+   "buildings_status": {
+    "clear": 256,
+    "damaged": 1
+   },
+   "not_building": 0,
+   "overrides": 0,
+   "reach": {
+    "standing_in_A": 29,
+    "standing_in_B": 9,
+    "standing_outside": 218,
+    "affected": 1,
+    "affected_in_AB": 1
+   },
+   "runout": {
+    "alpha_open": 14.8,
+    "alpha_channel": 11.6,
+    "open_ids": [
+     "NM-05",
+     "NM-07",
+     "NM-08"
+    ],
+    "channel_id": "NM-04",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 189.58,
+    "zoneB_ha": 14.9,
+    "calibration_share_inside": {
+     "NM-04": 0.998,
+     "NM-05": 0.871,
+     "NM-07": 1.0,
+     "NM-08": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 218,
+      "A": 29,
+      "B": 9
+     },
+     "damaged": {
+      "": 0,
+      "A": 1,
+      "B": 0
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": 0.5,
+    "dN": -2.0,
+    "grey_before": 0.45,
+    "grey_after": 0.469,
+    "n_used": 245
+   },
+   "report": {
+    "source": "Dawei Watch, 26 Sep - 2 Oct 2026",
+    "deaths": null,
+    "houses": null,
+    "lines": [
+     "No report names Ngone Min Taung or Htein Gyi in Dawei Watch coverage to 2 Oct 2026."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Htein Gyi",
+     "pcode": "177157",
+     "where": "inside",
+     "mmr": "ထိန်ကြီး",
+     "lon": 98.13529205,
+     "lat": 13.90513992
+    }
+   ],
+   "vt": "Auk Yae Hpyu",
+   "vt_pcode": "MMR006002015",
+   "bounds": [
+    98.122153728144,
+    13.894427385519984,
+    98.138330887184,
+    13.905512133080189
+   ],
+   "n_exclusions": 11
+  },
+  "tawkye": {
+   "key": "tawkye",
+   "name": "Taw Kye",
+   "mmr": "တောကျဲ",
+   "flown": "2026-10-02",
+   "gsd_cm": 3.75,
+   "file": "TawKyel_Village_Landslide.kmz + TawKyel_Plan-2.kmz",
+   "survey_ha": 100.6,
+   "tiles": "tawkye",
+   "n_landslides": 9,
+   "n_by_type": {
+    "open": 7,
+    "channel": 2,
+    "minor": 0
+   },
+   "area_total_m2": 206490,
+   "area_by_type_m2": {
+    "open": 138113,
+    "channel": 68377,
+    "minor": 0
+   },
+   "area_runout_flat_m2": 98105,
+   "outwash_m2": 0,
+   "largest": "LS-07",
+   "buildings_surveyed": 239,
+   "buildings_status": {
+    "clear": 170,
+    "destroyed": 36,
+    "edge": 21,
+    "damaged": 12
+   },
+   "not_building": 0,
+   "overrides": 10,
+   "reach": {
+    "standing_in_A": 101,
+    "standing_in_B": 38,
+    "standing_outside": 52,
+    "affected": 48,
+    "affected_in_AB": 48
+   },
+   "runout": {
+    "alpha_open": 17.6,
+    "alpha_channel": 13.4,
+    "src_slope": 20.0,
+    "zoneA_ha": 1093.68,
+    "zoneB_ha": 167.58,
+    "calibration_share_inside": {
+     "LS-01": 0.097,
+     "LS-02": 0.962,
+     "LS-03": 1.0,
+     "LS-04": 1.0,
+     "LS-05": 1.0,
+     "LS-06": 1.0,
+     "LS-07": 0.978,
+     "LS-08": 0.952,
+     "LS-09": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 50,
+      "A": 83,
+      "B": 37
+     },
+     "damaged": {
+      "": 0,
+      "A": 12,
+      "B": 0
+     },
+     "destroyed": {
+      "": 0,
+      "A": 36,
+      "B": 0
+     },
+     "edge": {
+      "": 2,
+      "A": 18,
+      "B": 1
+     }
+    },
+    "open_ids": [
+     "LS-02",
+     "LS-03",
+     "LS-05",
+     "LS-06",
+     "LS-07",
+     "LS-08",
+     "LS-09"
+    ],
+    "channel_id": "LS-04"
+   },
+   "footprint_shift": {
+    "landslide": {
+     "dE": 3.75,
+     "dN": -3.0,
+     "grey_before": 0.441,
+     "grey_after": 0.597,
+     "n_used": 27
+    },
+    "plan2": {
+     "dE": 2.0,
+     "dN": -3.5,
+     "grey_before": 0.517,
+     "grey_after": 0.63,
+     "n_used": 123
+    }
+   },
+   "report": {
+    "source": "Dawei Watch, 1-2 Oct 2026",
+    "deaths": 5,
+    "recovered": 2,
+    "missing": 3,
+    "houses": "42",
+    "houses_n": 42,
+    "lines": [
+     "5 people died - two men, a nun and two women; the bodies of three had not been recovered on 1 Oct.",
+     "42 houses destroyed. Heavy-machinery crews clearing the blocked road reached the village on 1 Oct."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Taw Kye",
+     "pcode": "177208",
+     "where": "inside",
+     "mmr": "တောကျဲ",
+     "lon": 98.1596,
+     "lat": 13.79993
+    }
+   ],
+   "vt": "Taw Kye",
+   "vt_pcode": "MMR006002033",
+   "bounds": [
+    98.15383024507285,
+    13.7881742188,
+    98.16149972836476,
+    13.803539600255997
+   ],
+   "n_exclusions": 0
+  }
+ },
+ "total": {
+  "n_landslides": 44,
+  "area_m2": 574981,
+  "destroyed": 61,
+  "damaged": 15,
+  "standing_in_A": 169,
+  "standing_in_B": 164,
+  "deaths": 20,
+  "survey_ha": 395.5,
+  "outwash_m2": 156672
+ },
+ "regional": {
+  "launglon_deaths": 31,
+  "launglon_asof": "1 Oct 2026",
+  "district_deaths": 41,
+  "district_asof": "2 Oct 2026",
+  "source": "Dawei Watch, 2 Oct 2026"
+ },
+ "rain": {
+  "kadet": {
+   "night_26_27": 136.4,
+   "d25_28": 569.7,
+   "sep_total": 993.4,
+   "fetched": "2026-10-04T15:13Z",
+   "grid": [
+    13.884007,
+    98.114075
+   ]
+  },
+  "tawkye": {
+   "night_26_27": 151.0,
+   "d25_28": 617.7,
+   "sep_total": 1130.6,
+   "fetched": "2026-10-03T03:03Z",
+   "grid": [
+    13.813708,
+    98.18933
+   ]
+  }
+ }
+}

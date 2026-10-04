@@ -1,0 +1,14 @@
+# source deliveries live beside the project (../*.kmz) and are never published
+*.kmz
+# large regenerable rasters built from them
+data/*/ortho/
+data/*/class/
+# interpretation scratch (view/pair/chip helpers, Esri tile cache)
+data/qa/
+# build and scratch
+data/*.log
+dist/
+_zoomtest*.html
+_prev_*/
+__pycache__/
+.claude/

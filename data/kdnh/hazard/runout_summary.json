@@ -1,0 +1,44 @@
+{
+ "alpha_open": 16.2,
+ "alpha_channel": 13.2,
+ "open_ids": [
+  "KD-02",
+  "KD-03",
+  "KD-04",
+  "KD-05"
+ ],
+ "channel_id": "KD-01",
+ "src_slope": 20.0,
+ "clip_m": 250,
+ "zoneA_ha": 116.38,
+ "zoneB_ha": 36.18,
+ "calibration_share_inside": {
+  "KD-01": 0.903,
+  "KD-02": 1.0,
+  "KD-03": 1.0,
+  "KD-04": 1.0,
+  "KD-05": 1.0
+ },
+ "buildings_surveyed_by_status_reach": {
+  "clear": {
+   "": 62,
+   "A": 33,
+   "B": 113
+  },
+  "damaged": {
+   "": 0,
+   "A": 0,
+   "B": 2
+  },
+  "destroyed": {
+   "": 0,
+   "A": 11,
+   "B": 14
+  },
+  "edge": {
+   "": 0,
+   "A": 6,
+   "B": 4
+  }
+ }
+}

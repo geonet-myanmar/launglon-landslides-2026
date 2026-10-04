@@ -1,0 +1,32 @@
+{
+ "alpha_open": 14.8,
+ "alpha_channel": 11.6,
+ "open_ids": [
+  "NM-05",
+  "NM-07",
+  "NM-08"
+ ],
+ "channel_id": "NM-04",
+ "src_slope": 20.0,
+ "clip_m": 250,
+ "zoneA_ha": 189.58,
+ "zoneB_ha": 14.9,
+ "calibration_share_inside": {
+  "NM-04": 0.998,
+  "NM-05": 0.871,
+  "NM-07": 1.0,
+  "NM-08": 1.0
+ },
+ "buildings_surveyed_by_status_reach": {
+  "clear": {
+   "": 218,
+   "A": 29,
+   "B": 9
+  },
+  "damaged": {
+   "": 0,
+   "A": 1,
+   "B": 0
+  }
+ }
+}

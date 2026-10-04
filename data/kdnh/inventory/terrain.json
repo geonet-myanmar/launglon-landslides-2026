@@ -1,0 +1,290 @@
+[
+ {
+  "id": "KD-01",
+  "name": "Main valley debris flow",
+  "type": "channel",
+  "description": "The large debris flow of the valley: an amphitheatre-shaped source scar and the scoured stream channel west of it fed one flow that cut a corridor through the middle of Ka Det Nge Htein, where houses and the road stood in January.",
+  "crown_z": 213.5,
+  "toe_z": 5.0,
+  "H_m": 208.5,
+  "L_m": 887.7,
+  "H_over_L": 0.235,
+  "reach_angle_deg": 13.2,
+  "azimuth_deg": 121,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 13.4,
+  "slope_p90_deg": 27.1,
+  "crown_lonlat": [
+   98.12977720129096,
+   13.890762484716394
+  ],
+  "toe_lonlat": [
+   98.13679997057172,
+   13.886598741017151
+  ],
+  "ndvi_pre_mean": 0.79,
+  "ndvi_pre_source": 0.83,
+  "zone_m2": {
+   "source": 36549.7,
+   "transport": 30008.5,
+   "runout": 53021.4
+  }
+ },
+ {
+  "id": "KD-02",
+  "name": "West chute",
+  "type": "open",
+  "description": "Narrow debris slide off the east flank of the KD-01 amphitheatre, running into the main channel.",
+  "crown_z": 174.8,
+  "toe_z": 45.2,
+  "H_m": 129.5,
+  "L_m": 333.3,
+  "H_over_L": 0.389,
+  "reach_angle_deg": 21.2,
+  "azimuth_deg": 136,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 21.0,
+  "slope_p90_deg": 24.1,
+  "crown_lonlat": [
+   98.13015049673646,
+   13.890035266046691
+  ],
+  "toe_lonlat": [
+   98.13228242209436,
+   13.887857779658962
+  ],
+  "ndvi_pre_mean": 0.77,
+  "ndvi_pre_source": 0.74,
+  "zone_m2": {
+   "source": 4720.5,
+   "transport": 2320.5,
+   "runout": 11.9
+  }
+ },
+ {
+  "id": "KD-03",
+  "name": "Long chute",
+  "type": "open",
+  "description": "The longest open-slope chute on the north wall of the valley, ending on the debris fan above the corridor.",
+  "crown_z": 161.2,
+  "toe_z": 25.1,
+  "H_m": 136.2,
+  "L_m": 336.8,
+  "H_over_L": 0.404,
+  "reach_angle_deg": 22.0,
+  "azimuth_deg": 140,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 22.4,
+  "slope_p90_deg": 28.1,
+  "crown_lonlat": [
+   98.13192888660758,
+   13.890645344494907
+  ],
+  "toe_lonlat": [
+   98.13393925661546,
+   13.88831798719409
+  ],
+  "ndvi_pre_mean": 0.85,
+  "ndvi_pre_source": 0.85,
+  "zone_m2": {
+   "source": 5213.7,
+   "transport": 1390.4,
+   "runout": 101.4
+  }
+ },
+ {
+  "id": "KD-04",
+  "name": "Twin scar",
+  "type": "open",
+  "description": "Two scars side by side on the north wall - a narrow upper one and a wide lower one - whose debris merged.",
+  "crown_z": 104.2,
+  "toe_z": 23.8,
+  "H_m": 80.3,
+  "L_m": 277.1,
+  "H_over_L": 0.29,
+  "reach_angle_deg": 16.2,
+  "azimuth_deg": 142,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 17.4,
+  "slope_p90_deg": 26.1,
+  "crown_lonlat": [
+   98.13330530853422,
+   13.890313312983505
+  ],
+  "toe_lonlat": [
+   98.13490002950302,
+   13.888351095720015
+  ],
+  "ndvi_pre_mean": 0.81,
+  "ndvi_pre_source": 0.82,
+  "zone_m2": {
+   "source": 7159.0,
+   "transport": 4686.9,
+   "runout": 2023.7
+  }
+ },
+ {
+  "id": "KD-05",
+  "name": "Slide onto the old clearing",
+  "type": "open",
+  "description": "Forest slope that failed onto a clearing already bare in January 2026 (the clearing itself is excluded).",
+  "crown_z": 94.0,
+  "toe_z": 53.3,
+  "H_m": 40.8,
+  "L_m": 94.8,
+  "H_over_L": 0.43,
+  "reach_angle_deg": 23.3,
+  "azimuth_deg": 112,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 25.3,
+  "slope_p90_deg": 29.8,
+  "crown_lonlat": [
+   98.13391568090091,
+   13.89106157949259
+  ],
+  "toe_lonlat": [
+   98.13472722812574,
+   13.890737010096753
+  ],
+  "ndvi_pre_mean": 0.83,
+  "ndvi_pre_source": 0.83,
+  "zone_m2": {
+   "source": 734.3,
+   "transport": 340.9,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KD-06",
+  "name": "North-east gully",
+  "type": "channel",
+  "description": "Debris flow scoured down a forested gully towards the north end of the village.",
+  "crown_z": 95.3,
+  "toe_z": 25.8,
+  "H_m": 69.6,
+  "L_m": 257.3,
+  "H_over_L": 0.27,
+  "reach_angle_deg": 15.1,
+  "azimuth_deg": 115,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 15.9,
+  "slope_p90_deg": 21.4,
+  "crown_lonlat": [
+   98.13408639754857,
+   13.891926549298356
+  ],
+  "toe_lonlat": [
+   98.1362480919888,
+   13.890950048831167
+  ],
+  "ndvi_pre_mean": 0.78,
+  "ndvi_pre_source": 0.82,
+  "zone_m2": {
+   "source": 467.9,
+   "transport": 1573.3,
+   "runout": 376.3
+  }
+ },
+ {
+  "id": "KD-07",
+  "name": "North tip slide",
+  "type": "open",
+  "description": "Open-slope slide at the northern tip of the survey, high on the ridge.",
+  "crown_z": 175.3,
+  "toe_z": 85.0,
+  "H_m": 90.3,
+  "L_m": 159.5,
+  "H_over_L": 0.566,
+  "reach_angle_deg": 29.5,
+  "azimuth_deg": 8,
+  "crown_at_edge": false,
+  "toe_at_edge": true,
+  "slope_mean_deg": 28.3,
+  "slope_p90_deg": 32.7,
+  "crown_lonlat": [
+   98.13108309908894,
+   13.893577962728802
+  ],
+  "toe_lonlat": [
+   98.13128271485616,
+   13.895006355909226
+  ],
+  "ndvi_pre_mean": 0.86,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 5684.7,
+   "transport": 360.1,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KD-08",
+  "name": "North gully track",
+  "type": "channel",
+  "description": "Narrow scour track in a forested gully on the upper slope.",
+  "crown_z": 199.2,
+  "toe_z": 109.7,
+  "H_m": 89.5,
+  "L_m": 262.5,
+  "H_over_L": 0.341,
+  "reach_angle_deg": 18.8,
+  "azimuth_deg": 85,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 18.2,
+  "slope_p90_deg": 26.3,
+  "crown_lonlat": [
+   98.13077345101178,
+   13.892617258195207
+  ],
+  "toe_lonlat": [
+   98.1331946510173,
+   13.892813079662409
+  ],
+  "ndvi_pre_mean": 0.87,
+  "ndvi_pre_source": 0.87,
+  "zone_m2": {
+   "source": 874.2,
+   "transport": 787.2,
+   "runout": 125.3
+  }
+ },
+ {
+  "id": "KD-09",
+  "name": "South gully track",
+  "type": "channel",
+  "description": "Debris track along the stream on the south side of the valley, ending above the school.",
+  "crown_z": 99.4,
+  "toe_z": 24.8,
+  "H_m": 74.5,
+  "L_m": 320.1,
+  "H_over_L": 0.233,
+  "reach_angle_deg": 13.1,
+  "azimuth_deg": 108,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 14.6,
+  "slope_p90_deg": 19.0,
+  "crown_lonlat": [
+   98.13105030027431,
+   13.885917073455996
+  ],
+  "toe_lonlat": [
+   98.13387267411181,
+   13.885037392697324
+  ],
+  "ndvi_pre_mean": 0.81,
+  "ndvi_pre_source": 0.78,
+  "zone_m2": {
+   "source": 535.0,
+   "transport": 1864.7,
+   "runout": 516.5
+  }
+ }
+]

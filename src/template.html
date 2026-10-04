@@ -1,0 +1,643 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{
+  color-scheme:light;
+  --page:#f9f9f7; --surface:#fcfcfb; --surface-2:#f2f1ed; --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+  --hair:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,.10); --accent:#2a78d6;
+  --z-source:#86b6ef; --z-transport:#2a78d6; --z-runout:#104281;
+  --s-destroyed:#d03b3b; --s-damaged:#ec835a; --s-edge:#fab219; --s-clear:#898781;
+  --zoneA:#4a3aa7; --rain:#2a78d6;
+  --site-kdnh:#2a78d6; --site-nmt:#eb6834; --site-tawkye:#1baf7a;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --page:#0d0d0d; --surface:#1a1a19; --surface-2:#232321; --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+    --hair:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10); --accent:#3987e5;
+    --z-source:#184f95; --z-transport:#3987e5; --z-runout:#9ec5f4;
+    --zoneA:#9085e9; --rain:#3987e5;
+    --site-kdnh:#3987e5; --site-nmt:#d95926; --site-tawkye:#199e70;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#0d0d0d; --surface:#1a1a19; --surface-2:#232321; --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+  --hair:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10); --accent:#3987e5;
+  --z-source:#184f95; --z-transport:#3987e5; --z-runout:#9ec5f4;
+  --zoneA:#9085e9; --rain:#3987e5;
+  --site-kdnh:#3987e5; --site-nmt:#d95926; --site-tawkye:#199e70;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--page);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;line-height:1.45}
+.tk{display:flex;flex-direction:column;height:100vh;height:100dvh}
+.tk header{display:flex;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--hair);background:var(--surface);flex-wrap:wrap}
+.tk header h1{font-size:17px;margin:0;font-weight:650;letter-spacing:-.01em}
+.tk header p{margin:0;color:var(--ink-2);font-size:12.5px}
+.tk header .sp{flex:1}
+.btn{font:inherit;font-size:12.5px;border:1px solid var(--ring);background:var(--surface-2);color:var(--ink);
+  border-radius:8px;padding:5px 10px;cursor:pointer}
+.btn:hover{border-color:var(--axis)}
+.sites{display:inline-flex;border:1px solid var(--ring);border-radius:9px;overflow:hidden;flex-wrap:wrap}
+.sites button{font:inherit;font-size:12.5px;border:0;background:var(--surface-2);color:var(--ink-2);padding:6px 11px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.sites button+button{border-left:1px solid var(--ring)}
+.sites button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+.main{flex:1;display:flex;min-height:0}
+.mapwrap{flex:1;min-width:0;position:relative}
+#map{position:absolute;inset:0;background:#222}
+.panel{width:460px;max-width:48vw;display:flex;flex-direction:column;border-left:1px solid var(--hair);background:var(--surface);min-height:0}
+.tabs{display:flex;gap:2px;padding:8px 10px 0;border-bottom:1px solid var(--hair);overflow-x:auto;scrollbar-width:none}
+.tabs button{font:inherit;font-size:13px;background:none;border:0;color:var(--ink-2);padding:7px 8px;border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink);font-weight:600}
+.pane{display:none;overflow-y:auto;padding:14px 16px 28px;flex:1}
+.pane.on{display:block}
+h2{font-size:15px;margin:18px 0 6px;font-weight:650}
+h2:first-child{margin-top:2px}
+h3{font-size:12px;margin:16px 0 4px;font-weight:650;color:var(--ink-2);text-transform:uppercase;letter-spacing:.04em}
+p{margin:6px 0}
+.muted{color:var(--muted)} .sec{color:var(--ink-2)}
+.small{font-size:12px}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:10px 0}
+.tile{background:var(--surface-2);border-radius:10px;padding:10px 12px}
+.tile .v{font-size:24px;font-weight:650;letter-spacing:-.02em;line-height:1.15}
+.tile .l{font-size:12px;color:var(--ink-2)}
+.tile.wide{grid-column:span 2}
+.callout{border-left:3px solid var(--axis);padding:6px 10px;margin:10px 0;background:var(--surface-2);border-radius:0 8px 8px 0}
+.callout ul{margin:4px 0;padding-left:16px}
+ul.f{padding-left:18px;margin:6px 0} ul.f li{margin:4px 0}
+table{border-collapse:collapse;width:100%;font-size:12.5px;margin:8px 0}
+th,td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--hair);vertical-align:top}
+th{font-weight:600;color:var(--ink-2);font-size:11.5px;white-space:nowrap}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.click{cursor:pointer} tr.click:hover td{background:var(--surface-2)}
+.key{display:inline-flex;align-items:center;gap:6px;margin:2px 12px 2px 0;font-size:12px;color:var(--ink-2)}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block;flex:none}
+.chart{position:relative;margin:6px 0 4px}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{fill:var(--muted);font-size:10.5px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--surface);font-size:12px;padding:5px 8px;border-radius:6px;
+  white-space:nowrap;transform:translate(-50%,-115%);opacity:0;transition:opacity .08s;z-index:5}
+.tip.on{opacity:1}
+figure{margin:10px 0 16px} figure img{width:100%;display:block;border-radius:8px}
+figcaption{font-size:12px;color:var(--ink-2);margin-top:5px}
+.seg{display:inline-flex;border:1px solid var(--ring);border-radius:8px;overflow:hidden;margin:6px 0}
+.seg button{font:inherit;font-size:12px;border:0;background:var(--surface-2);color:var(--ink-2);padding:4px 10px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.views{display:grid;gap:8px;margin:8px 0}
+.view{display:flex;gap:10px;align-items:flex-start;background:var(--surface-2);border-radius:10px;padding:9px 11px;cursor:pointer;border:1px solid transparent}
+.view:hover{border-color:var(--axis)}
+.view b{display:block;font-size:13px}
+.legend-box{background:var(--surface);color:var(--ink);padding:8px 10px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.3);font-size:12px;line-height:1.6;max-width:230px}
+.legend-box .sw{vertical-align:-1px;margin-right:6px}
+.imgctl{background:var(--surface);color:var(--ink);border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.3);display:flex;overflow:hidden}
+.imgctl button{font:inherit;font-size:12px;border:0;background:var(--surface);color:var(--ink-2);padding:6px 10px;cursor:pointer}
+.imgctl button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.lbl{background:transparent;border:0;box-shadow:none;color:#fff;font-weight:700;font-size:12px;text-shadow:0 0 3px #000,0 0 2px #000}
+.lbl::before{display:none}
+.slbl{background:rgba(0,0,0,.6);border:0;color:#fff;font-weight:650;font-size:12.5px;box-shadow:none;padding:2px 7px;border-radius:5px}
+.slbl::before{display:none}
+.vlbl{background:rgba(0,0,0,.55);border:0;color:#fff;font-size:11.5px;box-shadow:none;padding:1px 5px}
+.vlbl::before{display:none}
+.lowz .vlbl{display:none}
+.leaflet-popup-content{font-size:12.5px;line-height:1.45;margin:10px 12px}
+.leaflet-popup-content b{font-weight:650}
+.leaflet-control-layers{font-size:12.5px}
+a{color:var(--accent)}
+@media (max-width:820px){
+  .main{flex-direction:column}
+  .mapwrap{flex:none;height:52vh}
+  .panel{width:auto;max-width:none;border-left:0;border-top:1px solid var(--hair);flex:1}
+  .tk header p{display:none}
+  .tk header{gap:8px;padding:8px 12px}
+  .tk header .sp{display:none}
+  .tk header > div:first-child{flex:1;min-width:0}
+  .sites{order:3;width:100%;display:flex}
+  .sites button{flex:1 1 auto;justify-content:center;padding:6px 4px;font-size:11.5px}
+  .legend-box{display:none}
+  .tk,.main,.panel{max-width:100vw;overflow-x:hidden}
+}
+</style>
+
+<div class="tk">
+  <header>
+    <div>
+      <h1>Launglon landslides, 26&ndash;27 Sep 2026</h1>
+      <p>Three drone-surveyed villages, Launglon Township, Tanintharyi Region, Myanmar</p>
+    </div>
+    <div class="sp"></div>
+    <div class="sites" role="group" aria-label="Site" id="sites"></div>
+    <button class="btn" id="theme" title="Switch light / dark">Theme</button>
+  </header>
+  <div class="main">
+    <div class="mapwrap"><div id="map" role="region" aria-label="Map"></div></div>
+    <aside class="panel">
+      <nav class="tabs" role="tablist">
+        <button role="tab" data-t="overview">Overview</button>
+        <button role="tab" data-t="landslides">Landslides</button>
+        <button role="tab" data-t="buildings">Buildings</button>
+        <button role="tab" data-t="runout">Runout</button>
+        <button role="tab" data-t="imagery">Before / after</button>
+        <button role="tab" data-t="method">Method</button>
+      </nav>
+      <section class="pane" id="p-overview"></section>
+      <section class="pane" id="p-landslides"></section>
+      <section class="pane" id="p-buildings"></section>
+      <section class="pane" id="p-runout"></section>
+      <section class="pane" id="p-imagery"></section>
+      <section class="pane" id="p-method"></section>
+    </aside>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function(){
+const D = /*__DATA__*/null;
+const SK = ['kdnh','nmt','tawkye'], SITES = D.sites, T = D.total;
+const $ = s => document.querySelector(s);
+const fmt = (x,d=0) => Number(x).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const ha = m2 => fmt(m2/1e4, 1);
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const S = k => SITES[k].summary;
+const NAME = k => S(k).name;
+const dateTxt = s => { const [y,m,d] = s.split('-'); return `${+d} ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][m-1]} ${y}`; };
+const TYPE = {open:'Open-slope slide', channel:'Scoured channel / gully', minor:'Minor scar'};
+const ST = {destroyed:['Destroyed','--s-destroyed'], damaged:['Damaged, standing','--s-damaged'], edge:['Standing at the edge','--s-edge'],
+            outwash:['Standing in sediment','--s-edge'], clear:['Standing, clear','--s-clear']};
+const sw = v => `<span class="sw" style="background:${css(v)}"></span>`;
+const siteDot = k => `<span class="dot" style="background:${css('--site-'+k)}"></span>`;
+const tiles = arr => arr.map(([v,l,w]) => `<div class="tile ${w||''}"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+const lis = arr => arr.map(s => `<li>${s}</li>`).join('');
+const allRows = SK.flatMap(k => SITES[k].landslides.map(r => ({...r, site:k})));
+
+/* ---------- state: #site/tab ---------- */
+let site = 'all', tab = 'overview';
+const TABS = ['overview','landslides','buildings','runout','imagery','method'];
+function parseHash(){ const [a,b] = location.hash.slice(1).split('/');
+  site = ['all', ...SK].includes(a) ? a : 'all'; tab = TABS.includes(b) ? b : (TABS.includes(a) ? a : 'overview'); }
+
+/* ---------- theme ---------- */
+const root = document.documentElement;
+try { const t = localStorage.getItem('ll-theme'); if (t) root.dataset.theme = t; } catch(e){}
+$('#theme').onclick = () => {
+  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('ll-theme', root.dataset.theme); } catch(e){}
+  render(false);
+};
+
+/* ---------- map ---------- */
+const map = L.map('map', {zoomControl:true, maxZoom:23});
+const esri = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  {maxZoom:23, maxNativeZoom:19, attribution:'Basemap: Esri World Imagery (Vantor Vivid, 10 Jan 2026 here: pre-event)'}).addTo(map);
+const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:23, maxNativeZoom:19, attribution:'&copy; OpenStreetMap contributors'});
+const fpB = k => L.geoJSON(SITES[k].geo.footprint).getBounds();
+const kadetB = fpB('kdnh').extend(fpB('nmt'));
+const droneKadet = L.tileLayer('tiles/kadet/{z}/{x}/{y}.webp', {tileSize:512, zoomOffset:-1, minNativeZoom:14, maxNativeZoom:21,
+  maxZoom:23, bounds:kadetB.pad(0.02), attribution:'Drone orthomosaics 3 &amp; 4 Oct 2026'});
+const droneTK = L.tileLayer('tiles/tawkye/{z}/{x}/{y}.webp', {tileSize:512, zoomOffset:-1, minNativeZoom:14, maxNativeZoom:22,
+  maxZoom:23, bounds:fpB('tawkye').pad(0.02), attribution:'Drone orthomosaics 2 Oct 2026 (GSM/TSBM)'});
+const drone = L.layerGroup([droneKadet, droneTK]).addTo(map);
+
+const C = D.ctx;
+const tsL = L.geoJSON(C.township, {style:{color:'#ffffff', weight:2, opacity:.8, fill:false}});
+const vtL = L.geoJSON(C.vt, {style:{color:'#ffffff', weight:1.2, opacity:.7, dashArray:'4 4', fill:false},
+  onEachFeature:(f,l) => l.bindPopup(`<b>${esc(f.properties.VT)}</b> village tract<br>${esc(f.properties.VT_MMR)}<br><span class="muted">${esc(f.properties.VT_PCODE)}</span>`)}).addTo(map);
+const roadL = L.geoJSON(C.roads, {style:{color:'#f2f1ed', weight:2, opacity:.6}});
+const villL = L.geoJSON(C.villages, {pointToLayer:(f,ll) => L.circleMarker(ll, {radius:5, color:'#fff', weight:1.5, fillColor:'#0b0b0b', fillOpacity:1}),
+  onEachFeature:(f,l) => { l.bindTooltip(`${esc(f.properties.VILLAGE)} ${esc(f.properties.VLG_MMR)}`, {permanent:true, direction:'right', className:'vlbl', offset:[6,0]});
+    l.bindPopup(`<b>${esc(f.properties.VILLAGE)}</b> ${esc(f.properties.VLG_MMR)}<br>Village tract: ${esc(f.properties.VT)}<br>MIMU PCode ${esc(f.properties.VLG_PCODE)}`); }}).addTo(map);
+const schL = L.geoJSON(C.schools, {pointToLayer:(f,ll) => L.circleMarker(ll, {radius:4, color:'#fff', weight:1, fillColor:'#2a78d6', fillOpacity:1}),
+  onEachFeature:(f,l) => l.bindPopup(`School: ${esc(f.properties.schoolname)} (MIMU)`)});
+
+const byKey = {};
+SK.forEach(k => SITES[k].landslides.forEach(r => byKey[k + '|' + r.id] = r));
+const slideStyle = t => t === 'channel' ? {color:'#eda100', weight:1.6, dashArray:'5 3', fillColor:'#eda100', fillOpacity:.10}
+  : t === 'minor' ? {color:'#eda100', weight:1, fillColor:'#eda100', fillOpacity:.08} : {color:'#eda100', weight:1.6, fillColor:'#eda100', fillOpacity:.12};
+const G = {slides:[], labels:[], ct:[], outwash:[], excl:[], bld:[], zones:[], fp:[]};
+const slideIdx = {};
+SK.forEach(k => {
+  const g = SITES[k].geo, nm = NAME(k);
+  G.slides.push(L.geoJSON(g.landslides, {style:f => slideStyle(f.properties.type),
+    onEachFeature:(f,l) => { const r = byKey[k + '|' + f.properties.id]; slideIdx[k + '|' + r.id] = l;
+      l.bindPopup(`<b>${r.id} &middot; ${esc(r.name)}</b> <span class="muted">${esc(nm)}</span><br>${esc(TYPE[r.type])}. ${esc(r.description)}<br>`
+        + `Area <b>${fmt(r.area_m2)} m²</b> (${ha(r.area_m2)} ha)` + (r.type !== 'minor' ? ` &middot; drop ${fmt(r.H_m)} m over ${fmt(r.L_m)} m (reach angle ${r.reach_angle_deg}&deg;${r.crown_at_edge || r.toe_at_edge ? ', runs beyond the survey' : ''})` : '')
+        + (r.destroyed + r.damaged ? `<br>Buildings: ${r.destroyed} destroyed, ${r.damaged} damaged` : '')); }}));
+  G.labels.push(L.layerGroup(SITES[k].landslides.filter(r => r.type !== 'minor').map(r => L.marker([r.label[1], r.label[0]], {opacity:0, interactive:false})
+    .bindTooltip(r.id, {permanent:true, direction:'center', className:'lbl'}))));
+  G.ct.push(L.layerGroup(SITES[k].landslides.filter(r => r.type !== 'minor').flatMap(r => [
+    L.circleMarker([r.crown[1], r.crown[0]], {radius:4, color:'#000', weight:1, fillColor:'#eda100', fillOpacity:1}).bindPopup(`${r.id} crown, ${r.crown_z} m`),
+    L.circleMarker([r.toe[1], r.toe[0]], {radius:4, color:'#000', weight:1, fillColor:'#ffffff', fillOpacity:1}).bindPopup(`${r.id} toe, ${r.toe_z} m`)])));
+  if (g.outwash) G.outwash.push(L.geoJSON(g.outwash, {style:{color:'#e87ba4', weight:1.2, fillColor:'#e87ba4', fillOpacity:.22},
+    onEachFeature:(f,l) => l.bindPopup(`<b>Fields under sediment</b> &middot; ${esc(nm)}<br>${fmt(f.properties.area_m2)} m² of paddy beyond the debris-flow mouth under fresh sediment or muddy water. Mapped apart; not counted as landslide area.`)}));
+  if (g.exclusions) G.excl.push(L.geoJSON(g.exclusions, {style:{color:'#ffffff', weight:1.2, dashArray:'3 3', fillColor:'#ffffff', fillOpacity:.08},
+    onEachFeature:(f,l) => l.bindPopup(`<b>Excluded: ${esc(f.properties.name)}</b><br>${esc(f.properties.description)}`)}));
+  G.zones.push(L.geoJSON(g.zones, {style:f => ({color:css('--zoneA'), weight:f.properties.zone === 'A' ? 1.5 : 1,
+    fillColor:css('--zoneA'), fillOpacity:f.properties.zone === 'A' ? .30 : .12, opacity:.9}),
+    onEachFeature:(f,l) => l.bindPopup(`<b>Zone ${f.properties.zone}</b> &middot; ${esc(nm)}<br>${esc(f.properties.label)}`)}));
+  G.fp.push(L.geoJSON(g.footprint, {style:{color:'#7fdbff', weight:1.2, opacity:.9, fill:false}}));
+  G.bld.push(L.geoJSON(g.buildings, {style:f => { const s = f.properties.status, c = css(ST[s][1]);
+      return s === 'clear' ? {color:'#ffffff', weight:1, opacity:.75, fillOpacity:0} : {color:c, weight:1.5, fillColor:c, fillOpacity:.4}; },
+    onEachFeature:(f,l) => { const p = f.properties;
+      l.bindPopup(`<b>${esc(ST[p.status][0])}</b> &middot; ${esc(p.bid)}<br>${p.landslide ? 'Landslide ' + esc(p.landslide) + ' &middot; ' : ''}${fmt((p.overlap||0)*100)}% inside outline<br>`
+        + `Inside footprint: roof-grey ${fmt((p.f_grey||0)*100)}%, soil ${fmt((p.f_soil||0)*100)}%, vegetation ${fmt((p.f_veg||0)*100)}%`
+        + (p.note ? `<br><i>Checked by eye: ${esc(p.note)}</i>` : '') + (p.reach ? `<br>Runout reach zone ${p.reach}` : '')
+        + `<br><span class="muted">Footprint: ${esc(p.source)}</span>`); }}));
+});
+const grp = a => L.layerGroup(a);
+const slideL = grp(G.slides).addTo(map), labelL = grp(G.labels), ctL = grp(G.ct), owL = grp(G.outwash).addTo(map),
+      exL = grp(G.excl), bL = grp(G.bld).addTo(map), zoneL = grp(G.zones), fpL = grp(G.fp).addTo(map);
+const siteLbl = L.layerGroup(SK.map(k => { const b = fpB(k); return L.marker([b.getNorth(), b.getCenter().lng], {opacity:0, interactive:false})
+  .bindTooltip(NAME(k), {permanent:true, direction:'top', className:'slbl'}); })).addTo(map);
+L.control.layers({'Esri imagery (pre-event)':esri, 'OpenStreetMap':osm}, {
+  'Drone orthomosaics, 2-4 Oct 2026':drone, 'Landslide outlines':slideL, 'Landslide labels (zoom in)':labelL, 'Crown / toe points':ctL,
+  'Fields under sediment':owL, 'Ground bare before the event (excluded)':exL, 'Buildings by status':bL, 'Runout reach zones':zoneL,
+  'Drone survey extents':fpL, 'Site names':siteLbl, 'MIMU villages':villL, 'MIMU village tracts':vtL, 'MIMU township':tsL,
+  'MIMU roads':roadL, 'MIMU schools':schL}, {collapsed:true}).addTo(map);
+L.control.scale({imperial:false}).addTo(map);
+let userLabels = false;
+map.on('overlayadd overlayremove', e => { if (e.layer === labelL) userLabels = e.type === 'overlayadd'; syncZoneBtn(); syncImg(); });
+function gateLabels(){ const z = map.getZoom(); map.getContainer().classList.toggle('lowz', z < 14); if (z >= 16 && !map.hasLayer(labelL)) labelL.addTo(map); else if (z < 16 && map.hasLayer(labelL) && !userLabels) map.removeLayer(labelL);
+  if (z >= 15 && map.hasLayer(siteLbl)) map.removeLayer(siteLbl); else if (z < 15 && !map.hasLayer(siteLbl)) siteLbl.addTo(map); }
+map.on('zoomend', gateLabels);
+
+/* before / after imagery control */
+const imgCtl = L.control({position:'topright'});
+imgCtl.onAdd = () => { const d = L.DomUtil.create('div', 'imgctl');
+  d.innerHTML = `<button data-v="after" aria-pressed="true" title="Drone orthomosaics, 2-4 Oct 2026">After (drone)</button><button data-v="before" aria-pressed="false" title="Esri World Imagery: Vantor Vivid, 10 Jan 2026">Before (Jan 2026)</button>`;
+  L.DomEvent.disableClickPropagation(d);
+  d.querySelectorAll('button').forEach(b => b.onclick = () => setImg(b.dataset.v)); return d; };
+imgCtl.addTo(map);
+function setImg(v){ if (v === 'before'){ map.removeLayer(drone); if (!map.hasLayer(esri)) esri.addTo(map); } else drone.addTo(map); syncImg(); }
+function syncImg(){ const after = map.hasLayer(drone); document.querySelectorAll('.imgctl button').forEach(b => b.setAttribute('aria-pressed', (b.dataset.v === 'after') === after)); }
+
+const legend = L.control({position:'bottomleft'});
+legend.onAdd = () => { const d = L.DomUtil.create('div', 'legend-box'); d.id = 'legend'; return d; };
+legend.addTo(map);
+function drawLegend(){
+  $('#legend').innerHTML = `<div><span class="sw" style="background:transparent;border:2px solid #eda100"></span>Landslide (dashed: scoured channel)</div>`
+    + `<div><span class="sw" style="background:#e87ba4;opacity:.7"></span>Fields under sediment</div>`
+    + ['destroyed','damaged','edge','clear'].map(k => `<div><span class="sw" style="background:${k === 'clear' ? 'transparent' : css(ST[k][1])};${k === 'clear' ? 'border:1px solid #898781' : ''}"></span>${ST[k][0]}</div>`).join('')
+    + `<div><span class="sw" style="background:${css('--zoneA')};opacity:.6"></span>Runout reach zone A (when on)</div>`;
+}
+function zoomTo(k, id){ const l = slideIdx[k + '|' + id]; if (!l) return; map.fitBounds(l.getBounds().pad(.2), {maxZoom:19}); l.openPopup(); }
+function fitSite(k){ if (k === 'all') map.fitBounds(SK.reduce((b,s) => b.extend(fpB(s)), fpB(SK[0])).pad(0.04));
+  else map.fitBounds(fpB(k).pad(0.03)); }
+
+/* ---------- site switch ---------- */
+$('#sites').innerHTML = `<button data-s="all">All sites</button>` + SK.map(k => `<button data-s="${k}">${siteDot(k)}${esc(NAME(k))}</button>`).join('');
+document.querySelectorAll('#sites button').forEach(b => b.onclick = () => { site = b.dataset.s; go(true); });
+const tabBtns = [...document.querySelectorAll('.tabs button')];
+tabBtns.forEach(b => b.onclick = () => { tab = b.dataset.t; go(false); });
+function go(refit){ const h = `#${site}/${tab}`; if (location.hash !== h) history.replaceState(null, '', h); render(refit); }
+
+/* ---------- charts ---------- */
+function tipFor(box){ let t = box.querySelector('.tip'); if (!t){ t = document.createElement('div'); t.className = 'tip'; box.appendChild(t);} return t; }
+function hover(box, sel, text){ const tip = tipFor(box);
+  box.querySelectorAll(sel).forEach(el => { el.onmouseenter = () => { tip.innerHTML = text(el); const bb = el.getBoundingClientRect(), bx = box.getBoundingClientRect();
+      tip.style.left = (bb.left - bx.left + bb.width/2) + 'px'; tip.style.top = (bb.top - bx.top) + 'px'; tip.classList.add('on'); };
+    el.onmouseleave = () => tip.classList.remove('on'); }); }
+
+function reachChart(box, keys){
+  // one row per site; each non-minor landslide a dot at its reach angle. Filled = open slope, ring = channel; faint = runs beyond survey
+  const W = 420, rh = 46, m = {l:104, r:14, t:8, b:30}, H = m.t + m.b + keys.length*rh, X0 = 0, X1 = 32;
+  const x = v => m.l + (W - m.l - m.r) * (v - X0) / (X1 - X0);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Reach angle of each mapped landslide, by site">`;
+  for (let v = 0; v <= X1; v += 5) s += `<line x1="${x(v)}" x2="${x(v)}" y1="${m.t}" y2="${H-m.b}" stroke="${css(v ? '--hair' : '--axis')}"/><text x="${x(v)}" y="${H-m.b+14}" text-anchor="middle">${v}&deg;</text>`;
+  s += `<text x="${W-m.r}" y="${H-4}" text-anchor="end">reach angle = atan(drop / horizontal distance); lower travels further</text>`;
+  const pts = [];
+  keys.forEach((k,i) => { const yc = m.t + i*rh + rh/2, col = css('--site-'+k), ro = S(k).runout;
+    s += `<text x="${m.l-8}" y="${yc+4}" text-anchor="end" style="fill:${css('--ink-2')};font-size:11.5px">${esc(NAME(k))}</text>`;
+    s += `<line x1="${x(ro.alpha_open)}" x2="${x(ro.alpha_open)}" y1="${yc-17}" y2="${yc+17}" stroke="${css('--ink-2')}" stroke-width="1.5"/>`;
+    s += `<line x1="${x(ro.alpha_channel)}" x2="${x(ro.alpha_channel)}" y1="${yc-17}" y2="${yc+17}" stroke="${css('--ink-2')}" stroke-width="1.5" stroke-dasharray="3 2"/>`;
+    SITES[k].landslides.filter(r => r.type !== 'minor').forEach((r,j) => { const edge = r.crown_at_edge || r.toe_at_edge, dy = (r.type === 'open' ? -7 : 7);
+      const cx = x(Math.min(r.reach_angle_deg, X1)), cy = yc + dy;
+      s += r.type === 'open'
+        ? `<circle cx="${cx}" cy="${cy}" r="5" fill="${col}" stroke="${css('--surface')}" stroke-width="2" opacity="${edge ? .4 : 1}"/>`
+        : `<circle cx="${cx}" cy="${cy}" r="4.5" fill="${css('--surface')}" stroke="${col}" stroke-width="2" opacity="${edge ? .4 : 1}"/>`;
+      s += `<circle cx="${cx}" cy="${cy}" r="9" fill="transparent" data-k="${k}" data-id="${r.id}" style="cursor:pointer"/>`; }); });
+  box.innerHTML = s + '</svg>';
+  hover(box, 'circle[data-id]', el => { const r = byKey[el.dataset.k + '|' + el.dataset.id];
+    return `${esc(NAME(el.dataset.k))} ${r.id}: ${r.reach_angle_deg}&deg; (${r.type === 'open' ? 'open slope' : 'channel'})${r.crown_at_edge || r.toe_at_edge ? ', beyond survey' : ''}`; });
+  box.querySelectorAll('circle[data-id]').forEach(el => el.onclick = () => { site = el.dataset.k; tab = 'landslides'; go(false); zoomTo(el.dataset.k, el.dataset.id); });
+}
+function reachKey(){ return `<span class="key"><svg width="12" height="12"><circle cx="6" cy="6" r="5" fill="${css('--ink-2')}"/></svg>Open-slope slide</span>`
+  + `<span class="key"><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="none" stroke="${css('--ink-2')}" stroke-width="2"/></svg>Scoured channel</span>`
+  + `<span class="key"><svg width="12" height="12"><circle cx="6" cy="6" r="5" fill="${css('--ink-2')}" opacity=".4"/></svg>Runs beyond the survey</span>`
+  + `<span class="key"><svg width="14" height="12"><line x1="3" x2="3" y1="0" y2="12" stroke="${css('--ink-2')}" stroke-width="1.5"/><line x1="10" x2="10" y1="0" y2="12" stroke="${css('--ink-2')}" stroke-width="1.5" stroke-dasharray="3 2"/></svg>Calibrated angle, open / channel</span>`; }
+
+function siteAreaChart(box){
+  const W = 420, rh = 30, m = {l:104, r:52, t:4, b:22}, H = m.t + m.b + SK.length*rh;
+  const max = Math.ceil(Math.max(...SK.map(k => S(k).area_total_m2 + S(k).outwash_m2)) / 5e4) * 5e4, x = v => m.l + (W - m.l - m.r) * v / max;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Mapped landslide area by site">`;
+  for (let v = 0; v <= max; v += 5e4) s += `<line x1="${x(v)}" x2="${x(v)}" y1="${m.t}" y2="${H-m.b}" stroke="${css(v ? '--hair' : '--axis')}"/><text x="${x(v)}" y="${H-6}" text-anchor="middle">${v/1e4} ha</text>`;
+  SK.forEach((k,i) => { const yy = m.t + i*rh + 6, h = rh - 12, a = S(k).area_total_m2, w = x(a) - x(0), col = css('--site-'+k);
+    s += `<path d="M${x(0)},${yy} h${w-4} q4,0 4,4 v${h-8} q0,4 -4,4 h${-(w-4)} z" fill="${col}"/>`;
+    if (S(k).outwash_m2){ const w2 = x(S(k).outwash_m2) - x(0);
+      s += `<rect x="${x(a)+2}" y="${yy}" width="${w2-2}" height="${h}" fill="none" stroke="${col}" stroke-width="1.5" stroke-dasharray="3 2" rx="3"/>`; }
+    s += `<text x="${m.l-8}" y="${yy+h/2+4}" text-anchor="end" style="fill:${css('--ink-2')};font-size:11.5px">${esc(NAME(k))}</text>`;
+    s += `<text x="${x(a + S(k).outwash_m2)+5}" y="${yy+h/2+4}" style="fill:${css('--ink-2')}">${ha(a)}</text>`;
+    s += `<rect x="0" y="${m.t+i*rh}" width="${W}" height="${rh}" fill="transparent" data-k="${k}" style="cursor:pointer"/>`; });
+  box.innerHTML = s + '</svg>';
+  hover(box, 'rect[data-k]', el => { const x = S(el.dataset.k); return `${esc(x.name)}: ${ha(x.area_total_m2)} ha in ${x.n_landslides} landslides`
+    + (x.outwash_m2 ? ` + ${ha(x.outwash_m2)} ha of fields under sediment (dashed)` : ''); });
+  box.querySelectorAll('rect[data-k]').forEach(el => el.onclick = () => { site = el.dataset.k; go(true); });
+}
+
+function rainChart(box){
+  const R = D.rain, ser = [['kadet', '--site-kdnh', 'Ka Det area'], ['tawkye', '--site-tawkye', 'Taw Kye']];
+  const days = R.kadet.daily.map(d => d.date), W = 420, H = 180, m = {l:30, r:64, t:12, b:22};
+  const max = Math.ceil(Math.max(...ser.flatMap(([k]) => R[k].daily.map(d => d.mm))) / 100) * 100;
+  const x = i => m.l + (W - m.l - m.r) * i / (days.length - 1), y = v => m.t + (H - m.t - m.b) * (1 - v / max);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Daily model rainfall, 1 September to 2 October 2026, at Ka Det and Taw Kye">`;
+  for (let v = 0; v <= max; v += 100) s += `<line x1="${m.l}" x2="${W-m.r}" y1="${y(v)}" y2="${y(v)}" stroke="${css(v ? '--hair' : '--axis')}"/><text x="${m.l-4}" y="${y(v)+3.5}" text-anchor="end">${v}</text>`;
+  days.forEach((d,i) => { if (['2026-09-01','2026-09-15','2026-10-01'].includes(d)) s += `<text x="${x(i)}" y="${H-6}" text-anchor="middle">${+d.slice(8)} ${d.slice(5,7) === '09' ? 'Sep' : 'Oct'}</text>`; });
+  const ie = days.indexOf('2026-09-27');
+  s += `<line x1="${x(ie)}" x2="${x(ie)}" y1="${m.t}" y2="${y(0)}" stroke="${css('--axis')}"/><text x="${x(ie)-4}" y="${m.t+8}" text-anchor="end">27 Sep</text>`;
+  ser.forEach(([k,c,n]) => { const pts = R[k].daily.map((d,i) => `${x(i)},${y(d.mm)}`).join(' ');
+    s += `<polyline points="${pts}" fill="none" stroke="${css(c)}" stroke-width="2" stroke-linejoin="round"/>`;
+    const pk = R[k].daily.reduce((a,d,i) => d.mm > R[k].daily[a].mm ? i : a, 0);
+    s += `<circle cx="${x(pk)}" cy="${y(R[k].daily[pk].mm)}" r="4" fill="${css(c)}" stroke="${css('--surface')}" stroke-width="2"/>`;
+    s += `<text x="${x(pk)+7}" y="${y(R[k].daily[pk].mm)+4}" style="fill:${css('--ink-2')}">${n} ${fmt(R[k].daily[pk].mm)}</text>`; });
+  s += `<text x="${m.l}" y="${m.t-3}" style="font-size:10px">mm/day</text>`;
+  days.forEach((d,i) => s += `<rect x="${x(i)-(W-m.l-m.r)/days.length/2}" y="${m.t}" width="${(W-m.l-m.r)/days.length}" height="${H-m.t-m.b}" fill="transparent" data-i="${i}"/>`);
+  box.innerHTML = s + '</svg>';
+  hover(box, 'rect[data-i]', el => { const i = +el.dataset.i; return `${dateTxt(days[i])}: Ka Det ${fmt(R.kadet.daily[i].mm,1)} mm &middot; Taw Kye ${fmt(R.tawkye.daily[i]?.mm ?? 0,1)} mm`; });
+}
+
+function zoneChart(box, k){
+  const rows0 = SITES[k].landslides, minor = rows0.filter(r => r.type === 'minor');
+  const rows = rows0.filter(r => r.type !== 'minor');
+  if (minor.length) rows.push({id:`+${minor.length}`, name:'minor scars', area_m2:minor.reduce((a,r) => a + r.area_m2, 0),
+    source_m2:minor.reduce((a,r) => a + r.source_m2, 0), transport_m2:minor.reduce((a,r) => a + r.transport_m2, 0), runout_m2:minor.reduce((a,r) => a + r.runout_m2, 0), agg:true});
+  const W = 420, rh = 24, m = {l:48, r:46, t:4, b:20}, H = m.t + m.b + rows.length*rh;
+  const max = Math.ceil(Math.max(...rows.map(r => r.area_m2)) / 1e4) * 1e4, x = v => m.l + (W - m.l - m.r) * v / max, step = max > 6e4 ? 2e4 : 1e4;
+  const Z = [['source','--z-source','Source (≥ 20°)'], ['transport','--z-transport','Transport (8–20°)'], ['runout','--z-runout','Runout on flat ground (< 8°)']];
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Area of each landslide by slope zone">`;
+  for (let v = 0; v <= max; v += step) s += `<line x1="${x(v)}" x2="${x(v)}" y1="${m.t}" y2="${H-m.b}" stroke="${css(v ? '--hair' : '--axis')}"/><text x="${x(v)}" y="${H-6}" text-anchor="middle">${v/1e4} ha</text>`;
+  rows.forEach((r,i) => { const yy = m.t + i*rh + 5, h = rh - 10; let acc = 0;
+    const parts = Z.map(([z,v]) => [r[z + '_m2'], css(v)]).filter(p => p[0] > 0), zs = parts.reduce((a,p) => a + p[0], 0), kk = zs ? r.area_m2 / zs : 0;
+    parts.forEach(([a,c],j) => { const w = Math.max(x(acc + a*kk) - x(acc) - (j < parts.length-1 ? 2 : 0), 0), last = j === parts.length-1, x0 = x(acc);
+      s += last && w > 4 ? `<path d="M${x0},${yy} h${w-4} q4,0 4,4 v${h-8} q0,4 -4,4 h${-(w-4)} z" fill="${c}"/>` : `<rect x="${x0}" y="${yy}" width="${w}" height="${h}" fill="${c}"/>`;
+      acc += a*kk; });
+    s += `<text x="${m.l-6}" y="${yy+h/2+3.5}" text-anchor="end" style="fill:${css('--ink-2')}">${r.id}</text><text x="${x(r.area_m2)+5}" y="${yy+h/2+3.5}">${ha(r.area_m2)}</text>`;
+    s += `<rect x="0" y="${m.t+i*rh}" width="${W}" height="${rh}" fill="transparent" data-i="${i}" style="cursor:pointer"/>`; });
+  box.innerHTML = s + '</svg>';
+  hover(box, 'rect[data-i]', el => { const r = rows[+el.dataset.i]; return r.agg ? `${minor.length} minor scars: ${fmt(r.area_m2)} m²` : `${r.id} ${esc(r.name)}: ${fmt(r.area_m2)} m² &middot; on flat ground ${fmt(r.runout_m2)} m²`; });
+  box.querySelectorAll('rect[data-i]').forEach(el => { const r = rows[+el.dataset.i]; if (!r.agg) el.onclick = () => zoomTo(k, r.id); });
+  return Z.map(([z,v,n]) => `<span class="key">${sw(v)}${n}</span>`).join('');
+}
+
+/* ---------- panes: all sites ---------- */
+function overviewAll(){
+  const kd = S('kdnh'), nm = S('nmt'), tk = S('tawkye');
+  const kd01 = byKey['kdnh|KD-01'];
+  const openAng = allRows.filter(r => r.type === 'open' && !r.crown_at_edge && !r.toe_at_edge).map(r => r.reach_angle_deg);
+  return `<h2>Three villages, one storm</h2>
+  <p class="sec">On the night of 26&ndash;27 September 2026 a storm that dropped more than 600 mm in four days set off landslides across Launglon Township. Drone surveys of three of the hardest-hit places, flown 2&ndash;4 October, map <b>${T.n_landslides} landslides covering ${ha(T.area_m2)} ha</b> in ${fmt(T.survey_ha)} ha of imagery.</p>
+  <div class="tiles">${tiles([[T.n_landslides, 'landslides mapped at 4&ndash;10 cm/pixel'], [ha(T.area_m2) + ' ha', 'ground failed, scoured or buried'],
+    [T.destroyed, 'buildings destroyed (no roof left)'], [T.damaged, 'damaged, still standing in debris'],
+    [T.deaths, `deaths reported: ${S('kdnh').report.deaths} at Ka Det Nge Htein, ${S('tawkye').report.deaths} at Taw Kye (Dawei Watch)`, 'wide']])}</div>
+  <div class="callout small">Dawei Watch counted at least <b>${D.regional.launglon_deaths} deaths in Launglon Township</b> (to ${esc(D.regional.launglon_asof)}) and ${D.regional.district_deaths}+ across Dawei District (${esc(D.regional.district_asof)}). Ka Det Nge Htein, with ${kd.report.deaths}, lost more people than any other village; Taw Kye, with ${tk.report.deaths}, was second.</div>
+  <h3>The three surveys</h3>
+  <table><thead><tr><th>Site</th><th class="n">Flown</th><th class="n">Landslides</th><th class="n">Area ha</th><th class="n">Destroyed</th><th class="n">Damaged</th><th class="n">Deaths</th></tr></thead><tbody>
+  ${SK.map(k => { const x = S(k); return `<tr class="click" data-k="${k}"><td>${siteDot(k)} <b>${esc(x.name)}</b></td><td class="n">${dateTxt(x.flown).replace(' 2026','')}</td><td class="n">${x.n_landslides}</td><td class="n">${ha(x.area_total_m2)}</td><td class="n">${x.buildings_status.destroyed || '&ndash;'}</td><td class="n">${x.buildings_status.damaged || '&ndash;'}</td><td class="n">${x.report.deaths ?? '&ndash;'}</td></tr>`; }).join('')}
+  </tbody></table>
+  <h2>Key findings</h2>
+  <ul class="f">${lis([
+    `<b>Ka Det Nge Htein was hit by a valley debris flow, not a hillside slide.</b> KD-01 (${ha(kd01.area_m2)} ha) started in an amphitheatre and a scoured channel in closed forest, then cut a corridor about 100 m wide through the middle of the village: ${kd01.destroyed} of the ${kd.buildings_status.destroyed} destroyed buildings are in it. Its sediment then spread over ${ha(kd.outwash_m2)} ha of paddy.`,
+    `<b>Taw Kye was hit by nine separate hillside flows</b>, ${tk.buildings_status.destroyed} buildings destroyed. <b>Ngone Min Taung</b> has the most ground disturbed (${ha(nm.area_total_m2)} ha) but almost all of it is scoured stream beds and slopes in forest and plantation: one building in the survey stands in debris.`,
+    `<b>The flows travelled far for their height.</b> Open-slope slides whose whole length was surveyed stopped at reach angles of ${Math.min(...openAng)}&ndash;${Math.max(...openAng)}&deg;; the channelised flows ran out at ${Math.min(...SK.map(k => S(k).runout.alpha_channel))}&ndash;${Math.max(...SK.map(k => S(k).runout.alpha_channel))}&deg;. These angles drive the runout screening at each site.`,
+    `Every new scar was forest, plantation or field in the Esri Vantor image of 10 January 2026. Ground already bare then &mdash; an excavation, a clearing, compounds, a road &mdash; was cut from the outlines (${S('nmt').n_exclusions + S('kdnh').n_exclusions} areas).`,
+    `<b>${T.standing_in_A} standing buildings</b> in the three surveys lie within reach of a flow like those mapped (zone A), ${T.standing_in_B} more within reach of a channelised one. See <a href="#all/runout">Runout</a>.`])}</ul>
+  <h2>How far did the flows run?</h2>
+  <p class="small sec">Reach angle of each mapped landslide (minor scars left out). Click a dot to open it.</p>
+  <div>${reachKey()}</div><div class="chart" id="c-reach"></div>
+  <h2>Area mapped</h2>
+  <p class="small sec">Landslide area per site; the dashed extension at Ka Det Nge Htein is the paddy under sediment, kept apart from the landslide count.</p>
+  <div class="chart" id="c-area"></div>
+  <h2>The trigger</h2>
+  <p class="small sec">Model rainfall: ${fmt(D.rain.kadet.d25_28)} mm over 25&ndash;28 Sep at Ka Det, ${fmt(D.rain.tawkye.d25_28)} mm at Taw Kye, 10 km south. September brought ${fmt(D.rain.kadet.sep_total)} and ${fmt(D.rain.tawkye.sep_total)} mm.</p>
+  <div><span class="key"><span class="sw" style="background:${css('--site-kdnh')}"></span>Ka Det Nge Htein &amp; Ngone Min Taung</span><span class="key"><span class="sw" style="background:${css('--site-tawkye')}"></span>Taw Kye</span></div>
+  <div class="chart" id="c-rain"></div>
+  <p class="small muted">Open-Meteo best-match weather model, daily totals; model output, not a rain gauge.</p>`;
+}
+function landslidesAll(){
+  const rows = [...allRows].sort((a,b) => b.area_m2 - a.area_m2);
+  const major = rows.filter(r => r.type !== 'minor'), minor = rows.filter(r => r.type === 'minor');
+  return `<h2>${T.n_landslides} landslides, three sites</h2>
+  <p class="small sec">Largest first; click a row to zoom. ${minor.length} minor scars at Ngone Min Taung (each under 1,000 m², ${ha(minor.reduce((a,r) => a + r.area_m2, 0))} ha together) are on the map and in the site table.</p>
+  <table><thead><tr><th>ID</th><th>Type</th><th class="n">Area m²</th><th class="n">Reach</th><th class="n">Destr.</th></tr></thead><tbody>
+  ${major.map(r => `<tr class="click" data-k="${r.site}" data-id="${r.id}"><td>${siteDot(r.site)} <b>${r.id}</b><br><span class="muted small">${esc(r.name)}</span></td><td class="small">${r.type === 'open' ? 'Open slope' : 'Channel'}</td><td class="n">${fmt(r.area_m2)}</td><td class="n">${r.reach_angle_deg}&deg;${r.crown_at_edge || r.toe_at_edge ? '*' : ''}</td><td class="n">${r.destroyed || '&ndash;'}</td></tr>`).join('')}
+  </tbody></table>
+  <p class="small muted">* runs beyond the surveyed area, so its drop and length are minimums.</p>`;
+}
+function buildingsAll(){
+  return `<h2>Building damage at three sites</h2>
+  <p class="small sec">Pre-event building footprints (OpenStreetMap plus Microsoft ML footprints) checked against the post-event drone images at full resolution; every destroyed, damaged and edge footprint was inspected by eye.</p>
+  <table><thead><tr><th>Site</th><th class="n">Footprints</th><th class="n">Destroyed</th><th class="n">Damaged</th><th class="n">At edge</th><th>Reported</th></tr></thead><tbody>
+  ${SK.map(k => { const x = S(k), b = x.buildings_status; return `<tr class="click" data-k="${k}"><td>${siteDot(k)} ${esc(x.name)}</td><td class="n">${x.buildings_surveyed}</td><td class="n">${b.destroyed || '&ndash;'}</td><td class="n">${b.damaged || '&ndash;'}</td><td class="n">${b.edge || '&ndash;'}</td><td class="small">${x.report.houses ? esc(x.report.houses) + ' houses destroyed' : 'no report'}</td></tr>`; }).join('')}
+  </tbody></table>
+  <div class="callout small">Drone and reported counts agree in scale but measure different things: footprint sets miss some houses and count kitchens and sheds separately, while residents count households. At Ka Det Nge Htein the drone finds ${S('kdnh').buildings_status.destroyed} destroyed and ${S('kdnh').buildings_status.damaged} damaged against &ldquo;more than 30&rdquo; reported; at Taw Kye ${S('tawkye').buildings_status.destroyed} + ${S('tawkye').buildings_status.damaged} against 42.</div>`;
+}
+function runoutAll(){
+  return `<h2>Where else could debris reach?</h2>
+  <p class="small sec">At each site an energy-line (<i>Fahrböschung</i>) model spreads debris downslope from every slope &ge; 20&deg; on the 30 m pre-event DEM, stopping where a line at the site's own observed reach angle meets the ground. <b>Zone A</b>: reachable by an open-slope flow; <b>zone B</b>: only by a channelised flow.</p>
+  <div class="seg" role="group"><button class="zbtn" aria-pressed="false">Show reach zones on the map</button></div>
+  <table><thead><tr><th>Site</th><th class="n">&alpha; open</th><th class="n">&alpha; channel</th><th class="n">Standing in A</th><th class="n">only B</th></tr></thead><tbody>
+  ${SK.map(k => { const x = S(k); return `<tr class="click" data-k="${k}"><td>${siteDot(k)} ${esc(x.name)}</td><td class="n">${x.runout.alpha_open}&deg;</td><td class="n">${x.runout.alpha_channel}&deg;</td><td class="n">${x.reach.standing_in_A}</td><td class="n">${x.reach.standing_in_B}</td></tr>`; }).join('')}
+  </tbody></table>
+  <p class="small sec">The angles differ between sites because each was calibrated on its own landslides; Ngone Min Taung's flows ran furthest for their height, so its zone A is the widest. Every destroyed or damaged building at all three sites lies inside its site's zones.</p>
+  <div class="callout small"><b>Screening, not a zoning map.</b> 30 m DEM, no volume, velocity or obstacles. It answers one question: <i>which houses are downslope of steep ground within the reach these flows actually showed?</i> Siting decisions need a field assessment.</div>`;
+}
+function imageryAll(){
+  return `<h2>Before and after</h2>
+  <p class="small sec">Pick a site to see its viewpoints. The <b>Before (Jan 2026)</b> button on the map swaps the drone images for Esri World Imagery &mdash; at all three sites a Vantor Vivid image of 10 January 2026, nine months before the storm.</p>
+  <div class="views">${SK.map(k => `<div class="view" data-k="${k}">${siteDot(k)}<div><b>${esc(NAME(k))}</b><span class="small sec">${k === 'tawkye' ? 'Oblique photo and Google Earth fly-through frames' : 'Map viewpoints with before / after'}</span></div></div>`).join('')}</div>`;
+}
+function methodAll(){
+  return `<h2>Method, all sites</h2>
+  <ol class="f small">${lis([
+    `Each drone delivery (KML super-overlay) was stitched into one GeoTIFF at its native resolution: 8.0 cm (Ka Det Nge Htein, 3 Oct), 10.1 cm (Ngone Min Taung, 4 Oct), 3.75 and 5.68 cm (Taw Kye, 2 Oct).`,
+    `Every pixel was classed as vegetation, soil, grey (scoured rock, sand, roofs) or shadow; the vegetation threshold sits at the valley of each flight's own excess-green histogram. Bare ground was smoothed with a 1 m majority filter.`,
+    `Outlines are the native-resolution bare mask inside interpreter envelopes drawn against the Esri Vantor image of 10 Jan 2026. Ground already bare in January is excluded. At Ngone Min Taung a zone of scoured channels was split into connected scars instead of being drawn one by one.`,
+    `Crown, toe, drop, length and reach angle from the Copernicus 30 m pre-event DEM; building status from pre-event footprints shifted onto each ortho and checked by eye; runout screening calibrated on each site's own reach angles.`,
+    `Ground reports from Dawei Watch (26 Sep &ndash; 2 Oct 2026); MIMU villages, village tracts, township, roads and schools.`])}</ol>
+  <p class="small sec">Pick a site for its data sources, quality checks and limitations.</p>
+  <h2>Downloads</h2>${downloads()}`;
+}
+const downloads = () => `<ul class="f small"><li><a href="outputs/launglon_landslides_2026.gpkg">launglon_landslides_2026.gpkg</a>: per site, landslides, fields under sediment, surveyed buildings, reach zones, exclusions, crown/toe points, survey extents (UTM 47N)</li>
+  <li><a href="outputs/landslides.csv">landslides.csv</a> &middot; <a href="outputs/buildings.csv">buildings.csv</a> &middot; <a href="outputs/summary.json">summary.json</a></li></ul>`;
+
+/* ---------- panes: one site ---------- */
+const VIEWS = {
+  kdnh: [['Corridor through the village', [98.1333,13.8856,98.1372,13.8886], 'Where houses and the road stood in January, KD-01 left sand, boulders and timber.'],
+         ['The source amphitheatre', [98.1278,13.8868,98.1316,13.8910], 'Closed forest in January; now a bare amphitheatre and a scoured channel.'],
+         ['Chutes on the north wall', [98.1298,13.8878,98.1352,13.8912], 'KD-02 to KD-05: narrow slides that ran into the valley.'],
+         ['Paddy under sediment', [98.1360,13.8818,98.1418,13.8884], 'Green paddy in January; fresh sediment and muddy water with flow streaks now.']],
+  nmt:  [['Road slide and curving slide', [98.1298,13.8986,98.1337,13.9021], 'NM-05 and NM-08 below the pagoda: stepped scarps in red soil.'],
+         ['West river channel', [98.1218,13.8950,98.1282,13.9042], 'NM-01: a forest stream stripped to sand and boulders.'],
+         ['South channel network', [98.1298,13.8942,98.1360,13.8975], 'NM-04 and the NM-06 scar at the foot of the southern hill.'],
+         ['An excavation that was already there', [98.1330,13.8990,98.1362,13.9020], 'The red pit beside the village was bare in January: excluded, not a landslide.']],
+};
+function overviewSite(k){
+  const x = S(k), rows = SITES[k].landslides, bs = x.buildings_status, R = x.reach, rep = x.report, big = byKey[k + '|' + x.largest];
+  const mimu = x.mimu.map(v => `${esc(v.name)} ${esc(v.mmr)} (MIMU ${esc(v.pcode)})`).join(', ');
+  const lede = {
+    kdnh: `A debris flow came down the forested valley west of Ka Det Nge Htein and cut through the middle of the village. With ${rows.length - 1} smaller slides and channels on the valley walls, ${rows.length} landslides cover <b>${ha(x.area_total_m2)} ha</b>; KD-01 alone is ${ha(big.area_m2)} ha. Beyond the village a further <b>${ha(x.outwash_m2)} ha</b> of paddy lies under sediment.`,
+    nmt: `South of the road at Ngone Min Taung, the stream beds of the forested hills were scoured to sand and boulders and the slopes below the pagoda failed. ${rows.length} scars and channels cover <b>${ha(x.area_total_m2)} ha</b>, ${ha(x.area_by_type_m2.channel)} ha of it in channels. The village of Htein Gyi to the north-east was not reached.`,
+    tawkye: `${rows.length} landslides tore down the forested slope west of Taw Kye and buried part of the village. Together they cover <b>${ha(x.area_total_m2)} ha</b>; <b>${ha(x.area_runout_flat_m2)} ha</b> of that is debris on the flat valley floor where the houses, road and paddies are.`}[k];
+  const finds = {
+    kdnh: [`<b>KD-01 did almost all the damage</b>: ${big.destroyed} of the ${bs.destroyed} destroyed buildings stood in its path. It dropped ${fmt(big.H_m)} m over ${fmt(big.L_m)} m within the survey (reach angle ${big.reach_angle_deg}&deg;; its source lies beyond the flight, so the true path is longer).`,
+           `Its deposit is pale sand, gravel and boulders, not the orange soil of Taw Kye, so roofless footprints read as &ldquo;grey&rdquo; and 12 had to be re-labelled destroyed by eye.`,
+           `The four open-slope chutes on the north wall (KD-02 to KD-05) stopped at ${Math.min(...rows.filter(r => r.type === 'open' && !r.toe_at_edge).map(r => r.reach_angle_deg))}&ndash;${Math.max(...rows.filter(r => r.type === 'open' && !r.toe_at_edge).map(r => r.reach_angle_deg))}&deg;, steeper than Taw Kye's.`,
+           `All source areas were dense forest before the event (Sentinel-2 Jan&ndash;Apr 2026 NDVI ${Math.min(...rows.map(r => r.ndvi_pre_source).filter(v => v != null)).toFixed(2)}&ndash;${Math.max(...rows.map(r => r.ndvi_pre_source).filter(v => v != null)).toFixed(2)}), and closed canopy in the Esri image of 10 Jan 2026.`,
+           `<b>${R.standing_in_A} standing buildings</b> lie in runout zone A and ${R.standing_in_B} more in zone B &mdash; most of the rest of the village sits on the fan of the same valley.`],
+    nmt: [`<b>${x.n_by_type.channel} scoured channels make up ${Math.round(100 * x.area_by_type_m2.channel / x.area_total_m2)}% of the disturbed ground</b>. NM-01, the west river channel, is the largest single feature: ${ha(big.area_m2)} ha of stream bed stripped to sand and boulders.`,
+           `The open-slope failures whose whole length was surveyed (NM-05, NM-07, NM-08) stopped at ${Math.min(...rows.filter(r => r.type === 'open' && !r.crown_at_edge).map(r => r.reach_angle_deg))}&ndash;${Math.max(...rows.filter(r => r.type === 'open' && !r.crown_at_edge).map(r => r.reach_angle_deg))}&deg;, the most mobile of the three sites. NM-05's debris reached the road.`,
+           `The red excavation beside the village and the pagoda and monastery compounds were already bare in January 2026 and are excluded, as are ${x.n_exclusions - 4} small patches rejected on image chips (canopy gaps, a roof, a footpath).`,
+           `<b>One building</b> in the survey stands in debris, beside the west river channel. No report names Ngone Min Taung or Htein Gyi.`,
+           `${R.standing_in_A} standing buildings lie in runout zone A, mostly at the foot of the slopes south of the road.`],
+    tawkye: [`<b>LS-03 did most of the damage to houses</b>: its twin scars merged into one flow that buried the west side of the northern village to the road. ${byKey['tawkye|LS-03'].destroyed} of the ${bs.destroyed} destroyed buildings are in it.`,
+             `<b>LS-07 is the largest</b> (${ha(byKey['tawkye|LS-07'].area_m2)} ha): it crossed the road and spread a fan across the paddies.`,
+             `The hillslope flows stopped at reach angles of 17.6&ndash;20.7&deg;; the channelised LS-04 ran further (13.4&deg;).`,
+             `<b>${R.standing_in_A} standing buildings</b> lie in zone A, ${R.standing_in_B} more in zone B.`]}[k];
+  return `<h2>${esc(x.name)} ${esc(x.mmr)}</h2>
+  <p class="small muted">${mimu}, ${esc(x.vt)} village tract &middot; drone survey ${dateTxt(x.flown)}, ${x.gsd_cm} cm/pixel, ${fmt(x.survey_ha)} ha</p>
+  <p class="sec">${lede}</p>
+  <div class="tiles">${tiles([[x.n_landslides, 'landslides mapped'], [ha(x.area_total_m2) + ' ha', 'ground failed, scoured or buried'],
+    [bs.destroyed || 0, 'buildings destroyed (no roof left)'], [bs.damaged || 0, 'damaged, still standing in debris'],
+    [R.standing_in_A, 'standing buildings inside runout reach zone A', 'wide']])}</div>
+  <div class="callout small"><b>Reported on the ground</b> (${esc(rep.source)}):<ul>${lis(rep.lines.map(esc))}</ul></div>
+  <h2>Key findings</h2><ul class="f">${lis(finds)}</ul>`;
+}
+function landslidesSite(k){
+  const x = S(k), rows = SITES[k].landslides;
+  const major = rows.filter(r => r.type !== 'minor'), minor = rows.filter(r => r.type === 'minor');
+  return `<h2>${rows.length} landslides at ${esc(x.name)}</h2>
+  <p class="small sec">Mapped area of each landslide split by the pre-event slope it lies on: the steep <b>source</b> zone (&ge; 20&deg;), the <b>transport</b> zone (8&ndash;20&deg;), and <b>runout</b> on flat ground (&lt; 8&deg;). Click a bar or row to zoom.</p>
+  <div id="zone-key"></div><div class="chart" id="c-zone"></div>
+  <table><thead><tr><th>ID</th><th class="n">Area m²</th><th class="n">H m</th><th class="n">L m</th><th class="n">Reach</th><th class="n">Destr.</th><th class="n">Dam.</th></tr></thead><tbody>
+  ${major.map(r => `<tr class="click" data-k="${k}" data-id="${r.id}" title="${esc(r.description)}"><td><b>${r.id}</b> <span class="small muted">${r.type === 'channel' ? 'channel' : 'open'}</span><br><span class="muted small">${esc(r.name)}</span></td><td class="n">${fmt(r.area_m2)}</td><td class="n">${fmt(r.H_m)}</td><td class="n">${fmt(r.L_m)}</td><td class="n">${r.reach_angle_deg}&deg;${r.crown_at_edge || r.toe_at_edge ? '*' : ''}</td><td class="n">${r.destroyed || '&ndash;'}</td><td class="n">${r.damaged || '&ndash;'}</td></tr>`).join('')}
+  ${minor.length ? `<tr><td colspan="7" class="small muted">${minor.length} minor scars: ${minor.map(r => `<a href="#" data-k="${k}" data-id="${r.id}" class="zl">${r.id}</a>`).join(', ')} (${fmt(minor.reduce((a,r) => a + r.area_m2, 0))} m²)</td></tr>` : ''}
+  <tr><td><b>Total</b></td><td class="n"><b>${fmt(x.area_total_m2)}</b></td><td></td><td></td><td></td><td class="n"><b>${rows.reduce((a,r) => a + r.destroyed, 0)}</b></td><td class="n"><b>${rows.reduce((a,r) => a + r.damaged, 0)}</b></td></tr></tbody></table>
+  <p class="small muted">H = drop from crown to toe; L = horizontal distance; reach angle = atan(H/L), all from the pre-event Copernicus 30 m DEM. * the scar runs beyond the surveyed area, so H and L are minimums.${k === 'kdnh' ? ` Beyond the corridor mouth, ${fmt(x.outwash_m2)} m² of paddy under sediment is mapped separately.` : ''}</p>`;
+}
+function buildingsSite(k){
+  const x = S(k), bs = x.buildings_status, rows = SITES[k].landslides.filter(r => r.destroyed + r.damaged + r.edge), sh = x.footprint_shift;
+  const shTxt = k === 'tawkye' ? `per flight (landslide flight ${sh.landslide.dE} m E, ${sh.landslide.dN} m N; Plan-2 ${sh.plan2.dE} m E, ${sh.plan2.dN} m N)` : `by ${sh.dE >= 0 ? '+' : ''}${sh.dE} m E, ${sh.dN} m N (roof match ${Math.round(sh.grey_before*100)}% &rarr; ${Math.round(sh.grey_after*100)}%)`;
+  const note = {kdnh: `Thirteen automatic labels were changed after inspecting image chips: eleven roofless footprints under pale sand (which classifies as grey, like a roof) and one wrecked building at the corridor edge became <b>destroyed</b>; one Microsoft footprint with no building in either image was dropped.`,
+    nmt: `The one damaged building, beside the west river channel, was confirmed on its image chip.`,
+    tawkye: `10 automatic labels were changed after inspecting image chips (collapsed or displaced roofs, a rusty roof read as soil); the reason is in each popup.`}[k];
+  return `<h2>Building damage at ${esc(x.name)}</h2>
+  <p class="small sec">${x.buildings_surveyed} pre-event building footprints (OpenStreetMap plus Microsoft ML footprints) fall inside the drone survey, each checked against the post-event orthomosaic at full resolution.</p>
+  <div class="tiles">${['destroyed','damaged','edge','clear'].map(s => `<div class="tile"><div class="v">${bs[s] || 0}</div><div class="l">${sw(ST[s][1])} ${ST[s][0]}</div></div>`).join('')}</div>
+  ${x.report.houses ? `<div class="callout small">Reported: <b>${esc(x.report.houses)} houses destroyed</b>. The drone shows <b>${bs.destroyed}</b> footprints with no roof left and <b>${bs.damaged || 0}</b> standing in debris. Footprint sets miss some buildings and count sheds separately, so the counts agree in scale rather than exactly.</div>` : ''}
+  ${rows.length ? `<h3>By landslide</h3><table><thead><tr><th>Landslide</th><th class="n">Destroyed</th><th class="n">Damaged</th><th class="n">At edge</th></tr></thead><tbody>
+    ${rows.map(r => `<tr class="click" data-k="${k}" data-id="${r.id}"><td>${r.id} <span class="muted small">${esc(r.name)}</span></td><td class="n">${r.destroyed || '&ndash;'}</td><td class="n">${r.damaged || '&ndash;'}</td><td class="n">${r.edge || '&ndash;'}</td></tr>`).join('')}</tbody></table>` : ''}
+  <h3>How the status is decided</h3>
+  <p class="small sec">Footprints were first shifted onto the ortho's roofs ${shTxt}. Inside each footprint, shrunk by 0.5 m, pixels were counted as roof-grey, soil, vegetation or shadow. <b>Destroyed</b>: &ge; 30% inside a landslide with &lt; 30% roof and &ge; 40% soil. <b>Damaged</b>: &ge; 30% inside with a roof still visible. <b>At edge</b>: within 10 m. ${note}</p>`;
+}
+function runoutSite(k){
+  const x = S(k), ro = x.runout, R = x.reach;
+  const ids = ro.open_ids.join(', ');
+  return `<h2>Where else could debris reach at ${esc(x.name)}?</h2>
+  <p class="small sec">The open-slope flows here (${esc(ids)}) stopped where the line from their crown fell to about <b>${ro.alpha_open}&deg;</b>; the channelised ${esc(ro.channel_id)} ran out at <b>${ro.alpha_channel}&deg;</b>. Spreading debris downslope from every slope &ge; ${ro.src_slope}&deg; with those angles marks where a similar flow could still get to. <b>Zone A</b>: reachable by an open-slope flow; <b>zone B</b>: only by a channelised one.${ro.clip_m ? ` Zones are shown within ${ro.clip_m} m of the survey.` : ''}</p>
+  <div class="seg" role="group"><button class="zbtn" aria-pressed="false">Show reach zones on the map</button></div>
+  <div class="tiles">${tiles([[R.standing_in_A, 'standing buildings in zone A'], [R.standing_in_B, 'standing buildings in zone B only'],
+    [R.standing_outside, 'standing buildings outside both'], [`${R.affected_in_AB ?? R.affected_in_A} of ${R.affected}`, 'destroyed + damaged buildings inside the zones']])}</div>
+  <h3>Calibration check</h3>
+  <p class="small sec">Share of each calibration landslide that falls inside its modelled reach:</p>
+  <table><thead><tr><th>Landslide</th><th class="n">Inside reach</th></tr></thead><tbody>${Object.entries(ro.calibration_share_inside)
+    .map(([i,v]) => `<tr><td>${i}${i === ro.channel_id ? ' <span class="muted small">(zone A + B)</span>' : ''}${i === 'LS-01' ? ' <span class="muted small">(source outside survey)</span>' : ''}</td><td class="n">${fmt(v*100)}%</td></tr>`).join('')}</tbody></table>
+  <div class="callout small"><b>Read this as screening, not a zoning map.</b> 30 m pre-event DEM, no volume, velocity or obstacles; every slope &ge; 20&deg; is a possible source. Siting decisions need a field assessment by GSM or another qualified team.</div>`;
+}
+function imagerySite(k){
+  if (k === 'tawkye') {
+    const P = [['oblique','Oblique view from the east: the 2026 scars on the hillside above the village.'],
+               ['south','South village: LS-05 to LS-08 reaching the road and the paddies.'],
+               ['north','North village: LS-02 and LS-03 above the houses, the LS-01 mud fan on the right.']];
+    return `<h2>Oblique view</h2>
+    <figure><img src="assets/tawkye/oblique_photo.jpg" alt="Oblique drone photograph of the landslide scars above Taw Kye" loading="lazy">
+    <figcaption>Oblique drone photo supplied with the survey, looking south-west over the northern village: LS-03, LS-02 and the LS-01 mud fan.</figcaption></figure>
+    <h2>Before and after</h2>
+    <p class="small sec">Frames from the GSM/TSBM Google Earth fly-through: Google Earth imagery of 1 Dec 2023, then the same view with the 2 Oct 2026 drone orthomosaics draped on it. The map's <b>Before (Jan 2026)</b> button shows the Esri image of 10 Jan 2026.</p>
+    ${P.map(([v,c]) => `<figure data-v="${v}"><div class="seg" role="group"><button aria-pressed="true" data-w="before">Before (Dec 2023)</button><button aria-pressed="false" data-w="after">After (Oct 2026)</button></div>
+      <img src="assets/tawkye/video_${v}_before.jpg" alt="${esc(c)} Before" loading="lazy"><figcaption>${esc(c)}</figcaption></figure>`).join('')}`;
+  }
+  return `<h2>Before and after at ${esc(NAME(k))}</h2>
+  <p class="small sec">Click a viewpoint to fly there, then use <b>After (drone)</b> / <b>Before (Jan 2026)</b> at the top right of the map. The before image is Esri World Imagery, a Vantor Vivid scene of 10 January 2026.</p>
+  <div class="views">${VIEWS[k].map(([n,b,c],i) => `<div class="view" data-i="${i}"><div><b>${esc(n)}</b><span class="small sec">${esc(c)}</span></div></div>`).join('')}</div>
+  <div class="seg" role="group"><button data-w="after" class="ib">Show after</button><button data-w="before" class="ib">Show before</button></div>`;
+}
+function methodSite(k){
+  const x = S(k);
+  const data = {
+    kdnh: [`<b>KadetNgelHtein_Ortho.kmz</b>: KML super-overlay, 776 leaf tiles at quadtree depth 6, ${x.gsd_cm} cm/pixel, ${fmt(x.survey_ha)} ha imaged on 3 Oct 2026.`],
+    nmt:  [`<b>NgoneMinTaung_Ortho.kmz</b>: KML super-overlay, 729 leaf tiles at quadtree depth 6, ${x.gsd_cm} cm/pixel, ${fmt(x.survey_ha)} ha imaged on 4 Oct 2026. Ngone Min Taung is not a MIMU village; the survey covers the slopes south of Htein Gyi (MIMU 177157).`],
+    tawkye: [`<b>TawKyel_Village_Landslide.kmz</b> (3.75 cm) and <b>TawKyel_Plan-2.kmz</b> (5.68 cm), compiled by GSM/TSBM on 2 Oct 2026; an oblique photo and a Google Earth fly-through video.`]}[k];
+  const qa = {
+    kdnh: [`Vegetation threshold ExG &ge; 0.06, the valley of this flight's excess-green histogram (Taw Kye: 0.05).`,
+           `Every KD outline was compared with the Esri image of 10 Jan 2026: all lie in closed forest or field, except a clearing beside KD-05, which is excluded.`,
+           `Footprints fitted to roofs with a shift of ${x.footprint_shift.dE} m E, ${x.footprint_shift.dN} m N; every destroyed, damaged and edge footprint inspected on an image chip.`],
+    nmt:  [`Vegetation threshold ExG &ge; 0.015, the valley of this overcast flight's excess-green histogram.`,
+           `The channel zone was split into 8-connected bare components &ge; 20 m², grouped when within 6 m (canopy over a channel breaks it into pieces), keeping groups &ge; 200 m². 0.6 ha in smaller pieces is not mapped.`,
+           `${x.n_exclusions} exclusions: a monastery compound, a road, a pagoda compound and an excavation already bare on 10 Jan 2026, and 7 groups rejected on image chips. The last ~100 m of the flight's east edge is smeared and was left out.`],
+    tawkye: [`Pixel-count and vector areas agree within 0.1% for every landslide. The two flights disagree by 2.8 m in their 3 ha overlap; the finer flight is used there.`,
+             `Every destroyed, damaged and edge building was checked on an image chip; 10 labels were overridden.`]}[k];
+  const lim = {
+    kdnh: [`KD-01's source and KD-06/08/09's upper reaches lie beyond the flight; their drops and lengths are minimums.`,
+           `&ldquo;Fields under sediment&rdquo; may be partly standing muddy water rather than deposit; it is reported apart from landslide area.`,
+           `Georeferencing is GNSS-only (a few metres absolute). The 30 m DEM is a pre-event surface, partly canopy: heights carry roughly &plusmn;10 m.`],
+    nmt:  [`Reach angles of channel features describe the scoured reach inside the survey, not a single flow; several start at the survey edge.`,
+           `Scoured channels under intact canopy are invisible to the drone, so the channel network is a minimum.`,
+           `Georeferencing is GNSS-only; heights carry roughly &plusmn;10 m from the 30 m pre-event DEM.`],
+    tawkye: [`The orthomosaics show the surface 6 days after the event, after some clearing: the road through the debris had already been dug out.`,
+             `LS-01 is a mud fan fed from outside the survey; LS-09 continues beyond it.`]}[k];
+  return `<h2>Data</h2><ul class="f small">${lis([...data,
+    `MIMU (themimu.info GeoServer): village points, village tracts, Launglon township, roads, schools.`,
+    `Copernicus GLO-30 DEM (2024_1, pre-event); Sentinel-2 L2A Jan&ndash;Apr 2026 median NDVI; OpenStreetMap and VIDA (Microsoft ML) footprints; Esri World Imagery (Vantor Vivid, 10 Jan 2026) for interpretation; Open-Meteo model rainfall; Dawei Watch reports.`])}</ul>
+  <h2>Quality checks</h2><ul class="f small">${lis(qa)}</ul>
+  <h2>Limitations</h2><ul class="f small">${lis(lim)}</ul>
+  <h2>Downloads</h2>${downloads()}`;
+}
+
+/* ---------- render ---------- */
+function bindCommon(pane){
+  pane.querySelectorAll('tr.click[data-k]').forEach(tr => tr.onclick = () => {
+    if (tr.dataset.id) zoomTo(tr.dataset.k, tr.dataset.id); else { site = tr.dataset.k; go(true); } });
+  pane.querySelectorAll('a.zl').forEach(a => a.onclick = e => { e.preventDefault(); zoomTo(a.dataset.k, a.dataset.id); });
+  pane.querySelectorAll('.zbtn').forEach(b => b.onclick = () => { const on = !map.hasLayer(zoneL); on ? zoneL.addTo(map) : map.removeLayer(zoneL);
+    if (on){ bL.eachLayer(l => l.bringToFront()); slideL.eachLayer(l => l.bringToFront()); } syncZoneBtn(); });
+  pane.querySelectorAll('.view[data-k]').forEach(v => v.onclick = () => { site = v.dataset.k; go(true); });
+  pane.querySelectorAll('.view[data-i]').forEach(v => v.onclick = () => { const b = VIEWS[site][+v.dataset.i][1]; map.fitBounds([[b[1],b[0]],[b[3],b[2]]]); });
+  pane.querySelectorAll('.ib').forEach(b => b.onclick = () => setImg(b.dataset.w));
+  pane.querySelectorAll('figure[data-v]').forEach(fg => fg.querySelectorAll('button').forEach(b => b.onclick = () => {
+    fg.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b)); fg.querySelector('img').src = `assets/tawkye/video_${fg.dataset.v}_${b.dataset.w}.jpg`; }));
+}
+function syncZoneBtn(){ const on = map.hasLayer(zoneL); document.querySelectorAll('.zbtn').forEach(b => { b.setAttribute('aria-pressed', on); b.textContent = on ? 'Hide reach zones' : 'Show reach zones on the map'; }); }
+function render(refit){
+  document.querySelectorAll('#sites button').forEach(b => b.setAttribute('aria-pressed', b.dataset.s === site));
+  tabBtns.forEach(b => b.setAttribute('aria-selected', b.dataset.t === tab));
+  document.querySelectorAll('.pane').forEach(p => p.classList.toggle('on', p.id === 'p-' + tab));
+  const all = site === 'all';
+  const html = {overview: all ? overviewAll : overviewSite, landslides: all ? landslidesAll : landslidesSite, buildings: all ? buildingsAll : buildingsSite,
+                runout: all ? runoutAll : runoutSite, imagery: all ? imageryAll : imagerySite, method: all ? methodAll : methodSite}[tab](site);
+  const pane = $('#p-' + tab); pane.innerHTML = html; bindCommon(pane);
+  if ($('#c-reach')) reachChart($('#c-reach'), SK);
+  if ($('#c-area')) siteAreaChart($('#c-area'));
+  if ($('#c-rain')) rainChart($('#c-rain'));
+  if ($('#c-zone')) $('#zone-key').innerHTML = zoneChart($('#c-zone'), site);
+  syncZoneBtn(); drawLegend();
+  if (refit) fitSite(site);
+  setTimeout(() => map.invalidateSize(), 0);
+}
+parseHash();
+render(true);
+gateLabels();
+addEventListener('hashchange', () => { const s0 = site; parseHash(); render(site !== s0); });
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => render(false));
+})();
+</script>
