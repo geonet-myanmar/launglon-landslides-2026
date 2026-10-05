@@ -136,6 +136,109 @@
    ],
    "n_exclusions": 9
   },
+  "pny": {
+   "key": "pny",
+   "name": "Pa Nyit road",
+   "mmr": "ပညစ်လမ်း",
+   "flown": "2026-10-05",
+   "gsd_cm": 7.0,
+   "file": "PaNyit_Road.kmz",
+   "survey_ha": 82.7,
+   "tiles": "panyit",
+   "n_landslides": 7,
+   "n_by_type": {
+    "open": 4,
+    "channel": 3,
+    "minor": 0
+   },
+   "area_total_m2": 33888,
+   "area_by_type_m2": {
+    "open": 12262,
+    "channel": 21626,
+    "minor": 0
+   },
+   "area_runout_flat_m2": 804,
+   "outwash_m2": 0,
+   "largest": "PN-01",
+   "buildings_surveyed": 1,
+   "buildings_status": {
+    "clear": 1
+   },
+   "not_building": 4,
+   "overrides": 0,
+   "reach": {
+    "standing_in_A": 1,
+    "standing_in_B": 0,
+    "standing_outside": 0,
+    "affected": 0,
+    "affected_in_AB": 0
+   },
+   "runout": {
+    "alpha_open": 20.6,
+    "alpha_channel": 16.4,
+    "open_ids": [
+     "PN-02",
+     "PN-03",
+     "PN-04",
+     "PN-07"
+    ],
+    "channel_id": "PN-01",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 128.53,
+    "zoneB_ha": 31.72,
+    "calibration_share_inside": {
+     "PN-01": 1.0,
+     "PN-02": 0.922,
+     "PN-03": 0.883,
+     "PN-04": 0.989,
+     "PN-07": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "A": 1
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": -2.5,
+    "dN": -6.0,
+    "grey_before": 0.0,
+    "grey_after": 0.145,
+    "n_used": 4
+   },
+   "report": {
+    "source": "Dawei Watch, 28-30 Sep 2026",
+    "deaths": 0,
+    "houses": null,
+    "houses_note": "2 houses buried in Pa Nyit village, 1.7 km west (outside the survey)",
+    "lines": [
+     "Landslides after the heavy rain of 27 Sep blocked the road at two places: one between Launglon and Pa Nyit, one between Pa Nyit and Kan Pa Ni. Shan Maw, Pein Ne Chaung and Kyon Ga Nan, reached through Pa Nyit, were cut off (28 Sep).",
+     "In Pa Nyit village two houses were buried; no one was hurt, and villagers moved to safer ground (28 Sep).",
+     "The road near the Karen Gyi bridge, cut since 27 Sep, was repaired on 30 Sep, opening the way for food and rescue vehicles to Karen Gyi, Kan Pa Ni and Pa Nyit.",
+     "Villagers recalled the 1997 landslides on the Launglon peninsula, when a slope collapse at Pa Nyit buried about 100 houses and 61 people died in the mud."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Pa Nyit",
+     "pcode": "177151",
+     "where": "1.7 km west of the survey",
+     "mmr": "ပညစ်",
+     "lon": 98.06926727,
+     "lat": 14.00734997
+    }
+   ],
+   "vt": "Pa Nyit",
+   "vt_pcode": "MMR006002014",
+   "bounds": [
+    98.08016927737545,
+    13.989531615432806,
+    98.09165610967517,
+    13.99936152851048
+   ],
+   "n_exclusions": 4
+  },
   "nmt": {
    "key": "nmt",
    "name": "Ngone Min Taung",
@@ -506,14 +609,14 @@
   }
  },
  "total": {
-  "n_landslides": 67,
-  "area_m2": 1072811,
+  "n_landslides": 74,
+  "area_m2": 1106699,
   "destroyed": 63,
   "damaged": 19,
-  "standing_in_A": 170,
+  "standing_in_A": 171,
   "standing_in_B": 166,
   "deaths": 23,
-  "survey_ha": 748.0,
+  "survey_ha": 830.7,
   "outwash_m2": 482255,
   "in_sediment": 41
  },
@@ -533,6 +636,16 @@
    "grid": [
     14.024605,
     98.129036
+   ]
+  },
+  "pny": {
+   "night_26_27": 128.2,
+   "d25_28": 525.9,
+   "sep_total": 945.8,
+   "fetched": "2026-10-05T14:01Z",
+   "grid": [
+    13.954306,
+    98.121544
    ]
   },
   "kadet": {

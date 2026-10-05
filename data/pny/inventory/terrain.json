@@ -1,0 +1,226 @@
+[
+ {
+  "id": "PN-01",
+  "name": "Stream channel debris flow",
+  "type": "channel",
+  "description": "A forested stream scoured to bare rock and gravel for about 900 m, from the top of the survey down across the road at the S-bend and on to the south-west edge.",
+  "crown_z": 352.9,
+  "toe_z": 72.7,
+  "H_m": 280.2,
+  "L_m": 953.2,
+  "H_over_L": 0.294,
+  "reach_angle_deg": 16.4,
+  "azimuth_deg": 216,
+  "crown_at_edge": false,
+  "toe_at_edge": true,
+  "slope_mean_deg": 19.4,
+  "slope_p90_deg": 30.4,
+  "crown_lonlat": [
+   98.08712901077814,
+   13.998794489615877
+  ],
+  "toe_lonlat": [
+   98.08193141991917,
+   13.991829880993757
+  ],
+  "ndvi_pre_mean": 0.7,
+  "ndvi_pre_source": 0.66,
+  "zone_m2": {
+   "source": 4366.1,
+   "transport": 5807.3,
+   "runout": 67.8
+  }
+ },
+ {
+  "id": "PN-02",
+  "name": "Head slide",
+  "type": "open",
+  "description": "Open-slope slide on the east side of the stream head; its debris ran west into the scoured channel.",
+  "crown_z": 350.8,
+  "toe_z": 260.5,
+  "H_m": 90.3,
+  "L_m": 178.7,
+  "H_over_L": 0.505,
+  "reach_angle_deg": 26.8,
+  "azimuth_deg": 246,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 28.4,
+  "slope_p90_deg": 40.8,
+  "crown_lonlat": [
+   98.08756920144376,
+   13.997891755030768
+  ],
+  "toe_lonlat": [
+   98.0860661650506,
+   13.997216433845438
+  ],
+  "ndvi_pre_mean": 0.68,
+  "ndvi_pre_source": 0.65,
+  "zone_m2": {
+   "source": 4629.5,
+   "transport": 2753.3,
+   "runout": 5.7
+  }
+ },
+ {
+  "id": "PN-03",
+  "name": "Bank slide",
+  "type": "open",
+  "description": "Small slide off the east bank of the channel, above the road.",
+  "crown_z": 236.8,
+  "toe_z": 188.2,
+  "H_m": 48.7,
+  "L_m": 103.5,
+  "H_over_L": 0.47,
+  "reach_angle_deg": 25.2,
+  "azimuth_deg": 284,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 23.1,
+  "slope_p90_deg": 27.7,
+  "crown_lonlat": [
+   98.08548331116046,
+   13.99443973366566
+  ],
+  "toe_lonlat": [
+   98.08455100036964,
+   13.994654889827698
+  ],
+  "ndvi_pre_mean": 0.66,
+  "ndvi_pre_source": 0.65,
+  "zone_m2": {
+   "source": 1035.7,
+   "transport": 137.2,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "PN-04",
+  "name": "Hairpin slides",
+  "type": "open",
+  "description": "A cluster of slope failures on and below the road where it winds down in hairpins: debris lay across the road and ran down the slope below it - the road blockage reported between Launglon and Pa Nyit.",
+  "crown_z": 203.3,
+  "toe_z": 101.3,
+  "H_m": 102.0,
+  "L_m": 271.9,
+  "H_over_L": 0.375,
+  "reach_angle_deg": 20.6,
+  "azimuth_deg": 241,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 20.4,
+  "slope_p90_deg": 27.8,
+  "crown_lonlat": [
+   98.08521747641733,
+   13.992689990863807
+  ],
+  "toe_lonlat": [
+   98.08301550704498,
+   13.991497967255484
+  ],
+  "ndvi_pre_mean": 0.79,
+  "ndvi_pre_source": 0.79,
+  "zone_m2": {
+   "source": 1629.4,
+   "transport": 1627.7,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "PN-05",
+  "name": "East channel",
+  "type": "channel",
+  "description": "A gully scoured down the slope east of the main stream.",
+  "crown_z": 323.8,
+  "toe_z": 195.3,
+  "H_m": 128.5,
+  "L_m": 333.9,
+  "H_over_L": 0.385,
+  "reach_angle_deg": 21.0,
+  "azimuth_deg": 196,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 20.3,
+  "slope_p90_deg": 29.8,
+  "crown_lonlat": [
+   98.08884854850896,
+   13.995278596668937
+  ],
+  "toe_lonlat": [
+   98.08799551301558,
+   13.992376918340122
+  ],
+  "ndvi_pre_mean": 0.77,
+  "ndvi_pre_source": 0.77,
+  "zone_m2": {
+   "source": 3286.5,
+   "transport": 1897.6,
+   "runout": 730.2
+  }
+ },
+ {
+  "id": "PN-06",
+  "name": "North-east channel",
+  "type": "channel",
+  "description": "A wide scoured channel at the north-east edge of the survey; it continues beyond the flight.",
+  "crown_z": 301.3,
+  "toe_z": 199.2,
+  "H_m": 102.1,
+  "L_m": 180.6,
+  "H_over_L": 0.565,
+  "reach_angle_deg": 29.5,
+  "azimuth_deg": 50,
+  "crown_at_edge": true,
+  "toe_at_edge": true,
+  "slope_mean_deg": 28.8,
+  "slope_p90_deg": 34.8,
+  "crown_lonlat": [
+   98.08990874347244,
+   13.994700249518731
+  ],
+  "toe_lonlat": [
+   98.0911785263469,
+   13.995762622230512
+  ],
+  "ndvi_pre_mean": 0.81,
+  "ndvi_pre_source": 0.81,
+  "zone_m2": {
+   "source": 5403.9,
+   "transport": 63.5,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "PN-07",
+  "name": "Slides above the S-bend",
+  "type": "open",
+  "description": "Two small slides on the slope just above the road where it crosses the stream.",
+  "crown_z": 176.6,
+  "toe_z": 146.5,
+  "H_m": 30.1,
+  "L_m": 52.0,
+  "H_over_L": 0.579,
+  "reach_angle_deg": 30.1,
+  "azimuth_deg": 229,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 26.7,
+  "slope_p90_deg": 28.2,
+  "crown_lonlat": [
+   98.08407539137679,
+   13.993565961921325
+  ],
+  "toe_lonlat": [
+   98.08371082632449,
+   13.993259307673855
+  ],
+  "ndvi_pre_mean": 0.68,
+  "ndvi_pre_source": 0.68,
+  "zone_m2": {
+   "source": 437.2,
+   "transport": 0.0,
+   "runout": 0.0
+  }
+ }
+]

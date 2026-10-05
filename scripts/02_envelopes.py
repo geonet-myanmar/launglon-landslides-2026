@@ -176,6 +176,52 @@ ENV = {
         ("TX-9", "Canopy gaps in plantation", "exclude", 0, P, box_ll(98.11760, 14.01610, 98.11900, 14.01680), 0,
          "Rejected on outline review: canopy gaps in the plantation beside the main channel."),
     ],
+    # The road to Pa Nyit (5 Oct 2026): forested hillside east of the village where the road winds down in hairpins.
+    "pny": [
+        ("PN-02", "Head slide", "landslide", 1, P, [
+            (98.08580, 13.99720), (98.08760, 13.99725), (98.08765, 13.99800), (98.08640, 13.99800), (98.08580, 13.99770)], 0,
+         "Open-slope slide on the east side of the stream head; its debris ran west into the scoured channel."),
+        ("PN-03", "Bank slide", "landslide", 1, P, box_ll(98.08455, 13.99425, 98.08560, 13.99480), 0,
+         "Small slide off the east bank of the channel, above the road."),
+        ("PN-04", "Hairpin slides", "landslide", 2, P, [
+            (98.08300, 13.99135), (98.08380, 13.99110), (98.08530, 13.99120), (98.08560, 13.99160), (98.08600, 13.99260),
+            (98.08440, 13.99285), (98.08350, 13.99265), (98.08310, 13.99230)], 0,
+         "A cluster of slope failures on and below the road where it winds down in hairpins: debris lay across the road "
+         "and ran down the slope below it - the road blockage reported between Launglon and Pa Nyit."),
+        ("PN-01", "Stream channel debris flow", "landslide", 3, L, [
+            (98.08700, 13.99870), (98.08660, 13.99820), (98.08620, 13.99760), (98.08550, 13.99660), (98.08470, 13.99590),
+            (98.08450, 13.99510), (98.08370, 13.99460), (98.08350, 13.99430), (98.08360, 13.99360), (98.08340, 13.99300),
+            (98.08310, 13.99280), (98.08280, 13.99230), (98.08230, 13.99180), (98.08190, 13.99170)], 18,
+         "A forested stream scoured to bare rock and gravel for about 900 m, from the top of the survey down across "
+         "the road at the S-bend and on to the south-west edge."),
+        ("PN-05", "East channel", "landslide", 3, L, [
+            (98.08900, 13.99540), (98.08860, 13.99480), (98.08820, 13.99460), (98.08790, 13.99400), (98.08780, 13.99320),
+            (98.08800, 13.99250)], 16,
+         "A gully scoured down the slope east of the main stream."),
+        ("PN-06", "North-east channel", "landslide", 3, P, [
+            (98.08960, 13.99480), (98.08990, 13.99520), (98.09060, 13.99560), (98.09140, 13.99600), (98.09160, 13.99560),
+            (98.09080, 13.99510), (98.09000, 13.99460)], 0,
+         "A wide scoured channel at the north-east edge of the survey; it continues beyond the flight."),
+        ("PN-07", "Slides above the S-bend", "landslide", 1, P, box_ll(98.08370, 13.99318, 98.08412, 13.99372), 0,
+         "Two small slides on the slope just above the road where it crosses the stream."),
+        ("PX-4", "Patch already brown in Jan 2026", "exclude", 0, P, box_ll(98.08552, 13.99318, 98.08598, 13.99362), 0,
+         "Rejected on chip review: a fresh-looking scar above the road, but the spot is already brown on the Esri Vivid "
+         "image of 10 Jan 2026, so it may predate the storm."),
+        ("PX-1", "Road to Pa Nyit", "exclude", 0, L, [  # traced on the drone ortho at 0.3 m/px
+            (98.08000, 13.99470), (98.08050, 13.99450), (98.08100, 13.99400), (98.08150, 13.99345), (98.08169, 13.99329),
+            (98.08191, 13.99319), (98.08222, 13.99304), (98.08244, 13.99280), (98.08281, 13.99265), (98.08303, 13.99274),
+            (98.08316, 13.99281), (98.08323, 13.99274), (98.08327, 13.99260), (98.08338, 13.99253), (98.08363, 13.99257),
+            (98.08378, 13.99264), (98.08391, 13.99257), (98.08400, 13.99243), (98.08416, 13.99239), (98.08428, 13.99234),
+            (98.08433, 13.99222), (98.08434, 13.99203), (98.08447, 13.99191), (98.08466, 13.99184), (98.08472, 13.99170),
+            (98.08481, 13.99155), (98.08488, 13.99136), (98.08497, 13.99118), (98.08513, 13.99100), (98.08534, 13.99081),
+            (98.08556, 13.99074), (98.08588, 13.99074), (98.08613, 13.99077), (98.08644, 13.99068), (98.08700, 13.99130),
+            (98.08750, 13.99120), (98.08800, 13.99110)], 5,
+         "Unsealed road and its cut banks, bare on 10 Jan 2026."),
+        ("PX-2", "Rock outcrop", "exclude", 0, P, box_ll(98.08200, 13.99395, 98.08290, 13.99510), 0,
+         "Dark rock outcrop already bare on the Esri Vivid image of 10 Jan 2026."),
+        ("PX-3", "Dark patch bare before", "exclude", 0, P, box_ll(98.08635, 13.99350, 98.08700, 13.99410), 0,
+         "Dark wet patch, already brown on the Esri Vivid image of 10 Jan 2026."),
+    ],
 }
 
 

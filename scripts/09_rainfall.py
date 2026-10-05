@@ -1,15 +1,16 @@
 """Model rainfall at the two new sites for context (Open-Meteo best-match model, NOT gauge data), as at Taw Kye.
 
 Ka Det Nge Htein and Ngone Min Taung are 1.2 km apart, so one point between them is fetched; Tha Byar, 13 km
-north, has its own. Cached with the fetch time: forecast-hour values are later replaced by analysis values, so a
+north, and the road to Pa Nyit, 5 km west of Tha Byar, have their own. Cached with the fetch time: forecast-hour values are later replaced by analysis values, so a
 re-fetch will not match exactly - an existing cache is kept (delete it to re-fetch).
-usage: python 09_rainfall.py [kadet|tby]
+usage: python 09_rainfall.py [kadet|tby|pny]
 """
 import datetime as dt, json, sys, urllib.parse, urllib.request
 from sites import ROOT
 
 POINTS = {"kadet": (13.8920, 98.1330, "2026-10-03"),  # between Ka Det Nge Htein and Ngone Min Taung
-          "tby": (14.0090, 98.1250, "2026-10-05")}    # Tha Byar, head of the debris fan
+          "tby": (14.0090, 98.1250, "2026-10-05"),    # Tha Byar, head of the debris fan
+          "pny": (13.9945, 98.0855, "2026-10-05")}    # road to Pa Nyit, the scoured stream
 
 
 def get(params):

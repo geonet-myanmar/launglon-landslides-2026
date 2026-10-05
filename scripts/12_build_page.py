@@ -1,8 +1,8 @@
-"""Collect the four drone-surveyed sites into one payload, export GIS deliverables, render the dashboard.
+"""Collect the five drone-surveyed sites into one payload, export GIS deliverables, render the dashboard.
 
 Outputs
   outputs/launglon_landslides_2026.gpkg   per site: landslides, outwash, buildings, reach zones, exclusions, crown/toe
-  outputs/landslides.csv, outputs/buildings.csv, outputs/summary.json   (all four sites, `site` column)
+  outputs/landslides.csv, outputs/buildings.csv, outputs/summary.json   (all five sites, `site` column)
   index.html                              standalone page (doctype + head) for GitHub Pages / local use
   dist/artifact-body.html                 the same body fragment without the wrapper
 src/template.html is the single source of truth for the page; never hand-edit index.html.
@@ -16,7 +16,7 @@ SITE = "https://geonet-myanmar.github.io/launglon-landslides-2026/"
 OUTD = ROOT / "outputs"
 TK = ROOT / "data/tawkye"
 RAW = ROOT / "data/raw"
-REGION = box(98.09, 13.76, 98.22, 14.04)
+REGION = box(98.055, 13.76, 98.22, 14.04)
 WEB_SIMPLIFY_M = 0.2  # display outlines only; the GeoPackage keeps the 0.1 m outlines
 
 # Ground reports, Dawei Watch (Burmese), data/source/dawei_watch_2026-09-26_10-02.txt
@@ -51,6 +51,17 @@ REPORTS["tby"] = {
               "Rescue teams reached Tha Byar on 27 Sep, clearing debris and boulders from the road by the monastery and the "
               "Pyin Sa Thi Maw turn-off; low-lying parts of the village were flooded to head height.",
               "A resident recalled a 1997 landslide on the same ridge, long grown over, and said this one was larger."]}
+REPORTS["pny"] = {
+    "source": "Dawei Watch, 28-30 Sep 2026", "deaths": 0, "houses": None,
+    "houses_note": "2 houses buried in Pa Nyit village, 1.7 km west (outside the survey)",
+    "lines": ["Landslides after the heavy rain of 27 Sep blocked the road at two places: one between Launglon and Pa Nyit, "
+              "one between Pa Nyit and Kan Pa Ni. Shan Maw, Pein Ne Chaung and Kyon Ga Nan, reached through Pa Nyit, were "
+              "cut off (28 Sep).",
+              "In Pa Nyit village two houses were buried; no one was hurt, and villagers moved to safer ground (28 Sep).",
+              "The road near the Karen Gyi bridge, cut since 27 Sep, was repaired on 30 Sep, opening the way for food and "
+              "rescue vehicles to Karen Gyi, Kan Pa Ni and Pa Nyit.",
+              "Villagers recalled the 1997 landslides on the Launglon peninsula, when a slope collapse at Pa Nyit buried "
+              "about 100 houses and 61 people died in the mud."]}
 REGIONAL = {"launglon_deaths": 31, "launglon_asof": "1 Oct 2026", "district_deaths": 41, "district_asof": "2 Oct 2026",
             "source": "Dawei Watch, 2 Oct 2026"}
 META = {
@@ -63,7 +74,9 @@ META = {
 }
 META["tby"] = {"mmr": "သဗျာ", "gsd_cm": 9.0, "file": "TharByar_Plan_1.kmz + TharByar_Plan_2.kmz", "tiles": "thabyar",
                "mimu": [("Tha Byar", "177126", "inside")]}
-SITE_ORDER = ("tby", "nmt", "kdnh", "tawkye")  # north to south
+META["pny"] = {"mmr": "ပညစ်လမ်း", "gsd_cm": 7.0, "file": "PaNyit_Road.kmz", "tiles": "panyit",
+               "mimu": [("Pa Nyit", "177151", "1.7 km west of the survey")]}
+SITE_ORDER = ("tby", "pny", "nmt", "kdnh", "tawkye")  # north to south
 TK_TYPES = {"LS-01": "channel", "LS-04": "channel"}
 TK_EDGE = {"LS-01": ("crown", "Mud fan fed by a channel entering from outside the survey."),
            "LS-09": ("toe", "Continues beyond the surveyed area.")}
@@ -246,6 +259,7 @@ def main():
     pd.DataFrame(csv_rows).to_csv(OUTD / "landslides.csv", index=False)
     pd.concat(bcsv).to_csv(OUTD / "buildings.csv", index=False)
     rain = {"tby": rain_series(ROOT / "data/source/rainfall_openmeteo_tby.json"),
+            "pny": rain_series(ROOT / "data/source/rainfall_openmeteo_pny.json"),
             "kadet": rain_series(ROOT / "data/source/rainfall_openmeteo_kadet.json"),
             "tawkye": rain_series(TK / "rainfall_openmeteo_tawkye.json")}
     # ---- MIMU context
@@ -289,10 +303,10 @@ def main():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Launglon Landslides 2026</title>
-<meta name="description" content="Drone-orthomosaic analysis of the 26-27 Sep 2026 landslides at Tha Byar, Ngone Min Taung, Ka Det Nge Htein and Taw Kye, Launglon Township, Tanintharyi Region, Myanmar.">
+<meta name="description" content="Drone-orthomosaic analysis of the 26-27 Sep 2026 landslides at Tha Byar, the road to Pa Nyit, Ngone Min Taung, Ka Det Nge Htein and Taw Kye, Launglon Township, Tanintharyi Region, Myanmar.">
 <link rel="canonical" href="{SITE}">
 <meta property="og:url" content="{SITE}">
-<meta property="og:title" content="Launglon landslides, 26-27 Sep 2026: four drone surveys">
+<meta property="og:title" content="Launglon landslides, 26-27 Sep 2026: five drone surveys">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 28 L13 8 L19 18 L23 13 L30 28 Z' fill='%23b8742a'/%3E%3C/svg%3E">
 </head>
 <body>

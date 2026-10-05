@@ -2,7 +2,7 @@
 
 Same rules as the Taw Kye analysis, with the vegetation threshold set per flight at the
 valley of its bimodal excess-green histogram (sites.py: 0.015 for the overcast Ngone Min
-Taung flight, 0.06 for Ka Det Nge Htein, 0.027 for the merged Tha Byar flights; Taw Kye used 0.05):
+Taung flight, 0.06 for Ka Det Nge Htein, 0.027 for the merged Tha Byar flights and for Pa Nyit road; Taw Kye used 0.05):
   1 vegetation   ExG = (2G - R - B) / (R + G + B) >= threshold
   4 shadow       not vegetation, brightness (R+G+B)/3 < 50
   2 soil/debris  bare, R > 1.12 B and saturation >= 0.16  (orange-brown earth)

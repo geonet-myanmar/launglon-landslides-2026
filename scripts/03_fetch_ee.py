@@ -6,8 +6,9 @@
 - Sentinel-2 L2A pre-event NDVI and RGB, Jan-Apr 2026 median (10 m)
 - list of Sentinel-2 scenes after 26 Sep 2026
 Two areas, each the surveys plus a ~1.5 km margin for the hill crests so the runout model sees the
-whole catchments:  south = Ka Det Nge Htein + Ngone Min Taung (data/ee/), north = Tha Byar (data/ee_tby/).
-usage: python 03_fetch_ee.py [south|north]   (default: both). Existing files are kept.
+whole catchments:  south = Ka Det Nge Htein + Ngone Min Taung (data/ee/), north = Tha Byar (data/ee_tby/),
+west = the road to Pa Nyit (data/ee_pny/).
+usage: python 03_fetch_ee.py [south|north|west]   (default: both). Existing files are kept.
 """
 import json, os, sys, urllib.parse, urllib.request
 import ee
@@ -15,7 +16,8 @@ from sites import ROOT
 
 ee.Initialize(project=os.environ["EE_PROJECT"])
 AREAS = {"south": ("data/ee", (98.100, 13.860, 98.165, 13.922)),
-         "north": ("data/ee_tby", (98.095, 13.972, 98.160, 14.037))}
+         "north": ("data/ee_tby", (98.095, 13.972, 98.160, 14.037)),
+         "west": ("data/ee_pny", (98.062, 13.975, 98.110, 14.015))}
 
 
 def download(img, name, scale, crs="EPSG:32647"):

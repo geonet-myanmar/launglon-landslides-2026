@@ -21,6 +21,8 @@ SITES = {
     "tby": {"name": "Tha Byar", "kmz": "TharByar_Plan_1.kmz + TharByar_Plan_2.kmz", "flown": "2026-10-05",
             "exg": 0.027, "ee": "ee_tby", "mimu_pcode": "177126",
             "outwash_minus_buildings": True, "core_filter": True},  # outwash spreads through the village: roofs are not sediment
+    # road to Pa Nyit, 5 Oct 2026, one flight; own Earth Engine area (data/ee_pny/)
+    "pny": {"name": "Pa Nyit road", "kmz": "PaNyit_Road.kmz", "flown": "2026-10-05", "exg": 0.027, "ee": "ee_pny"},
 }
 # KMZ deliveries that are mosaicked by step 01 but are not sites of their own
 FLIGHTS = {
@@ -46,6 +48,7 @@ def d(site, *parts):
 # from its envelopes. Ngone Min Taung features are numbered by area by the split zone, so each name
 # carries the point it was given for, and step 06 checks the feature is still there.
 TYPES = {
+    "pny": {"PN-01": "channel", "PN-02": "open", "PN-03": "open", "PN-04": "open", "PN-05": "channel", "PN-06": "channel", "PN-07": "open"},
     "tby": {"TB-01": "channel", "TB-02": "channel", "TB-03": "open", "TB-04": "open", "TB-05": "channel"},
     "kdnh": {"KD-01": "channel", "KD-02": "open", "KD-03": "open", "KD-04": "open", "KD-05": "open",
              "KD-06": "channel", "KD-07": "open", "KD-08": "channel", "KD-09": "channel"},
@@ -93,4 +96,4 @@ TBY_NAMES = {  # Tha Byar split zone TC (ridge west of the main valley)
 SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES}
 # Landslides that enter the survey across its edge: the automatic crown (highest point on the outline) is then not
 # the source, so H, L and the reach angle are minimums. Set by inspection where the 15 m edge test misses it.
-EDGE_OVERRIDE = {"tby": {"TB-01": "crown", "TB-05": "crown"}}
+EDGE_OVERRIDE = {"tby": {"TB-01": "crown", "TB-05": "crown"}, "pny": {"PN-06": "crown"}}

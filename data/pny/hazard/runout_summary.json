@@ -1,0 +1,27 @@
+{
+ "alpha_open": 20.6,
+ "alpha_channel": 16.4,
+ "open_ids": [
+  "PN-02",
+  "PN-03",
+  "PN-04",
+  "PN-07"
+ ],
+ "channel_id": "PN-01",
+ "src_slope": 20.0,
+ "clip_m": 250,
+ "zoneA_ha": 128.53,
+ "zoneB_ha": 31.72,
+ "calibration_share_inside": {
+  "PN-01": 1.0,
+  "PN-02": 0.922,
+  "PN-03": 0.883,
+  "PN-04": 0.989,
+  "PN-07": 1.0
+ },
+ "buildings_surveyed_by_status_reach": {
+  "clear": {
+   "A": 1
+  }
+ }
+}
