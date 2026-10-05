@@ -17,7 +17,21 @@ SITES = {
         "exg": 0.06,
         "mimu_pcode": "177156",
     },
+    # two flights merged into one ortho by 01b_merge_tby.py; its own Earth Engine area (data/ee_tby/)
+    "tby": {"name": "Tha Byar", "kmz": "TharByar_Plan_1.kmz + TharByar_Plan_2.kmz", "flown": "2026-10-05",
+            "exg": 0.027, "ee": "ee_tby", "mimu_pcode": "177126",
+            "outwash_minus_buildings": True, "core_filter": True},  # outwash spreads through the village: roofs are not sediment
 }
+# KMZ deliveries that are mosaicked by step 01 but are not sites of their own
+FLIGHTS = {
+    "tb1": {"kmz": "TharByar_Plan_1.kmz"},  # village and western slopes, 9.5 cm
+    "tb2": {"kmz": "TharByar_Plan_2.kmz"},  # northern hills, 9.0 cm
+}
+
+
+def ee_dir(site):
+    """Earth Engine / OSM inputs for a site: data/ee (south area) or the site's own area."""
+    return ROOT / "data" / SITES.get(site, {}).get("ee", "ee")
 
 
 def d(site, *parts):
@@ -32,6 +46,7 @@ def d(site, *parts):
 # from its envelopes. Ngone Min Taung features are numbered by area by the split zone, so each name
 # carries the point it was given for, and step 06 checks the feature is still there.
 TYPES = {
+    "tby": {"TB-01": "channel", "TB-02": "channel", "TB-03": "open", "TB-04": "open", "TB-05": "channel"},
     "kdnh": {"KD-01": "channel", "KD-02": "open", "KD-03": "open", "KD-04": "open", "KD-05": "open",
              "KD-06": "channel", "KD-07": "open", "KD-08": "channel", "KD-09": "channel"},
 }
@@ -58,3 +73,24 @@ NMT_NAMES = {  # id: (name, type, representative lon, lat, description)
     "NM-11": ("North edge channel", "channel", 98.12807, 13.90414, "Channel scour at the northern edge of the survey."),
     "NM-12": ("East gully", "channel", 98.13629, 13.89646, "Gully scour at the east end of the south channel network."),
 }
+TBY_NAMES = {  # Tha Byar split zone TC (ridge west of the main valley)
+    "TC-01": ("North-spur channel network", "channel", 98.11795, 14.01037,
+              "Branching channels scoured down the north side of the spur west of the valley, draining east along a "
+              "gully that joins the main valley flow."),
+    "TC-02": ("West-edge channel", "channel", 98.11674, 14.00569,
+              "A channel scoured down the west edge of the survey that spread sand among the trees where the spur's "
+              "southern channels meet, above the southern debris flow."),
+    "TC-03": ("Ridge gullies", "channel", 98.11330, 14.01375,
+              "Gullies scoured down the east face of the ridge beside the long slide."),
+    "TC-04": ("Twin channels", "channel", 98.11774, 14.00738, "Two parallel channels scoured down the west flank of the spur."),
+    "TC-05": ("Spur slide", "open", 98.11958, 14.00590, "Open-slope failure on the south flank of the spur."),
+    "TC-06": ("Spur chute", "open", 98.11892, 14.00670, "Narrow debris chute on the south flank of the spur."),
+    "TC-07": ("North-west edge channel", "channel", 98.11244, 14.01615, "Channel scoured at the north-west edge of the survey."),
+    "TC-08": ("West-edge gully", "channel", 98.11655, 14.00980, "Gully scoured at the west edge of the survey."),
+    "TC-09": ("South-west channel", "channel", 98.11700, 14.00381, "Scoured channel near the south-west edge of the survey."),
+    "TC-10": ("Scar beside the long slide", "open", 98.11702, 14.01325, "Small open-slope scar beside the toe of the long slide."),
+}
+SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES}
+# Landslides that enter the survey across its edge: the automatic crown (highest point on the outline) is then not
+# the source, so H, L and the reach angle are minimums. Set by inspection where the 15 m edge test misses it.
+EDGE_OVERRIDE = {"tby": {"TB-01": "crown", "TB-05": "crown"}}

@@ -1,5 +1,246 @@
 {
  "sites": {
+  "tby": {
+   "key": "tby",
+   "name": "Tha Byar",
+   "mmr": "သဗျာ",
+   "flown": "2026-10-05",
+   "gsd_cm": 9.0,
+   "file": "TharByar_Plan_1.kmz + TharByar_Plan_2.kmz",
+   "survey_ha": 352.5,
+   "tiles": "thabyar",
+   "n_landslides": 23,
+   "n_by_type": {
+    "open": 5,
+    "channel": 10,
+    "minor": 8
+   },
+   "area_total_m2": 497830,
+   "area_by_type_m2": {
+    "open": 59203,
+    "channel": 435683,
+    "minor": 2944
+   },
+   "area_runout_flat_m2": 295771,
+   "outwash_m2": 325583,
+   "largest": "TB-01",
+   "buildings_surveyed": 247,
+   "buildings_status": {
+    "clear": 198,
+    "outwash": 41,
+    "damaged": 4,
+    "destroyed": 2,
+    "edge": 2
+   },
+   "not_building": 12,
+   "overrides": 1,
+   "reach": {
+    "standing_in_A": 1,
+    "standing_in_B": 2,
+    "standing_outside": 238,
+    "affected": 6,
+    "affected_in_AB": 0
+   },
+   "runout": {
+    "alpha_open": 14.0,
+    "alpha_channel": 8.0,
+    "open_ids": [
+     "TB-03",
+     "TB-04",
+     "TC-05",
+     "TC-06",
+     "TC-10"
+    ],
+    "channel_id": "TB-03+TB-01",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 212.62,
+    "zoneB_ha": 84.73,
+    "calibration_share_inside": {
+     "TB-01": 0.483,
+     "TB-03": 0.997,
+     "TB-04": 1.0,
+     "TC-05": 0.968,
+     "TC-06": 1.0,
+     "TC-10": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 195,
+      "A": 1,
+      "B": 2
+     },
+     "damaged": {
+      "": 4,
+      "A": 0,
+      "B": 0
+     },
+     "destroyed": {
+      "": 2,
+      "A": 0,
+      "B": 0
+     },
+     "edge": {
+      "": 2,
+      "A": 0,
+      "B": 0
+     },
+     "outwash": {
+      "": 41,
+      "A": 0,
+      "B": 0
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": 1.75,
+    "dN": -1.25,
+    "grey_before": 0.579,
+    "grey_after": 0.618,
+    "n_used": 239
+   },
+   "report": {
+    "source": "Dawei Watch, 27 Sep - 2 Oct 2026",
+    "deaths": 3,
+    "recovered": 3,
+    "missing": 0,
+    "houses": "nearly 40",
+    "houses_n": 40,
+    "houses_label": "nearly 40 houses buried or damaged",
+    "lines": [
+     "3 people of one family died in the landslide west of the main road: Daw Aye Win (about 50) and her 6-year-old granddaughter were found under the debris on 30 Sep, the girl's mother on 1 Oct (2 Oct).",
+     "Nearly 40 houses buried or damaged (2 Oct). On 29 Sep residents counted at least 4 houses almost completely destroyed and nearly 200 with sediment washed inside, with rubber, cashew and other plantations buried; a mother and her son were then missing.",
+     "About three football pitches of land buried west of the Dawei-Launglon road (30 Sep).",
+     "The Tha Byar bridge on the Dawei-Launglon road, undermined by the stream and landslide debris on 29 Sep, collapsed on the morning of 30 Sep; traffic was sent round via the Inn Zauk junction and Wei Di - Pyin Htein.",
+     "Rescue teams reached Tha Byar on 27 Sep, clearing debris and boulders from the road by the monastery and the Pyin Sa Thi Maw turn-off; low-lying parts of the village were flooded to head height.",
+     "A resident recalled a 1997 landslide on the same ridge, long grown over, and said this one was larger."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Tha Byar",
+     "pcode": "177126",
+     "where": "inside",
+     "mmr": "သဗျာ",
+     "lon": 98.1291275,
+     "lat": 14.00967979
+    }
+   ],
+   "vt": "Tha Byar",
+   "vt_pcode": "MMR006002004",
+   "bounds": [
+    98.11181853972629,
+    13.998449604127996,
+    98.13131995953042,
+    14.019507213984001
+   ],
+   "n_exclusions": 9
+  },
+  "nmt": {
+   "key": "nmt",
+   "name": "Ngone Min Taung",
+   "mmr": "",
+   "flown": "2026-10-04",
+   "gsd_cm": 10.1,
+   "file": "NgoneMinTaung_Ortho.kmz",
+   "survey_ha": 178.1,
+   "tiles": "kadet",
+   "n_landslides": 26,
+   "n_by_type": {
+    "open": 4,
+    "channel": 8,
+    "minor": 14
+   },
+   "area_total_m2": 206952,
+   "area_by_type_m2": {
+    "open": 41899,
+    "channel": 158761,
+    "minor": 6292
+   },
+   "area_runout_flat_m2": 99957,
+   "outwash_m2": 0,
+   "largest": "NM-01",
+   "buildings_surveyed": 257,
+   "buildings_status": {
+    "clear": 256,
+    "damaged": 1
+   },
+   "not_building": 0,
+   "overrides": 0,
+   "reach": {
+    "standing_in_A": 29,
+    "standing_in_B": 9,
+    "standing_outside": 218,
+    "affected": 1,
+    "affected_in_AB": 1
+   },
+   "runout": {
+    "alpha_open": 14.8,
+    "alpha_channel": 11.6,
+    "open_ids": [
+     "NM-05",
+     "NM-07",
+     "NM-08"
+    ],
+    "channel_id": "NM-04",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 189.58,
+    "zoneB_ha": 14.9,
+    "calibration_share_inside": {
+     "NM-04": 0.998,
+     "NM-05": 0.871,
+     "NM-07": 1.0,
+     "NM-08": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 218,
+      "A": 29,
+      "B": 9
+     },
+     "damaged": {
+      "": 0,
+      "A": 1,
+      "B": 0
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": 0.5,
+    "dN": -2.0,
+    "grey_before": 0.45,
+    "grey_after": 0.469,
+    "n_used": 245
+   },
+   "report": {
+    "source": "Dawei Watch, 26 Sep - 2 Oct 2026",
+    "deaths": null,
+    "houses": null,
+    "lines": [
+     "No report names Ngone Min Taung or Htein Gyi in Dawei Watch coverage to 2 Oct 2026."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Htein Gyi",
+     "pcode": "177157",
+     "where": "inside",
+     "mmr": "ထိန်ကြီး",
+     "lon": 98.13529205,
+     "lat": 13.90513992
+    }
+   ],
+   "vt": "Auk Yae Hpyu",
+   "vt_pcode": "MMR006002015",
+   "bounds": [
+    98.122153728144,
+    13.894427385519984,
+    98.138330887184,
+    13.905512133080189
+   ],
+   "n_exclusions": 11
+  },
   "kdnh": {
    "key": "kdnh",
    "name": "Ka Det Nge Htein",
@@ -124,111 +365,6 @@
     13.895025810308296
    ],
    "n_exclusions": 1
-  },
-  "nmt": {
-   "key": "nmt",
-   "name": "Ngone Min Taung",
-   "mmr": "",
-   "flown": "2026-10-04",
-   "gsd_cm": 10.1,
-   "file": "NgoneMinTaung_Ortho.kmz",
-   "survey_ha": 178.1,
-   "tiles": "kadet",
-   "n_landslides": 26,
-   "n_by_type": {
-    "open": 4,
-    "channel": 8,
-    "minor": 14
-   },
-   "area_total_m2": 206952,
-   "area_by_type_m2": {
-    "open": 41899,
-    "channel": 158761,
-    "minor": 6292
-   },
-   "area_runout_flat_m2": 99957,
-   "outwash_m2": 0,
-   "largest": "NM-01",
-   "buildings_surveyed": 257,
-   "buildings_status": {
-    "clear": 256,
-    "damaged": 1
-   },
-   "not_building": 0,
-   "overrides": 0,
-   "reach": {
-    "standing_in_A": 29,
-    "standing_in_B": 9,
-    "standing_outside": 218,
-    "affected": 1,
-    "affected_in_AB": 1
-   },
-   "runout": {
-    "alpha_open": 14.8,
-    "alpha_channel": 11.6,
-    "open_ids": [
-     "NM-05",
-     "NM-07",
-     "NM-08"
-    ],
-    "channel_id": "NM-04",
-    "src_slope": 20.0,
-    "clip_m": 250,
-    "zoneA_ha": 189.58,
-    "zoneB_ha": 14.9,
-    "calibration_share_inside": {
-     "NM-04": 0.998,
-     "NM-05": 0.871,
-     "NM-07": 1.0,
-     "NM-08": 1.0
-    },
-    "buildings_surveyed_by_status_reach": {
-     "clear": {
-      "": 218,
-      "A": 29,
-      "B": 9
-     },
-     "damaged": {
-      "": 0,
-      "A": 1,
-      "B": 0
-     }
-    }
-   },
-   "footprint_shift": {
-    "dE": 0.5,
-    "dN": -2.0,
-    "grey_before": 0.45,
-    "grey_after": 0.469,
-    "n_used": 245
-   },
-   "report": {
-    "source": "Dawei Watch, 26 Sep - 2 Oct 2026",
-    "deaths": null,
-    "houses": null,
-    "lines": [
-     "No report names Ngone Min Taung or Htein Gyi in Dawei Watch coverage to 2 Oct 2026."
-    ]
-   },
-   "mimu": [
-    {
-     "name": "Htein Gyi",
-     "pcode": "177157",
-     "where": "inside",
-     "mmr": "ထိန်ကြီး",
-     "lon": 98.13529205,
-     "lat": 13.90513992
-    }
-   ],
-   "vt": "Auk Yae Hpyu",
-   "vt_pcode": "MMR006002015",
-   "bounds": [
-    98.122153728144,
-    13.894427385519984,
-    98.138330887184,
-    13.905512133080189
-   ],
-   "n_exclusions": 11
   },
   "tawkye": {
    "key": "tawkye",
@@ -370,15 +506,16 @@
   }
  },
  "total": {
-  "n_landslides": 44,
-  "area_m2": 574981,
-  "destroyed": 61,
-  "damaged": 15,
-  "standing_in_A": 169,
-  "standing_in_B": 164,
-  "deaths": 20,
-  "survey_ha": 395.5,
-  "outwash_m2": 156672
+  "n_landslides": 67,
+  "area_m2": 1072811,
+  "destroyed": 63,
+  "damaged": 19,
+  "standing_in_A": 170,
+  "standing_in_B": 166,
+  "deaths": 23,
+  "survey_ha": 748.0,
+  "outwash_m2": 482255,
+  "in_sediment": 41
  },
  "regional": {
   "launglon_deaths": 31,
@@ -388,6 +525,16 @@
   "source": "Dawei Watch, 2 Oct 2026"
  },
  "rain": {
+  "tby": {
+   "night_26_27": 143.5,
+   "d25_28": 545.2,
+   "sep_total": 946.4,
+   "fetched": "2026-10-05T12:32Z",
+   "grid": [
+    14.024605,
+    98.129036
+   ]
+  },
   "kadet": {
    "night_26_27": 136.4,
    "d25_28": 569.7,

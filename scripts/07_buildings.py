@@ -11,7 +11,9 @@
      destroyed    >= 30 % inside a landslide and no roof left (grey < 0.30, soil >= 0.40)
      damaged      >= 30 % inside a landslide, roof still visible
      edge         within 10 m of a landslide
-     outwash      >= 30 % inside the sediment-covered fields (standing in sediment or water)
+     outwash      >= 30 % inside the sediment-covered fields (standing in sediment or water). Where the outwash
+                  runs through a village and its outline excludes footprints (sites.py outwash_minus_buildings),
+                  the test is >= 30 % of a 3 m ring around the footprint under sediment
      clear        otherwise;  not_surveyed if outside the flight
    data/<site>/inventory/building_overrides.csv (visual check of every destroyed / damaged / edge /
    outwash chip) replaces the automatic status where the interpreter disagreed.
@@ -24,14 +26,13 @@ from rasterio.enums import Resampling
 from rasterio.transform import from_origin
 from rasterio.windows import from_bounds, Window
 from shapely.affinity import translate
-from sites import SITES, ROOT, d
+from sites import SITES, d, ee_dir
 
 RES = 0.25
 SHIFTS = np.arange(-8, 8.01, 0.25)
-EE = ROOT / "data/ee"
 
 
-def merged_footprints(fp):
+def merged_footprints(fp, EE):
     osm = gpd.read_file(EE / "osm_buildings.geojson").to_crs(32647)
     osm = osm[osm.intersects(fp.buffer(20))]
     osm = gpd.GeoDataFrame({"source": "OSM", "src_id": osm["osm_id"].astype(str)}, geometry=osm.geometry.buffer(0), crs=32647)
@@ -98,7 +99,7 @@ def run(site):
     inv = d(site, "inventory")
     fp = gpd.read_file(inv / "footprint.geojson").to_crs(32647).geometry.iloc[0]
     fp_in = fp.buffer(-1)
-    b = merged_footprints(fp)
+    b = merged_footprints(fp, ee_dir(site))
     b["bid"] = [f"{site.upper()}-B{i:04d}" for i in range(len(b))]
     out = gpd.read_file(inv / "landslides_utm.gpkg")
     slides = out[out.kind == "landslide"]
@@ -121,7 +122,13 @@ def run(site):
                 inner = g
             fr = fractions(src, gpd.GeoSeries([inner], crs=32647).to_crs(4326).iloc[0])
             ov = g.intersection(sl_union).area / g.area
-            ovw = g.intersection(ow_union).area / g.area if ow_union is not None else 0.0
+            if ow_union is None:
+                ovw = 0.0
+            elif SITES[site].get("outwash_minus_buildings"):
+                ring = g.buffer(3.0).difference(g)
+                ovw = ring.intersection(ow_union).area / ring.area
+            else:
+                ovw = g.intersection(ow_union).area / g.area
             dist = g.distance(sl_union)
             hit = slides[slides.intersects(g)]
             near = slides.loc[slides.distance(g).idxmin(), "id"] if dist <= 10 else ""

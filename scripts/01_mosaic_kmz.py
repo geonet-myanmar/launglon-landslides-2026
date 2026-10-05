@@ -5,13 +5,15 @@ Same delivery format as the Taw Kye surveys: every leaf is a 512x512 tile in pla
 Ka Det Nge Htein, all at depth 6), so each lands on integer offsets of the deepest grid.
 Interior leaves are JPEG (no alpha -> fully valid), edge leaves PNG with alpha.
 Written tile by tile - the 32768^2 grid never sits in RAM.
+Tha Byar's two flights (tb1, tb2: 1031 and 949 leaves, depth 6, 9.5 / 9.0 cm) are mosaicked here and merged
+into data/tby/ by 01b_merge_tby.py.
 """
 import io, sys, zipfile, xml.etree.ElementTree as ET
 import numpy as np, rasterio
 from rasterio.transform import from_origin
 from rasterio.windows import Window
 from PIL import Image
-from sites import SITES, SRC, d
+from sites import SITES, FLIGHTS, SRC, d
 
 NS = {"k": "http://www.opengis.net/kml/2.2"}
 
@@ -27,7 +29,7 @@ def overlays(z):
 
 
 def run(tag):
-    z = zipfile.ZipFile(SRC / SITES[tag]["kmz"])
+    z = zipfile.ZipFile(SRC / {**SITES, **FLIGHTS}[tag]["kmz"])
     ovs = overlays(z)
     root = next(b for h, b in ovs if h.startswith("a."))
     depth = max(ord(h[0]) - ord("a") for h, _ in ovs)
@@ -56,5 +58,5 @@ def run(tag):
 
 
 if __name__ == "__main__":
-    for t in (sys.argv[1:] or list(SITES)):
+    for t in (sys.argv[1:] or [s for s in SITES if "kmz" in SITES[s] and "+" not in SITES[s]["kmz"]] + list(FLIGHTS)):
         run(t)

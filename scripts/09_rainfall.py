@@ -1,13 +1,15 @@
 """Model rainfall at the two new sites for context (Open-Meteo best-match model, NOT gauge data), as at Taw Kye.
 
-The sites are 1.2 km apart, so one point between them is fetched. Cached with the fetch time:
-forecast-hour values are later replaced by analysis values, so a re-fetch will not match exactly.
+Ka Det Nge Htein and Ngone Min Taung are 1.2 km apart, so one point between them is fetched; Tha Byar, 13 km
+north, has its own. Cached with the fetch time: forecast-hour values are later replaced by analysis values, so a
+re-fetch will not match exactly - an existing cache is kept (delete it to re-fetch).
+usage: python 09_rainfall.py [kadet|tby]
 """
-import datetime as dt, json, urllib.parse, urllib.request
+import datetime as dt, json, sys, urllib.parse, urllib.request
 from sites import ROOT
 
-OUT = ROOT / "data/source/rainfall_openmeteo_kadet.json"
-LAT, LON = 13.8920, 98.1330  # between Ka Det Nge Htein and Ngone Min Taung
+POINTS = {"kadet": (13.8920, 98.1330, "2026-10-03"),  # between Ka Det Nge Htein and Ngone Min Taung
+          "tby": (14.0090, 98.1250, "2026-10-05")}    # Tha Byar, head of the debris fan
 
 
 def get(params):
@@ -15,9 +17,13 @@ def get(params):
         return json.loads(r.read())
 
 
-def main():
+def main(key):
+    LAT, LON, end = POINTS[key]
+    OUT = ROOT / f"data/source/rainfall_openmeteo_{key}.json"
+    if OUT.exists():
+        print("have", OUT.name); return
     base = {"latitude": LAT, "longitude": LON, "timezone": "Asia/Yangon"}
-    d = get({**base, "daily": "precipitation_sum", "start_date": "2026-09-01", "end_date": "2026-10-03"})
+    d = get({**base, "daily": "precipitation_sum", "start_date": "2026-09-01", "end_date": end})
     h = get({**base, "hourly": "precipitation", "start_date": "2026-09-24", "end_date": "2026-09-29"})
     out = {"source": "Open-Meteo forecast API, best-match model (not gauge data)",
            "fetched_utc": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
@@ -32,4 +38,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    for k in (sys.argv[1:] or list(POINTS)):
+        main(k)

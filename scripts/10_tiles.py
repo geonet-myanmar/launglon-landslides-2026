@@ -1,6 +1,7 @@
 """Web-map tiles of the Ngone Min Taung and Ka Det Nge Htein orthos at native resolution.
 
-512 px WebP tiles in the XYZ scheme (Leaflet: tileSize 512, zoomOffset -1), written to tiles/kadet/.
+512 px WebP tiles in the XYZ scheme (Leaflet: tileSize 512, zoomOffset -1), written to tiles/kadet/ (Ngone Min Taung
++ Ka Det Nge Htein) and tiles/thabyar/ (the merged Tha Byar flights, 9.0 cm). usage: python 10_tiles.py [kadet|thabyar]
 The deepest level, z20 in 512 px tiles, is 7.3 cm/px at 13.9 N - finer than both flights (10.1 and
 8.0 cm), so nothing is reduced. Lower levels are 2x2 averages of their children. Where the flights meet,
 the finer Ka Det Nge Htein flight is drawn over Ngone Min Taung. Blank tiles are skipped.
@@ -15,7 +16,7 @@ from rasterio.windows import Window
 from PIL import Image
 from sites import ROOT, d
 
-OUT = ROOT / "tiles/kadet"
+SETS = {"kadet": ("nmt", "kdnh"), "thabyar": ("tby",)}  # later sites drawn on top
 ZMAX, ZMIN, TS = 20, 13, 512
 R = 20037508.342789244
 
@@ -32,10 +33,11 @@ def tile_range(z, bounds_ll):
     return int(x0), int(x1), int(y0), int(y1)
 
 
-def main():
+def main(name):
+    OUT = ROOT / "tiles" / name
     res = 2 * R / (2 ** ZMAX * TS)
     grid = Affine(res, 0, -R, 0, -res, R)
-    srcs = [rasterio.open(d(t, "ortho", "ortho_4326.tif")) for t in ("nmt", "kdnh")]  # kdnh drawn on top
+    srcs = [rasterio.open(d(t, "ortho", "ortho_4326.tif")) for t in SETS[name]]
     W = H = 2 ** ZMAX * TS
     vrts = [WarpedVRT(s, crs="EPSG:3857", transform=grid, width=W, height=H, resampling=Resampling.bilinear) for s in srcs]
     have = set()
@@ -76,4 +78,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    for n in (sys.argv[1:] or list(SETS)):
+        main(n)

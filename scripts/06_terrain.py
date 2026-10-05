@@ -4,10 +4,12 @@ Per landslide:
   crown / toe     highest / lowest DEM point on the outline (bilinear, outline densified 2 m)
   H, L            crown-to-toe drop and horizontal distance; H/L = tan(reach angle)
   edge            crown or toe within 15 m of the edge of the flight: the scar runs on beyond the
-                  survey, so H and L are minimums
+                  survey, so H and L are minimums (sites.EDGE_OVERRIDE sets it where a flow enters across
+                  the edge but its highest outline point lies elsewhere)
   zones           area on DEM slope >= 20 deg (source), 8-20 (transport), < 8 (runout)
   ndvi_pre        mean Jan-Apr 2026 Sentinel-2 NDVI over the outline and its source zone
-Also writes slope / hillshade rasters (one DEM covers both sites) and data/<site>/inventory/terrain.json.
+Also writes slope / hillshade rasters beside each DEM (data/ee: Ka Det Nge Htein + Ngone Min Taung; data/ee_tby:
+Tha Byar) and data/<site>/inventory/terrain.json.
 """
 import json, sys
 import numpy as np, rasterio, geopandas as gpd
@@ -15,13 +17,12 @@ from rasterio import features
 from shapely.geometry import Point, shape
 from shapely.ops import unary_union
 from scipy.ndimage import map_coordinates
-from sites import SITES, ROOT, TYPES, NMT_NAMES, d
+from sites import SITES, TYPES, SPLIT_NAMES, EDGE_OVERRIDE, d, ee_dir
 
 ZONES = [("source", 20, 90), ("transport", 8, 20), ("runout", 0, 8)]
-EE = ROOT / "data/ee"
 
 
-def dem_products():
+def dem_products(EE):
     with rasterio.open(EE / "cop30_dem_utm.tif") as src:
         z = src.read(1).astype(np.float64)
         T = src.transform
@@ -39,17 +40,20 @@ def dem_products():
 
 
 def names(site, g):
-    if site == "kdnh":
-        env = gpd.read_file(d(site, "inventory", "envelopes.geojson")).set_index("id")
-        return {i: (env.loc[i, "name"], TYPES[site][i], env.loc[i, "description"]) for i in g["id"]}
+    """Envelope landslides take the envelope's name and TYPES type; split-zone features are numbered by area,
+    so each SPLIT_NAMES entry carries the point it was named for and must still lie on it."""
+    env = gpd.read_file(d(site, "inventory", "envelopes.geojson")).set_index("id")
+    named = SPLIT_NAMES.get(site, {})
     out = {}
     gu = g.set_index("id")
     for i in g["id"]:
-        if i in NMT_NAMES:
-            n, t, x, y, desc = NMT_NAMES[i]
+        if i in TYPES.get(site, {}):
+            out[i] = (env.loc[i, "name"], TYPES[site][i], env.loc[i, "description"])
+        elif i in named:
+            n, t, x, y, desc = named[i]
             p = gpd.GeoSeries([Point(x, y)], crs=4326).to_crs(32647).iloc[0]
             dist = gu.loc[i].geometry.distance(p)
-            assert dist < 30, f"{i} is {dist:.0f} m from where it was named - split-zone numbering changed; update NMT_NAMES"
+            assert dist < 30, f"{i} is {dist:.0f} m from where it was named - split-zone numbering changed; update SPLIT_NAMES"
             out[i] = (n, t, desc)
         else:
             out[i] = ("Minor scar", "minor", "Small scar or channel fragment.")
@@ -58,7 +62,7 @@ def names(site, g):
 
 def run(site, z, slope, T):
     tr = rasterio.transform.AffineTransformer(T)
-    with rasterio.open(EE / "s2_ndvi_pre_2026JanApr.tif") as s:
+    with rasterio.open(ee_dir(site) / "s2_ndvi_pre_2026JanApr.tif") as s:
         ndvi = s.read(1).astype(np.float64)
         tr_n = rasterio.transform.AffineTransformer(s.transform)
 
@@ -108,12 +112,18 @@ def run(site, z, slope, T):
                     "ndvi_pre_source": round(float(np.nanmean(nd[sl >= 20])), 2) if (sl >= 20).any() else None,
                     "zone_m2": {k: round(geom.intersection(v).area, 1) for k, v in zone_polys.items()}})
         o = out[-1]
+        ov = EDGE_OVERRIDE.get(site, {}).get(r["id"])
+        if ov:
+            o[f"{ov}_at_edge"] = True
         print(site, o["id"], o["type"], {k: o[k] for k in ("crown_z", "toe_z", "H_m", "L_m", "reach_angle_deg",
                                                          "crown_at_edge", "toe_at_edge", "slope_mean_deg", "ndvi_pre_source")})
     json.dump(out, open(d(site, "inventory", "terrain.json"), "w"), indent=1)
 
 
 if __name__ == "__main__":
-    z, slope, T = dem_products()
+    dems = {}
     for s in (sys.argv[1:] or list(SITES)):
-        run(s, z, slope, T)
+        e = ee_dir(s)
+        if e not in dems:
+            dems[e] = dem_products(e)
+        run(s, *dems[e])
