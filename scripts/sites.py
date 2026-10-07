@@ -17,18 +17,31 @@ SITES = {
         "exg": 0.06,
         "mimu_pcode": "177156",
     },
-    # two flights merged into one ortho by 01b_merge_tby.py; its own Earth Engine area (data/ee_tby/)
+    # two flights merged into one ortho by 01b_merge_flights.py; its own Earth Engine area (data/ee_tby/)
     "tby": {"name": "Tha Byar", "kmz": "TharByar_Plan_1.kmz + TharByar_Plan_2.kmz", "flown": "2026-10-05",
             "exg": 0.027, "ee": "ee_tby", "mimu_pcode": "177126",
             "outwash_minus_buildings": True, "core_filter": True},  # outwash spreads through the village: roofs are not sediment
     # road to Pa Nyit, 5 Oct 2026, one flight; own Earth Engine area (data/ee_pny/)
     "pny": {"name": "Pa Nyit road", "kmz": "PaNyit_Road.kmz", "flown": "2026-10-05", "exg": 0.027, "ee": "ee_pny"},
+    # Ka Det Gyi, Nyaungdon and Wet Thar Kin, 6 Oct 2026: two flights merged by 01b_merge_flights.py (MERGES); own EE area
+    "kdg": {"name": "Ka Det Gyi", "kmz": "KadetGyi_WetTharKin_Plan-1.kmz + KadetGyi_ChaeTawYar_Plan-2.kmz",
+            "flown": "2026-10-06", "exg": 0.034, "ee": "ee_kdg",
+            "minus_sites": ["kdnh"], "outwash_minus_buildings": True,
+            # the automatic roof-grey fit (+4.75 m E) is pulled by bare grey yards and moves compound footprints off
+            # their roofs; OSM footprints sit on the drone roofs unshifted (checked at 0.2-0.3 m/px), VIDA ones are
+            # scattered 3-10 m west, so no shift is applied and every footprint near sediment or a slide is checked
+            "footprint_shift": (0.0, 0.0)},  # 4.3 ha overlap with the Ka Det Nge Htein survey stays with Ka Det Nge Htein
 }
 # KMZ deliveries that are mosaicked by step 01 but are not sites of their own
 FLIGHTS = {
     "tb1": {"kmz": "TharByar_Plan_1.kmz"},  # village and western slopes, 9.5 cm
     "tb2": {"kmz": "TharByar_Plan_2.kmz"},  # northern hills, 9.0 cm
+    "kg1": {"kmz": "KadetGyi_WetTharKin_Plan-1.kmz"},  # 8.0 cm
+    "kg2": {"kmz": "KadetGyi_ChaeTawYar_Plan-2.kmz"},  # 8.0 cm
 }
+MERGES = {"tby": ("tb1", "tb2"), "kdg": ("kg1", "kg2")}  # site: (flight 1, flight 2), merged by 01b_merge_flights.py
+# metres to move flight 1 onto flight 2 before merging (phase correlation in the overlap; omitted = no shift)
+MERGE_SHIFT = {"kdg": (1.32, 0.36)}
 
 
 def ee_dir(site):
@@ -93,7 +106,29 @@ TBY_NAMES = {  # Tha Byar split zone TC (ridge west of the main valley)
     "TC-09": ("South-west channel", "channel", 98.11700, 14.00381, "Scoured channel near the south-west edge of the survey."),
     "TC-10": ("Scar beside the long slide", "open", 98.11702, 14.01325, "Small open-slope scar beside the toe of the long slide."),
 }
-SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES}
+KDG_NAMES = {  # Ka Det Gyi split zones KGN (hills south of Wet Thar Kin) and KGS (hills west of Ka Det Gyi and Nyaungdon)
+    "KGN-01": ("Wet Thar Kin debris flow", "open", 98.13925, 13.87742,
+               "The largest failure: a hook-shaped scar on the hill south of Wet Thar Kin whose debris turned north and "
+               "ran down to the clearing beside the village road, with a scoured channel below it to the west."),
+    "KGN-02": ("East gullies", "channel", 98.14479, 13.87830, "Two parallel gullies scoured down the north face of the hills."),
+    "KGN-03": ("North-running gully", "channel", 98.14350, 13.87870, "A gully scoured north down the hillside towards the fields."),
+    "KGS-01": ("Chutes above the compound", "open", 98.14549, 13.87485,
+               "Five chutes on the hill west of Ka Det Gyi that converged on the track and ran south to the compound "
+               "in the valley; one slid off the slope below the track."),
+    "KGS-02": ("South-tip channels", "channel", 98.14463, 13.86804,
+               "Branching channels scoured down the south end of the ridge to the edge of the survey."),
+    "KGS-03": ("South-tip chute", "channel", 98.14350, 13.86716,
+               "A long chute and its twin scoured down the western side of the south end of the ridge."),
+    "KGS-04": ("Slide across the hill track", "open", 98.14900, 13.87361,
+               "A wide slide in plantation west of Nyaungdon whose debris crossed the hill track."),
+    "KGS-05": ("West chute", "open", 98.14084, 13.87649, "A long narrow chute down the west face of the hills."),
+    "KGS-06": ("Plantation slide", "open", 98.14786, 13.87244, "A slide through young plantation on the east face of the hill."),
+    "KGS-07": ("Hillside channel", "channel", 98.14452, 13.87093, "A narrow channel scoured down the west face of the ridge."),
+    "KGS-08": ("Twin scars", "open", 98.14762, 13.87133, "Two small scars on the east face of the hill."),
+    "KGS-09": ("Upper gully", "channel", 98.14268, 13.87663, "A gully on the north side of the hills."),
+    "KGS-10": ("Small slide", "open", 98.14815, 13.87171, "A small slide on the east face of the hill."),
+}
+SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES, "kdg": KDG_NAMES}
 # Landslides that enter the survey across its edge: the automatic crown (highest point on the outline) is then not
 # the source, so H, L and the reach angle are minimums. Set by inspection where the 15 m edge test misses it.
 EDGE_OVERRIDE = {"tby": {"TB-01": "crown", "TB-05": "crown"}, "pny": {"PN-06": "crown"}}

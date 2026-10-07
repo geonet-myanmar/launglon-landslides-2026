@@ -134,7 +134,8 @@
     98.13131995953042,
     14.019507213984001
    ],
-   "n_exclusions": 9
+   "n_exclusions": 9,
+   "nearest_standing_m": 0.0
   },
   "pny": {
    "key": "pny",
@@ -237,7 +238,8 @@
     98.09165610967517,
     13.99936152851048
    ],
-   "n_exclusions": 4
+   "n_exclusions": 4,
+   "nearest_standing_m": 203.7
   },
   "nmt": {
    "key": "nmt",
@@ -342,7 +344,8 @@
     98.138330887184,
     13.905512133080189
    ],
-   "n_exclusions": 11
+   "n_exclusions": 11,
+   "nearest_standing_m": 10.3
   },
   "kdnh": {
    "key": "kdnh",
@@ -467,7 +470,145 @@
     98.14165699122282,
     13.895025810308296
    ],
-   "n_exclusions": 1
+   "n_exclusions": 1,
+   "nearest_standing_m": 0.0
+  },
+  "kdg": {
+   "key": "kdg",
+   "name": "Ka Det Gyi",
+   "mmr": "ကဒက်ကြီး",
+   "flown": "2026-10-06",
+   "gsd_cm": 8.0,
+   "file": "KadetGyi_WetTharKin_Plan-1.kmz + KadetGyi_ChaeTawYar_Plan-2.kmz",
+   "survey_ha": 236.0,
+   "tiles": "kadetgyi",
+   "n_landslides": 21,
+   "n_by_type": {
+    "open": 7,
+    "channel": 6,
+    "minor": 8
+   },
+   "area_total_m2": 105503,
+   "area_by_type_m2": {
+    "open": 58976,
+    "channel": 42598,
+    "minor": 3929
+   },
+   "area_runout_flat_m2": 12624,
+   "outwash_m2": 78055,
+   "largest": "KGN-01",
+   "buildings_surveyed": 496,
+   "buildings_status": {
+    "clear": 495,
+    "outwash": 1
+   },
+   "not_building": 3,
+   "overrides": 0,
+   "reach": {
+    "standing_in_A": 142,
+    "standing_in_B": 0,
+    "standing_outside": 354,
+    "affected": 0,
+    "affected_in_AB": 0
+   },
+   "runout": {
+    "alpha_open": 12.6,
+    "alpha_channel": 18.1,
+    "open_ids": [
+     "KGN-01",
+     "KGS-01",
+     "KGS-04",
+     "KGS-05",
+     "KGS-06",
+     "KGS-08",
+     "KGS-10"
+    ],
+    "channel_id": "KGN-02",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 239.61,
+    "zoneB_ha": 0.0,
+    "calibration_share_inside": {
+     "KGN-01": 0.886,
+     "KGN-02": 1.0,
+     "KGS-01": 0.988,
+     "KGS-04": 1.0,
+     "KGS-05": 1.0,
+     "KGS-06": 1.0,
+     "KGS-08": 1.0,
+     "KGS-10": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 353,
+      "A": 142
+     },
+     "outwash": {
+      "": 1,
+      "A": 0
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": 0.0,
+    "dN": 0.0,
+    "grey_before": 0.458,
+    "grey_after": 0.561,
+    "n_used": 479,
+    "auto_dE": 4.75,
+    "auto_dN": -0.75,
+    "manual": true
+   },
+   "report": {
+    "source": "Dawei Watch, 26-28 Sep 2026",
+    "deaths": 2,
+    "recovered": 2,
+    "missing": 0,
+    "houses": null,
+    "deaths_note": "in an orchard a few miles from the village, probably outside the survey",
+    "houses_note": "no houses reported destroyed",
+    "lines": [
+     "A mother and son, Daw Khin Aye (over 70) and U Myo Thein (about 45, the deputy village administrator), were found dead under landslide debris in their rubber and durian orchard on the evening of 28 Sep; residents said the whole orchard was filled with debris. The orchard is a few miles from Ka Det Gyi village, so probably outside this survey (28 Sep).",
+     "On 26 Sep, with heavy rain still falling, families living close to the hills at Ka Det Gyi had packed their belongings and some had moved away (26 Sep).",
+     "No report names Nyaungdon or Wet Thar Kin, and none reports houses lost at Ka Det Gyi."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Wet Thar Kin",
+     "pcode": "177162",
+     "where": "inside",
+     "mmr": "ဝက်သားကင်",
+     "lon": 98.13977,
+     "lat": 13.88196
+    },
+    {
+     "name": "Ka Det Gyi",
+     "pcode": "177160",
+     "where": "90 m beyond the survey edge",
+     "mmr": "ကဒက်ကြီး",
+     "lon": 98.1524,
+     "lat": 13.8798
+    },
+    {
+     "name": "Nyaungdon",
+     "pcode": "177161",
+     "where": "130 m beyond the survey edge",
+     "mmr": "ညောင်တုန်း",
+     "lon": 98.15495,
+     "lat": 13.87689
+    }
+   ],
+   "vt": "Ka Det Gyi (Khun Hnit Thein)",
+   "vt_pcode": "MMR006002017",
+   "bounds": [
+    98.13442297344497,
+    13.865696518235715,
+    98.15515867497497,
+    13.88571192782956
+   ],
+   "n_exclusions": 15,
+   "nearest_standing_m": 22.9
   },
   "tawkye": {
    "key": "tawkye",
@@ -605,20 +746,21 @@
     98.16149972836476,
     13.803539600255997
    ],
-   "n_exclusions": 0
+   "n_exclusions": 0,
+   "nearest_standing_m": 0.0
   }
  },
  "total": {
-  "n_landslides": 74,
-  "area_m2": 1106699,
+  "n_landslides": 95,
+  "area_m2": 1212202,
   "destroyed": 63,
   "damaged": 19,
-  "standing_in_A": 171,
+  "standing_in_A": 313,
   "standing_in_B": 166,
-  "deaths": 23,
-  "survey_ha": 830.7,
-  "outwash_m2": 482255,
-  "in_sediment": 41
+  "deaths": 25,
+  "survey_ha": 1066.7,
+  "outwash_m2": 560310,
+  "in_sediment": 42
  },
  "regional": {
   "launglon_deaths": 31,

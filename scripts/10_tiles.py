@@ -1,8 +1,8 @@
 """Web-map tiles of the Ngone Min Taung and Ka Det Nge Htein orthos at native resolution.
 
 512 px WebP tiles in the XYZ scheme (Leaflet: tileSize 512, zoomOffset -1), written to tiles/kadet/ (Ngone Min Taung
-+ Ka Det Nge Htein), tiles/thabyar/ (the merged Tha Byar flights, 9.0 cm) and tiles/panyit/ (7.0 cm, to z21).
-usage: python 10_tiles.py [kadet|thabyar|panyit]
++ Ka Det Nge Htein), tiles/thabyar/ (the merged Tha Byar flights, 9.0 cm) tiles/panyit/ (7.0 cm, to z21) and tiles/kadetgyi/ (merged Ka Det Gyi flights, 8.0 cm).
+usage: python 10_tiles.py [kadet|thabyar|panyit|kadetgyi]
 The deepest level, z20 in 512 px tiles, is 7.3 cm/px at 13.9 N - finer than both flights (10.1 and
 8.0 cm), so nothing is reduced. Lower levels are 2x2 averages of their children. Where the flights meet,
 the finer Ka Det Nge Htein flight is drawn over Ngone Min Taung. Blank tiles are skipped.
@@ -17,7 +17,7 @@ from rasterio.windows import Window
 from PIL import Image
 from sites import ROOT, d
 
-SETS = {"kadet": ("nmt", "kdnh"), "thabyar": ("tby",), "panyit": ("pny",)}  # later sites drawn on top
+SETS = {"kadet": ("nmt", "kdnh"), "thabyar": ("tby",), "panyit": ("pny",), "kadetgyi": ("kdg",)}  # later sites drawn on top
 ZMAX_SET = {"panyit": 21}  # Pa Nyit is 7.0 cm: z20 (7.2 cm) would reduce it, z21 is 3.6 cm
 ZMAX_DEFAULT, ZMIN, TS = 20, 13, 512
 R = 20037508.342789244

@@ -18,6 +18,8 @@ smaller ones are counted, not mapped.
 Core filter (sites.py core_filter: Tha Byar, whose valley envelopes border rubber plantation): in a drawn
 landslide envelope only bare components >= 500 m2, and components within 5 m of one, are kept - isolated
 canopy gaps in the plantation (classified bare) are dropped.
+The survey footprint drops ground already inside a neighbouring site's footprint (sites.py minus_sites: Ka Det Gyi
+overlaps Ka Det Nge Htein by 4.3 ha), so nothing is counted twice; footprint.geojson is that reduced extent.
 Writes landslides.geojson (EPSG:4326), landslides_utm.gpkg and footprint.geojson per site.
 """
 import sys
@@ -148,6 +150,8 @@ def run(site):
     excl = env[env.kind == "exclude"].union_all() if (env.kind == "exclude").any() else None
     env = env[env.kind != "exclude"]
     fp = footprint(site)
+    for other in SITES[site].get("minus_sites", []):  # ground already mapped by a neighbouring survey stays with it
+        fp = fp.difference(gpd.read_file(d(other, "inventory", "footprint.geojson")).geometry.iloc[0])
     taken, rows = None, []
     with rasterio.open(d(site, "class", "bare.tif")) as db, rasterio.open(d(site, "class", "class.tif")) as dc:
         pa = pixel_area(db)

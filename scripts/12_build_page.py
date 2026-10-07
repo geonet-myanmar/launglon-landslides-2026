@@ -1,8 +1,8 @@
-"""Collect the five drone-surveyed sites into one payload, export GIS deliverables, render the dashboard.
+"""Collect the six drone-surveyed sites into one payload, export GIS deliverables, render the dashboard.
 
 Outputs
   outputs/launglon_landslides_2026.gpkg   per site: landslides, outwash, buildings, reach zones, exclusions, crown/toe
-  outputs/landslides.csv, outputs/buildings.csv, outputs/summary.json   (all five sites, `site` column)
+  outputs/landslides.csv, outputs/buildings.csv, outputs/summary.json   (all six sites, `site` column)
   index.html                              standalone page (doctype + head) for GitHub Pages / local use
   dist/artifact-body.html                 the same body fragment without the wrapper
 src/template.html is the single source of truth for the page; never hand-edit index.html.
@@ -51,6 +51,17 @@ REPORTS["tby"] = {
               "Rescue teams reached Tha Byar on 27 Sep, clearing debris and boulders from the road by the monastery and the "
               "Pyin Sa Thi Maw turn-off; low-lying parts of the village were flooded to head height.",
               "A resident recalled a 1997 landslide on the same ridge, long grown over, and said this one was larger."]}
+REPORTS["kdg"] = {
+    "source": "Dawei Watch, 26-28 Sep 2026", "deaths": 2, "recovered": 2, "missing": 0, "houses": None,
+    "deaths_note": "in an orchard a few miles from the village, probably outside the survey",
+    "houses_note": "no houses reported destroyed",
+    "lines": ["A mother and son, Daw Khin Aye (over 70) and U Myo Thein (about 45, the deputy village administrator), were "
+              "found dead under landslide debris in their rubber and durian orchard on the evening of 28 Sep; residents "
+              "said the whole orchard was filled with debris. The orchard is a few miles from Ka Det Gyi village, so "
+              "probably outside this survey (28 Sep).",
+              "On 26 Sep, with heavy rain still falling, families living close to the hills at Ka Det Gyi had packed "
+              "their belongings and some had moved away (26 Sep).",
+              "No report names Nyaungdon or Wet Thar Kin, and none reports houses lost at Ka Det Gyi."]}
 REPORTS["pny"] = {
     "source": "Dawei Watch, 28-30 Sep 2026", "deaths": 0, "houses": None,
     "houses_note": "2 houses buried in Pa Nyit village, 1.7 km west (outside the survey)",
@@ -76,7 +87,11 @@ META["tby"] = {"mmr": "သဗျာ", "gsd_cm": 9.0, "file": "TharByar_Plan_1.km
                "mimu": [("Tha Byar", "177126", "inside")]}
 META["pny"] = {"mmr": "ပညစ်လမ်း", "gsd_cm": 7.0, "file": "PaNyit_Road.kmz", "tiles": "panyit",
                "mimu": [("Pa Nyit", "177151", "1.7 km west of the survey")]}
-SITE_ORDER = ("tby", "pny", "nmt", "kdnh", "tawkye")  # north to south
+META["kdg"] = {"mmr": "ကဒက်ကြီး", "gsd_cm": 8.0, "file": "KadetGyi_WetTharKin_Plan-1.kmz + KadetGyi_ChaeTawYar_Plan-2.kmz",
+               "tiles": "kadetgyi",
+               "mimu": [("Wet Thar Kin", "177162", "inside"), ("Ka Det Gyi", "177160", "90 m beyond the survey edge"),
+                        ("Nyaungdon", "177161", "130 m beyond the survey edge")]}
+SITE_ORDER = ("tby", "pny", "nmt", "kdnh", "kdg", "tawkye")  # north to south
 TK_TYPES = {"LS-01": "channel", "LS-04": "channel"}
 TK_EDGE = {"LS-01": ("crown", "Mud fan fed by a channel entering from outside the survey."),
            "LS-09": ("toe", "Continues beyond the surveyed area.")}
@@ -202,6 +217,7 @@ def build_site(s, gpkg):
         "vt_pcode": vil[vil.VLG_PCODE.astype(str) == meta["mimu"][0][1]].iloc[0].VT_PCODE,
         "bounds": list(fp.to_crs(4326).total_bounds),
         "n_exclusions": int(len(excl)),
+        "nearest_standing_m": r1(surv[surv.status.isin(["clear", "edge", "outwash"])]["dist_m"].min()) if "dist_m" in surv else None,
     }
     # ---- GIS export
     sl_out = ls.copy()
@@ -225,7 +241,7 @@ def build_site(s, gpkg):
     lw = ls[["id", "geometry"]].copy()
     lw["type"] = [terr[i]["type"] for i in lw["id"]]
     geo = {"landslides": gj(lw, simplify=WEB_SIMPLIFY_M), "buildings": gj(bweb),
-           "zones": gj(zones[["zone", "alpha_deg", "label", "geometry"]], 6),
+           "zones": gj(zones[~(zones.geometry.isna() | zones.geometry.is_empty)][["zone", "alpha_deg", "label", "geometry"]], 6),  # zone B is empty where no channel out-ran the open slides
            "footprint": gj(fp, 6)}
     if len(ow):
         geo["outwash"] = gj(ow[["id", "name", "description", "area_m2", "geometry"]], simplify=WEB_SIMPLIFY_M)
@@ -303,10 +319,10 @@ def main():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Launglon Landslides 2026</title>
-<meta name="description" content="Drone-orthomosaic analysis of the 26-27 Sep 2026 landslides at Tha Byar, the road to Pa Nyit, Ngone Min Taung, Ka Det Nge Htein and Taw Kye, Launglon Township, Tanintharyi Region, Myanmar.">
+<meta name="description" content="Drone-orthomosaic analysis of the 26-27 Sep 2026 landslides at Tha Byar, the road to Pa Nyit, Ngone Min Taung, Ka Det Nge Htein, Ka Det Gyi and Taw Kye, Launglon Township, Tanintharyi Region, Myanmar.">
 <link rel="canonical" href="{SITE}">
 <meta property="og:url" content="{SITE}">
-<meta property="og:title" content="Launglon landslides, 26-27 Sep 2026: five drone surveys">
+<meta property="og:title" content="Launglon landslides, 26-27 Sep 2026: six drone surveys">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 28 L13 8 L19 18 L23 13 L30 28 Z' fill='%23b8742a'/%3E%3C/svg%3E">
 </head>
 <body>

@@ -1,0 +1,38 @@
+{
+ "alpha_open": 12.6,
+ "alpha_channel": 18.1,
+ "open_ids": [
+  "KGN-01",
+  "KGS-01",
+  "KGS-04",
+  "KGS-05",
+  "KGS-06",
+  "KGS-08",
+  "KGS-10"
+ ],
+ "channel_id": "KGN-02",
+ "src_slope": 20.0,
+ "clip_m": 250,
+ "zoneA_ha": 239.61,
+ "zoneB_ha": 0.0,
+ "calibration_share_inside": {
+  "KGN-01": 0.886,
+  "KGN-02": 1.0,
+  "KGS-01": 0.988,
+  "KGS-04": 1.0,
+  "KGS-05": 1.0,
+  "KGS-06": 1.0,
+  "KGS-08": 1.0,
+  "KGS-10": 1.0
+ },
+ "buildings_surveyed_by_status_reach": {
+  "clear": {
+   "": 353,
+   "A": 142
+  },
+  "outwash": {
+   "": 1,
+   "A": 0
+  }
+ }
+}

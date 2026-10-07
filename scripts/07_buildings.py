@@ -5,6 +5,7 @@
 2. Footprints and ortho disagree by a few metres. Find the shift (+-8 m, 0.25 m steps) that
    maximises the grey-roof fraction inside footprints away from the landslides (> 20 m), on a
    0.25 m class grid. Shifted footprints are in the ortho's frame, the frame of the outlines.
+   sites.py footprint_shift overrides the fit where bare grey yards bias it (Ka Det Gyi); both are recorded.
 3. Per footprint, at NATIVE resolution: fraction of vegetation / soil / grey / shadow inside the
    footprint shrunk by 0.5 m, and overlap with landslide and outwash outlines.
 4. Status:
@@ -107,6 +108,11 @@ def run(site):
     ow = out[out.kind == "outwash"]
     ow_union = ow.union_all() if len(ow) else None
     shift = best_shift(site, b, sl_union, fp_in)
+    if SITES[site].get("footprint_shift") is not None:  # set by eye where the automatic fit is biased
+        shift["auto_dE"], shift["auto_dN"] = shift["dE"], shift["dN"]
+        shift["dE"], shift["dN"] = SITES[site]["footprint_shift"]
+        shift["manual"] = True
+        print(f"{site}: using the shift set in sites.py, dE {shift['dE']:+.2f} dN {shift['dN']:+.2f} m")
     rows = []
     with rasterio.open(d(site, "class", "class.tif")) as src:
         for _, r in b.iterrows():

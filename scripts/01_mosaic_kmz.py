@@ -6,7 +6,7 @@ Ka Det Nge Htein, all at depth 6), so each lands on integer offsets of the deepe
 Interior leaves are JPEG (no alpha -> fully valid), edge leaves PNG with alpha.
 Written tile by tile - the 32768^2 grid never sits in RAM.
 Tha Byar's two flights (tb1, tb2: 1031 and 949 leaves, depth 6, 9.5 / 9.0 cm) are mosaicked here and merged
-into data/tby/ by 01b_merge_tby.py.
+into data/tby/ by 01b_merge_flights.py; Ka Det Gyi's (kg1, kg2: 844 and 889 leaves, 8.0 cm) into data/kdg/.
 """
 import io, sys, zipfile, xml.etree.ElementTree as ET
 import numpy as np, rasterio

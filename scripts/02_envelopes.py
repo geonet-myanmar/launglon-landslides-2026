@@ -176,6 +176,58 @@ ENV = {
         ("TX-9", "Canopy gaps in plantation", "exclude", 0, P, box_ll(98.11760, 14.01610, 98.11900, 14.01680), 0,
          "Rejected on outline review: canopy gaps in the plantation beside the main channel."),
     ],
+    # Ka Det Gyi, Nyaungdon and Wet Thar Kin (6 Oct 2026, two flights merged). Two split zones on the forested hills
+    # west of the villages; the fields north-west of the village road are the continuation of Ka Det Nge Htein's
+    # sediment fan (KD-OW). The part of the survey already mapped at Ka Det Nge Htein is left out (sites.minus_sites).
+    "kdg": [
+        ("KGN", "Hills north of the stream", "landslide", 5, P, [
+            (98.13600, 13.87700), (98.14600, 13.87700), (98.14600, 13.88000), (98.13600, 13.88000)], 0,
+         "Zone split into connected scars and scoured channels."),
+        ("KGS", "Hills south of the stream", "landslide", 5, P, [
+            (98.13950, 13.87700), (98.14380, 13.87700), (98.14500, 13.87520), (98.15050, 13.87480), (98.15050, 13.87050),
+            (98.14700, 13.87000), (98.14600, 13.86550), (98.14150, 13.86550), (98.13950, 13.87000)], 0,
+         "Zone split into connected scars and scoured channels."),
+        ("KG-OW", "Fields under sediment", "outwash", 9, P, [
+            (98.13400, 13.88120), (98.13600, 13.88150), (98.13750, 13.88120), (98.13880, 13.88180), (98.13980, 13.88220),
+            (98.14050, 13.88300), (98.14100, 13.88450), (98.14080, 13.88580), (98.13800, 13.88620), (98.13400, 13.88620)], 0,
+         "Grass fields north of the village road under fresh sediment: the eastern part of the fan that spread from "
+         "the mouth of Ka Det Nge Htein's KD-01 debris flow (building footprints are cut out of the area)."),
+        ("KX-1", "Clearing bare in Jan 2026", "exclude", 0, P, box_ll(98.13855, 13.87985, 98.13935, 13.88075), 0,
+         "Clearing already bare on the Esri Vivid image of 10 Jan 2026 (now crossed by debris)."),
+        ("KX-2", "Compound", "exclude", 0, P, box_ll(98.14580, 13.87195, 98.14675, 13.87310), 0,
+         "Buildings and a yard already bare on 10 Jan 2026."),
+        ("KX-3", "Track to the compound", "exclude", 0, L, [  # traced on the ortho at 0.33 m/px
+            (98.14517, 13.87243), (98.14523, 13.87280), (98.14532, 13.87310), (98.14538, 13.87340), (98.14545, 13.87364),
+            (98.14551, 13.87379), (98.14560, 13.87420), (98.14575, 13.87460), (98.14600, 13.87500), (98.14640, 13.87550)], 3,
+         "Track bare on 10 Jan 2026 (debris crossed it; the track is cut out)."),
+        ("KX-14", "Hairpin of the track and a roof", "exclude", 0, P, box_ll(98.14503, 13.87158, 98.14556, 13.87223), 0,
+         "Track hairpin bare on 10 Jan 2026 and a roof beside it."),
+        ("KX-4", "Earthworks bare in Jan 2026", "exclude", 0, P, box_ll(98.14880, 13.87090, 98.15060, 13.87170), 0,
+         "Earthworks beside the road, already bare on 10 Jan 2026."),
+        ("KX-5", "Village road to Nyaungdon", "exclude", 0, L, [
+            (98.14740, 13.87498), (98.14800, 13.87500), (98.14900, 13.87496), (98.14960, 13.87490), (98.15060, 13.87490)], 3,
+         "Unsealed road, bare on 10 Jan 2026."),
+        ("KX-6", "Track across the hill", "exclude", 0, L, [
+            (98.14838, 13.87380), (98.14870, 13.87343), (98.14880, 13.87316), (98.14889, 13.87298), (98.14959, 13.87298),
+            (98.15044, 13.87297), (98.15060, 13.87297)], 3,
+         "Track bare on 10 Jan 2026."),
+        ("KX-15", "Clearing edge bare in Jan 2026", "exclude", 0, P, box_ll(98.14945, 13.87250, 98.14998, 13.87295), 0,
+         "Rejected on chip review: the edge of a clearing and a track, already bare on 10 Jan 2026."),
+        ("KX-7", "Road south of the hill", "exclude", 0, L, [
+            (98.14990, 13.87140), (98.15020, 13.87150), (98.15060, 13.87160)], 4, "Road bare on 10 Jan 2026."),
+        ("KX-8", "Houses and yards", "exclude", 0, P, box_ll(98.15015, 13.87050, 98.15060, 13.87080), 0,
+         "Rejected on chip review: a roof and yard, not a landslide."),
+        ("KX-9", "Wet Thar Kin houses and yards", "exclude", 0, P, box_ll(98.13595, 13.87840, 98.13775, 13.88005), 0,
+         "Rejected on chip review: roofs, yards and paths of Wet Thar Kin, not a landslide."),
+        ("KX-10", "Plantation rows", "exclude", 0, P, box_ll(98.14238, 13.87760, 98.14275, 13.87802), 0,
+         "Rejected on chip review: young plantation rows, not a landslide."),
+        ("KX-11", "Roofs at the north edge", "exclude", 0, P, box_ll(98.14570, 13.87975, 98.14605, 13.88005), 0,
+         "Rejected on chip review: roofs and a yard, not a landslide."),
+        ("KX-12", "Patches by the compound", "exclude", 0, P, box_ll(98.14590, 13.87160, 98.14640, 13.87205), 0,
+         "Rejected on chip review: yards beside the compound buildings."),
+        ("KX-13", "Shade under trees", "exclude", 0, P, box_ll(98.14995, 13.87222, 98.15048, 13.87255), 0,
+         "Rejected on chip review: shade and leaf litter under trees, not a landslide."),
+    ],
     # The road to Pa Nyit (5 Oct 2026): forested hillside east of the village where the road winds down in hairpins.
     "pny": [
         ("PN-02", "Head slide", "landslide", 1, P, [
