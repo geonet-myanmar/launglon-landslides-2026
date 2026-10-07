@@ -1,0 +1,386 @@
+[
+ {
+  "id": "PG-01",
+  "name": "Village debris flow",
+  "type": "open",
+  "description": "A debris flow off the hill west of the road that crossed the road and buried the block of houses between the road and the paddies in the middle of the village; the ground was being dug out with machinery on 7 Oct.",
+  "crown_z": 81.5,
+  "toe_z": 3.9,
+  "H_m": 77.5,
+  "L_m": 316.5,
+  "H_over_L": 0.245,
+  "reach_angle_deg": 13.8,
+  "azimuth_deg": 93,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 14.1,
+  "slope_p90_deg": 25.6,
+  "crown_lonlat": [
+   98.16601496845229,
+   13.70570208667284
+  ],
+  "toe_lonlat": [
+   98.16893815502031,
+   13.705566256977407
+  ],
+  "ndvi_pre_mean": 0.58,
+  "ndvi_pre_source": 0.83,
+  "zone_m2": {
+   "source": 3789.0,
+   "transport": 10506.1,
+   "runout": 2925.8
+  }
+ },
+ {
+  "id": "PG-03",
+  "name": "Road debris flow",
+  "type": "channel",
+  "description": "The main channel flow: fed by the scars at the head of the valley (PG-04), it scoured a channel of grey sand and boulders north-east down the valley, spread across the road north of the village and ran on as a fan beyond it.",
+  "crown_z": 120.3,
+  "toe_z": 5.3,
+  "H_m": 115.1,
+  "L_m": 838.5,
+  "H_over_L": 0.137,
+  "reach_angle_deg": 7.8,
+  "azimuth_deg": 41,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 7.4,
+  "slope_p90_deg": 12.9,
+  "crown_lonlat": [
+   98.16090372645957,
+   13.704647630832097
+  ],
+  "toe_lonlat": [
+   98.16593361406403,
+   13.710417446657965
+  ],
+  "ndvi_pre_mean": 0.74,
+  "ndvi_pre_source": 0.87,
+  "zone_m2": {
+   "source": 270.7,
+   "transport": 14650.2,
+   "runout": 33218.9
+  }
+ },
+ {
+  "id": "PG-04",
+  "name": "South-west channels",
+  "type": "channel",
+  "description": "Two broad scars at the head of the valley and a third channel from the south, which joined and fed the road debris flow (PG-03); their upper parts run beyond the flight.",
+  "crown_z": 284.5,
+  "toe_z": 118.2,
+  "H_m": 166.4,
+  "L_m": 428.0,
+  "H_over_L": 0.389,
+  "reach_angle_deg": 21.2,
+  "azimuth_deg": 78,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 26.3,
+  "slope_p90_deg": 39.7,
+  "crown_lonlat": [
+   98.1572862715218,
+   13.703682355970074
+  ],
+  "toe_lonlat": [
+   98.16114912027119,
+   13.704525746742751
+  ],
+  "ndvi_pre_mean": 0.82,
+  "ndvi_pre_source": 0.79,
+  "zone_m2": {
+   "source": 23028.6,
+   "transport": 9291.5,
+   "runout": 1542.2
+  }
+ },
+ {
+  "id": "PG-05",
+  "name": "North-west valley flow",
+  "type": "channel",
+  "description": "A debris flow down the valley at the north-west edge of the survey with a side scar from the east.",
+  "crown_z": 118.6,
+  "toe_z": 13.9,
+  "H_m": 104.7,
+  "L_m": 342.6,
+  "H_over_L": 0.306,
+  "reach_angle_deg": 17.0,
+  "azimuth_deg": 325,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 19.1,
+  "slope_p90_deg": 27.0,
+  "crown_lonlat": [
+   98.1542754413128,
+   13.710531040635383
+  ],
+  "toe_lonlat": [
+   98.15244810215351,
+   13.7130612635956
+  ],
+  "ndvi_pre_mean": 0.82,
+  "ndvi_pre_source": 0.81,
+  "zone_m2": {
+   "source": 4740.2,
+   "transport": 2457.7,
+   "runout": 809.5
+  }
+ },
+ {
+  "id": "PGZ-01",
+  "name": "Long chute",
+  "type": "open",
+  "description": "A 400 m chute scoured east down the hillside towards the road debris flow.",
+  "crown_z": 263.2,
+  "toe_z": 66.6,
+  "H_m": 196.6,
+  "L_m": 389.9,
+  "H_over_L": 0.504,
+  "reach_angle_deg": 26.8,
+  "azimuth_deg": 98,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 28.9,
+  "slope_p90_deg": 35.2,
+  "crown_lonlat": [
+   98.15815844327804,
+   13.708193503850417
+  ],
+  "toe_lonlat": [
+   98.16173272690138,
+   13.707729487042785
+  ],
+  "ndvi_pre_mean": 0.59,
+  "ndvi_pre_source": 0.55,
+  "zone_m2": {
+   "source": 5476.0,
+   "transport": 1517.5,
+   "runout": 25.9
+  }
+ },
+ {
+  "id": "PGZ-02",
+  "name": "North chute",
+  "type": "open",
+  "description": "A long chute on the hillside north of the long chute.",
+  "crown_z": 242.4,
+  "toe_z": 36.7,
+  "H_m": 205.7,
+  "L_m": 387.7,
+  "H_over_L": 0.531,
+  "reach_angle_deg": 28.0,
+  "azimuth_deg": 65,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 28.6,
+  "slope_p90_deg": 37.3,
+  "crown_lonlat": [
+   98.15823356202904,
+   13.70968568630601
+  ],
+  "toe_lonlat": [
+   98.1614912530488,
+   13.711150651252764
+  ],
+  "ndvi_pre_mean": 0.79,
+  "ndvi_pre_source": 0.78,
+  "zone_m2": {
+   "source": 3770.6,
+   "transport": 905.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "PGZ-03",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 188.8,
+  "toe_z": 146.4,
+  "H_m": 42.4,
+  "L_m": 80.9,
+  "H_over_L": 0.524,
+  "reach_angle_deg": 27.7,
+  "azimuth_deg": 77,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 30.0,
+  "slope_p90_deg": 32.0,
+  "crown_lonlat": [
+   98.15918784342219,
+   13.709211073512403
+  ],
+  "toe_lonlat": [
+   98.15991560681805,
+   13.70938076212057
+  ],
+  "ndvi_pre_mean": 0.8,
+  "ndvi_pre_source": 0.8,
+  "zone_m2": {
+   "source": 757.7,
+   "transport": 0.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "PGZ-04",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 272.6,
+  "toe_z": 263.7,
+  "H_m": 9.0,
+  "L_m": 33.7,
+  "H_over_L": 0.266,
+  "reach_angle_deg": 14.9,
+  "azimuth_deg": 60,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 15.2,
+  "slope_p90_deg": 20.8,
+  "crown_lonlat": [
+   98.15784828059616,
+   13.708947146318984
+  ],
+  "toe_lonlat": [
+   98.15811800173812,
+   13.709099904611287
+  ],
+  "ndvi_pre_mean": 0.73,
+  "ndvi_pre_source": 0.65,
+  "zone_m2": {
+   "source": 45.0,
+   "transport": 436.7,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "PGZ-05",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 188.7,
+  "toe_z": 159.9,
+  "H_m": 28.8,
+  "L_m": 53.3,
+  "H_over_L": 0.541,
+  "reach_angle_deg": 28.4,
+  "azimuth_deg": 64,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 28.2,
+  "slope_p90_deg": 28.8,
+  "crown_lonlat": [
+   98.1593112186132,
+   13.708771929573064
+  ],
+  "toe_lonlat": [
+   98.15975335944812,
+   13.708984061708763
+  ],
+  "ndvi_pre_mean": 0.75,
+  "ndvi_pre_source": 0.75,
+  "zone_m2": {
+   "source": 474.2,
+   "transport": 0.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "PGZ-06",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 209.1,
+  "toe_z": 193.2,
+  "H_m": 15.9,
+  "L_m": 27.3,
+  "H_over_L": 0.582,
+  "reach_angle_deg": 30.2,
+  "azimuth_deg": 74,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 30.8,
+  "slope_p90_deg": 33.3,
+  "crown_lonlat": [
+   98.15884123817045,
+   13.709017679803425
+  ],
+  "toe_lonlat": [
+   98.15908351592071,
+   13.70908697914453
+  ],
+  "ndvi_pre_mean": 0.7,
+  "ndvi_pre_source": 0.7,
+  "zone_m2": {
+   "source": 419.1,
+   "transport": 0.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "PGZ-07",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 56.0,
+  "toe_z": 46.9,
+  "H_m": 9.1,
+  "L_m": 42.2,
+  "H_over_L": 0.216,
+  "reach_angle_deg": 12.2,
+  "azimuth_deg": 79,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 13.6,
+  "slope_p90_deg": 14.9,
+  "crown_lonlat": [
+   98.16252626922731,
+   13.708025969493752
+  ],
+  "toe_lonlat": [
+   98.16290904883213,
+   13.70810012133322
+  ],
+  "ndvi_pre_mean": 0.64,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 278.5,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "PGZ-08",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 226.7,
+  "toe_z": 211.9,
+  "H_m": 14.8,
+  "L_m": 35.2,
+  "H_over_L": 0.419,
+  "reach_angle_deg": 22.7,
+  "azimuth_deg": 28,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 25.4,
+  "slope_p90_deg": 27.5,
+  "crown_lonlat": [
+   98.15760790198689,
+   13.710775446048276
+  ],
+  "toe_lonlat": [
+   98.15776103721295,
+   13.71105636553812
+  ],
+  "ndvi_pre_mean": 0.82,
+  "ndvi_pre_source": 0.82,
+  "zone_m2": {
+   "source": 232.3,
+   "transport": 0.2,
+   "runout": 0.0
+  }
+ }
+]

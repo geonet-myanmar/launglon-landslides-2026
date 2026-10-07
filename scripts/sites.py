@@ -31,6 +31,9 @@ SITES = {
             # their roofs; OSM footprints sit on the drone roofs unshifted (checked at 0.2-0.3 m/px), VIDA ones are
             # scattered 3-10 m west, so no shift is applied and every footprint near sediment or a slide is checked
             "footprint_shift": (0.0, 0.0)},  # 4.3 ha overlap with the Ka Det Nge Htein survey stays with Ka Det Nge Htein
+    # Pyin Gyi and Za Lut, 7 Oct 2026: two flights merged by 01b_merge_flights.py (MERGES); own EE area
+    "pgz": {"name": "Pyin Gyi - Za Lut", "kmz": "PyinGyi_Plan_1.kmz + PyinGyi_Plan_2.kmz", "flown": "2026-10-07",
+            "exg": 0.034, "ee": "ee_pgz", "outwash_minus_buildings": True},
 }
 # KMZ deliveries that are mosaicked by step 01 but are not sites of their own
 FLIGHTS = {
@@ -38,10 +41,12 @@ FLIGHTS = {
     "tb2": {"kmz": "TharByar_Plan_2.kmz"},  # northern hills, 9.0 cm
     "kg1": {"kmz": "KadetGyi_WetTharKin_Plan-1.kmz"},  # 8.0 cm
     "kg2": {"kmz": "KadetGyi_ChaeTawYar_Plan-2.kmz"},  # 8.0 cm
+    "pg1": {"kmz": "PyinGyi_Plan_1.kmz"},  # 10.4 cm
+    "pg2": {"kmz": "PyinGyi_Plan_2.kmz"},  # 9.7 cm
 }
-MERGES = {"tby": ("tb1", "tb2"), "kdg": ("kg1", "kg2")}  # site: (flight 1, flight 2), merged by 01b_merge_flights.py
+MERGES = {"tby": ("tb1", "tb2"), "kdg": ("kg1", "kg2"), "pgz": ("pg1", "pg2")}  # site: (flight 1, flight 2), merged by 01b_merge_flights.py
 # metres to move flight 1 onto flight 2 before merging (phase correlation in the overlap; omitted = no shift)
-MERGE_SHIFT = {"kdg": (1.32, 0.36)}
+MERGE_SHIFT = {"kdg": (1.32, 0.36), "pgz": (0.16, -2.2)}
 
 
 def ee_dir(site):
@@ -61,6 +66,7 @@ def d(site, *parts):
 # from its envelopes. Ngone Min Taung features are numbered by area by the split zone, so each name
 # carries the point it was given for, and step 06 checks the feature is still there.
 TYPES = {
+    "pgz": {"PG-01": "open", "PG-03": "channel", "PG-04": "channel", "PG-05": "channel"},
     "pny": {"PN-01": "channel", "PN-02": "open", "PN-03": "open", "PN-04": "open", "PN-05": "channel", "PN-06": "channel", "PN-07": "open"},
     "tby": {"TB-01": "channel", "TB-02": "channel", "TB-03": "open", "TB-04": "open", "TB-05": "channel"},
     "kdnh": {"KD-01": "channel", "KD-02": "open", "KD-03": "open", "KD-04": "open", "KD-05": "open",
@@ -128,7 +134,12 @@ KDG_NAMES = {  # Ka Det Gyi split zones KGN (hills south of Wet Thar Kin) and KG
     "KGS-09": ("Upper gully", "channel", 98.14268, 13.87663, "A gully on the north side of the hills."),
     "KGS-10": ("Small slide", "open", 98.14815, 13.87171, "A small slide on the east face of the hill."),
 }
-SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES, "kdg": KDG_NAMES}
+PGZ_NAMES = {  # Pyin Gyi - Za Lut split zone PGZ (hills west of the road)
+    "PGZ-01": ("Long chute", "open", 98.15886, 13.70827,
+               "A 400 m chute scoured east down the hillside towards the road debris flow."),
+    "PGZ-02": ("North chute", "open", 98.15887, 13.71010, "A long chute on the hillside north of the long chute."),
+}
+SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES, "kdg": KDG_NAMES, "pgz": PGZ_NAMES}
 # Landslides that enter the survey across its edge: the automatic crown (highest point on the outline) is then not
 # the source, so H, L and the reach angle are minimums. Set by inspection where the 15 m edge test misses it.
 EDGE_OVERRIDE = {"tby": {"TB-01": "crown", "TB-05": "crown"}, "pny": {"PN-06": "crown"}}

@@ -748,18 +748,149 @@
    ],
    "n_exclusions": 0,
    "nearest_standing_m": 0.0
+  },
+  "pgz": {
+   "key": "pgz",
+   "name": "Pyin Gyi - Za Lut",
+   "mmr": "ပြင်ကြီး - ဇလွတ်",
+   "flown": "2026-10-07",
+   "gsd_cm": 9.7,
+   "file": "PyinGyi_Plan_1.kmz + PyinGyi_Plan_2.kmz",
+   "survey_ha": 297.1,
+   "tiles": "zalut",
+   "n_landslides": 12,
+   "n_by_type": {
+    "open": 3,
+    "channel": 3,
+    "minor": 6
+   },
+   "area_total_m2": 121650,
+   "area_by_type_m2": {
+    "open": 28936,
+    "channel": 90069,
+    "minor": 2645
+   },
+   "area_runout_flat_m2": 38523,
+   "outwash_m2": 8505,
+   "largest": "PG-03",
+   "buildings_surveyed": 69,
+   "buildings_status": {
+    "clear": 57,
+    "destroyed": 8,
+    "edge": 2,
+    "damaged": 2
+   },
+   "not_building": 7,
+   "overrides": 3,
+   "reach": {
+    "standing_in_A": 51,
+    "standing_in_B": 0,
+    "standing_outside": 8,
+    "affected": 10,
+    "affected_in_AB": 10
+   },
+   "runout": {
+    "alpha_open": 13.8,
+    "alpha_channel": 13.1,
+    "open_ids": [
+     "PG-01",
+     "PGZ-01",
+     "PGZ-02"
+    ],
+    "channel_id": "PG-04+PG-03",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 321.97,
+    "zoneB_ha": 4.68,
+    "calibration_share_inside": {
+     "PG-01": 0.947,
+     "PG-03": 0.992,
+     "PG-04": 1.0,
+     "PGZ-01": 0.959,
+     "PGZ-02": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 8,
+      "A": 49
+     },
+     "damaged": {
+      "": 0,
+      "A": 2
+     },
+     "destroyed": {
+      "": 0,
+      "A": 8
+     },
+     "edge": {
+      "": 0,
+      "A": 2
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": 2.5,
+    "dN": -0.5,
+    "grey_before": 0.54,
+    "grey_after": 0.598,
+    "n_used": 54
+   },
+   "report": {
+    "source": "Dawei Watch, 28 Sep - 2 Oct 2026",
+    "deaths": 1,
+    "recovered": 1,
+    "missing": 0,
+    "houses": "about 20",
+    "houses_n": 20,
+    "houses_label": "about 20 houses destroyed or uninhabitable",
+    "deaths_note": "reported for Za Lut Pyin Gyi; where in the village is not stated",
+    "lines": [
+     "At Za Lut Pyin Gyi a man over 60, U Tun Po, was swept away by water during the landslide on the night of 26 Sep; his body was found on 28 Sep tangled in the wires of a fallen power pole. Another man, buried near his house, was dug out by villagers at about 8 pm on 26 Sep and taken to Dawei hospital on 30 Sep (30 Sep).",
+     "About 20 houses lost: 10 near the five pagodas completely buried, and 10 inside the village filled with sediment so they can no longer be lived in (30 Sep).",
+     "The road has been cut since 26 Sep; about 200 people were trapped, sheltering at the monastery and drinking rainwater. Rescuers heading south to Kyauk Ni Maw had to clear a large landslide at Za Lut (30 Sep).",
+     "Za Lut Pyin Gyi was one of five villages the authorities designated red-level disaster areas (28 Sep)."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Pyin Gyi",
+     "pcode": "177216",
+     "where": "1.4 km south of the survey",
+     "mmr": "ပြင်ကြီး",
+     "lon": 98.1746554,
+     "lat": 13.6887023
+    },
+    {
+     "name": "Za Lut",
+     "pcode": "177215",
+     "where": "1.5 km south of the survey",
+     "mmr": "ဇလွတ်",
+     "lon": 98.17391,
+     "lat": 13.68818
+    }
+   ],
+   "vt": "Za Lut",
+   "vt_pcode": "MMR006002036",
+   "bounds": [
+    98.1510073380889,
+    13.700999919807092,
+    98.17221125582739,
+    13.71767762598573
+   ],
+   "n_exclusions": 8,
+   "nearest_standing_m": 0.0
   }
  },
  "total": {
-  "n_landslides": 95,
-  "area_m2": 1212202,
-  "destroyed": 63,
-  "damaged": 19,
-  "standing_in_A": 313,
+  "n_landslides": 107,
+  "area_m2": 1333852,
+  "destroyed": 71,
+  "damaged": 21,
+  "standing_in_A": 364,
   "standing_in_B": 166,
-  "deaths": 25,
-  "survey_ha": 1066.7,
-  "outwash_m2": 560310,
+  "deaths": 26,
+  "survey_ha": 1363.8,
+  "outwash_m2": 568815,
   "in_sediment": 42
  },
  "regional": {
@@ -778,6 +909,16 @@
    "grid": [
     14.024605,
     98.129036
+   ]
+  },
+  "pgz": {
+   "night_26_27": 153.6,
+   "d25_28": 657.1,
+   "sep_total": 1126.4,
+   "fetched": "2026-10-07T16:07Z",
+   "grid": [
+    13.673111,
+    98.17432
    ]
   },
   "pny": {

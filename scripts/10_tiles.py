@@ -1,8 +1,13 @@
-"""Web-map tiles of the Ngone Min Taung and Ka Det Nge Htein orthos at native resolution.
+"""Web-map tiles of the drone orthos at native resolution.
 
-512 px WebP tiles in the XYZ scheme (Leaflet: tileSize 512, zoomOffset -1), written to tiles/kadet/ (Ngone Min Taung
-+ Ka Det Nge Htein), tiles/thabyar/ (the merged Tha Byar flights, 9.0 cm) tiles/panyit/ (7.0 cm, to z21) and tiles/kadetgyi/ (merged Ka Det Gyi flights, 8.0 cm).
-usage: python 10_tiles.py [kadet|thabyar|panyit|kadetgyi]
+512 px WebP tiles in the XYZ scheme (Leaflet: tileSize 512, zoomOffset -1), one set per area:
+  tiles/kadet/     Ngone Min Taung + Ka Det Nge Htein
+  tiles/thabyar/   the merged Tha Byar flights, 9.0 cm
+  tiles/panyit/    road to Pa Nyit, 7.0 cm, to z21
+  tiles/kadetgyi/  the merged Ka Det Gyi flights, 8.0 cm
+  ../launglon-landslides-tiles/zalut/   the merged Pyin Gyi - Za Lut flights, 9.7 cm - published from its own repo
+                   (EXTERNAL) to keep this Pages site under GitHub's 1 GB limit
+usage: python 10_tiles.py [kadet|thabyar|panyit|kadetgyi|zalut]
 The deepest level, z20 in 512 px tiles, is 7.3 cm/px at 13.9 N - finer than both flights (10.1 and
 8.0 cm), so nothing is reduced. Lower levels are 2x2 averages of their children. Where the flights meet,
 the finer Ka Det Nge Htein flight is drawn over Ngone Min Taung. Blank tiles are skipped.
@@ -17,7 +22,9 @@ from rasterio.windows import Window
 from PIL import Image
 from sites import ROOT, d
 
-SETS = {"kadet": ("nmt", "kdnh"), "thabyar": ("tby",), "panyit": ("pny",), "kadetgyi": ("kdg",)}  # later sites drawn on top
+SETS = {"kadet": ("nmt", "kdnh"), "thabyar": ("tby",), "panyit": ("pny",), "kadetgyi": ("kdg",), "zalut": ("pgz",)}  # later sites drawn on top
+# tile sets published from a separate repo to keep this Pages site under GitHub's 1 GB limit (the page loads them by URL)
+EXTERNAL = {"zalut": ROOT.parent / "launglon-landslides-tiles"}  # -> geonet-myanmar/launglon-landslides-tiles
 ZMAX_SET = {"panyit": 21}  # Pa Nyit is 7.0 cm: z20 (7.2 cm) would reduce it, z21 is 3.6 cm
 ZMAX_DEFAULT, ZMIN, TS = 20, 13, 512
 R = 20037508.342789244
@@ -37,7 +44,7 @@ def tile_range(z, bounds_ll):
 
 def main(name):
     ZMAX = ZMAX_SET.get(name, ZMAX_DEFAULT)
-    OUT = ROOT / "tiles" / name
+    OUT = EXTERNAL.get(name, ROOT / "tiles") / name
     res = 2 * R / (2 ** ZMAX * TS)
     grid = Affine(res, 0, -R, 0, -res, R)
     srcs = [rasterio.open(d(t, "ortho", "ortho_4326.tif")) for t in SETS[name]]

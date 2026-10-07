@@ -7,8 +7,9 @@
 - list of Sentinel-2 scenes after 26 Sep 2026
 Two areas, each the surveys plus a ~1.5 km margin for the hill crests so the runout model sees the
 whole catchments:  south = Ka Det Nge Htein + Ngone Min Taung (data/ee/), north = Tha Byar (data/ee_tby/),
-west = the road to Pa Nyit (data/ee_pny/), southeast = Ka Det Gyi (data/ee_kdg/).
-usage: python 03_fetch_ee.py [south|north|west|southeast]   (default: both). Existing files are kept.
+west = the road to Pa Nyit (data/ee_pny/), southeast = Ka Det Gyi (data/ee_kdg/),
+zalut = Pyin Gyi - Za Lut (data/ee_pgz/).
+usage: python 03_fetch_ee.py [south|north|west|southeast|zalut]   (default: both). Existing files are kept.
 """
 import json, os, sys, urllib.parse, urllib.request
 import ee
@@ -18,7 +19,8 @@ ee.Initialize(project=os.environ["EE_PROJECT"])
 AREAS = {"south": ("data/ee", (98.100, 13.860, 98.165, 13.922)),
          "north": ("data/ee_tby", (98.095, 13.972, 98.160, 14.037)),
          "west": ("data/ee_pny", (98.062, 13.975, 98.110, 14.015)),
-         "southeast": ("data/ee_kdg", (98.115, 13.843, 98.180, 13.900))}
+         "southeast": ("data/ee_kdg", (98.115, 13.843, 98.180, 13.900)),
+         "zalut": ("data/ee_pgz", (98.135, 13.668, 98.202, 13.734))}
 
 
 def download(img, name, scale, crs="EPSG:32647"):

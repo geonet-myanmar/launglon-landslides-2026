@@ -1,0 +1,39 @@
+{
+ "alpha_open": 13.8,
+ "alpha_channel": 13.1,
+ "open_ids": [
+  "PG-01",
+  "PGZ-01",
+  "PGZ-02"
+ ],
+ "channel_id": "PG-04+PG-03",
+ "src_slope": 20.0,
+ "clip_m": 250,
+ "zoneA_ha": 321.97,
+ "zoneB_ha": 4.68,
+ "calibration_share_inside": {
+  "PG-01": 0.947,
+  "PG-03": 0.992,
+  "PG-04": 1.0,
+  "PGZ-01": 0.959,
+  "PGZ-02": 1.0
+ },
+ "buildings_surveyed_by_status_reach": {
+  "clear": {
+   "": 8,
+   "A": 49
+  },
+  "damaged": {
+   "": 0,
+   "A": 2
+  },
+  "destroyed": {
+   "": 0,
+   "A": 8
+  },
+  "edge": {
+   "": 0,
+   "A": 2
+  }
+ }
+}

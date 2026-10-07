@@ -228,6 +228,65 @@ ENV = {
         ("KX-13", "Shade under trees", "exclude", 0, P, box_ll(98.14995, 13.87222, 98.15048, 13.87255), 0,
          "Rejected on chip review: shade and leaf litter under trees, not a landslide."),
     ],
+    # Pyin Gyi and Za Lut (7 Oct 2026, two flights merged): forested hills west of the road through the villages.
+    # The village flow, the road fan and the two large channel systems are drawn; the rest of the hills is a split zone.
+    "pgz": [
+        ("PG-01", "Village debris flow", "landslide", 1, P, [
+            (98.16555, 13.70610), (98.16700, 13.70600), (98.16760, 13.70600), (98.16820, 13.70580), (98.16900, 13.70560),
+            (98.16910, 13.70500), (98.16850, 13.70470), (98.16780, 13.70440), (98.16720, 13.70440), (98.16690, 13.70480),
+            (98.16620, 13.70520), (98.16555, 13.70570)], 0,
+         "A debris flow off the hill west of the road that crossed the road and buried the block of houses between the road "
+         "and the paddies in the middle of the village; the ground was being dug out with machinery on 7 Oct."),
+        ("PG-03", "Road debris flow", "landslide", 2, P, [  # both banks traced on the ortho at 0.8 m/px
+            (98.16720, 13.71020), (98.16620, 13.71040), (98.16520, 13.71060), (98.16450, 13.71040), (98.16400, 13.70980),
+            (98.16370, 13.70900), (98.16340, 13.70820), (98.16330, 13.70740), (98.16310, 13.70680), (98.16240, 13.70620),
+            (98.16170, 13.70580), (98.16100, 13.70520), (98.16080, 13.70470), (98.16140, 13.70440), (98.16220, 13.70500),
+            (98.16290, 13.70570), (98.16360, 13.70630), (98.16420, 13.70680), (98.16520, 13.70740), (98.16520, 13.70770),
+            (98.16440, 13.70770), (98.16440, 13.70830), (98.16520, 13.70880), (98.16580, 13.70920), (98.16620, 13.70960),
+            (98.16700, 13.70970)], 0,
+         "The main channel flow: fed by the scars at the head of the valley (PG-04), it scoured a channel of grey sand and "
+         "boulders north-east down the valley, spread across the road north of the village and ran on as a fan beyond it."),
+        ("PG-04", "South-west channels", "landslide", 3, P, [
+            (98.15700, 13.70350), (98.15780, 13.70520), (98.16000, 13.70500), (98.16200, 13.70540), (98.16330, 13.70620),
+            (98.16360, 13.70600), (98.16220, 13.70480), (98.16080, 13.70440), (98.16030, 13.70300), (98.16000, 13.70200),
+            (98.15920, 13.70200), (98.15900, 13.70330), (98.15820, 13.70330)], 0,
+         "Two broad scars at the head of the valley and a third channel from the south, which joined and fed the road "
+         "debris flow (PG-03); their upper parts run beyond the flight."),
+        ("PG-05", "North-west valley flow", "landslide", 3, P, [
+            (98.15230, 13.71330), (98.15330, 13.71270), (98.15420, 13.71150), (98.15500, 13.71060), (98.15460, 13.71030),
+            (98.15380, 13.71070), (98.15300, 13.71180), (98.15220, 13.71280)], 0,
+         "A debris flow down the valley at the north-west edge of the survey with a side scar from the east."),
+        ("PG-OW1", "Fields under sediment north-west", "outwash", 9, P, [
+            (98.15150, 13.71330), (98.15240, 13.71330), (98.15280, 13.71460), (98.15300, 13.71650), (98.15260, 13.71750),
+            (98.15180, 13.71680), (98.15110, 13.71560)], 0,
+         "Grass fields and fish ponds at the valley mouth under fresh sand and gravel (ponds and paths excluded)."),
+        ("PGZ", "Hills west of the road", "landslide", 6, P, [
+            (98.15500, 13.71200), (98.16120, 13.71200), (98.16400, 13.71000), (98.16400, 13.70700), (98.16300, 13.70650),
+            (98.16000, 13.70600), (98.15700, 13.70600), (98.15600, 13.70800), (98.15500, 13.71000)], 0,
+         "Zone split into connected scars and scoured channels."),
+        ("PX-1", "Road through Za Lut and Pyin Gyi", "exclude", 0, L, [
+            (98.15990, 13.71720), (98.16020, 13.71660), (98.16030, 13.71580), (98.16060, 13.71500), (98.16100, 13.71430),
+            (98.16160, 13.71350), (98.16230, 13.71290), (98.16310, 13.71250), (98.16380, 13.71210), (98.16450, 13.71110),
+            (98.16520, 13.71000), (98.16560, 13.70930), (98.16620, 13.70880), (98.16640, 13.70800), (98.16660, 13.70760),
+            (98.16700, 13.70700), (98.16730, 13.70660), (98.16740, 13.70600), (98.16740, 13.70540), (98.16740, 13.70470),
+            (98.16720, 13.70420), (98.16700, 13.70360), (98.16710, 13.70300), (98.16720, 13.70240), (98.16740, 13.70180),
+            (98.16770, 13.70120), (98.16800, 13.70070)], 4,
+         "Road bare on 10 Jan 2026 (debris was cleared from it by 7 Oct; the road itself is cut out)."),
+        ("PX-2", "Fish ponds and bunds", "exclude", 0, P, box_ll(98.15100, 13.71450, 98.15240, 13.71520), 0,
+         "Fish ponds and their bunds, already there on 10 Jan 2026."),
+        ("PX-3", "Rectangular cleared plot", "exclude", 0, P, box_ll(98.16595, 13.70430, 98.16675, 13.70480), 0,
+         "Rejected on chip review: a rectangular plot with straight cut edges - cleared by people since January, not a slide."),
+        ("PX-4", "Rock slab bare in Jan 2026", "exclude", 0, P, box_ll(98.15940, 13.70595, 98.16015, 13.70672), 0,
+         "Rejected on chip review: a dark striated rock slab, already a dark bare patch on 10 Jan 2026."),
+        ("PX-5", "Rock slab bare in Jan 2026", "exclude", 0, P, box_ll(98.15958, 13.70738, 98.16006, 13.70769), 0,
+         "Rejected on chip review: a dark striated rock slab, already a dark bare patch on 10 Jan 2026."),
+        ("PX-6", "Rock slab bare in Jan 2026", "exclude", 0, P, box_ll(98.15910, 13.70619, 98.15930, 13.70654), 0,
+         "Rejected on chip review: a dark rock slab, already bare on 10 Jan 2026."),
+        ("PX-7", "Standing roof at the flow edge", "exclude", 0, P, box_ll(98.16745, 13.70448, 98.16785, 13.70482), 0,
+         "A roof still standing at the south edge of PG-01; cut out so it is not counted as debris."),
+        ("PX-8", "Standing roof at the flow edge", "exclude", 0, P, box_ll(98.16745, 13.70560, 98.16770, 13.70590), 0,
+         "A roof still standing at the north edge of PG-01; cut out so it is not counted as debris."),
+    ],
     # The road to Pa Nyit (5 Oct 2026): forested hillside east of the village where the road winds down in hairpins.
     "pny": [
         ("PN-02", "Head slide", "landslide", 1, P, [
