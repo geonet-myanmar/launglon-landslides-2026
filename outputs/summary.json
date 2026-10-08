@@ -749,6 +749,255 @@
    "n_exclusions": 0,
    "nearest_standing_m": 0.0
   },
+  "thw": {
+   "key": "thw",
+   "name": "Tha Win",
+   "mmr": "သဝင်",
+   "flown": "2026-10-08",
+   "gsd_cm": 10.0,
+   "file": "Thakyattaw_Yabel_4Plan_Combine.kmz (northern block)",
+   "survey_ha": 545.6,
+   "tiles": "thawin",
+   "n_landslides": 32,
+   "n_by_type": {
+    "open": 13,
+    "channel": 12,
+    "minor": 7
+   },
+   "area_total_m2": 663555,
+   "area_by_type_m2": {
+    "open": 131396,
+    "channel": 529195,
+    "minor": 2964
+   },
+   "area_runout_flat_m2": 138965,
+   "outwash_m2": 182389,
+   "largest": "TZ-01",
+   "buildings_surveyed": 248,
+   "buildings_status": {
+    "clear": 234,
+    "outwash": 11,
+    "destroyed": 3
+   },
+   "not_building": 3,
+   "overrides": 8,
+   "reach": {
+    "standing_in_A": 6,
+    "standing_in_B": 192,
+    "standing_outside": 47,
+    "affected": 3,
+    "affected_in_AB": 3
+   },
+   "runout": {
+    "alpha_open": 18.2,
+    "alpha_channel": 12.2,
+    "open_ids": [
+     "TZ-06",
+     "TZ-07",
+     "TZ-10",
+     "TZ-12",
+     "TZ-14",
+     "TZ-23"
+    ],
+    "channel_id": "TZ-02",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 487.91,
+    "zoneB_ha": 144.82,
+    "calibration_share_inside": {
+     "TZ-02": 1.0,
+     "TZ-06": 0.993,
+     "TZ-07": 0.992,
+     "TZ-10": 1.0,
+     "TZ-12": 1.0,
+     "TZ-14": 1.0,
+     "TZ-23": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 39,
+      "A": 6,
+      "B": 189
+     },
+     "destroyed": {
+      "": 0,
+      "A": 0,
+      "B": 3
+     },
+     "outwash": {
+      "": 8,
+      "A": 0,
+      "B": 3
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": -2.25,
+    "dN": 1.25,
+    "grey_before": 0.447,
+    "grey_after": 0.49,
+    "n_used": 247
+   },
+   "report": {
+    "source": "Dawei Watch, 29 Sep - 1 Oct 2026",
+    "deaths": null,
+    "houses": null,
+    "houses_note": "no houses reported destroyed",
+    "lines": [
+     "Landslide debris blocked the road between Taw Kye and Tha Win; search and rescue teams were clearing it on 30 Sep, and the heavy-machinery crew clearing the blocked roads reached the edge of Tha Win that day.",
+     "Further south, debris also blocked the road between Tha Win and Tha Kyet Taw; residents were still clearing it when rescue teams reached Tha Win (update to a 29 Sep report).",
+     "No report gives deaths or destroyed houses at Tha Win. The 5 deaths and 42 houses reported for Taw Kye are given under Taw Kye, whose 2 Oct survey this one surrounds."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Tha Win",
+     "pcode": "177209",
+     "where": "inside",
+     "mmr": "သဝင်",
+     "lon": 98.15587,
+     "lat": 13.77758
+    },
+    {
+     "name": "Taw Kye",
+     "pcode": "177208",
+     "where": "in the 2 Oct Taw Kye survey, 160 m beyond this one",
+     "mmr": "တောကျဲ",
+     "lon": 98.1596,
+     "lat": 13.79993
+    }
+   ],
+   "vt": "Taw Kye",
+   "vt_pcode": "MMR006002033",
+   "bounds": [
+    98.14453413375601,
+    13.771974529018356,
+    98.164967210892,
+    13.809631002646986
+   ],
+   "n_exclusions": 11,
+   "nearest_standing_m": 0.0
+  },
+  "lhl": {
+   "key": "lhl",
+   "name": "Lel Hla",
+   "mmr": "လယ်လှ",
+   "flown": "2026-10-08",
+   "gsd_cm": 10.0,
+   "file": "Thakyattaw_Yabel_4Plan_Combine.kmz (southern block)",
+   "survey_ha": 209.1,
+   "tiles": "thawin",
+   "n_landslides": 5,
+   "n_by_type": {
+    "open": 3,
+    "channel": 2,
+    "minor": 0
+   },
+   "area_total_m2": 113654,
+   "area_by_type_m2": {
+    "open": 7642,
+    "channel": 106012,
+    "minor": 0
+   },
+   "area_runout_flat_m2": 35822,
+   "outwash_m2": 17042,
+   "largest": "LL-01",
+   "buildings_surveyed": 132,
+   "buildings_status": {
+    "clear": 129,
+    "outwash": 2,
+    "edge": 1
+   },
+   "not_building": 1,
+   "overrides": 2,
+   "reach": {
+    "standing_in_A": 4,
+    "standing_in_B": 47,
+    "standing_outside": 81,
+    "affected": 0,
+    "affected_in_AB": 0
+   },
+   "runout": {
+    "alpha_open": 19.1,
+    "alpha_channel": 15.5,
+    "open_ids": [
+     "LZ-02",
+     "LZ-03"
+    ],
+    "channel_id": "LL-01",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 166.29,
+    "zoneB_ha": 42.78,
+    "calibration_share_inside": {
+     "LL-01": 0.978,
+     "LZ-02": 1.0,
+     "LZ-03": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 78,
+      "A": 4,
+      "B": 47
+     },
+     "edge": {
+      "": 1,
+      "A": 0,
+      "B": 0
+     },
+     "outwash": {
+      "": 2,
+      "A": 0,
+      "B": 0
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": -3.25,
+    "dN": -2.75,
+    "grey_before": 0.378,
+    "grey_after": 0.505,
+    "n_used": 128
+   },
+   "report": {
+    "source": "Dawei Watch, 29 Sep - 1 Oct 2026",
+    "deaths": null,
+    "houses": null,
+    "houses_note": "no houses reported destroyed",
+    "lines": [
+     "No report names Lel Hla. It lies on the road between Tha Win and Tha Kyet Taw, which debris blocked; residents were still clearing it when rescue teams reached Tha Win (update to a 29 Sep report).",
+     "Tha Kyet Taw, 0.7 km south of the survey and the head of Lel Hla's village tract, is one of at least eight villages at the end of the peninsula cut off by landslides since 26 Sep and short of food (29 Sep, 1 Oct)."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Lel Hla",
+     "pcode": "177204",
+     "where": "200 m south of the survey",
+     "mmr": "လယ်လှ",
+     "lon": 98.15368,
+     "lat": 13.75663
+    },
+    {
+     "name": "Tha Kyet Taw",
+     "pcode": "177203",
+     "where": "0.7 km south of the survey",
+     "mmr": "သကျက်တော",
+     "lon": 98.15047,
+     "lat": 13.75109
+    }
+   ],
+   "vt": "Tha Kyet Taw",
+   "vt_pcode": "MMR006002032",
+   "bounds": [
+    98.14500760114801,
+    13.757296602469566,
+    98.163724358988,
+    13.76941493000443
+   ],
+   "n_exclusions": 9,
+   "nearest_standing_m": 0.0
+  },
   "rbe": {
    "key": "rbe",
    "name": "Ra Be",
@@ -1007,16 +1256,16 @@
   }
  },
  "total": {
-  "n_landslides": 128,
-  "area_m2": 1634264,
-  "destroyed": 71,
+  "n_landslides": 165,
+  "area_m2": 2411473,
+  "destroyed": 74,
   "damaged": 21,
-  "standing_in_A": 367,
-  "standing_in_B": 166,
+  "standing_in_A": 377,
+  "standing_in_B": 405,
   "deaths": 26,
-  "survey_ha": 1578.1,
-  "outwash_m2": 584218,
-  "in_sediment": 42
+  "survey_ha": 2332.8,
+  "outwash_m2": 783649,
+  "in_sediment": 55
  },
  "regional": {
   "launglon_deaths": 31,
@@ -1054,6 +1303,16 @@
    "grid": [
     13.673111,
     98.17432
+   ]
+  },
+  "thw": {
+   "night_26_27": 150.1,
+   "d25_28": 651.2,
+   "sep_total": 1153.5,
+   "fetched": "2026-10-08T16:40Z",
+   "grid": [
+    13.743409,
+    98.181816
    ]
   },
   "pny": {

@@ -1,0 +1,162 @@
+[
+ {
+  "id": "LL-01",
+  "name": "Debris flow to the road",
+  "type": "channel",
+  "description": "A debris flow that broke away in two prongs on the hills west of Lel Hla, ran 1.2 km east down a forested valley, scouring it to grey sand, and reached the road at the south end of the village; its fan crossed the road (LL-OW1).",
+  "crown_z": 358.5,
+  "toe_z": 5.6,
+  "H_m": 352.8,
+  "L_m": 1274.2,
+  "H_over_L": 0.277,
+  "reach_angle_deg": 15.5,
+  "azimuth_deg": 108,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 17.8,
+  "slope_p90_deg": 34.3,
+  "crown_lonlat": [
+   98.1467593593828,
+   13.766744814816771
+  ],
+  "toe_lonlat": [
+   98.15799934890192,
+   13.763279261980333
+  ],
+  "ndvi_pre_mean": 0.78,
+  "ndvi_pre_source": 0.77,
+  "zone_m2": {
+   "source": 45489.9,
+   "transport": 20392.4,
+   "runout": 35679.8
+  }
+ },
+ {
+  "id": "LZ-01",
+  "name": "Long gully",
+  "type": "channel",
+  "description": "A gully scoured south-east down the hills south of LL-01.",
+  "crown_z": 83.5,
+  "toe_z": 35.6,
+  "H_m": 47.9,
+  "L_m": 256.7,
+  "H_over_L": 0.186,
+  "reach_angle_deg": 10.6,
+  "azimuth_deg": 124,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 11.6,
+  "slope_p90_deg": 14.1,
+  "crown_lonlat": [
+   98.14881715626649,
+   13.761287064475729
+  ],
+  "toe_lonlat": [
+   98.15079632995264,
+   13.760004787662455
+  ],
+  "ndvi_pre_mean": 0.85,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 4242.0,
+   "runout": 141.5
+  }
+ },
+ {
+  "id": "LZ-02",
+  "name": "Slide and chute",
+  "type": "open",
+  "description": "A slide on the southern hills and the chute below it.",
+  "crown_z": 152.3,
+  "toe_z": 85.4,
+  "H_m": 66.9,
+  "L_m": 188.6,
+  "H_over_L": 0.355,
+  "reach_angle_deg": 19.5,
+  "azimuth_deg": 118,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 20.6,
+  "slope_p90_deg": 30.2,
+  "crown_lonlat": [
+   98.14720442966535,
+   13.762152674839713
+  ],
+  "toe_lonlat": [
+   98.14874098555231,
+   13.761344621114436
+  ],
+  "ndvi_pre_mean": 0.85,
+  "ndvi_pre_source": 0.85,
+  "zone_m2": {
+   "source": 1249.6,
+   "transport": 2322.6,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "LZ-03",
+  "name": "North chute",
+  "type": "open",
+  "description": "A long narrow chute on the hill north of LL-01.",
+  "crown_z": 133.2,
+  "toe_z": 27.4,
+  "H_m": 105.9,
+  "L_m": 305.7,
+  "H_over_L": 0.346,
+  "reach_angle_deg": 19.1,
+  "azimuth_deg": 112,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 19.3,
+  "slope_p90_deg": 24.7,
+  "crown_lonlat": [
+   98.1523826299502,
+   13.767842616562461
+  ],
+  "toe_lonlat": [
+   98.15500035239405,
+   13.766798050880793
+  ],
+  "ndvi_pre_mean": 0.75,
+  "ndvi_pre_source": 0.76,
+  "zone_m2": {
+   "source": 1663.8,
+   "transport": 1183.2,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "LZ-04",
+  "name": "North-edge slide",
+  "type": "open",
+  "description": "A slide at the north edge of the block.",
+  "crown_z": 171.9,
+  "toe_z": 138.9,
+  "H_m": 32.9,
+  "L_m": 70.9,
+  "H_over_L": 0.465,
+  "reach_angle_deg": 24.9,
+  "azimuth_deg": 132,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 24.5,
+  "slope_p90_deg": 27.6,
+  "crown_lonlat": [
+   98.15174019926852,
+   13.768282452050968
+  ],
+  "toe_lonlat": [
+   98.15223220120883,
+   13.767859179445438
+  ],
+  "ndvi_pre_mean": 0.76,
+  "ndvi_pre_source": 0.76,
+  "zone_m2": {
+   "source": 1218.4,
+   "transport": 0.0,
+   "runout": 0.0
+  }
+ }
+]

@@ -3,7 +3,7 @@
 Ka Det Nge Htein and Ngone Min Taung are 1.2 km apart, so one point between them is fetched; Tha Byar, 13 km
 north, and the road to Pa Nyit, 5 km west of Tha Byar, have their own. Cached with the fetch time: forecast-hour values are later replaced by analysis values, so a
 re-fetch will not match exactly - an existing cache is kept (delete it to re-fetch).
-usage: python 09_rainfall.py [kadet|tby|pny|pgz|rbe]
+usage: python 09_rainfall.py [kadet|tby|pny|pgz|rbe|thw|lhl]
 """
 import datetime as dt, json, sys, urllib.parse, urllib.request
 from sites import ROOT
@@ -12,7 +12,9 @@ POINTS = {"kadet": (13.8920, 98.1330, "2026-10-03"),  # between Ka Det Nge Htein
           "tby": (14.0090, 98.1250, "2026-10-05"),    # Tha Byar, head of the debris fan
           "pny": (13.9945, 98.0855, "2026-10-05"),    # road to Pa Nyit, the scoured stream
           "pgz": (13.7060, 98.1640, "2026-10-07"),    # Pyin Gyi - Za Lut, the road debris flow
-          "rbe": (13.7090, 98.1500, "2026-10-08")}    # Ra Be - Kyauk Twin road
+          "rbe": (13.7090, 98.1500, "2026-10-08"),    # Ra Be - Kyauk Twin road
+          "thw": (13.7790, 98.1530, "2026-10-08"),    # Tha Win, behind the village
+          "lhl": (13.7650, 98.1530, "2026-10-08")}    # Lel Hla, the flow to the road
 
 
 def get(params):

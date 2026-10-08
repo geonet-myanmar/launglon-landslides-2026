@@ -19,7 +19,7 @@ Core filter (sites.py core_filter: Tha Byar, whose valley envelopes border rubbe
 landslide envelope only bare components >= 500 m2, and components within 5 m of one, are kept - isolated
 canopy gaps in the plantation (classified bare) are dropped.
 The survey footprint drops ground already inside a neighbouring site's footprint (sites.py minus_sites: Ka Det Gyi
-overlaps Ka Det Nge Htein by 4.3 ha), so nothing is counted twice; footprint.geojson is that reduced extent.
+overlaps Ka Det Nge Htein by 4.3 ha; Tha Win contains the whole 2 Oct Taw Kye survey), so nothing is counted twice; footprint.geojson is that reduced extent.
 Writes landslides.geojson (EPSG:4326), landslides_utm.gpkg and footprint.geojson per site.
 """
 import sys
@@ -58,6 +58,14 @@ def footprint(site):
         a = s.read(4, out_shape=(s.height // f, s.width // f), resampling=Resampling.nearest)
         t = s.transform * s.transform.scale(s.width / a.shape[1], s.height / a.shape[0])
     return unary_union([shape(g) for g, v in features.shapes((a > 0).astype(np.uint8), transform=t) if v == 1])
+
+
+def other_footprint(other):
+    """Footprint of a neighbouring site, EPSG:4326; Taw Kye's (imported by step 11) is its two flights."""
+    if other == "tawkye":
+        return unary_union([gpd.read_file(d("tawkye", f"footprint_{f}_flight.geojson")).to_crs(4326).union_all()
+                            for f in ("landslide", "plan2")])
+    return gpd.read_file(d(other, "inventory", "footprint.geojson")).geometry.iloc[0]
 
 
 def clean(mask, px_area):
@@ -151,7 +159,7 @@ def run(site):
     env = env[env.kind != "exclude"]
     fp = footprint(site)
     for other in SITES[site].get("minus_sites", []):  # ground already mapped by a neighbouring survey stays with it
-        fp = fp.difference(gpd.read_file(d(other, "inventory", "footprint.geojson")).geometry.iloc[0])
+        fp = fp.difference(other_footprint(other))
     taken, rows = None, []
     with rasterio.open(d(site, "class", "bare.tif")) as db, rasterio.open(d(site, "class", "class.tif")) as dc:
         pa = pixel_area(db)

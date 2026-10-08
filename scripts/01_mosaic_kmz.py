@@ -7,6 +7,9 @@ Interior leaves are JPEG (no alpha -> fully valid), edge leaves PNG with alpha.
 Written tile by tile - the 32768^2 grid never sits in RAM.
 Tha Byar's two flights (tb1, tb2: 1031 and 949 leaves, depth 6, 9.5 / 9.0 cm) are mosaicked here and merged
 into data/tby/ by 01b_merge_flights.py; Ka Det Gyi's (kg1, kg2: 844 and 889 leaves, 8.0 cm) into data/kdg/.
+Thakyattaw_Yabel_4Plan_Combine.kmz (8 Oct) is one mosaic of four flights at depth 8 (3,488 leaves, 10.0 cm) whose
+root box is 13 x 13 km but whose leaves form two separate blocks; a site with a `bbox` (sites.py: Tha Win, the northern
+block, and Lel Hla, the southern one) takes only the leaves inside it, on a grid cropped to them.
 """
 import io, sys, zipfile, xml.etree.ElementTree as ET
 import numpy as np, rasterio
@@ -44,6 +47,16 @@ def run(tag):
                 blockxsize=512, blockysize=512, compress="deflate", predictor=2, BIGTIFF="YES",
                 photometric="RGB")
     ovs = [(h, b) for h, b in ovs if ord(h[0]) - ord("a") == depth]
+    bb = {**SITES, **FLIGHTS}[tag].get("bbox")
+    if bb:  # this block's leaves only, on the grid cut down to them
+        ovs = [(h, b) for h, b in ovs if bb[0] < (b["west"] + b["east"]) / 2 < bb[2] and bb[1] < (b["south"] + b["north"]) / 2 < bb[3]]
+        c0 = min(round((b["west"] - root["west"]) / dx) for _, b in ovs)
+        r0 = min(round((root["north"] - b["north"]) / dy) for _, b in ovs)
+        c1 = max(round((b["west"] - root["west"]) / dx) for _, b in ovs) + 512
+        r1 = max(round((root["north"] - b["north"]) / dy) for _, b in ovs) + 512
+        root = {"west": root["west"] + c0 * dx, "north": root["north"] - r0 * dy}
+        prof.update(width=c1 - c0, height=r1 - r0, transform=from_origin(root["west"], root["north"], dx, dy), SPARSE_OK=True)
+        print(f"  {len(ovs)} leaves in bbox, grid {c1 - c0}x{r1 - r0}")
     with rasterio.open(out, "w", **prof) as dst:
         for i, (href, b) in enumerate(ovs):
             c0 = round((b["west"] - root["west"]) / dx)

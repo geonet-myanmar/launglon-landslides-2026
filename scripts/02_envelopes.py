@@ -394,6 +394,123 @@ ENV = {
 }
 
 
+# Main road through Tha Win and Taw Kye (OpenStreetMap, checked on the ortho: within 2-3 m), south to north
+THW_ROAD = [(98.15734, 13.7711), (98.15669, 13.77227), (98.15653, 13.77276), (98.15607, 13.77725), (98.15609, 13.77781),
+            (98.15624, 13.77838), (98.15812, 13.78348), (98.15825, 13.78408), (98.15844, 13.78644), (98.15859, 13.78742),
+            (98.15876, 13.78821), (98.15924, 13.78912), (98.15933, 13.78966), (98.15945, 13.79161), (98.15932, 13.79436),
+            (98.15934, 13.7947), (98.1596, 13.79616), (98.15967, 13.79636), (98.15983, 13.7971), (98.15984, 13.79734),
+            (98.15983, 13.79757), (98.15948, 13.79919), (98.15944, 13.7995), (98.15966, 13.80125), (98.15978, 13.80157),
+            (98.16009, 13.80211), (98.16027, 13.80254), (98.16041, 13.80422), (98.16041, 13.80454), (98.16038, 13.80468),
+            (98.16024, 13.80498), (98.16005, 13.80524), (98.15977, 13.80554), (98.15956, 13.80586), (98.15932, 13.80706),
+            (98.15923, 13.8085), (98.15926, 13.80886), (98.15956, 13.80978), (98.15959, 13.80996), (98.15955, 13.81156),
+            (98.15963, 13.81202)]
+LHL_ROAD = [(98.15132, 13.75438), (98.15217, 13.75557), (98.15239, 13.75581), (98.15282, 13.75606), (98.15428, 13.75674),
+            (98.15453, 13.75702), (98.15483, 13.75789), (98.1551, 13.75846), (98.15641, 13.76041), (98.15691, 13.76107),
+            (98.15807, 13.7628), (98.15818, 13.76321), (98.15812, 13.76447), (98.15789, 13.76588), (98.15785, 13.76635),
+            (98.15784, 13.76751), (98.15774, 13.7691), (98.15734, 13.7711)]
+
+# Tha Win (8 Oct 2026, northern block of the 4-flight delivery): forested hills west of the road from Tha Win north past
+# Taw Kye. The 2 Oct Taw Kye survey keeps the ground it covers (sites.minus_sites). The northern valley flow and the
+# sediment it spread to the road are drawn; through Tha Win the zone stops at the foot of the hill and the sediment in the
+# village is outwash; everything else on the hills is one split zone (TZ).
+THW_FOOT = [(98.1555, 13.7707), (98.1555, 13.7732), (98.1550, 13.7752), (98.1540, 13.7767), (98.1533, 13.7777),
+            (98.1530, 13.7789), (98.1540, 13.7796), (98.1544, 13.7804), (98.1560, 13.7811), (98.1564, 13.7825),
+            (98.1570, 13.7840)]  # foot of the hill behind Tha Win (village and gardens to the east), south to north
+ENV["thw"] = [
+    ("TW-01", "Northern valley debris flow", "landslide", 2, P, [
+        (98.14918, 13.80918), (98.15014, 13.80926), (98.1505, 13.80844), (98.1513, 13.80765), (98.15234, 13.80687),
+        (98.15314, 13.80624), (98.15378, 13.80562), (98.15458, 13.80515), (98.1555, 13.80499), (98.1555, 13.80245),
+        (98.1545, 13.80249), (98.1533, 13.80261), (98.1529, 13.80296), (98.15322, 13.80358), (98.1530, 13.8045),
+        (98.1524, 13.8052), (98.1515, 13.8060), (98.1510, 13.8067), (98.1503, 13.8074), (98.14962, 13.80804),
+        (98.14922, 13.80859)], 0,
+     "The largest flow: a debris flow from a wide scar at the head of the valley north-west of Taw Kye, which ran 700 m "
+     "south-east down the valley, scouring it to grey sand, and spread over the valley floor where the western channel "
+     "joins it. Its sediment continues east to the road (TW-OW1) and south into the 2 Oct Taw Kye survey (LS-01)."),
+    ("TW-OW1", "Valley mouth under sediment", "outwash", 3, P, [
+        (98.1555, 13.8018), (98.1555, 13.8052), (98.1570, 13.8057), (98.1590, 13.8057), (98.15977, 13.80554),
+        (98.16005, 13.80524), (98.16024, 13.80498), (98.16041, 13.80454), (98.16041, 13.80422), (98.16027, 13.80254),
+        (98.16009, 13.80211), (98.1598, 13.8018)], 0,
+     "Fields and scrub at the mouth of the northern valley under grey sand and orange mud from TW-01, up to the road."),
+    ("TW-OW4", "Paddies east of the road under sediment", "outwash", 3, P, [
+        (98.1604, 13.8020), (98.1620, 13.8020), (98.1625, 13.8040), (98.1628, 13.8055), (98.1606, 13.8057),
+        (98.1604, 13.8045)], 0,
+     "Paddies east of the road, green on 10 Jan 2026, now under orange mud where the valley flow's sediment crossed the road."),
+    ("TW-OW2", "West Tha Win under sediment", "outwash", 3, P, [
+        (98.1530, 13.7789), (98.1533, 13.7777), (98.1540, 13.7767), (98.1548, 13.7762), (98.15605, 13.7764),
+        (98.15607, 13.77725), (98.15609, 13.77781), (98.1562, 13.7784), (98.1555, 13.7792), (98.1544, 13.7796),
+        (98.1540, 13.7796)], 0,
+     "The western part of Tha Win, between the foot of the hill and the road, under the sand and debris of the two "
+     "channels that meet behind the village."),
+    ("TW-OW3", "North Tha Win under sediment", "outwash", 3, P, box_ll(98.1552, 13.7810, 98.1566, 13.7826), 0,
+     "Gardens at the north end of Tha Win under sand from the channel behind them."),
+    ("TW-OW5", "Field beside the road under sediment", "outwash", 3, P, box_ll(98.15822, 13.80843, 98.1592, 13.80957), 0,
+     "A grass field beside the road at the north edge of the survey under mud washed down from the slides above it "
+     "(TZ-08); flat ground, so not a slide of its own."),
+    ("TZ", "Hills west of the road", "landslide", 5, P,
+     [(98.140, 13.7707)] + THW_FOOT + [(x, y) for x, y in THW_ROAD if 13.7841 < y < 13.812] + [(98.1596, 13.812), (98.140, 13.812)], 0,
+     "Zone split into connected scars and scoured channels."),
+    ("TX-1", "Main road", "exclude", 0, L, THW_ROAD, 5, "The road through Tha Win and Taw Kye and its cut banks."),
+    ("TX-2", "Compound bare in Jan 2026", "exclude", 0, P, box_ll(98.1570, 13.7862, 98.1586, 13.7880), 0,
+     "A compound beside the road, already bare on the Esri Vivid image of 10 Jan 2026 (debris has since run into it)."),
+    ("TX-3", "Roadside yards", "exclude", 0, P, box_ll(98.1555, 13.7838, 98.1595, 13.7856), 0,
+     "Houses and yards beside the road, bare on 10 Jan 2026."),
+    ("TX-4", "Terraced clearing", "exclude", 0, P, box_ll(98.1487, 13.8043, 98.1510, 13.8062), 0,
+     "A terraced clearing above the western channel, already cleared on 10 Jan 2026."),
+    ("TX-5", "Smeared flight edge", "exclude", 0, P, box_ll(98.1470, 13.7870, 98.1490, 13.7912), 0,
+     "Rejected on chip review: smeared ground at the west edge of the flights."),
+    ("TX-6", "Track loop", "exclude", 0, P, box_ll(98.15814, 13.80606, 98.15932, 13.80707), 0,
+     "Rejected on chip review: a looping track and clearing already bare on 10 Jan 2026."),
+    ("TX-7", "Roadside gardens", "exclude", 0, P, box_ll(98.15829, 13.80701, 98.1593, 13.80843), 0,
+     "Rejected on chip review: gardens and a field beside the road, partly bare on 10 Jan 2026."),
+    ("TX-8", "Road edge", "exclude", 0, P, box_ll(98.15918, 13.80555, 98.15961, 13.8073), 0,
+     "Rejected on chip review: the edge of the road."),
+    ("TX-9", "Yard bare in Jan 2026", "exclude", 0, P, box_ll(98.15761, 13.78583, 98.15833, 13.78623), 0,
+     "Rejected on chip review: sandy ground beside the compound (TX-2), already bare on 10 Jan 2026."),
+    ("TX-10", "Road edge", "exclude", 0, P, box_ll(98.15851, 13.78835, 98.15903, 13.78881), 0,
+     "Rejected on chip review: the road edge and a yard bare on 10 Jan 2026."),
+    ("TX-11", "Yard and canopy gaps", "exclude", 0, P, box_ll(98.15446, 13.77362, 98.15515, 13.77478), 0,
+     "Rejected on chip review: a yard beside a hut and canopy gaps, not a landslide."),
+]
+# Lel Hla (8 Oct 2026, southern block of the same delivery): forested hills west of the road through Lel Hla. The long
+# flow that reached the road is drawn, its fan east of the road is outwash; the zone stops at the foot of the hill
+# (village and gardens to the east). The smeared south-west corner of the flights is left out.
+ENV["lhl"] = [
+    ("LL-01", "Debris flow to the road", "landslide", 2, P, [
+        (98.14664, 13.76693), (98.14871, 13.76701), (98.14986, 13.7670), (98.151, 13.7668), (98.15186, 13.76631),
+        (98.153, 13.7661), (98.15443, 13.76596), (98.1550, 13.7658), (98.1556, 13.7654), (98.1566, 13.7651),
+        (98.1574, 13.7656), (98.15797, 13.7656), (98.15800, 13.7632), (98.1572, 13.7632), (98.1565, 13.7636),
+        (98.1555, 13.7638), (98.1545, 13.7642), (98.15414, 13.76451), (98.15329, 13.76518), (98.15243, 13.76535),
+        (98.15243, 13.76444), (98.15157, 13.76451), (98.14914, 13.76479), (98.14829, 13.76521), (98.14664, 13.76613)], 0,
+     "A debris flow that broke away in two prongs on the hills west of Lel Hla, ran 1.2 km east down a forested valley, "
+     "scouring it to grey sand, and reached the road at the south end of the village; its fan crossed the road (LL-OW1)."),
+    ("LL-OW1", "Gardens east of the road under sediment", "outwash", 3, P, [
+        (98.1581, 13.7630), (98.1581, 13.7645), (98.1590, 13.7643), (98.1600, 13.7636), (98.1604, 13.7628),
+        (98.1598, 13.7625), (98.1588, 13.7627)], 0,
+     "Gardens and scrub east of the road, green on 10 Jan 2026, now under the sand of LL-01's fan."),
+    ("LZ", "Hills west of Lel Hla", "landslide", 5, P, [
+        (98.140, 13.755), (98.1541, 13.755), (98.1541, 13.7645), (98.1550, 13.7660), (98.1550, 13.7707),
+        (98.140, 13.7707)], 0,
+     "Zone split into connected scars and scoured channels."),
+    ("LX-1", "Main road", "exclude", 0, L, LHL_ROAD, 5, "The road through Lel Hla and its cut banks."),
+    ("LX-2", "Plot bare in Jan 2026", "exclude", 0, P, box_ll(98.1572, 13.7633, 98.1579, 13.7654), 0,
+     "Plots beside the road, already bare on the Esri Vivid image of 10 Jan 2026 (LL-01's debris has since covered them)."),
+    ("LX-3", "Smeared flight corner", "exclude", 0, P, box_ll(98.1465, 13.7560, 98.1520, 13.7600), 0,
+     "The south-west corner of the flights is smeared (orthorectification edge); left out."),
+    ("LX-4", "Rock slab", "exclude", 0, P, box_ll(98.14875, 13.76716, 98.14927, 13.76753), 0,
+     "Rejected on chip review: a rock slab already dark and bare on 10 Jan 2026."),
+    ("LX-5", "Rock slabs", "exclude", 0, P, box_ll(98.14767, 13.76277, 98.1482, 13.76343), 0,
+     "Rejected on chip review: rock slabs already bare on 10 Jan 2026."),
+    ("LX-6", "House and yard", "exclude", 0, P, box_ll(98.15371, 13.761, 98.15413, 13.76141), 0,
+     "Rejected on chip review: a house, its yard and track."),
+    ("LX-7", "Cleared plantation", "exclude", 0, P, box_ll(98.15201, 13.76196, 98.15314, 13.7631), 0,
+     "Rejected on chip review: young plantation on ground already cleared on 10 Jan 2026."),
+    ("LX-8", "Rock slab", "exclude", 0, P, box_ll(98.15312, 13.76345, 98.15351, 13.76375), 0,
+     "Rejected on chip review: a rock slab already dark on 10 Jan 2026."),
+    ("LX-9", "Rock slab", "exclude", 0, P, box_ll(98.15093, 13.76376, 98.15139, 13.76406), 0,
+     "Rejected on chip review: a rock slab already dark on 10 Jan 2026."),
+]
+
+
 def build(site):
     rows = []
     for i, name, kind, prio, typ, coords, hw, desc in ENV[site]:

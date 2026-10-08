@@ -38,6 +38,13 @@ SITES = {
     "rbe": {"name": "Ra Be", "kmz": "Yabae_KyaukTwin_RD_1.kmz + Yabae_KyaukTwin_RD_2.kmz", "flown": "2026-10-08",
             "exg": 0.041, "ee": "ee_rbe",
             "minus_sites": ["pgz"]},  # 55 ha shared with the Pyin Gyi - Za Lut survey stays with that site
+    # Taw Kye, Tha Win and Lel Hla, 8 Oct 2026: one KMZ, four flights already mosaicked by the provider, in two
+    # separate blocks -> two sites cut from it by `bbox` in step 01; one Earth Engine area (data/ee_thw/)
+    "thw": {"name": "Tha Win", "kmz": "Thakyattaw_Yabel_4Plan_Combine.kmz", "bbox": (98.14, 13.7707, 98.17, 13.812),
+            "flown": "2026-10-08", "exg": 0.045, "ee": "ee_thw", "outwash_minus_buildings": True,
+            "minus_sites": ["tawkye"]},  # the 2 Oct Taw Kye survey (finer, 3.75 / 5.68 cm) keeps the ground it covers
+    "lhl": {"name": "Lel Hla", "kmz": "Thakyattaw_Yabel_4Plan_Combine.kmz", "bbox": (98.14, 13.755, 98.17, 13.7707),
+            "flown": "2026-10-08", "exg": 0.045, "ee": "ee_thw"},
 }
 # KMZ deliveries that are mosaicked by step 01 but are not sites of their own
 FLIGHTS = {
@@ -72,6 +79,8 @@ def d(site, *parts):
 # from its envelopes. Ngone Min Taung features are numbered by area by the split zone, so each name
 # carries the point it was given for, and step 06 checks the feature is still there.
 TYPES = {
+    "thw": {"TW-01": "channel"},
+    "lhl": {"LL-01": "channel"},
     "rbe": {"RB-01": "open"},
     "pgz": {"PG-01": "open", "PG-03": "channel", "PG-04": "channel", "PG-05": "channel"},
     "pny": {"PN-01": "channel", "PN-02": "open", "PN-03": "open", "PN-04": "open", "PN-05": "channel", "PN-06": "channel", "PN-07": "open"},
@@ -165,7 +174,55 @@ RBE_NAMES = {  # Ra Be split zone RZ (hillside on both sides of the Ra Be - Kyau
     "RZ-12": ("Small slide", "open", 98.15212, 13.70301, "A small slide near the southern edge."),
     "RZ-13": ("Side slide", "open", 98.14778, 13.70748, "A small slide west of the road."),
 }
-SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES, "kdg": KDG_NAMES, "pgz": PGZ_NAMES, "rbe": RBE_NAMES}
+THW_NAMES = {  # Tha Win split zone TZ (hills west of the road from Tha Win north past Taw Kye)
+    "TZ-01": ("Western valley channel network", "channel", 98.14986, 13.80415,
+              "The western branch of the northern valley: a channel scoured from the west edge of the survey to where it "
+              "joins TW-01, with the slides and gullies that fed it from both sides."),
+    "TZ-02": ("Channel network behind Tha Win", "channel", 98.15326, 13.78091,
+              "Channels scoured east from the hills that meet behind Tha Win, and the wide slide that came down to them "
+              "from the north; their sand spread through the west of the village (TW-OW2)."),
+    "TZ-03": ("Channel network south of Taw Kye", "channel", 98.15087, 13.78903,
+              "Branching channels scoured east down the hills south of Taw Kye; they run into the 2 Oct Taw Kye survey, "
+              "which maps their lower reaches."),
+    "TZ-04": ("South-western flow", "channel", 98.15352, 13.77524,
+              "A wide debris flow down a valley from the south-west edge of the survey that turned north and reached the "
+              "south-west corner of Tha Win."),
+    "TZ-05": ("Channel network west of Taw Kye", "channel", 98.14903, 13.79839,
+              "Channels scoured down the hills west of Taw Kye, feeding the southern branch of the northern valley."),
+    "TZ-06": ("Twin slides above the valley flow", "open", 98.15325, 13.80681,
+              "Two slides on the north side of the valley that merged and ran south into TW-01."),
+    "TZ-07": ("Slides north of the valley mouth", "open", 98.15594, 13.80724,
+              "Slides on the hill north of the valley mouth whose debris ran south-east towards the road."),
+    "TZ-08": ("Slides above the road in the north", "open", 98.15732, 13.80878,
+              "Slides on the hill west of the road at the north edge of the survey."),
+    "TZ-09": ("Head channels of the valley flow", "channel", 98.14862, 13.80803,
+              "Channels scoured down the hills at the head of the northern valley, joining TW-01 below its scar."),
+    "TZ-10": ("Long chute into the Taw Kye survey", "open", 98.15524, 13.78891,
+              "A long straight chute east down the hill south of Taw Kye; its toe is in the 2 Oct Taw Kye survey."),
+    "TZ-11": ("Slide west of Taw Kye", "open", 98.15035, 13.79752, "A slide on the hills west of Taw Kye."),
+    "TZ-12": ("Western chute", "open", 98.14856, 13.78593, "A chute on the western hills."),
+    "TZ-13": ("Channel to north Tha Win", "channel", 98.15437, 13.78222,
+              "A channel scoured east to the gardens at the north end of Tha Win (TW-OW3)."),
+    "TZ-14": ("Chute above Tha Win", "open", 98.15137, 13.78177, "A chute on the hills north-west of Tha Win."),
+    "TZ-15": ("Twin gullies", "channel", 98.15086, 13.79185, "Two gullies on the hills south-west of Taw Kye."),
+    "TZ-16": ("Slide at the Taw Kye survey edge", "open", 98.15663, 13.78958, "A slide just outside the 2 Oct Taw Kye survey."),
+    "TZ-17": ("Slide west of the gap", "open", 98.15449, 13.79686, "A slide west of the gap in the 8 Oct imagery."),
+    "TZ-18": ("West-edge chute", "open", 98.14657, 13.80307, "A chute at the west edge of the survey."),
+    "TZ-19": ("South-edge gully", "channel", 98.15267, 13.77272, "A gully at the southern edge of the block."),
+    "TZ-20": ("Side channel", "channel", 98.15130, 13.77976, "A side channel scoured on the valley floor behind Tha Win."),
+    "TZ-21": ("North channel", "channel", 98.15114, 13.80828, "A narrow channel north of the valley flow's scar."),
+    "TZ-22": ("North-edge scar", "open", 98.15331, 13.80901, "A scar at the north edge of the survey."),
+    "TZ-23": ("Small slide", "open", 98.15408, 13.78925, "A small slide south of Taw Kye."),
+    "TZ-24": ("Side slide", "open", 98.15384, 13.79284, "A small slide west of the Taw Kye survey."),
+}
+LHL_NAMES = {  # Lel Hla split zone LZ (hills west of Lel Hla)
+    "LZ-01": ("Long gully", "channel", 98.15011, 13.76077, "A gully scoured south-east down the hills south of LL-01."),
+    "LZ-02": ("Slide and chute", "open", 98.14772, 13.76176, "A slide on the southern hills and the chute below it."),
+    "LZ-03": ("North chute", "open", 98.15332, 13.76731, "A long narrow chute on the hill north of LL-01."),
+    "LZ-04": ("North-edge slide", "open", 98.15191, 13.76807, "A slide at the north edge of the block."),
+}
+SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES, "kdg": KDG_NAMES, "pgz": PGZ_NAMES, "rbe": RBE_NAMES,
+               "thw": THW_NAMES, "lhl": LHL_NAMES}
 # Landslides that enter the survey across its edge: the automatic crown (highest point on the outline) is then not
 # the source, so H, L and the reach angle are minimums. Set by inspection where the 15 m edge test misses it.
 EDGE_OVERRIDE = {"tby": {"TB-01": "crown", "TB-05": "crown"}, "pny": {"PN-06": "crown"}}

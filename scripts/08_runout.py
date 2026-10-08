@@ -11,7 +11,8 @@ Per site, two runs from the observed reach angles:
            flow has its source inside the survey, so the path is the long slide's crown (TB-03) to the toe of the
            valley flow it joined (TB-01, fan in the village): H and L between those two points.
 Zone A = reach of an open-slope flow; zone B = reached only by a channelised one.
-Zones are kept within 250 m of each survey so the two neighbouring sites do not overlap on the map.
+Zones are kept within 250 m of each survey so the two neighbouring sites do not overlap on the map; Tha Win's also
+leave out the 2 Oct Taw Kye survey, which it surrounds and which keeps its own zones.
 Pure screening on a 30 m pre-event DEM: no volume, no velocity cap, no obstacle effect.
 At Tha Byar it fails: the valley floor between TB-03 and the village is flat and lumpy on the DEM (forest canopy),
 and debris only moves to lower cells, so it stalls there at any angle. Back-analysis 2026-10-05: alpha 8/7/6/5/4/3
@@ -19,14 +20,15 @@ deg covers 48/54/55/55/55/55 % of TB-01 and 0/6/6/6/6/6 of the 47 destroyed, dam
 (filling depressions first changes nothing - filled pits become flats). Reported on the page, not tuned away.
 """
 import json, sys
-import numpy as np, rasterio, geopandas as gpd
+import numpy as np, pandas as pd, rasterio, geopandas as gpd
 from rasterio import features
 from shapely.geometry import shape
 from shapely.ops import unary_union
 from sites import SITES, d, ee_dir
 
 SRC_SLOPE = 20.0
-CHANNEL = {"kdnh": "KD-01", "nmt": "NM-04", "tby": ("TB-03", "TB-01"), "pny": "PN-01", "kdg": "KGN-02", "pgz": ("PG-04", "PG-03"), "rbe": "RZ-04"}  # tuple: crown of one, toe of the other
+CHANNEL = {"kdnh": "KD-01", "nmt": "NM-04", "tby": ("TB-03", "TB-01"), "pny": "PN-01", "kdg": "KGN-02", "pgz": ("PG-04", "PG-03"), "rbe": "RZ-04",
+           "thw": "TZ-02", "lhl": "LL-01"}  # tuple: crown of one, toe of the other
 CLIP_M = 250
 
 
@@ -70,6 +72,9 @@ def run(site, z, slope, T, prof):
     ch_ids = list(ch) if isinstance(ch, tuple) else [ch]
     fp = gpd.read_file(d(site, "inventory", "footprint.geojson")).to_crs(32647).geometry.iloc[0]
     clip = fp.buffer(CLIP_M)
+    if "tawkye" in SITES[site].get("minus_sites", []):  # Tha Win surrounds the 2 Oct Taw Kye survey, which keeps its own zones
+        tk = pd.concat([gpd.read_file(d("tawkye", f"footprint_{f}_flight.geojson")) for f in ("landslide", "plan2")])
+        clip = clip.difference(tk.to_crs(32647).union_all())
     zones = {}
     for name, a in (("open", a_open), ("channel", a_chan)):
         h = reach(z, slope, T.a, a)

@@ -1,0 +1,35 @@
+{
+ "alpha_open": 19.1,
+ "alpha_channel": 15.5,
+ "open_ids": [
+  "LZ-02",
+  "LZ-03"
+ ],
+ "channel_id": "LL-01",
+ "src_slope": 20.0,
+ "clip_m": 250,
+ "zoneA_ha": 166.29,
+ "zoneB_ha": 42.78,
+ "calibration_share_inside": {
+  "LL-01": 0.978,
+  "LZ-02": 1.0,
+  "LZ-03": 1.0
+ },
+ "buildings_surveyed_by_status_reach": {
+  "clear": {
+   "": 78,
+   "A": 4,
+   "B": 47
+  },
+  "edge": {
+   "": 1,
+   "A": 0,
+   "B": 0
+  },
+  "outwash": {
+   "": 2,
+   "A": 0,
+   "B": 0
+  }
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "alpha_open": 18.2,
+ "alpha_channel": 12.2,
+ "open_ids": [
+  "TZ-06",
+  "TZ-07",
+  "TZ-10",
+  "TZ-12",
+  "TZ-14",
+  "TZ-23"
+ ],
+ "channel_id": "TZ-02",
+ "src_slope": 20.0,
+ "clip_m": 250,
+ "zoneA_ha": 487.91,
+ "zoneB_ha": 144.82,
+ "calibration_share_inside": {
+  "TZ-02": 1.0,
+  "TZ-06": 0.993,
+  "TZ-07": 0.992,
+  "TZ-10": 1.0,
+  "TZ-12": 1.0,
+  "TZ-14": 1.0,
+  "TZ-23": 1.0
+ },
+ "buildings_surveyed_by_status_reach": {
+  "clear": {
+   "": 39,
+   "A": 6,
+   "B": 189
+  },
+  "destroyed": {
+   "": 0,
+   "A": 0,
+   "B": 3
+  },
+  "outwash": {
+   "": 8,
+   "A": 0,
+   "B": 3
+  }
+ }
+}

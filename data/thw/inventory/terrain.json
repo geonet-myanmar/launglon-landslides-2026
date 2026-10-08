@@ -1,0 +1,1026 @@
+[
+ {
+  "id": "TW-01",
+  "name": "Northern valley debris flow",
+  "type": "channel",
+  "description": "The largest flow: a debris flow from a wide scar at the head of the valley north-west of Taw Kye, which ran 700 m south-east down the valley, scouring it to grey sand, and spread over the valley floor where the western channel joins it. Its sediment continues east to the road (TW-OW1) and south into the 2 Oct Taw Kye survey (LS-01).",
+  "crown_z": 268.2,
+  "toe_z": 8.4,
+  "H_m": 259.8,
+  "L_m": 922.1,
+  "H_over_L": 0.282,
+  "reach_angle_deg": 15.7,
+  "azimuth_deg": 140,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 12.4,
+  "slope_p90_deg": 30.0,
+  "crown_lonlat": [
+   98.14999195038745,
+   13.80922275940952
+  ],
+  "toe_lonlat": [
+   98.15549971254205,
+   13.802856359707066
+  ],
+  "ndvi_pre_mean": 0.79,
+  "ndvi_pre_source": 0.84,
+  "zone_m2": {
+   "source": 19139.6,
+   "transport": 40159.8,
+   "runout": 47229.1
+  }
+ },
+ {
+  "id": "TZ-01",
+  "name": "Western valley channel network",
+  "type": "channel",
+  "description": "The western branch of the northern valley: a channel scoured from the west edge of the survey to where it joins TW-01, with the slides and gullies that fed it from both sides.",
+  "crown_z": 225.7,
+  "toe_z": 13.3,
+  "H_m": 212.4,
+  "L_m": 1062.0,
+  "H_over_L": 0.2,
+  "reach_angle_deg": 11.3,
+  "azimuth_deg": 127,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 18.7,
+  "slope_p90_deg": 31.5,
+  "crown_lonlat": [
+   98.14689116911457,
+   13.808185805322385
+  ],
+  "toe_lonlat": [
+   98.1547917785417,
+   13.802478642401718
+  ],
+  "ndvi_pre_mean": 0.8,
+  "ndvi_pre_source": 0.84,
+  "zone_m2": {
+   "source": 67816.0,
+   "transport": 49694.4,
+   "runout": 28982.5
+  }
+ },
+ {
+  "id": "TZ-02",
+  "name": "Channel network behind Tha Win",
+  "type": "channel",
+  "description": "Channels scoured east from the hills that meet behind Tha Win, and the wide slide that came down to them from the north; their sand spread through the west of the village (TW-OW2).",
+  "crown_z": 185.5,
+  "toe_z": 11.1,
+  "H_m": 174.4,
+  "L_m": 803.9,
+  "H_over_L": 0.217,
+  "reach_angle_deg": 12.2,
+  "azimuth_deg": 72,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 14.4,
+  "slope_p90_deg": 27.3,
+  "crown_lonlat": [
+   98.14548449765509,
+   13.777227435107854
+  ],
+  "toe_lonlat": [
+   98.15256483505146,
+   13.779450181490514
+  ],
+  "ndvi_pre_mean": 0.81,
+  "ndvi_pre_source": 0.83,
+  "zone_m2": {
+   "source": 27270.6,
+   "transport": 33137.6,
+   "runout": 29839.8
+  }
+ },
+ {
+  "id": "TZ-03",
+  "name": "Channel network south of Taw Kye",
+  "type": "channel",
+  "description": "Branching channels scoured east down the hills south of Taw Kye; they run into the 2 Oct Taw Kye survey, which maps their lower reaches.",
+  "crown_z": 282.3,
+  "toe_z": 18.1,
+  "H_m": 264.3,
+  "L_m": 911.9,
+  "H_over_L": 0.29,
+  "reach_angle_deg": 16.2,
+  "azimuth_deg": 106,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 20.0,
+  "slope_p90_deg": 30.3,
+  "crown_lonlat": [
+   98.14938994874703,
+   13.788268147432161
+  ],
+  "toe_lonlat": [
+   98.15751645225194,
+   13.786055997686928
+  ],
+  "ndvi_pre_mean": 0.85,
+  "ndvi_pre_source": 0.84,
+  "zone_m2": {
+   "source": 28091.4,
+   "transport": 25218.1,
+   "runout": 4152.9
+  }
+ },
+ {
+  "id": "TZ-04",
+  "name": "South-western flow",
+  "type": "channel",
+  "description": "A wide debris flow down a valley from the south-west edge of the survey that turned north and reached the south-west corner of Tha Win.",
+  "crown_z": 220.4,
+  "toe_z": 9.3,
+  "H_m": 211.1,
+  "L_m": 667.7,
+  "H_over_L": 0.316,
+  "reach_angle_deg": 17.5,
+  "azimuth_deg": 68,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 17.5,
+  "slope_p90_deg": 26.7,
+  "crown_lonlat": [
+   98.14825124139126,
+   13.77427482746774
+  ],
+  "toe_lonlat": [
+   98.15397232860097,
+   13.776549468611147
+  ],
+  "ndvi_pre_mean": 0.84,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 24145.5,
+   "transport": 13217.6,
+   "runout": 10059.4
+  }
+ },
+ {
+  "id": "TZ-05",
+  "name": "Channel network west of Taw Kye",
+  "type": "channel",
+  "description": "Channels scoured down the hills west of Taw Kye, feeding the southern branch of the northern valley.",
+  "crown_z": 213.6,
+  "toe_z": 40.0,
+  "H_m": 173.6,
+  "L_m": 664.5,
+  "H_over_L": 0.261,
+  "reach_angle_deg": 14.6,
+  "azimuth_deg": 9,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 17.9,
+  "slope_p90_deg": 31.1,
+  "crown_lonlat": [
+   98.15175413000293,
+   13.795422579927111
+  ],
+  "toe_lonlat": [
+   98.152651510254,
+   13.801366534644387
+  ],
+  "ndvi_pre_mean": 0.84,
+  "ndvi_pre_source": 0.85,
+  "zone_m2": {
+   "source": 15501.4,
+   "transport": 16972.2,
+   "runout": 7074.5
+  }
+ },
+ {
+  "id": "TZ-06",
+  "name": "Twin slides above the valley flow",
+  "type": "open",
+  "description": "Two slides on the north side of the valley that merged and ran south into TW-01.",
+  "crown_z": 184.5,
+  "toe_z": 22.7,
+  "H_m": 161.8,
+  "L_m": 478.3,
+  "H_over_L": 0.338,
+  "reach_angle_deg": 18.7,
+  "azimuth_deg": 145,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 20.8,
+  "slope_p90_deg": 31.5,
+  "crown_lonlat": [
+   98.15295351976928,
+   13.808569309214393
+  ],
+  "toe_lonlat": [
+   98.15549971253459,
+   13.805032415111876
+  ],
+  "ndvi_pre_mean": 0.84,
+  "ndvi_pre_source": 0.85,
+  "zone_m2": {
+   "source": 15145.7,
+   "transport": 10354.3,
+   "runout": 2654.7
+  }
+ },
+ {
+  "id": "TZ-07",
+  "name": "Slides north of the valley mouth",
+  "type": "open",
+  "description": "Slides on the hill north of the valley mouth whose debris ran south-east towards the road.",
+  "crown_z": 128.1,
+  "toe_z": 20.6,
+  "H_m": 107.4,
+  "L_m": 296.7,
+  "H_over_L": 0.362,
+  "reach_angle_deg": 19.9,
+  "azimuth_deg": 112,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 19.3,
+  "slope_p90_deg": 31.4,
+  "crown_lonlat": [
+   98.15501517983033,
+   13.8079237226406
+  ],
+  "toe_lonlat": [
+   98.15756928289201,
+   13.806940131633368
+  ],
+  "ndvi_pre_mean": 0.85,
+  "ndvi_pre_source": 0.85,
+  "zone_m2": {
+   "source": 12911.9,
+   "transport": 8942.9,
+   "runout": 4273.1
+  }
+ },
+ {
+  "id": "TZ-08",
+  "name": "Slides above the road in the north",
+  "type": "open",
+  "description": "Slides on the hill west of the road at the north edge of the survey.",
+  "crown_z": 139.1,
+  "toe_z": 10.9,
+  "H_m": 128.2,
+  "L_m": 317.7,
+  "H_over_L": 0.403,
+  "reach_angle_deg": 22.0,
+  "azimuth_deg": 100,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 22.2,
+  "slope_p90_deg": 31.4,
+  "crown_lonlat": [
+   98.15519069435457,
+   13.80903911838232
+  ],
+  "toe_lonlat": [
+   98.15809164992054,
+   13.808574445003176
+  ],
+  "ndvi_pre_mean": 0.87,
+  "ndvi_pre_source": 0.88,
+  "zone_m2": {
+   "source": 15309.1,
+   "transport": 5459.1,
+   "runout": 2343.8
+  }
+ },
+ {
+  "id": "TZ-09",
+  "name": "Head channels of the valley flow",
+  "type": "channel",
+  "description": "Channels scoured down the hills at the head of the northern valley, joining TW-01 below its scar.",
+  "crown_z": 260.4,
+  "toe_z": 106.1,
+  "H_m": 154.3,
+  "L_m": 336.2,
+  "H_over_L": 0.459,
+  "reach_angle_deg": 24.6,
+  "azimuth_deg": 142,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 21.5,
+  "slope_p90_deg": 29.7,
+  "crown_lonlat": [
+   98.14904637310833,
+   13.80915413659638
+  ],
+  "toe_lonlat": [
+   98.15094938186597,
+   13.806750237388295
+  ],
+  "ndvi_pre_mean": 0.87,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 13384.1,
+   "transport": 9658.1,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-10",
+  "name": "Long chute into the Taw Kye survey",
+  "type": "open",
+  "description": "A long straight chute east down the hill south of Taw Kye; its toe is in the 2 Oct Taw Kye survey.",
+  "crown_z": 202.9,
+  "toe_z": 31.6,
+  "H_m": 171.2,
+  "L_m": 457.9,
+  "H_over_L": 0.374,
+  "reach_angle_deg": 20.5,
+  "azimuth_deg": 139,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 19.5,
+  "slope_p90_deg": 28.4,
+  "crown_lonlat": [
+   98.1542265197588,
+   13.790537159154068
+  ],
+  "toe_lonlat": [
+   98.15699964244108,
+   13.7874072144555
+  ],
+  "ndvi_pre_mean": 0.85,
+  "ndvi_pre_source": 0.87,
+  "zone_m2": {
+   "source": 7121.9,
+   "transport": 10888.4,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-11",
+  "name": "Slide west of Taw Kye",
+  "type": "open",
+  "description": "A slide on the hills west of Taw Kye.",
+  "crown_z": 203.4,
+  "toe_z": 89.3,
+  "H_m": 114.1,
+  "L_m": 248.2,
+  "H_over_L": 0.46,
+  "reach_angle_deg": 24.7,
+  "azimuth_deg": 44,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 27.4,
+  "slope_p90_deg": 35.1,
+  "crown_lonlat": [
+   98.14969842978925,
+   13.796795421218993
+  ],
+  "toe_lonlat": [
+   98.15128806537474,
+   13.798414973278295
+  ],
+  "ndvi_pre_mean": 0.86,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 8291.4,
+   "transport": 1107.1,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-12",
+  "name": "Western chute",
+  "type": "open",
+  "description": "A chute on the western hills.",
+  "crown_z": 265.1,
+  "toe_z": 137.0,
+  "H_m": 128.1,
+  "L_m": 242.6,
+  "H_over_L": 0.528,
+  "reach_angle_deg": 27.8,
+  "azimuth_deg": 165,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 27.0,
+  "slope_p90_deg": 35.5,
+  "crown_lonlat": [
+   98.14809716082902,
+   13.787000423653437
+  ],
+  "toe_lonlat": [
+   98.14867160013713,
+   13.784879858780378
+  ],
+  "ndvi_pre_mean": 0.86,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 5949.3,
+   "transport": 1802.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-13",
+  "name": "Channel to north Tha Win",
+  "type": "channel",
+  "description": "A channel scoured east to the gardens at the north end of Tha Win (TW-OW3).",
+  "crown_z": 115.9,
+  "toe_z": 47.0,
+  "H_m": 68.9,
+  "L_m": 161.8,
+  "H_over_L": 0.426,
+  "reach_angle_deg": 23.1,
+  "azimuth_deg": 120,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 24.7,
+  "slope_p90_deg": 28.9,
+  "crown_lonlat": [
+   98.15389944233742,
+   13.78246253007677
+  ],
+  "toe_lonlat": [
+   98.15520009645013,
+   13.781739197232314
+  ],
+  "ndvi_pre_mean": 0.85,
+  "ndvi_pre_source": 0.85,
+  "zone_m2": {
+   "source": 4819.8,
+   "transport": 2134.5,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-14",
+  "name": "Chute above Tha Win",
+  "type": "open",
+  "description": "A chute on the hills north-west of Tha Win.",
+  "crown_z": 158.0,
+  "toe_z": 19.1,
+  "H_m": 138.8,
+  "L_m": 414.1,
+  "H_over_L": 0.335,
+  "reach_angle_deg": 18.5,
+  "azimuth_deg": 175,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 20.1,
+  "slope_p90_deg": 26.4,
+  "crown_lonlat": [
+   98.15146691703302,
+   13.783632815628758
+  ],
+  "toe_lonlat": [
+   98.15180500745933,
+   13.77990331954412
+  ],
+  "ndvi_pre_mean": 0.84,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 3352.3,
+   "transport": 3123.4,
+   "runout": 28.8
+  }
+ },
+ {
+  "id": "TZ-15",
+  "name": "Twin gullies",
+  "type": "channel",
+  "description": "Two gullies on the hills south-west of Taw Kye.",
+  "crown_z": 278.8,
+  "toe_z": 200.2,
+  "H_m": 78.6,
+  "L_m": 185.9,
+  "H_over_L": 0.423,
+  "reach_angle_deg": 22.9,
+  "azimuth_deg": 30,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 21.0,
+  "slope_p90_deg": 29.7,
+  "crown_lonlat": [
+   98.15027694858622,
+   13.791149632413125
+  ],
+  "toe_lonlat": [
+   98.15112198864001,
+   13.79261349588781
+  ],
+  "ndvi_pre_mean": 0.88,
+  "ndvi_pre_source": 0.89,
+  "zone_m2": {
+   "source": 3100.3,
+   "transport": 2657.9,
+   "runout": 449.3
+  }
+ },
+ {
+  "id": "TZ-16",
+  "name": "Slide at the Taw Kye survey edge",
+  "type": "open",
+  "description": "A slide just outside the 2 Oct Taw Kye survey.",
+  "crown_z": 134.2,
+  "toe_z": 29.1,
+  "H_m": 105.1,
+  "L_m": 244.0,
+  "H_over_L": 0.431,
+  "reach_angle_deg": 23.3,
+  "azimuth_deg": 117,
+  "crown_at_edge": false,
+  "toe_at_edge": true,
+  "slope_mean_deg": 24.0,
+  "slope_p90_deg": 30.0,
+  "crown_lonlat": [
+   98.1556895289418,
+   13.790031491418489
+  ],
+  "toe_lonlat": [
+   98.15771008781995,
+   13.789048417512035
+  ],
+  "ndvi_pre_mean": 0.86,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 3014.3,
+   "transport": 130.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-17",
+  "name": "Slide west of the gap",
+  "type": "open",
+  "description": "A slide west of the gap in the 8 Oct imagery.",
+  "crown_z": 148.8,
+  "toe_z": 112.8,
+  "H_m": 36.1,
+  "L_m": 146.5,
+  "H_over_L": 0.246,
+  "reach_angle_deg": 13.8,
+  "azimuth_deg": 295,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 14.5,
+  "slope_p90_deg": 15.4,
+  "crown_lonlat": [
+   98.15490914701775,
+   13.796554633108356
+  ],
+  "toe_lonlat": [
+   98.15368073954099,
+   13.797113637940656
+  ],
+  "ndvi_pre_mean": 0.86,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 2908.1,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-18",
+  "name": "West-edge chute",
+  "type": "open",
+  "description": "A chute at the west edge of the survey.",
+  "crown_z": 194.8,
+  "toe_z": 130.4,
+  "H_m": 64.4,
+  "L_m": 133.0,
+  "H_over_L": 0.485,
+  "reach_angle_deg": 25.9,
+  "azimuth_deg": 52,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 24.8,
+  "slope_p90_deg": 32.6,
+  "crown_lonlat": [
+   98.14568177994845,
+   13.802742727011527
+  ],
+  "toe_lonlat": [
+   98.14665400834423,
+   13.803479218072289
+  ],
+  "ndvi_pre_mean": 0.86,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 2187.8,
+   "transport": 442.4,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-19",
+  "name": "South-edge gully",
+  "type": "channel",
+  "description": "A gully at the southern edge of the block.",
+  "crown_z": 90.4,
+  "toe_z": 43.5,
+  "H_m": 46.9,
+  "L_m": 169.4,
+  "H_over_L": 0.277,
+  "reach_angle_deg": 15.5,
+  "azimuth_deg": 18,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 16.4,
+  "slope_p90_deg": 22.2,
+  "crown_lonlat": [
+   98.15272517254857,
+   13.7720471646194
+  ],
+  "toe_lonlat": [
+   98.15319433322101,
+   13.77350830003765
+  ],
+  "ndvi_pre_mean": 0.81,
+  "ndvi_pre_source": 0.84,
+  "zone_m2": {
+   "source": 438.0,
+   "transport": 1332.6,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-20",
+  "name": "Side channel",
+  "type": "channel",
+  "description": "A side channel scoured on the valley floor behind Tha Win.",
+  "crown_z": 23.6,
+  "toe_z": 16.5,
+  "H_m": 7.1,
+  "L_m": 124.0,
+  "H_over_L": 0.057,
+  "reach_angle_deg": 3.3,
+  "azimuth_deg": 109,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 4.1,
+  "slope_p90_deg": 4.6,
+  "crown_lonlat": [
+   98.15081649034754,
+   13.779954577180115
+  ],
+  "toe_lonlat": [
+   98.15190153186178,
+   13.77959091040041
+  ],
+  "ndvi_pre_mean": 0.77,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 0.0,
+   "runout": 1631.0
+  }
+ },
+ {
+  "id": "TZ-21",
+  "name": "North channel",
+  "type": "channel",
+  "description": "A narrow channel north of the valley flow's scar.",
+  "crown_z": 253.6,
+  "toe_z": 124.8,
+  "H_m": 128.8,
+  "L_m": 179.8,
+  "H_over_L": 0.716,
+  "reach_angle_deg": 35.6,
+  "azimuth_deg": 163,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 35.7,
+  "slope_p90_deg": 41.1,
+  "crown_lonlat": [
+   98.15084815564126,
+   13.809163534230802
+  ],
+  "toe_lonlat": [
+   98.15134899563435,
+   13.807613021968947
+  ],
+  "ndvi_pre_mean": 0.76,
+  "ndvi_pre_source": 0.76,
+  "zone_m2": {
+   "source": 1545.7,
+   "transport": 0.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-22",
+  "name": "North-edge scar",
+  "type": "open",
+  "description": "A scar at the north edge of the survey.",
+  "crown_z": 190.8,
+  "toe_z": 156.5,
+  "H_m": 34.3,
+  "L_m": 75.4,
+  "H_over_L": 0.455,
+  "reach_angle_deg": 24.5,
+  "azimuth_deg": 82,
+  "crown_at_edge": true,
+  "toe_at_edge": true,
+  "slope_mean_deg": 27.3,
+  "slope_p90_deg": 30.9,
+  "crown_lonlat": [
+   98.15290241799862,
+   13.809057038961074
+  ],
+  "toe_lonlat": [
+   98.15359367926933,
+   13.809150695349592
+  ],
+  "ndvi_pre_mean": 0.87,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 1020.5,
+   "transport": 280.3,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-23",
+  "name": "Small slide",
+  "type": "open",
+  "description": "A small slide south of Taw Kye.",
+  "crown_z": 160.0,
+  "toe_z": 127.1,
+  "H_m": 32.9,
+  "L_m": 99.8,
+  "H_over_L": 0.329,
+  "reach_angle_deg": 18.2,
+  "azimuth_deg": 157,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 19.0,
+  "slope_p90_deg": 26.4,
+  "crown_lonlat": [
+   98.153870318892,
+   13.78967028787912
+  ],
+  "toe_lonlat": [
+   98.15423412225482,
+   13.788840983951427
+  ],
+  "ndvi_pre_mean": 0.78,
+  "ndvi_pre_source": 0.78,
+  "zone_m2": {
+   "source": 440.0,
+   "transport": 787.4,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-24",
+  "name": "Side slide",
+  "type": "open",
+  "description": "A small slide west of the Taw Kye survey.",
+  "crown_z": 211.3,
+  "toe_z": 170.5,
+  "H_m": 40.8,
+  "L_m": 82.4,
+  "H_over_L": 0.495,
+  "reach_angle_deg": 26.4,
+  "azimuth_deg": 41,
+  "crown_at_edge": false,
+  "toe_at_edge": true,
+  "slope_mean_deg": 24.4,
+  "slope_p90_deg": 27.3,
+  "crown_lonlat": [
+   98.15347090791857,
+   13.792565371003084
+  ],
+  "toe_lonlat": [
+   98.15396741669701,
+   13.793130988664549
+  ],
+  "ndvi_pre_mean": 0.88,
+  "ndvi_pre_source": 0.88,
+  "zone_m2": {
+   "source": 918.9,
+   "transport": 114.2,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-25",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 282.2,
+  "toe_z": 217.5,
+  "H_m": 64.8,
+  "L_m": 116.0,
+  "H_over_L": 0.558,
+  "reach_angle_deg": 29.2,
+  "azimuth_deg": 36,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 28.3,
+  "slope_p90_deg": 30.3,
+  "crown_lonlat": [
+   98.14975837460652,
+   13.791440081983227
+  ],
+  "toe_lonlat": [
+   98.1503793341683,
+   13.792295608848475
+  ],
+  "ndvi_pre_mean": 0.88,
+  "ndvi_pre_source": 0.88,
+  "zone_m2": {
+   "source": 836.5,
+   "transport": 0.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-26",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 87.0,
+  "toe_z": 68.6,
+  "H_m": 18.4,
+  "L_m": 53.5,
+  "H_over_L": 0.344,
+  "reach_angle_deg": 19.0,
+  "azimuth_deg": 4,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 19.1,
+  "slope_p90_deg": 22.7,
+  "crown_lonlat": [
+   98.15240643700804,
+   13.772133900727354
+  ],
+  "toe_lonlat": [
+   98.15244344352902,
+   13.772616236398262
+  ],
+  "ndvi_pre_mean": 0.85,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 192.1,
+   "transport": 297.2,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-27",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 147.2,
+  "toe_z": 121.8,
+  "H_m": 25.3,
+  "L_m": 58.1,
+  "H_over_L": 0.436,
+  "reach_angle_deg": 23.6,
+  "azimuth_deg": 146,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 23.4,
+  "slope_p90_deg": 31.4,
+  "crown_lonlat": [
+   98.14798156820402,
+   13.78476800502194
+  ],
+  "toe_lonlat": [
+   98.1482850052528,
+   13.784334021190933
+  ],
+  "ndvi_pre_mean": 0.85,
+  "ndvi_pre_source": 0.84,
+  "zone_m2": {
+   "source": 258.4,
+   "transport": 216.6,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-28",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 121.6,
+  "toe_z": 104.1,
+  "H_m": 17.5,
+  "L_m": 43.4,
+  "H_over_L": 0.402,
+  "reach_angle_deg": 21.9,
+  "azimuth_deg": 177,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 21.3,
+  "slope_p90_deg": 22.5,
+  "crown_lonlat": [
+   98.154272581227,
+   13.788724899260275
+  ],
+  "toe_lonlat": [
+   98.15429283037349,
+   13.788332843689721
+  ],
+  "ndvi_pre_mean": 0.88,
+  "ndvi_pre_source": 0.88,
+  "zone_m2": {
+   "source": 353.6,
+   "transport": 6.3,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-29",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 187.9,
+  "toe_z": 166.0,
+  "H_m": 21.9,
+  "L_m": 31.0,
+  "H_over_L": 0.706,
+  "reach_angle_deg": 35.2,
+  "azimuth_deg": 215,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 34.6,
+  "slope_p90_deg": 35.9,
+  "crown_lonlat": [
+   98.15187987309528,
+   13.808687815695304
+  ],
+  "toe_lonlat": [
+   98.15171760287295,
+   13.808456203862884
+  ],
+  "ndvi_pre_mean": 0.58,
+  "ndvi_pre_source": 0.58,
+  "zone_m2": {
+   "source": 306.7,
+   "transport": 0.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "TZ-30",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 10.6,
+  "toe_z": 8.1,
+  "H_m": 2.6,
+  "L_m": 65.8,
+  "H_over_L": 0.039,
+  "reach_angle_deg": 2.2,
+  "azimuth_deg": 198,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 2.4,
+  "slope_p90_deg": 2.9,
+  "crown_lonlat": [
+   98.15938464755386,
+   13.809390603985277
+  ],
+  "toe_lonlat": [
+   98.15919968096362,
+   13.808823558572774
+  ],
+  "ndvi_pre_mean": 0.41,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 0.0,
+   "runout": 247.1
+  }
+ },
+ {
+  "id": "TZ-31",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 161.6,
+  "toe_z": 131.8,
+  "H_m": 29.8,
+  "L_m": 48.3,
+  "H_over_L": 0.617,
+  "reach_angle_deg": 31.7,
+  "azimuth_deg": 115,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 32.1,
+  "slope_p90_deg": 34.1,
+  "crown_lonlat": [
+   98.14758577905602,
+   13.784601369549371
+  ],
+  "toe_lonlat": [
+   98.14799002008901,
+   13.784414725130892
+  ],
+  "ndvi_pre_mean": 0.85,
+  "ndvi_pre_source": 0.85,
+  "zone_m2": {
+   "source": 246.2,
+   "transport": 0.0,
+   "runout": 0.0
+  }
+ }
+]
