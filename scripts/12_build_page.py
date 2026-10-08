@@ -1,8 +1,8 @@
-"""Collect the seven drone-surveyed sites into one payload, export GIS deliverables, render the dashboard.
+"""Collect the eight drone-surveyed sites into one payload, export GIS deliverables, render the dashboard.
 
 Outputs
   outputs/launglon_landslides_2026.gpkg   per site: landslides, outwash, buildings, reach zones, exclusions, crown/toe
-  outputs/landslides.csv, outputs/buildings.csv, outputs/summary.json   (all seven sites, `site` column)
+  outputs/landslides.csv, outputs/buildings.csv, outputs/summary.json   (all eight sites, `site` column)
   index.html                              standalone page (doctype + head) for GitHub Pages / local use
   dist/artifact-body.html                 the same body fragment without the wrapper
 src/template.html is the single source of truth for the page; never hand-edit index.html.
@@ -51,6 +51,15 @@ REPORTS["tby"] = {
               "Rescue teams reached Tha Byar on 27 Sep, clearing debris and boulders from the road by the monastery and the "
               "Pyin Sa Thi Maw turn-off; low-lying parts of the village were flooded to head height.",
               "A resident recalled a 1997 landslide on the same ridge, long grown over, and said this one was larger."]}
+REPORTS["rbe"] = {
+    "source": "Dawei Watch, 29-30 Sep 2026", "deaths": None, "houses": None,
+    "houses_note": "no houses reported destroyed",
+    "lines": ["Landslides cut the roads from 26 Sep: Ra Be, Kyauk Pon, Za Lut Pyin Gyi, the Kyauk Twin village tract and other "
+              "villages at the end of the Launglon peninsula were cut off and short of food (29 Sep).",
+              "The Kyauk Twin village tract - Wea Ma Kaik, Kyauk Twin, Sun Gyi and Chaung Hpyar Gyi, about 350 households near "
+              "Sin Htauk beach - is reached by the road west from Ra Be through the forested hills; with the Launglon - Shin "
+              "Maw road buried in many places, no relief had reached it five days after the road was cut (30 Sep).",
+              "No report gives deaths or destroyed houses at Ra Be or along this road."]}
 REPORTS["pgz"] = {
     "source": "Dawei Watch, 28 Sep - 2 Oct 2026", "deaths": 1, "recovered": 1, "missing": 0,
     "houses": "about 20", "houses_n": 20, "houses_label": "about 20 houses destroyed or uninhabitable",
@@ -106,7 +115,10 @@ META["kdg"] = {"mmr": "ကဒက်ကြီး", "gsd_cm": 8.0, "file": "KadetG
 META["pgz"] = {"mmr": "ပြင်ကြီး - ဇလွတ်", "gsd_cm": 9.7, "file": "PyinGyi_Plan_1.kmz + PyinGyi_Plan_2.kmz",
                "tiles": "zalut",
                "mimu": [("Pyin Gyi", "177216", "1.4 km south of the survey"), ("Za Lut", "177215", "1.5 km south of the survey")]}
-SITE_ORDER = ("tby", "pny", "nmt", "kdnh", "kdg", "tawkye", "pgz")  # north to south
+META["rbe"] = {"mmr": "ရဘဲ", "gsd_cm": 9.2, "file": "Yabae_KyaukTwin_RD_1.kmz + Yabae_KyaukTwin_RD_2.kmz",
+               "tiles": "rabe",
+               "mimu": [("Ra Be", "177207", "1.0 km north of the survey"), ("Kyauk Twin", "177217", "3.1 km west, at the end of the road")]}
+SITE_ORDER = ("tby", "pny", "nmt", "kdnh", "kdg", "tawkye", "rbe", "pgz")  # north to south
 TK_TYPES = {"LS-01": "channel", "LS-04": "channel"}
 TK_EDGE = {"LS-01": ("crown", "Mud fan fed by a channel entering from outside the survey."),
            "LS-09": ("toe", "Continues beyond the surveyed area.")}
@@ -291,6 +303,7 @@ def main():
     pd.concat(bcsv).to_csv(OUTD / "buildings.csv", index=False)
     rain = {"tby": rain_series(ROOT / "data/source/rainfall_openmeteo_tby.json"),
             "pgz": rain_series(ROOT / "data/source/rainfall_openmeteo_pgz.json"),
+            "rbe": rain_series(ROOT / "data/source/rainfall_openmeteo_rbe.json"),
             "pny": rain_series(ROOT / "data/source/rainfall_openmeteo_pny.json"),
             "kadet": rain_series(ROOT / "data/source/rainfall_openmeteo_kadet.json"),
             "tawkye": rain_series(TK / "rainfall_openmeteo_tawkye.json")}
@@ -335,10 +348,10 @@ def main():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Launglon Landslides 2026</title>
-<meta name="description" content="Drone-orthomosaic analysis of the 26-27 Sep 2026 landslides at Tha Byar, the road to Pa Nyit, Ngone Min Taung, Ka Det Nge Htein, Ka Det Gyi, Taw Kye and Pyin Gyi - Za Lut, Launglon Township, Tanintharyi Region, Myanmar.">
+<meta name="description" content="Drone-orthomosaic analysis of the 26-27 Sep 2026 landslides at Tha Byar, the road to Pa Nyit, Ngone Min Taung, Ka Det Nge Htein, Ka Det Gyi, Taw Kye, Ra Be and Pyin Gyi - Za Lut, Launglon Township, Tanintharyi Region, Myanmar.">
 <link rel="canonical" href="{SITE}">
 <meta property="og:url" content="{SITE}">
-<meta property="og:title" content="Launglon landslides, 26-27 Sep 2026: seven drone surveys">
+<meta property="og:title" content="Launglon landslides, 26-27 Sep 2026: eight drone surveys">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 28 L13 8 L19 18 L23 13 L30 28 Z' fill='%23b8742a'/%3E%3C/svg%3E">
 </head>
 <body>

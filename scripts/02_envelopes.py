@@ -228,6 +228,64 @@ ENV = {
         ("KX-13", "Shade under trees", "exclude", 0, P, box_ll(98.14995, 13.87222, 98.15048, 13.87255), 0,
          "Rejected on chip review: shade and leaf litter under trees, not a landslide."),
     ],
+    # Ra Be, on the Ra Be - Kyauk Twin road (8 Oct 2026, two flights merged). Slides and scoured channels cover the
+    # hillside on both sides of the road; the whole survey is one split zone (the 55 ha shared with Pyin Gyi - Za Lut
+    # stays with that site, sites.minus_sites). The smeared southern edge of the flights is left out.
+    "rbe": [
+        ("RB-OW", "Fields under sediment east of the road", "outwash", 3, P, [
+            (98.15000, 13.71215), (98.15150, 13.71220), (98.15300, 13.71250), (98.15350, 13.71400), (98.15200, 13.71420),
+            (98.15050, 13.71420), (98.15010, 13.71300)], 0,
+         "Grass fields east of the road under sand spread from the large flow that crossed the road here."),
+        ("RB-01", "Debris flow across the road", "landslide", 2, P, [
+            (98.14550, 13.71170), (98.14560, 13.71300), (98.14750, 13.71330), (98.14900, 13.71360), (98.14960, 13.71460),
+            (98.15050, 13.71460), (98.15060, 13.71100), (98.14900, 13.71100), (98.14900, 13.71200), (98.14800, 13.71210),
+            (98.14700, 13.71190)], 0,
+         "The longest open-slope flow: it broke away on the hillside west of the road, ran 400 m east, buried the road "
+         "and spread debris along it and sand over the fields beyond it (RB-OW)."),
+        ("RZ", "Hillside on both sides of the road", "landslide", 5, P, [
+            (98.14000, 13.70200), (98.14700, 13.70160), (98.14900, 13.70120), (98.15000, 13.70220), (98.15300, 13.70300),
+            (98.15600, 13.70350), (98.16000, 13.70350), (98.16000, 13.71800), (98.14000, 13.71800)], 0,
+         "Zone split into connected scars and scoured channels."),
+        ("RX-1", "Ra Be - Kyauk Twin road", "exclude", 0, L, [  # traced on the ortho at 0.6-1.0 m/px
+            (98.15065, 13.71655), (98.15063, 13.71599), (98.15051, 13.71487), (98.15037, 13.71412), (98.15027, 13.71347),
+            (98.15015, 13.71281), (98.14999, 13.71216), (98.14982, 13.71170), (98.14970, 13.71114), (98.14968, 13.71048),
+            (98.14979, 13.70983), (98.14984, 13.70918), (98.14973, 13.70843), (98.14956, 13.70778), (98.14937, 13.70712),
+            (98.14913, 13.70666), (98.14881, 13.70645), (98.14875, 13.70621), (98.14866, 13.70563), (98.14854, 13.70504),
+            (98.14842, 13.70445), (98.14830, 13.70381), (98.14810, 13.70316), (98.14794, 13.70269), (98.14770, 13.70234),
+            (98.14734, 13.70210), (98.14698, 13.70175), (98.14650, 13.70152), (98.14590, 13.70131), (98.14530, 13.70122),
+            (98.14470, 13.70134), (98.14410, 13.70116), (98.14350, 13.70119), (98.14290, 13.70134), (98.14230, 13.70146),
+            (98.14182, 13.70163), (98.14100, 13.70200)], 5,
+         "Unsealed road and its cut banks, bare on 10 Jan 2026."),
+        ("RX-2", "Track south", "exclude", 0, L, [
+            (98.14850, 13.70387), (98.14860, 13.70328), (98.14880, 13.70269), (98.14896, 13.70210), (98.14920, 13.70140)], 3,
+         "Track bare on 10 Jan 2026 (debris has since run down it)."),
+        ("RX-3", "Plot bare in Jan 2026", "exclude", 0, P, box_ll(98.14990, 13.71520, 98.15070, 13.71640), 0,
+         "Earthworks beside the road, already bare on the Esri Vivid image of 10 Jan 2026."),
+        ("RX-4", "Fish ponds", "exclude", 0, P, box_ll(98.15050, 13.71430, 98.15200, 13.71530), 0,
+         "Fish ponds and bunds, already there on 10 Jan 2026."),
+        ("RX-5", "Cleared plantation", "exclude", 0, P, box_ll(98.14250, 13.70380, 98.14430, 13.70610), 0,
+         "A plantation plot felled or burnt since January: grey trunks and litter with no slide scar or runout."),
+        ("RX-6", "Cleared plantation", "exclude", 0, P, box_ll(98.14450, 13.70240, 98.14530, 13.70340), 0,
+         "A plantation plot felled or burnt since January, as RX-5."),
+        ("RX-7", "Terraced plantation", "exclude", 0, P, box_ll(98.14100, 13.70270, 98.14320, 13.70470), 0,
+         "Terraced young plantation and its paths, already there on 10 Jan 2026."),
+        ("RX-8", "Cultivated plot", "exclude", 0, P, box_ll(98.15102, 13.71527, 98.1526, 13.71668), 0,
+         "Rejected on chip review: a cultivated plot north of the ponds, with crop rows on 10 Jan 2026."),
+        ("RX-9", "Canopy gaps", "exclude", 0, P, box_ll(98.14578, 13.71392, 98.14621, 13.71443), 0,
+         "Rejected on chip review: canopy gaps and scrub, not a landslide."),
+        ("RX-10", "Smeared flight edge", "exclude", 0, P, box_ll(98.14282, 13.71029, 98.1434, 13.71075), 0,
+         "Rejected on chip review: smeared ground at the edge of the flight."),
+        ("RX-11", "Scrub patch", "exclude", 0, P, box_ll(98.1508, 13.70929, 98.15118, 13.70962), 0,
+         "Rejected on chip review: scrub and litter, not a landslide."),
+        ("RX-12", "Scrub patch", "exclude", 0, P, box_ll(98.14852, 13.71545, 98.14887, 13.71592), 0,
+         "Rejected on chip review: scrub and canopy gaps, not a landslide."),
+        ("RX-13", "Plantation rows", "exclude", 0, P, box_ll(98.14429, 13.70416, 98.14476, 13.70457), 0,
+         "Rejected on chip review: plantation rows, not a landslide."),
+        ("RX-14", "Garden plot", "exclude", 0, P, box_ll(98.15047, 13.71417, 98.15092, 13.71433), 0,
+         "Rejected on chip review: a garden plot beside a house."),
+        ("RX-15", "Strip bare in Jan 2026", "exclude", 0, P, box_ll(98.14947, 13.70851, 98.14963, 13.7089), 0,
+         "Rejected on chip review: a strip beside the road already pale on 10 Jan 2026."),
+    ],
     # Pyin Gyi and Za Lut (7 Oct 2026, two flights merged): forested hills west of the road through the villages.
     # The village flow, the road fan and the two large channel systems are drawn; the rest of the hills is a split zone.
     "pgz": [

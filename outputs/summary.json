@@ -749,6 +749,131 @@
    "n_exclusions": 0,
    "nearest_standing_m": 0.0
   },
+  "rbe": {
+   "key": "rbe",
+   "name": "Ra Be",
+   "mmr": "ရဘဲ",
+   "flown": "2026-10-08",
+   "gsd_cm": 9.2,
+   "file": "Yabae_KyaukTwin_RD_1.kmz + Yabae_KyaukTwin_RD_2.kmz",
+   "survey_ha": 214.3,
+   "tiles": "rabe",
+   "n_landslides": 21,
+   "n_by_type": {
+    "open": 9,
+    "channel": 5,
+    "minor": 7
+   },
+   "area_total_m2": 300412,
+   "area_by_type_m2": {
+    "open": 121019,
+    "channel": 175757,
+    "minor": 3636
+   },
+   "area_runout_flat_m2": 69557,
+   "outwash_m2": 15403,
+   "largest": "RZ-01",
+   "buildings_surveyed": 4,
+   "buildings_status": {
+    "clear": 3,
+    "edge": 1
+   },
+   "not_building": 1,
+   "overrides": 0,
+   "reach": {
+    "standing_in_A": 3,
+    "standing_in_B": 0,
+    "standing_outside": 1,
+    "affected": 0,
+    "affected_in_AB": 0
+   },
+   "runout": {
+    "alpha_open": 12.8,
+    "alpha_channel": 15.0,
+    "open_ids": [
+     "RB-01",
+     "RZ-05",
+     "RZ-07",
+     "RZ-08",
+     "RZ-09",
+     "RZ-10",
+     "RZ-12",
+     "RZ-13"
+    ],
+    "channel_id": "RZ-04",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 338.68,
+    "zoneB_ha": 0.0,
+    "calibration_share_inside": {
+     "RB-01": 1.0,
+     "RZ-04": 1.0,
+     "RZ-05": 1.0,
+     "RZ-07": 0.827,
+     "RZ-08": 1.0,
+     "RZ-09": 1.0,
+     "RZ-10": 1.0,
+     "RZ-12": 1.0,
+     "RZ-13": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 1,
+      "A": 2
+     },
+     "edge": {
+      "": 0,
+      "A": 1
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": -4.25,
+    "dN": 0.25,
+    "grey_before": 0.255,
+    "grey_after": 0.43,
+    "n_used": 4
+   },
+   "report": {
+    "source": "Dawei Watch, 29-30 Sep 2026",
+    "deaths": null,
+    "houses": null,
+    "houses_note": "no houses reported destroyed",
+    "lines": [
+     "Landslides cut the roads from 26 Sep: Ra Be, Kyauk Pon, Za Lut Pyin Gyi, the Kyauk Twin village tract and other villages at the end of the Launglon peninsula were cut off and short of food (29 Sep).",
+     "The Kyauk Twin village tract - Wea Ma Kaik, Kyauk Twin, Sun Gyi and Chaung Hpyar Gyi, about 350 households near Sin Htauk beach - is reached by the road west from Ra Be through the forested hills; with the Launglon - Shin Maw road buried in many places, no relief had reached it five days after the road was cut (30 Sep).",
+     "No report gives deaths or destroyed houses at Ra Be or along this road."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Ra Be",
+     "pcode": "177207",
+     "where": "1.0 km north of the survey",
+     "mmr": "ရဘဲ",
+     "lon": 98.15237,
+     "lat": 13.72573
+    },
+    {
+     "name": "Kyauk Twin",
+     "pcode": "177217",
+     "where": "3.1 km west, at the end of the road",
+     "mmr": "ကျောက်တွင်း",
+     "lon": 98.11498,
+     "lat": 13.71817
+    }
+   ],
+   "vt": "Tha Kyet Taw",
+   "vt_pcode": "MMR006002032",
+   "bounds": [
+    98.14106315926699,
+    13.699568947055424,
+    98.15880438200489,
+    13.716757804523283
+   ],
+   "n_exclusions": 15,
+   "nearest_standing_m": 0.0
+  },
   "pgz": {
    "key": "pgz",
    "name": "Pyin Gyi - Za Lut",
@@ -882,15 +1007,15 @@
   }
  },
  "total": {
-  "n_landslides": 107,
-  "area_m2": 1333852,
+  "n_landslides": 128,
+  "area_m2": 1634264,
   "destroyed": 71,
   "damaged": 21,
-  "standing_in_A": 364,
+  "standing_in_A": 367,
   "standing_in_B": 166,
   "deaths": 26,
-  "survey_ha": 1363.8,
-  "outwash_m2": 568815,
+  "survey_ha": 1578.1,
+  "outwash_m2": 584218,
   "in_sediment": 42
  },
  "regional": {
@@ -916,6 +1041,16 @@
    "d25_28": 657.1,
    "sep_total": 1126.4,
    "fetched": "2026-10-07T16:07Z",
+   "grid": [
+    13.673111,
+    98.17432
+   ]
+  },
+  "rbe": {
+   "night_26_27": 153.6,
+   "d25_28": 657.1,
+   "sep_total": 1126.4,
+   "fetched": "2026-10-08T04:38Z",
    "grid": [
     13.673111,
     98.17432

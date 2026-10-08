@@ -7,7 +7,8 @@
   tiles/kadetgyi/  the merged Ka Det Gyi flights, 8.0 cm
   ../launglon-landslides-tiles/zalut/   the merged Pyin Gyi - Za Lut flights, 9.7 cm - published from its own repo
                    (EXTERNAL) to keep this Pages site under GitHub's 1 GB limit
-usage: python 10_tiles.py [kadet|thabyar|panyit|kadetgyi|zalut]
+  ../launglon-landslides-tiles/rabe/    the merged Ra Be flights, 9.2 cm - same tile repo
+usage: python 10_tiles.py [kadet|thabyar|panyit|kadetgyi|zalut|rabe]
 The deepest level, z20 in 512 px tiles, is 7.3 cm/px at 13.9 N - finer than both flights (10.1 and
 8.0 cm), so nothing is reduced. Lower levels are 2x2 averages of their children. Where the flights meet,
 the finer Ka Det Nge Htein flight is drawn over Ngone Min Taung. Blank tiles are skipped.
@@ -22,9 +23,9 @@ from rasterio.windows import Window
 from PIL import Image
 from sites import ROOT, d
 
-SETS = {"kadet": ("nmt", "kdnh"), "thabyar": ("tby",), "panyit": ("pny",), "kadetgyi": ("kdg",), "zalut": ("pgz",)}  # later sites drawn on top
+SETS = {"kadet": ("nmt", "kdnh"), "thabyar": ("tby",), "panyit": ("pny",), "kadetgyi": ("kdg",), "zalut": ("pgz",), "rabe": ("rbe",)}  # later sites drawn on top
 # tile sets published from a separate repo to keep this Pages site under GitHub's 1 GB limit (the page loads them by URL)
-EXTERNAL = {"zalut": ROOT.parent / "launglon-landslides-tiles"}  # -> geonet-myanmar/launglon-landslides-tiles
+EXTERNAL = {"zalut": ROOT.parent / "launglon-landslides-tiles", "rabe": ROOT.parent / "launglon-landslides-tiles"}  # -> geonet-myanmar/launglon-landslides-tiles
 ZMAX_SET = {"panyit": 21}  # Pa Nyit is 7.0 cm: z20 (7.2 cm) would reduce it, z21 is 3.6 cm
 ZMAX_DEFAULT, ZMIN, TS = 20, 13, 512
 R = 20037508.342789244

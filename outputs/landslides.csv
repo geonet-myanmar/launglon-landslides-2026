@@ -94,6 +94,27 @@ Taw Kye,LS-06,Narrow central debris flow,open,Long narrow scar; runout reached t
 Taw Kye,LS-07,Central debris-flow complex,open,"Largest event: wide scoured source zone, runout through the village road and a fan across the paddies",64870,45444,17341,158.5,2.6,155.9,479.9,18.0,88,False,False,12.0,0.81,14188,22655,27993,6,3,0
 Taw Kye,LS-08,Long southern debris flow,open,Long scar and channel; runout crossed the road junction into the paddies,13360,3542,9309,201.7,3.6,198.2,624.6,17.6,105,False,False,16.5,0.81,5761,2468,5127,1,2,2
 Taw Kye,LS-09,Southern slope failure,open,Broad shallow failure of the forested slope at the south edge of the survey; continues beyond the flown area,13684,10033,3106,128.0,17.6,110.4,319.3,19.1,107,False,True,15.2,0.86,5585,5065,3028,0,0,0
+Ra Be,RB-01,Debris flow across the road,open,"The longest open-slope flow: it broke away on the hillside west of the road, ran 400 m east, buried the road and spread debris along it and sand over the fields beyond it (RB-OW).",42484,13508,28140,173.0,5.0,168.0,501.8,18.5,70,False,False,12.7,0.8,6458,18711,17297,0,0,1
+Ra Be,RZ-01,South-central channel network,channel,A network of scoured channels and one wide flow east of the road that converge south-east towards the edge of the survey; it continues beyond the flight.,89641,50854,37659,243.5,33.1,210.4,676.5,17.3,311,False,False,15.4,0.84,31064,37773,20754,0,0,0
+Ra Be,RZ-02,West slide,open,"The largest single slide: a 4.5 ha scar on the west hill, stripped to orange and grey soil, with a channel below it.",45276,32653,12246,178.5,48.5,129.9,400.7,18.0,234,False,True,24.7,0.81,30478,12291,2478,0,0,0
+Ra Be,RZ-03,Road-corridor network,channel,"Side slides and channels west of the road that ran down onto it, and the deposits they left along it.",39887,18256,20779,132.2,16.2,116.0,267.2,23.5,75,False,False,18.1,0.84,17764,11071,11025,0,0,0
+Ra Be,RZ-04,East channel network,channel,Branching channels scoured down the slopes east of the road.,36771,10495,25642,270.1,15.0,255.1,951.6,15.0,321,False,False,15.6,0.82,10914,15256,10577,0,0,0
+Ra Be,RZ-05,Twin slides below RB-01,open,Two slides just south of RB-01 whose debris ran east.,11384,2098,9128,189.8,18.9,170.9,341.7,26.6,80,False,False,30.3,0.81,8552,2597,229,0,0,0
+Ra Be,RZ-06,North gully,channel,A 400 m gully scoured east down to the road in the north.,8073,2437,5551,131.4,12.0,119.4,350.1,18.8,82,False,False,16.8,0.82,3848,2022,2199,0,0,0
+Ra Be,RZ-07,West chute,open,A long narrow chute on the west hill.,7876,7254,530,117.2,55.5,61.8,272.9,12.8,163,False,False,11.5,0.86,1488,3174,3209,0,0,0
+Ra Be,RZ-08,Slide west of the road,open,A slide whose debris ran east onto the road.,4675,3794,796,93.0,35.6,57.4,160.9,19.6,59,False,False,21.5,0.87,2854,615,1203,0,0,0
+Ra Be,RZ-09,Slide above the road,open,A slide on the slope above the road.,4283,3913,319,89.7,43.9,45.8,110.1,22.6,78,False,False,22.4,0.87,2143,2137,0,0,0,0
+Ra Be,RZ-10,Slide at the road bend,open,A slide just above the bend where the road turns west.,2589,2215,324,93.9,62.4,31.5,88.3,19.6,107,False,False,17.2,0.86,774,1478,335,0,0,0
+Ra Be,RZ-11,East gully,channel,A gully on the east slopes.,1385,396,936,122.2,83.9,38.3,181.3,11.9,323,False,False,13.4,0.85,92,1068,224,0,0,0
+Ra Be,RZ-12,Small slide,open,A small slide near the southern edge.,1290,831,425,211.0,169.9,41.1,92.2,24.0,286,False,False,25.5,0.86,1287,0,0,0,0,0
+Ra Be,RZ-13,Side slide,open,A small slide west of the road.,1162,151,988,83.3,38.0,45.3,120.0,20.7,99,False,False,20.1,0.8,446,688,27,0,0,0
+Ra Be,RZ-14,Minor scar,minor,Small scar or channel fragment.,997,326,624,214.6,142.0,72.6,133.5,28.5,313,True,False,28.0,0.85,997,0,0,0,0,0
+Ra Be,RZ-15,Minor scar,minor,Small scar or channel fragment.,903,376,504,152.5,114.0,38.5,85.2,24.3,285,False,False,27.4,0.82,903,0,0,0,0,0
+Ra Be,RZ-16,Minor scar,minor,Small scar or channel fragment.,611,261,338,100.8,59.7,41.0,89.8,24.6,172,False,False,28.9,0.85,501,110,0,0,0,0
+Ra Be,RZ-17,Minor scar,minor,Small scar or channel fragment.,365,290,64,125.8,90.6,35.2,61.2,29.9,113,False,False,30.1,0.87,365,0,0,0,0,0
+Ra Be,RZ-18,Minor scar,minor,Small scar or channel fragment.,285,77,200,105.3,94.6,10.6,35.8,16.6,290,False,False,18.4,0.81,147,138,0,0,0,0
+Ra Be,RZ-19,Minor scar,minor,Small scar or channel fragment.,240,15,218,127.5,98.3,29.3,39.4,36.6,85,False,False,36.3,0.84,239,0,0,0,0,0
+Ra Be,RZ-20,Minor scar,minor,Small scar or channel fragment.,235,80,151,55.7,48.0,7.6,27.3,15.6,67,False,False,18.7,0.87,0,234,0,0,0,0
 Pyin Gyi - Za Lut,PG-01,Village debris flow,open,A debris flow off the hill west of the road that crossed the road and buried the block of houses between the road and the paddies in the middle of the village; the ground was being dug out with machinery on 7 Oct.,17232,14073,2706,81.5,3.9,77.5,316.5,13.8,93,False,False,14.1,0.83,3789,10506,2926,8,2,2
 Pyin Gyi - Za Lut,PG-03,Road debris flow,channel,"The main channel flow: fed by the scars at the head of the valley (PG-04), it scoured a channel of grey sand and boulders north-east down the valley, spread across the road north of the village and ran on as a fan beyond it.",48173,7778,39119,120.3,5.3,115.1,838.5,7.8,41,False,False,7.4,0.87,271,14650,33219,0,0,0
 Pyin Gyi - Za Lut,PG-04,South-west channels,channel,"Two broad scars at the head of the valley and a third channel from the south, which joined and fed the road debris flow (PG-03); their upper parts run beyond the flight.",33883,9013,23754,284.5,118.2,166.4,428.0,21.2,78,False,False,26.3,0.79,23029,9292,1542,0,0,0

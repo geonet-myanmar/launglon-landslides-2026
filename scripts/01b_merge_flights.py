@@ -1,5 +1,5 @@
 """Merge a site's two flights into one ortho, so every later step treats the site as one (sites.MERGES).
-usage: python 01b_merge_flights.py [tby|kdg|pgz]   (default: all)
+usage: python 01b_merge_flights.py [tby|kdg|pgz|rbe]   (default: all)
 
 The finer flight's lat/lon grid, extended to the union of both, is the target; the other flight is upsampled onto it
 (nothing is reduced). In the overlap each pixel comes from the SHARPER flight (below). Neither flight is shifted
@@ -21,6 +21,8 @@ a feature at the seam, so Plan 1 is moved onto Plan 2 by sites.MERGE_SHIFT befor
 the truth is unknown (GNSS-only); footprints are fitted to the merged ortho in step 07 either way.
 Pyin Gyi - Za Lut (7 Oct 2026): PyinGyi_Plan_1 (10.4 cm) and PyinGyi_Plan_2 (9.7 cm) overlap in 79 ha and disagree by
 a steady +0.04..+0.24 m E, -1.9..-2.4 m N (seven 120 m patches); Plan 1 is moved +0.16 m E, -2.2 m N.
+Ra Be (8 Oct 2026): Yabae_KyaukTwin_RD_1 and _RD_2, both 9.2 cm, overlap in 65 ha and disagree by a steady -4.8..-5.0 m E,
++0.8..+1.3 m N (five patches) - the largest offset so far; RD_1 is moved -4.9 m E, +1.04 m N.
 Writes data/<site>/ortho/ortho_4326.tif and data/<site>/ortho/source.tif (1 = flight 1, 2 = flight 2, 1/16 grid).
 """
 import sys

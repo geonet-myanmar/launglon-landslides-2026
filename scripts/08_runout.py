@@ -26,7 +26,7 @@ from shapely.ops import unary_union
 from sites import SITES, d, ee_dir
 
 SRC_SLOPE = 20.0
-CHANNEL = {"kdnh": "KD-01", "nmt": "NM-04", "tby": ("TB-03", "TB-01"), "pny": "PN-01", "kdg": "KGN-02", "pgz": ("PG-04", "PG-03")}  # tuple: crown of one, toe of the other
+CHANNEL = {"kdnh": "KD-01", "nmt": "NM-04", "tby": ("TB-03", "TB-01"), "pny": "PN-01", "kdg": "KGN-02", "pgz": ("PG-04", "PG-03"), "rbe": "RZ-04"}  # tuple: crown of one, toe of the other
 CLIP_M = 250
 
 

@@ -34,6 +34,10 @@ SITES = {
     # Pyin Gyi and Za Lut, 7 Oct 2026: two flights merged by 01b_merge_flights.py (MERGES); own EE area
     "pgz": {"name": "Pyin Gyi - Za Lut", "kmz": "PyinGyi_Plan_1.kmz + PyinGyi_Plan_2.kmz", "flown": "2026-10-07",
             "exg": 0.034, "ee": "ee_pgz", "outwash_minus_buildings": True},
+    # Ra Be, on the Ra Be - Kyauk Twin road, 8 Oct 2026: two flights merged by 01b_merge_flights.py (MERGES)
+    "rbe": {"name": "Ra Be", "kmz": "Yabae_KyaukTwin_RD_1.kmz + Yabae_KyaukTwin_RD_2.kmz", "flown": "2026-10-08",
+            "exg": 0.041, "ee": "ee_rbe",
+            "minus_sites": ["pgz"]},  # 55 ha shared with the Pyin Gyi - Za Lut survey stays with that site
 }
 # KMZ deliveries that are mosaicked by step 01 but are not sites of their own
 FLIGHTS = {
@@ -43,10 +47,12 @@ FLIGHTS = {
     "kg2": {"kmz": "KadetGyi_ChaeTawYar_Plan-2.kmz"},  # 8.0 cm
     "pg1": {"kmz": "PyinGyi_Plan_1.kmz"},  # 10.4 cm
     "pg2": {"kmz": "PyinGyi_Plan_2.kmz"},  # 9.7 cm
+    "rb1": {"kmz": "Yabae_KyaukTwin_RD_1.kmz"},  # 9.2 cm
+    "rb2": {"kmz": "Yabae_KyaukTwin_RD_2.kmz"},  # 9.2 cm
 }
-MERGES = {"tby": ("tb1", "tb2"), "kdg": ("kg1", "kg2"), "pgz": ("pg1", "pg2")}  # site: (flight 1, flight 2), merged by 01b_merge_flights.py
+MERGES = {"tby": ("tb1", "tb2"), "kdg": ("kg1", "kg2"), "pgz": ("pg1", "pg2"), "rbe": ("rb1", "rb2")}  # site: (flight 1, flight 2), merged by 01b_merge_flights.py
 # metres to move flight 1 onto flight 2 before merging (phase correlation in the overlap; omitted = no shift)
-MERGE_SHIFT = {"kdg": (1.32, 0.36), "pgz": (0.16, -2.2)}
+MERGE_SHIFT = {"kdg": (1.32, 0.36), "pgz": (0.16, -2.2), "rbe": (-4.9, 1.04)}
 
 
 def ee_dir(site):
@@ -66,6 +72,7 @@ def d(site, *parts):
 # from its envelopes. Ngone Min Taung features are numbered by area by the split zone, so each name
 # carries the point it was given for, and step 06 checks the feature is still there.
 TYPES = {
+    "rbe": {"RB-01": "open"},
     "pgz": {"PG-01": "open", "PG-03": "channel", "PG-04": "channel", "PG-05": "channel"},
     "pny": {"PN-01": "channel", "PN-02": "open", "PN-03": "open", "PN-04": "open", "PN-05": "channel", "PN-06": "channel", "PN-07": "open"},
     "tby": {"TB-01": "channel", "TB-02": "channel", "TB-03": "open", "TB-04": "open", "TB-05": "channel"},
@@ -139,7 +146,26 @@ PGZ_NAMES = {  # Pyin Gyi - Za Lut split zone PGZ (hills west of the road)
                "A 400 m chute scoured east down the hillside towards the road debris flow."),
     "PGZ-02": ("North chute", "open", 98.15887, 13.71010, "A long chute on the hillside north of the long chute."),
 }
-SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES, "kdg": KDG_NAMES, "pgz": PGZ_NAMES}
+RBE_NAMES = {  # Ra Be split zone RZ (hillside on both sides of the Ra Be - Kyauk Twin road)
+    "RZ-01": ("South-central channel network", "channel", 98.15381, 13.70496,
+              "A network of scoured channels and one wide flow east of the road that converge south-east towards the "
+              "edge of the survey; it continues beyond the flight."),
+    "RZ-02": ("West slide", "open", 98.14442, 13.70947,
+              "The largest single slide: a 4.5 ha scar on the west hill, stripped to orange and grey soil, with a channel below it."),
+    "RZ-03": ("Road-corridor network", "channel", 98.14784, 13.71043,
+              "Side slides and channels west of the road that ran down onto it, and the deposits they left along it."),
+    "RZ-04": ("East channel network", "channel", 98.15460, 13.70565, "Branching channels scoured down the slopes east of the road."),
+    "RZ-05": ("Twin slides below RB-01", "open", 98.14725, 13.71155, "Two slides just south of RB-01 whose debris ran east."),
+    "RZ-06": ("North gully", "channel", 98.14753, 13.71454, "A 400 m gully scoured east down to the road in the north."),
+    "RZ-07": ("West chute", "open", 98.14481, 13.70597, "A long narrow chute on the west hill."),
+    "RZ-08": ("Slide west of the road", "open", 98.14765, 13.70510, "A slide whose debris ran east onto the road."),
+    "RZ-09": ("Slide above the road", "open", 98.14781, 13.70396, "A slide on the slope above the road."),
+    "RZ-10": ("Slide at the road bend", "open", 98.14758, 13.70289, "A slide just above the bend where the road turns west."),
+    "RZ-11": ("East gully", "channel", 98.15435, 13.70684, "A gully on the east slopes."),
+    "RZ-12": ("Small slide", "open", 98.15212, 13.70301, "A small slide near the southern edge."),
+    "RZ-13": ("Side slide", "open", 98.14778, 13.70748, "A small slide west of the road."),
+}
+SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES, "kdg": KDG_NAMES, "pgz": PGZ_NAMES, "rbe": RBE_NAMES}
 # Landslides that enter the survey across its edge: the automatic crown (highest point on the outline) is then not
 # the source, so H, L and the reach angle are minimums. Set by inspection where the 15 m edge test misses it.
 EDGE_OVERRIDE = {"tby": {"TB-01": "crown", "TB-05": "crown"}, "pny": {"PN-06": "crown"}}
