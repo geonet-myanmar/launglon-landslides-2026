@@ -9,8 +9,8 @@ Two areas, each the surveys plus a ~1.5 km margin for the hill crests so the run
 whole catchments:  south = Ka Det Nge Htein + Ngone Min Taung (data/ee/), north = Tha Byar (data/ee_tby/),
 west = the road to Pa Nyit (data/ee_pny/), southeast = Ka Det Gyi (data/ee_kdg/),
 zalut = Pyin Gyi - Za Lut (data/ee_pgz/), rabe = Ra Be (data/ee_rbe/),
-thawin = Tha Win and Lel Hla (data/ee_thw/).
-usage: python 03_fetch_ee.py [south|north|west|southeast|zalut|rabe|thawin]   (default: both). Existing files are kept.
+thawin = Tha Win and Lel Hla (data/ee_thw/), tizit = Ti Zit (data/ee_tzt/).
+usage: python 03_fetch_ee.py [south|north|west|southeast|zalut|rabe|thawin|tizit]   (default: both). Existing files are kept.
 """
 import json, os, sys, urllib.parse, urllib.request
 import ee
@@ -23,7 +23,8 @@ AREAS = {"south": ("data/ee", (98.100, 13.860, 98.165, 13.922)),
          "southeast": ("data/ee_kdg", (98.115, 13.843, 98.180, 13.900)),
          "zalut": ("data/ee_pgz", (98.135, 13.668, 98.202, 13.734)),
          "rabe": ("data/ee_rbe", (98.125, 13.685, 98.175, 13.732)),
-         "thawin": ("data/ee_thw", (98.125, 13.740, 98.185, 13.825))}
+         "thawin": ("data/ee_thw", (98.125, 13.740, 98.185, 13.825)),
+         "tizit": ("data/ee_tzt", (98.058, 13.858, 98.125, 13.937))}
 
 
 def download(img, name, scale, crs="EPSG:32647"):

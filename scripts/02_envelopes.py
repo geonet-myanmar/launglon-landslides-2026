@@ -510,6 +510,61 @@ ENV["lhl"] = [
      "Rejected on chip review: a rock slab already dark on 10 Jan 2026."),
 ]
 
+# Ti Zit (9 Oct 2026, two flights that meet without overlapping). North: the hills east and north of the tidal flat
+# behind Ti Zit's beach; the flat, the beach and the village were sand, mud and yards on 10 Jan 2026 and are left out,
+# except the fan the eastern slides spread over grass and scrub (TZ-OW1). South: 3.5 km of forested coast; the zone
+# stops at the back of the beach (the debris fans on the beach and in the sea are not mapped).
+ENV["tzt"] = [
+    ("TZ-OW1", "Fan below the eastern slides", "outwash", 3, P, [
+        (98.0905, 13.9143), (98.0870, 13.9147), (98.0855, 13.9142), (98.0850, 13.9128), (98.0860, 13.9118),
+        (98.0884, 13.9110), (98.0905, 13.9103)], 0,
+     "Grass and scrub at the foot of the hill east of the tidal flat, now under the sand and boulders the eastern slides "
+     "spread across the track and down to the houses at the edge of the flat."),
+    ("TN", "Hills east and north of the tidal flat", "landslide", 5, P, [
+        (98.0780, 13.9157), (98.0838, 13.9157), (98.0870, 13.9147), (98.0885, 13.9143), (98.0890, 13.9124),
+        (98.0884, 13.9113), (98.0905, 13.9100), (98.0925, 13.9085), (98.0955, 13.9085), (98.0955, 13.9235),
+        (98.0780, 13.9235)], 0,
+     "Zone split into connected scars and scoured channels."),
+    ("TS", "Coastal hills south-east of Ti Zit", "landslide", 5, P, [
+        (98.0990, 13.9035), (98.1120, 13.9035), (98.1120, 13.8710), (98.0947, 13.8710), (98.0947, 13.8726),
+        (98.0946, 13.8733), (98.0944, 13.8745), (98.0950, 13.8751), (98.0951, 13.8771), (98.0952, 13.8789),
+        (98.0943, 13.8794), (98.0939, 13.8803), (98.0939, 13.8812), (98.0943, 13.8822), (98.09495, 13.88345),
+        (98.0951, 13.8850), (98.0965, 13.8858), (98.0985, 13.8862), (98.0992, 13.8875), (98.0992, 13.8890),
+        (98.0985, 13.8904), (98.0978, 13.8915), (98.0972, 13.8928), (98.0990, 13.8935)], 0,
+     "Zone split into connected scars and scoured channels; its western edge is the back of the beach."),
+    ("ZX-1", "Compound bare in Jan 2026", "exclude", 0, P, box_ll(98.0868, 13.9133, 98.0905, 13.9152), 0,
+     "A levelled compound beside the track, already bare on the Esri Vivid image of 10 Jan 2026 (the eastern slides' "
+     "debris has since run across it)."),
+    ("ZX-2", "Young plantation", "exclude", 0, P, box_ll(98.0903, 13.9108, 98.0932, 13.9133), 0,
+     "Rows of young plantation on cleared ground."),
+    ("ZX-3", "Young plantation", "exclude", 0, P, box_ll(98.0808, 13.9186, 98.0824, 13.9202), 0,
+     "Rows of young plantation on cleared ground."),
+    ("ZX-4", "Plantation rows", "exclude", 0, P, box_ll(98.08573, 13.91496, 98.0864, 13.9154), 0,
+     "Rejected on chip review: rows of young plantation below the TN-05 slide."),
+    ("ZX-5", "Square earthworks", "exclude", 0, P, box_ll(98.07921, 13.91567, 98.07966, 13.91603), 0,
+     "Rejected on chip review: a square cut plot beside the track, earthworks rather than a slide."),
+    ("ZX-6", "Houses and yards", "exclude", 0, P, box_ll(98.0897, 13.91038, 98.09022, 13.91099), 0,
+     "Rejected on chip review: houses and yards at the edge of the village."),
+    ("ZX-7", "Yard by the track", "exclude", 0, P, box_ll(98.08263, 13.91567, 98.08294, 13.91601), 0,
+     "Rejected on chip review: a yard beside the track."),
+    ("ZX-8", "Plot bare in Jan 2026", "exclude", 0, P, box_ll(98.08839, 13.91118, 98.08876, 13.91144), 0,
+     "Rejected on chip review: a plot by the track, already bare on 10 Jan 2026."),
+    ("ZX-9", "Dry scrub", "exclude", 0, P, box_ll(98.08034, 13.91883, 98.08083, 13.91928), 0,
+     "Rejected on chip review: scattered bare patches in dry scrub, as on 10 Jan 2026."),
+    ("ZX-10", "Sandy gardens and tracks", "exclude", 0, P, box_ll(98.09897, 13.89956, 98.1007, 13.90137), 0,
+     "Rejected on chip review: sandy gardens, a clearing, houses and tracks behind the north end of the beach, pale or brown on 10 Jan 2026."),
+    ("ZX-11", "Garden plots and tracks", "exclude", 0, P, box_ll(98.09897, 13.89527, 98.10018, 13.89855), 0,
+     "Rejected on chip review: garden plots, plantation rows and straight tracks, not landslides."),
+    ("ZX-12", "Canopy gaps", "exclude", 0, P, box_ll(98.10135, 13.90106, 98.1018, 13.90153), 0,
+     "Rejected on chip review: canopy gaps."),
+    ("ZX-13", "Beach edge and paths", "exclude", 0, P, box_ll(98.09736, 13.89106, 98.09913, 13.8933), 0,
+     "Rejected on chip review: the beach edge, a path and sandy scrub behind the beach, pale on 10 Jan 2026."),
+    ("ZX-14", "Beach edge", "exclude", 0, P, box_ll(98.0946, 13.87233, 98.09499, 13.87314), 0,
+     "Rejected on chip review: the edge of the beach."),
+    ("ZX-15", "Plantation rows", "exclude", 0, P, box_ll(98.10621, 13.90143, 98.10658, 13.9018), 0,
+     "Rejected on chip review: plantation rows at the edge of the flight."),
+]
+
 
 def build(site):
     rows = []

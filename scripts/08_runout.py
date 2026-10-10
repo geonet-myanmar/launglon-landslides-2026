@@ -28,8 +28,11 @@ from sites import SITES, d, ee_dir
 
 SRC_SLOPE = 20.0
 CHANNEL = {"kdnh": "KD-01", "nmt": "NM-04", "tby": ("TB-03", "TB-01"), "pny": "PN-01", "kdg": "KGN-02", "pgz": ("PG-04", "PG-03"), "rbe": "RZ-04",
-           "thw": "TZ-02", "lhl": "LL-01"}  # tuple: crown of one, toe of the other
+           "thw": "TZ-02", "lhl": "LL-01", "tzt": "TS-07"}  # tuple: crown of one, toe of the other
 CLIP_M = 250
+# open slides left out of the calibration: drop within the DEM's error (TS-16: two scars with a 15 m drop on a low
+# coastal hill, whose 12 deg "reach angle" is noise on a 30 m DEM that carries roughly +-10 m)
+CALIB_SKIP = {"tzt": ["TS-16"]}
 
 
 def reach(z, slope, res, alpha_deg):
@@ -57,7 +60,8 @@ def run(site, z, slope, T, prof):
     out = d(site, "hazard")
     out.mkdir(exist_ok=True)
     terr = {t["id"]: t for t in json.load(open(d(site, "inventory", "terrain.json")))}
-    open_ids = [i for i, t in terr.items() if t["type"] == "open" and not t["crown_at_edge"] and not t["toe_at_edge"]]
+    open_ids = [i for i, t in terr.items() if t["type"] == "open" and not t["crown_at_edge"] and not t["toe_at_edge"]
+                and i not in CALIB_SKIP.get(site, [])]
     a_open = min(terr[i]["reach_angle_deg"] for i in open_ids)
     ch = CHANNEL[site]
     if isinstance(ch, tuple):

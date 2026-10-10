@@ -1,8 +1,8 @@
-"""Collect the ten drone-surveyed sites into one payload, export GIS deliverables, render the dashboard.
+"""Collect the eleven drone-surveyed sites into one payload, export GIS deliverables, render the dashboard.
 
 Outputs
   outputs/launglon_landslides_2026.gpkg   per site: landslides, outwash, buildings, reach zones, exclusions, crown/toe
-  outputs/landslides.csv, outputs/buildings.csv, outputs/summary.json   (all ten sites, `site` column)
+  outputs/landslides.csv, outputs/buildings.csv, outputs/summary.json   (all eleven sites, `site` column)
   index.html                              standalone page (doctype + head) for GitHub Pages / local use
   dist/artifact-body.html                 the same body fragment without the wrapper
 src/template.html is the single source of truth for the page; never hand-edit index.html.
@@ -110,6 +110,19 @@ REPORTS["lhl"] = {
               "were still clearing it when rescue teams reached Tha Win (update to a 29 Sep report).",
               "Tha Kyet Taw, 0.7 km south of the survey and the head of Lel Hla's village tract, is one of at least eight "
               "villages at the end of the peninsula cut off by landslides since 26 Sep and short of food (29 Sep, 1 Oct)."]}
+REPORTS["tzt"] = {
+    "source": "Dawei Watch, 28 Sep - 2 Oct 2026", "deaths": None, "houses": "8", "houses_n": 8,
+    "houses_label": "8 houses destroyed, nearly 40 buried in sediment",
+    "deaths_note": "two deaths reported after the road was cut, not in the landslides",
+    "lines": ["On the night of 26 Sep the hills all round Ti Zit failed: earth and boulders covered parts of the village and "
+              "the roads over the hills, and the village was cut off. 8 houses were completely destroyed, nearly 40 were "
+              "buried in sediment, and many orchards were buried (29 Sep).",
+              "Ti Zit, a beach village of nearly 600 households and more than 1,000 people about four miles south-west of "
+              "Launglon, is reached only over the hills from Nyin Maw; villagers were short of food and fuel for the phone "
+              "tower (29 Sep). Clearing of the Yin Bok - Ti Zit road began on 30 Sep.",
+              "Two people died because the blocked roads kept them from hospital in time: a woman over 50 on the night of "
+              "28 Sep (30 Sep) and an elderly man (2 Oct). No one is reported killed by the landslides themselves.",
+              "Ti Zit was one of the villages the authorities designated red-level disaster areas (28 Sep)."]}
 REGIONAL = {"launglon_deaths": 31, "launglon_asof": "1 Oct 2026", "district_deaths": 41, "district_asof": "2 Oct 2026",
             "source": "Dawei Watch, 2 Oct 2026"}
 META = {
@@ -140,7 +153,9 @@ META["thw"] = {"mmr": "သဝင်", "gsd_cm": 10.0, "file": "Thakyattaw_Yabel_
 META["lhl"] = {"mmr": "လယ်လှ", "gsd_cm": 10.0, "file": "Thakyattaw_Yabel_4Plan_Combine.kmz (southern block)",
                "tiles": "thawin",
                "mimu": [("Lel Hla", "177204", "200 m south of the survey"), ("Tha Kyet Taw", "177203", "0.7 km south of the survey")]}
-SITE_ORDER = ("tby", "pny", "nmt", "kdnh", "kdg", "tawkye", "thw", "lhl", "rbe", "pgz")  # north to south
+META["tzt"] = {"mmr": "တီဇစ်", "gsd_cm": 10.0, "file": "Tizit_Plan_1.kmz + Tizit_Plan_2&3.kmz", "tiles": "tizit",
+               "mimu": [("Ti Zit", "177147", "340 m beyond the survey, in the gap between the two flights")]}
+SITE_ORDER = ("tby", "pny", "tzt", "nmt", "kdnh", "kdg", "tawkye", "thw", "lhl", "rbe", "pgz")  # north to south
 TK_TYPES = {"LS-01": "channel", "LS-04": "channel"}
 TK_EDGE = {"LS-01": ("crown", "Mud fan fed by a channel entering from outside the survey."),
            "LS-09": ("toe", "Continues beyond the surveyed area.")}
@@ -371,10 +386,10 @@ def main():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Launglon Landslides 2026</title>
-<meta name="description" content="Drone-orthomosaic analysis of the 26-27 Sep 2026 landslides at Tha Byar, the road to Pa Nyit, Ngone Min Taung, Ka Det Nge Htein, Ka Det Gyi, Taw Kye, Tha Win, Lel Hla, Ra Be and Pyin Gyi - Za Lut, Launglon Township, Tanintharyi Region, Myanmar.">
+<meta name="description" content="Drone-orthomosaic analysis of the 26-27 Sep 2026 landslides at Tha Byar, the road to Pa Nyit, Ngone Min Taung, Ka Det Nge Htein, Ka Det Gyi, Taw Kye, Tha Win, Lel Hla, Ra Be, Pyin Gyi - Za Lut and Ti Zit, Launglon Township, Tanintharyi Region, Myanmar.">
 <link rel="canonical" href="{SITE}">
 <meta property="og:url" content="{SITE}">
-<meta property="og:title" content="Launglon landslides, 26-27 Sep 2026: ten drone surveys">
+<meta property="og:title" content="Launglon landslides, 26-27 Sep 2026: eleven drone surveys">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 28 L13 8 L19 18 L23 13 L30 28 Z' fill='%23b8742a'/%3E%3C/svg%3E">
 </head>
 <body>

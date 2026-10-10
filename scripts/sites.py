@@ -45,6 +45,9 @@ SITES = {
             "minus_sites": ["tawkye"]},  # the 2 Oct Taw Kye survey (finer, 3.75 / 5.68 cm) keeps the ground it covers
     "lhl": {"name": "Lel Hla", "kmz": "Thakyattaw_Yabel_4Plan_Combine.kmz", "bbox": (98.14, 13.755, 98.17, 13.7707),
             "flown": "2026-10-08", "exg": 0.045, "ee": "ee_thw"},
+    # Ti Zit, 9 Oct 2026: two flights that meet without overlapping, joined by 01b_merge_flights.py (MERGES); own EE area
+    "tzt": {"name": "Ti Zit", "kmz": "Tizit_Plan_1.kmz + Tizit_Plan_2&3.kmz", "flown": "2026-10-09", "exg": 0.048,
+            "ee": "ee_tzt", "outwash_minus_buildings": True},
 }
 # KMZ deliveries that are mosaicked by step 01 but are not sites of their own
 FLIGHTS = {
@@ -56,8 +59,10 @@ FLIGHTS = {
     "pg2": {"kmz": "PyinGyi_Plan_2.kmz"},  # 9.7 cm
     "rb1": {"kmz": "Yabae_KyaukTwin_RD_1.kmz"},  # 9.2 cm
     "rb2": {"kmz": "Yabae_KyaukTwin_RD_2.kmz"},  # 9.2 cm
+    "tz1": {"kmz": "Tizit_Plan_1.kmz"},  # Ti Zit village and the hills around it, 11.1 cm
+    "tz2": {"kmz": "Tizit_Plan_2&3.kmz"},  # the hills to the south-east, 10.0 cm (two flights mosaicked by the provider)
 }
-MERGES = {"tby": ("tb1", "tb2"), "kdg": ("kg1", "kg2"), "pgz": ("pg1", "pg2"), "rbe": ("rb1", "rb2")}  # site: (flight 1, flight 2), merged by 01b_merge_flights.py
+MERGES = {"tby": ("tb1", "tb2"), "kdg": ("kg1", "kg2"), "pgz": ("pg1", "pg2"), "rbe": ("rb1", "rb2"), "tzt": ("tz1", "tz2")}  # site: (flight 1, flight 2), merged by 01b_merge_flights.py
 # metres to move flight 1 onto flight 2 before merging (phase correlation in the overlap; omitted = no shift)
 MERGE_SHIFT = {"kdg": (1.32, 0.36), "pgz": (0.16, -2.2), "rbe": (-4.9, 1.04)}
 
@@ -221,8 +226,41 @@ LHL_NAMES = {  # Lel Hla split zone LZ (hills west of Lel Hla)
     "LZ-03": ("North chute", "open", 98.15332, 13.76731, "A long narrow chute on the hill north of LL-01."),
     "LZ-04": ("North-edge slide", "open", 98.15191, 13.76807, "A slide at the north edge of the block."),
 }
+TZT_NAMES = {  # Ti Zit split zones TN (hills east and north of the tidal flat) and TS (coastal hills to the south-east)
+    "TN-01": ("North channel", "channel", 98.08255, 13.91797,
+              "A channel scoured from the northern hills down through plantation to the track west of the flat."),
+    "TN-02": ("Eastern slide", "open", 98.09178, 13.91595,
+              "A long slide on the hill east of the flat whose debris ran south-west into the fan at its foot (TZ-OW1)."),
+    "TN-03": ("Twin slide", "open", 98.08988, 13.91608, "A wide slide beside TN-02 that fed the same fan."),
+    "TN-04": ("Plantation slide", "open", 98.08669, 13.91575, "A slide through young plantation above the track."),
+    "TN-05": ("West slide", "open", 98.07998, 13.91633, "A narrow slide in the west of the block."),
+    "TS-01": ("Southern channel network", "channel", 98.09641, 13.88508,
+              "The largest feature: a network of channels scoured west through the forest that reaches the sea at the "
+              "south end of the beach, with the slides that fed it."),
+    "TS-02": ("East-central channel network", "channel", 98.10616, 13.88783,
+              "Branching channels scoured down the eastern hills that join TS-01."),
+    "TS-03": ("North-east channel network", "channel", 98.10545, 13.89904,
+              "Branching channels scoured down the hills in the north-east of the block, draining west towards the beach."),
+    "TS-04": ("Central valley flow", "channel", 98.10233, 13.89299,
+              "A wide debris flow down a forested valley from scars on both sides, running north-west towards the beach."),
+    "TS-05": ("Coastal channel network", "channel", 98.09406, 13.88045,
+              "Channels scoured down to the small southern beach, where their debris reached the sea."),
+    "TS-06": ("Slide to the beach", "open", 98.09958, 13.89049,
+              "A wide slide whose debris ran west down to the back of the beach."),
+    "TS-07": ("South-edge channel", "channel", 98.09626, 13.87456,
+              "A channel scoured west to the sea along the southern edge of the survey."),
+    "TS-08": ("Long slide", "open", 98.09743, 13.87969, "A long straight slide down the coastal hill."),
+    "TS-09": ("South-east gully", "channel", 98.10319, 13.87528, "A gully at the eastern edge of the flight."),
+    "TS-10": ("Plantation slide", "open", 98.09919, 13.88124, "A slide through plantation on the coastal hill."),
+    "TS-11": ("Hillside channel", "channel", 98.10280, 13.89576, "A channel scoured west on the hills north of TS-04."),
+    "TS-12": ("Twin slides", "open", 98.10238, 13.87611, "Two parallel slides in the south of the block."),
+    "TS-13": ("East-edge gully", "channel", 98.10487, 13.87623, "A gully at the eastern edge of the flight."),
+    "TS-14": ("Small slide", "open", 98.10199, 13.88600, "A small slide beside TS-01."),
+    "TS-15": ("East-edge slide", "open", 98.10758, 13.89594, "A slide at the eastern edge of the flight."),
+    "TS-16": ("Twin scars", "open", 98.09941, 13.88920, "Two scars beside TS-06."),
+}
 SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES, "kdg": KDG_NAMES, "pgz": PGZ_NAMES, "rbe": RBE_NAMES,
-               "thw": THW_NAMES, "lhl": LHL_NAMES}
+               "thw": THW_NAMES, "lhl": LHL_NAMES, "tzt": TZT_NAMES}
 # Landslides that enter the survey across its edge: the automatic crown (highest point on the outline) is then not
 # the source, so H, L and the reach angle are minimums. Set by inspection where the 15 m edge test misses it.
 EDGE_OVERRIDE = {"tby": {"TB-01": "crown", "TB-05": "crown"}, "pny": {"PN-06": "crown"}}

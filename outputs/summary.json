@@ -241,6 +241,136 @@
    "n_exclusions": 4,
    "nearest_standing_m": 203.7
   },
+  "tzt": {
+   "key": "tzt",
+   "name": "Ti Zit",
+   "mmr": "တီဇစ်",
+   "flown": "2026-10-09",
+   "gsd_cm": 10.0,
+   "file": "Tizit_Plan_1.kmz + Tizit_Plan_2&3.kmz",
+   "survey_ha": 772.1,
+   "tiles": "tizit",
+   "n_landslides": 47,
+   "n_by_type": {
+    "open": 11,
+    "channel": 10,
+    "minor": 26
+   },
+   "area_total_m2": 825022,
+   "area_by_type_m2": {
+    "open": 117410,
+    "channel": 695773,
+    "minor": 11839
+   },
+   "area_runout_flat_m2": 214776,
+   "outwash_m2": 62533,
+   "largest": "TS-01",
+   "buildings_surveyed": 291,
+   "buildings_status": {
+    "clear": 284,
+    "damaged": 6,
+    "edge": 1
+   },
+   "not_building": 2,
+   "overrides": 3,
+   "reach": {
+    "standing_in_A": 127,
+    "standing_in_B": 33,
+    "standing_outside": 125,
+    "affected": 6,
+    "affected_in_AB": 6
+   },
+   "runout": {
+    "alpha_open": 14.0,
+    "alpha_channel": 9.2,
+    "open_ids": [
+     "TN-03",
+     "TN-04",
+     "TN-05",
+     "TS-06",
+     "TS-08",
+     "TS-10",
+     "TS-12",
+     "TS-14",
+     "TS-15"
+    ],
+    "channel_id": "TS-07",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 718.63,
+    "zoneB_ha": 61.98,
+    "calibration_share_inside": {
+     "TN-03": 1.0,
+     "TN-04": 1.0,
+     "TN-05": 0.993,
+     "TS-06": 1.0,
+     "TS-07": 0.974,
+     "TS-08": 0.943,
+     "TS-10": 1.0,
+     "TS-12": 1.0,
+     "TS-14": 1.0,
+     "TS-15": 0.994
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 125,
+      "A": 126,
+      "B": 33
+     },
+     "damaged": {
+      "": 0,
+      "A": 6,
+      "B": 0
+     },
+     "edge": {
+      "": 0,
+      "A": 1,
+      "B": 0
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": -0.5,
+    "dN": -3.5,
+    "grey_before": 0.564,
+    "grey_after": 0.666,
+    "n_used": 285
+   },
+   "report": {
+    "source": "Dawei Watch, 28 Sep - 2 Oct 2026",
+    "deaths": null,
+    "houses": "8",
+    "houses_n": 8,
+    "houses_label": "8 houses destroyed, nearly 40 buried in sediment",
+    "deaths_note": "two deaths reported after the road was cut, not in the landslides",
+    "lines": [
+     "On the night of 26 Sep the hills all round Ti Zit failed: earth and boulders covered parts of the village and the roads over the hills, and the village was cut off. 8 houses were completely destroyed, nearly 40 were buried in sediment, and many orchards were buried (29 Sep).",
+     "Ti Zit, a beach village of nearly 600 households and more than 1,000 people about four miles south-west of Launglon, is reached only over the hills from Nyin Maw; villagers were short of food and fuel for the phone tower (29 Sep). Clearing of the Yin Bok - Ti Zit road began on 30 Sep.",
+     "Two people died because the blocked roads kept them from hospital in time: a woman over 50 on the night of 28 Sep (30 Sep) and an elderly man (2 Oct). No one is reported killed by the landslides themselves.",
+     "Ti Zit was one of the villages the authorities designated red-level disaster areas (28 Sep)."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Ti Zit",
+     "pcode": "177147",
+     "where": "340 m beyond the survey, in the gap between the two flights",
+     "mmr": "တီဇစ်",
+     "lon": 98.09427,
+     "lat": 13.90819
+    }
+   ],
+   "vt": "Ti Zit",
+   "vt_pcode": "MMR006002012",
+   "bounds": [
+    98.07289621088,
+    13.872344105432836,
+    98.10891681232428,
+    13.9230228311402
+   ],
+   "n_exclusions": 15,
+   "nearest_standing_m": 0.0
+  },
   "nmt": {
    "key": "nmt",
    "name": "Ngone Min Taung",
@@ -1256,15 +1386,15 @@
   }
  },
  "total": {
-  "n_landslides": 165,
-  "area_m2": 2411473,
+  "n_landslides": 212,
+  "area_m2": 3236495,
   "destroyed": 74,
-  "damaged": 21,
-  "standing_in_A": 377,
-  "standing_in_B": 405,
+  "damaged": 27,
+  "standing_in_A": 504,
+  "standing_in_B": 438,
   "deaths": 26,
-  "survey_ha": 2332.8,
-  "outwash_m2": 783649,
+  "survey_ha": 3104.9,
+  "outwash_m2": 846182,
   "in_sediment": 55
  },
  "regional": {

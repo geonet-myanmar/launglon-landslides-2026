@@ -29,6 +29,53 @@ Pa Nyit road,PN-04,Hairpin slides,open,A cluster of slope failures on and below 
 Pa Nyit road,PN-05,East channel,channel,A gully scoured down the slope east of the main stream.,5914,2096,3600,323.8,195.3,128.5,333.9,21.0,196,False,False,20.3,0.77,3286,1898,730,0,0,0
 Pa Nyit road,PN-06,North-east channel,channel,A wide scoured channel at the north-east edge of the survey; it continues beyond the flight.,5466,597,4725,301.3,199.2,102.1,180.6,29.5,50,True,True,28.8,0.81,5404,64,0,0,0,0
 Pa Nyit road,PN-07,Slides above the S-bend,open,Two small slides on the slope just above the road where it crosses the stream.,438,333,69,176.6,146.5,30.1,52.0,30.1,229,False,False,26.7,0.68,437,0,0,0,0,0
+Ti Zit,TN-01,North channel,channel,A channel scoured from the northern hills down through plantation to the track west of the flat.,20809,12752,7255,148.1,8.7,139.5,582.1,13.5,247,False,False,13.4,0.7,4478,9288,7026,0,0,0
+Ti Zit,TN-02,Eastern slide,open,A long slide on the hill east of the flat whose debris ran south-west into the fan at its foot (TZ-OW1).,15384,11364,3412,201.9,87.0,114.9,287.1,21.8,216,True,False,21.9,0.82,10006,5368,0,0,0,0
+Ti Zit,TN-03,Twin slide,open,A wide slide beside TN-02 that fed the same fan.,11774,10188,1177,162.1,66.0,96.2,233.7,22.4,219,False,False,24.0,0.85,9766,1999,0,0,0,0
+Ti Zit,TN-04,Plantation slide,open,A slide through young plantation above the track.,2040,1380,563,81.2,22.0,59.3,138.5,23.2,229,False,False,25.2,0.5,1300,739,0,0,0,0
+Ti Zit,TN-05,West slide,open,A narrow slide in the west of the block.,1362,1196,144,53.3,19.8,33.5,110.0,16.9,207,False,False,18.1,0.72,663,477,221,0,0,0
+Ti Zit,TN-06,Minor scar,minor,Small scar or channel fragment.,958,686,209,179.3,157.8,21.5,57.8,20.4,235,True,False,18.6,0.83,295,662,0,0,0,0
+Ti Zit,TN-07,Minor scar,minor,Small scar or channel fragment.,808,711,62,48.1,28.4,19.7,74.3,14.8,182,False,False,21.1,0.65,612,60,134,0,0,0
+Ti Zit,TN-08,Minor scar,minor,Small scar or channel fragment.,575,18,479,99.2,67.3,32.0,69.0,24.9,253,False,False,25.1,0.8,574,0,0,0,0,0
+Ti Zit,TN-09,Minor scar,minor,Small scar or channel fragment.,474,117,293,12.1,10.3,1.8,41.7,2.5,84,False,False,3.1,,0,0,474,0,0,0
+Ti Zit,TN-10,Minor scar,minor,Small scar or channel fragment.,312,247,36,58.6,36.7,21.9,38.5,29.6,213,False,False,29.0,0.74,312,0,0,0,0,0
+Ti Zit,TN-11,Minor scar,minor,Small scar or channel fragment.,280,242,10,120.9,109.6,11.3,21.1,28.2,250,False,False,27.5,0.57,280,0,0,0,0,0
+Ti Zit,TN-12,Minor scar,minor,Small scar or channel fragment.,262,95,140,25.7,20.9,4.8,22.9,11.8,244,False,False,11.9,,0,231,30,0,0,0
+Ti Zit,TN-13,Minor scar,minor,Small scar or channel fragment.,253,31,203,83.6,66.7,16.9,34.1,26.3,175,False,False,25.7,0.66,252,0,0,0,0,0
+Ti Zit,TS-01,Southern channel network,channel,"The largest feature: a network of channels scoured west through the forest that reaches the sea at the south end of the beach, with the slides that fed it.",220352,72530,144212,298.0,0.0,298.0,1291.7,13.0,310,False,False,18.5,0.81,93047,64244,62941,0,6,0
+Ti Zit,TS-02,East-central channel network,channel,Branching channels scoured down the eastern hills that join TS-01.,162136,86684,71371,272.3,6.5,265.8,959.4,15.5,268,True,False,18.2,0.82,73304,48814,39924,0,0,0
+Ti Zit,TS-03,North-east channel network,channel,"Branching channels scoured down the hills in the north-east of the block, draining west towards the beach.",118340,45521,69456,232.9,5.7,227.2,847.9,15.0,292,False,False,18.9,0.81,57612,32005,28644,0,0,0
+Ti Zit,TS-04,Central valley flow,channel,"A wide debris flow down a forested valley from scars on both sides, running north-west towards the beach.",62998,53066,8485,216.5,6.8,209.7,650.8,17.9,310,False,False,17.3,0.85,27034,17376,18553,0,0,0
+Ti Zit,TS-05,Coastal channel network,channel,"Channels scoured down to the small southern beach, where their debris reached the sea.",52210,7456,43797,119.0,0.0,119.0,649.4,10.4,325,False,False,11.5,0.78,11907,14509,25761,0,0,0
+Ti Zit,TS-06,Slide to the beach,open,A wide slide whose debris ran west down to the back of the beach.,38613,32394,5540,169.4,6.3,163.0,435.4,20.5,266,False,False,17.9,0.83,16128,15966,6496,0,0,1
+Ti Zit,TS-07,South-edge channel,channel,A channel scoured west to the sea along the southern edge of the survey.,35709,10939,24328,105.5,0.0,105.5,648.8,9.2,283,False,False,13.9,0.77,7035,20828,7830,0,0,0
+Ti Zit,TS-08,Long slide,open,A long straight slide down the coastal hill.,28700,8218,20256,185.5,8.4,177.2,515.6,19.0,300,False,False,17.1,0.82,12408,7622,8654,0,0,0
+Ti Zit,TS-09,South-east gully,channel,A gully at the eastern edge of the flight.,11132,5832,5098,275.7,108.7,166.9,482.3,19.1,207,False,False,21.9,0.76,6462,4546,116,0,0,0
+Ti Zit,TS-10,Plantation slide,open,A slide through plantation on the coastal hill.,9421,2017,7248,89.5,16.8,72.7,291.0,14.0,298,False,False,15.2,0.83,3328,1834,4254,0,0,0
+Ti Zit,TS-11,Hillside channel,channel,A channel scoured west on the hills north of TS-04.,7121,3046,3641,120.5,13.8,106.7,341.2,17.4,253,False,False,17.7,0.83,2696,3480,939,0,0,0
+Ti Zit,TS-12,Twin slides,open,Two parallel slides in the south of the block.,5471,1968,3389,237.2,179.3,57.9,160.6,19.8,203,False,False,20.0,0.85,2632,2836,0,0,0,0
+Ti Zit,TS-13,East-edge gully,channel,A gully at the eastern edge of the flight.,4966,3108,1634,288.4,177.0,111.4,294.6,20.7,171,True,True,22.9,0.62,3380,1582,0,0,0,0
+Ti Zit,TS-14,Small slide,open,A small slide beside TS-01.,1829,1429,329,79.1,30.6,48.5,113.9,23.1,215,False,False,22.5,0.85,1209,114,506,0,0,0
+Ti Zit,TS-15,East-edge slide,open,A slide at the eastern edge of the flight.,1411,610,674,261.7,216.4,45.3,92.0,26.2,351,False,False,25.4,0.83,1401,9,0,0,0,0
+Ti Zit,TS-16,Twin scars,open,Two scars beside TS-06.,1405,944,405,24.4,9.4,15.0,68.5,12.3,246,False,False,12.2,0.8,172,857,375,0,0,0
+Ti Zit,TS-17,Minor scar,minor,Small scar or channel fragment.,998,185,785,23.5,16.7,6.8,97.8,4.0,323,False,False,3.4,,0,0,998,0,0,0
+Ti Zit,TS-18,Minor scar,minor,Small scar or channel fragment.,712,611,87,276.7,253.6,23.1,57.7,21.8,162,False,False,22.8,0.86,328,383,0,0,0,0
+Ti Zit,TS-19,Minor scar,minor,Small scar or channel fragment.,672,231,414,105.7,41.7,64.0,118.1,28.5,315,False,False,28.7,0.8,516,155,0,0,0,0
+Ti Zit,TS-20,Minor scar,minor,Small scar or channel fragment.,510,393,30,209.4,186.6,22.8,61.1,20.5,280,False,False,23.2,0.85,466,43,0,0,0,0
+Ti Zit,TS-21,Minor scar,minor,Small scar or channel fragment.,474,120,314,74.1,36.6,37.5,86.1,23.5,275,False,False,23.5,0.82,430,44,0,0,0,0
+Ti Zit,TS-22,Minor scar,minor,Small scar or channel fragment.,468,12,436,162.0,156.7,5.3,60.8,5.0,217,True,True,9.0,,0,468,0,0,0,0
+Ti Zit,TS-23,Minor scar,minor,Small scar or channel fragment.,466,349,76,22.7,10.3,12.3,50.0,13.9,266,False,False,12.5,,12,312,142,0,0,0
+Ti Zit,TS-24,Minor scar,minor,Small scar or channel fragment.,447,322,65,183.1,156.6,26.6,59.8,23.9,257,False,False,24.3,0.86,442,5,0,0,0,0
+Ti Zit,TS-25,Minor scar,minor,Small scar or channel fragment.,446,308,103,142.6,118.8,23.8,41.8,29.7,251,False,False,30.0,0.83,444,1,0,0,0,0
+Ti Zit,TS-26,Minor scar,minor,Small scar or channel fragment.,431,177,205,124.6,84.5,40.1,68.3,30.4,236,False,False,29.6,0.8,431,0,0,0,0,0
+Ti Zit,TS-27,Minor scar,minor,Small scar or channel fragment.,419,0,409,21.9,19.3,2.6,36.8,4.0,224,True,False,5.6,,0,116,302,0,0,0
+Ti Zit,TS-28,Minor scar,minor,Small scar or channel fragment.,373,277,72,198.5,171.0,27.5,48.1,29.7,355,True,False,30.7,0.86,373,0,0,0,0,0
+Ti Zit,TS-29,Minor scar,minor,Small scar or channel fragment.,350,289,42,15.9,5.9,9.9,35.7,15.5,284,False,False,16.5,0.78,146,203,0,0,0,0
+Ti Zit,TS-30,Minor scar,minor,Small scar or channel fragment.,250,183,55,34.1,0.9,33.3,33.8,44.6,246,False,False,34.3,0.65,250,0,0,0,0,0
+Ti Zit,TS-31,Minor scar,minor,Small scar or channel fragment.,234,113,109,19.6,17.7,1.9,23.0,4.8,190,True,False,5.2,,0,0,234,0,0,0
+Ti Zit,TS-32,Minor scar,minor,Small scar or channel fragment.,228,141,50,154.0,140.8,13.2,34.3,21.1,256,False,False,20.6,0.86,193,36,0,0,0,0
+Ti Zit,TS-33,Minor scar,minor,Small scar or channel fragment.,222,214,1,15.4,11.4,4.0,28.1,8.0,285,False,False,7.8,,0,0,222,0,0,0
+Ti Zit,TS-34,Minor scar,minor,Small scar or channel fragment.,217,130,70,112.9,96.0,16.9,27.3,31.7,280,False,False,30.1,0.85,217,0,0,0,0,0
 Ngone Min Taung,NM-01,West river channel,channel,"The largest scoured channel: a stream bed stripped to sand and boulders from the south-west hills to the north edge of the survey, with its south-east tributary.",61092,4073,55862,211.3,10.7,200.5,918.3,12.3,9,True,False,10.1,0.82,8887,12368,39799,0,1,0
 Ngone Min Taung,NM-02,North-west channels,channel,"Tributary channels in young plantation west of the monastery, scoured and buried in sand.",37842,11172,25581,72.5,11.8,60.7,496.8,7.0,48,True,False,6.5,0.85,1255,7925,28633,0,0,0
 Ngone Min Taung,NM-03,Central channel,channel,A forested stream scoured from the foot of the southern hill north to the monastery road.,27362,2899,24018,208.2,21.5,186.6,640.9,16.2,4,True,False,16.3,0.87,9181,12280,5884,0,0,0
