@@ -20,7 +20,7 @@ import geopandas as gpd
 from shapely.geometry import LineString, Polygon
 from sites import d
 
-L, P = "line", "poly"
+L, P, F = "line", "poly", "file"
 
 
 def box_ll(w, s, e, n):
@@ -565,13 +565,117 @@ ENV["tzt"] = [
      "Rejected on chip review: plantation rows at the edge of the flight."),
 ]
 
+# Ti Zit watershed (10 Oct 2026): the forested basin north-east of Ti Zit, whose valleys drain south-west into the eastern
+# part of the village. The hills are four split zones (WN, WM, WE, WV); where the valley flows spread sand between the houses the
+# ground is outwash (WS-OW1). The road from the village up the valley and over the hills (OpenStreetMap, checked on the
+# ortho) is excluded with its cut banks. Ground already covered by the 9 Oct Ti Zit flights stays with Ti Zit.
+TZW_ROAD = [(98.0937, 13.90756), (98.09443, 13.90757), (98.09555, 13.90801), (98.09615, 13.90836), (98.09684, 13.90882),
+            (98.0978, 13.9093), (98.0981, 13.90947), (98.09838, 13.91011), (98.09911, 13.91122), (98.09941, 13.91147),
+            (98.10014, 13.91222), (98.10094, 13.91294), (98.10141, 13.91352), (98.10179, 13.91382), (98.10189, 13.91414),
+            (98.10195, 13.91444), (98.10183, 13.91462), (98.10181, 13.91486), (98.10204, 13.91532), (98.10223, 13.91595),
+            (98.1029, 13.91647), (98.10313, 13.91683), (98.10375, 13.91734), (98.10457, 13.91792), (98.1047, 13.9184),
+            (98.10522, 13.91844), (98.10579, 13.91859), (98.10664, 13.91864), (98.10644, 13.91912), (98.10607, 13.91948),
+            (98.10646, 13.91951), (98.10716, 13.91892), (98.10789, 13.91865), (98.10847, 13.91858), (98.10921, 13.91875),
+            (98.10957, 13.91852), (98.10984, 13.91848), (98.11034, 13.91863), (98.11084, 13.91927), (98.1118, 13.91992),
+            (98.11274, 13.92013), (98.11343, 13.92066), (98.11437, 13.92077), (98.11519, 13.91983), (98.11536, 13.92043),
+            (98.11616, 13.92053), (98.11702, 13.92152), (98.11756, 13.92321), (98.1182, 13.92385), (98.12027, 13.92414),
+            (98.12132, 13.92472), (98.12219, 13.92536), (98.12298, 13.92612)]
+TZW_SOUTH_ROAD = [(98.09615, 13.90836), (98.09659, 13.90777), (98.09708, 13.90711), (98.09731, 13.90626), (98.09769, 13.90559),
+                  (98.09815, 13.90518), (98.09857, 13.90387), (98.09888, 13.90317), (98.09911, 13.9022), (98.09968, 13.9011)]
+# cut between the west network (WN) and the large slide north of the road (WM), south to north
+TZW_CUT_N = [(98.1068, 13.9175), (98.1068, 13.9185), (98.1066, 13.9190), (98.1056, 13.9195), (98.1051, 13.9200),
+             (98.1053, 13.9205), (98.1060, 13.9210), (98.10676, 13.9215), (98.1065, 13.9222), (98.1065, 13.9231),
+             (98.1050, 13.9235), (98.1042, 13.9240), (98.1042, 13.9246), (98.1070, 13.9250), (98.1080, 13.9254),
+             (98.1080, 13.9320)]
+# cut between the slides on the east ridge (WE) and the two valley flows below them (WV), west to east
+TZW_CUT_S = [(98.1005, 13.9150), (98.1020, 13.9150), (98.1030, 13.9152), (98.1040, 13.9150), (98.1050, 13.91484),
+             (98.1060, 13.9148), (98.1070, 13.9148), (98.1080, 13.9150), (98.1090, 13.9155), (98.1100, 13.9150),
+             (98.1110, 13.9146), (98.1120, 13.9143), (98.1140, 13.9143), (98.1150, 13.9140), (98.1250, 13.9140)]
+
+
+def tzw_zone(half, part):
+    """One of the four Ti Zit watershed zones as a coordinate list: half N / S of the road, then part W / E (north
+    half) or N / S (south half) of the cut traced through that half."""
+    road = Polygon([(98.090, 13.9075)] + TZW_ROAD + [(98.124, 13.9270)] +
+                   ([(98.124, 13.931), (98.090, 13.931)] if half == "N" else [(98.124, 13.900), (98.090, 13.900)]))
+    if half == "N":
+        side = Polygon([(98.080, 13.890), (TZW_CUT_N[0][0], 13.890)] + TZW_CUT_N + [(98.080, TZW_CUT_N[-1][1])])  # west of the cut
+    else:
+        side = Polygon([(TZW_CUT_S[0][0], 13.940)] + TZW_CUT_S + [(TZW_CUT_S[-1][0], 13.940)])  # north of the cut
+    g = road.intersection(side) if part in ("W", "N") else road.difference(side)
+    g = max(getattr(g, "geoms", [g]), key=lambda q: q.area)
+    return list(g.exterior.coords)
+
+
+ENV["tzw"] = [
+    ("WS-OW1", "East Ti Zit under sediment", "outwash", 3, P, [
+        (98.0935, 13.9080), (98.0955, 13.9072), (98.0985, 13.9070), (98.1000, 13.9080), (98.1000, 13.9095),
+        (98.1005, 13.9110), (98.1000, 13.9118), (98.0990, 13.9118), (98.0975, 13.9100), (98.0955, 13.9093),
+        (98.0935, 13.9092)], 0,
+     "The eastern part of Ti Zit, where the two valley flows from the watershed came out of the hills and spread sand and "
+     "debris between the houses and along the road."),
+    # four zones (one zone of the whole basin, 1.4 Gpx, does not fit in RAM): either side of the road, which is excluded
+    # anyway, and each half cut again along a line traced through the gap between its feature clusters
+    ("WN", "Watershed hills north-west of the road, west", "landslide", 5, P, tzw_zone("N", "W"), 0,
+     "Zone split into connected scars and scoured channels."),
+    ("WM", "Watershed hills north-west of the road, east", "landslide", 5, P, tzw_zone("N", "E"), 0,
+     "Zone split into connected scars and scoured channels."),
+    ("WE", "Watershed hills south-east of the road, east ridge", "landslide", 5, P, tzw_zone("S", "N"), 0,
+     "Zone split into connected scars and scoured channels."),
+    ("WV", "Watershed hills south-east of the road, the two valleys", "landslide", 5, P, tzw_zone("S", "S"), 0,
+     "Zone split into connected scars and scoured channels."),
+    ("WX-1", "Road up the valley", "exclude", 0, L, TZW_ROAD, 4,
+     "The road from Ti Zit up the valley and over the hills and its cut banks, bare on 10 Jan 2026 (debris has since run "
+     "down it)."),
+    ("WX-2", "Road south of the village", "exclude", 0, L, TZW_SOUTH_ROAD, 4, "A village road, bare on 10 Jan 2026."),
+    ("WX-3", "Concrete road on the hills", "exclude", 0, F, "road_traced.geojson", 0,
+     "The new concrete road over the hills, traced on the ortho (its OpenStreetMap line is 10-20 m off here): bare on 10 Jan 2026 as a track."),
+    ("WX-4", "Yard and houses", "exclude", 0, P, box_ll(98.09722, 13.90623, 98.0986, 13.90711), 0,
+     "Rejected on chip review: houses and yards at the edge of the village."),
+    ("WX-5", "Houses", "exclude", 0, P, box_ll(98.09434, 13.90923, 98.09507, 13.91018), 0,
+     "Rejected on chip review: houses and yards in the village."),
+    ("WX-6", "Yards", "exclude", 0, P, box_ll(98.09758, 13.91099, 98.09787, 13.91129), 0,
+     "Rejected on chip review: yards in the village."),
+    ("WX-7", "Sandy clearing", "exclude", 0, P, box_ll(98.09997, 13.90888, 98.10024, 13.90919), 0,
+     "Rejected on chip review: a clearing already bare on 10 Jan 2026."),
+    ("WX-8", "Plantation plot", "exclude", 0, P, box_ll(98.10184, 13.90838, 98.10363, 13.90985), 0,
+     "Rejected on chip review: plantation plots and rows, cleared before 10 Jan 2026."),
+    ("WX-9", "Dark patches", "exclude", 0, P, box_ll(98.10157, 13.90633, 98.10203, 13.90669), 0,
+     "Rejected on chip review: dark ground and rock, as on 10 Jan 2026."),
+    ("WX-10", "Dark patches", "exclude", 0, P, box_ll(98.10483, 13.9111, 98.10554, 13.91194), 0,
+     "Rejected on chip review: dark burnt or rocky ground, as on 10 Jan 2026."),
+    ("WX-11", "Scattered patches", "exclude", 0, P, box_ll(98.1053, 13.91718, 98.10636, 13.91771), 0,
+     "Rejected on chip review: scattered patches in scrub."),
+    ("WX-12", "Dark rock", "exclude", 0, P, box_ll(98.11389, 13.91659, 98.1143, 13.91709), 0,
+     "Rejected on chip review: dark rock slabs, already bare on 10 Jan 2026."),
+    ("WX-13", "Road shoulder", "exclude", 0, P, box_ll(98.11203, 13.91964, 98.11297, 13.92008), 0,
+     "Rejected on chip review: the road shoulder and patches beside it."),
+    ("WX-14", "Dark patches", "exclude", 0, P, box_ll(98.11401, 13.91736, 98.11426, 13.91769), 0,
+     "Rejected on chip review: dark ground, as on 10 Jan 2026."),
+    ("WX-15", "Dark patches", "exclude", 0, P, box_ll(98.11187, 13.91751, 98.11219, 13.9178), 0,
+     "Rejected on chip review: dark ground, as on 10 Jan 2026."),
+    ("WX-16", "Dark patches", "exclude", 0, P, box_ll(98.11112, 13.91272, 98.11135, 13.91302), 0,
+     "Rejected on chip review: dark rock, as on 10 Jan 2026."),
+    ("WX-17", "Scrub patches", "exclude", 0, P, box_ll(98.10876, 13.91424, 98.10915, 13.91454), 0,
+     "Rejected on chip review: scattered patches in scrub."),
+    ("WX-18", "Burnt grass", "exclude", 0, P, box_ll(98.10572, 13.92075, 98.10619, 13.92121), 0,
+     "Rejected on chip review: dark burnt grass, as on 10 Jan 2026."),
+    ("WX-19", "Burnt grass", "exclude", 0, P, box_ll(98.1092, 13.92071, 98.10958, 13.92119), 0,
+     "Rejected on chip review: dark burnt grass, as on 10 Jan 2026."),
+    ("WX-20", "Plantation rows", "exclude", 0, P, box_ll(98.10329, 13.91845, 98.10351, 13.91893), 0,
+     "Rejected on chip review: plantation rows."),
+]
+
 
 def build(site):
     rows = []
     for i, name, kind, prio, typ, coords, hw, desc in ENV[site]:
         split = kind == "landslide" and "-" not in i  # a bare prefix marks a zone
-        g = LineString(coords) if typ == L else Polygon(coords)
-        g = gpd.GeoSeries([g], crs=4326).to_crs(32647).iloc[0]
+        if typ == F:  # a polygon traced on the ortho and kept as a file beside the envelopes
+            g = gpd.read_file(d(site, "inventory", coords)).to_crs(32647).union_all()
+        else:
+            g = LineString(coords) if typ == L else Polygon(coords)
+            g = gpd.GeoSeries([g], crs=4326).to_crs(32647).iloc[0]
         if typ == L:
             g = g.buffer(hw, cap_style="round")
         rows.append({"id": i, "name": name, "kind": kind, "priority": prio, "split": int(split), "description": desc,

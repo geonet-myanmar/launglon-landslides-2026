@@ -1,0 +1,50 @@
+{
+ "alpha_open": 19.1,
+ "alpha_channel": 14.0,
+ "open_ids": [
+  "WE-03",
+  "WE-04",
+  "WE-08",
+  "WE-09",
+  "WM-02",
+  "WV-08",
+  "WV-09"
+ ],
+ "channel_id": "WV-02",
+ "src_slope": 20.0,
+ "clip_m": 250,
+ "zoneA_ha": 610.27,
+ "zoneB_ha": 126.96,
+ "calibration_share_inside": {
+  "WE-03": 1.0,
+  "WE-04": 1.0,
+  "WE-08": 1.0,
+  "WE-09": 1.0,
+  "WM-02": 0.881,
+  "WV-02": 0.984,
+  "WV-08": 0.983,
+  "WV-09": 1.0
+ },
+ "buildings_surveyed_by_status_reach": {
+  "clear": {
+   "": 6,
+   "A": 11,
+   "B": 101
+  },
+  "damaged": {
+   "": 0,
+   "A": 1,
+   "B": 0
+  },
+  "destroyed": {
+   "": 1,
+   "A": 0,
+   "B": 0
+  },
+  "outwash": {
+   "": 1,
+   "A": 1,
+   "B": 6
+  }
+ }
+}

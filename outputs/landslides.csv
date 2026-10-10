@@ -29,6 +29,59 @@ Pa Nyit road,PN-04,Hairpin slides,open,A cluster of slope failures on and below 
 Pa Nyit road,PN-05,East channel,channel,A gully scoured down the slope east of the main stream.,5914,2096,3600,323.8,195.3,128.5,333.9,21.0,196,False,False,20.3,0.77,3286,1898,730,0,0,0
 Pa Nyit road,PN-06,North-east channel,channel,A wide scoured channel at the north-east edge of the survey; it continues beyond the flight.,5466,597,4725,301.3,199.2,102.1,180.6,29.5,50,True,True,28.8,0.81,5404,64,0,0,0,0
 Pa Nyit road,PN-07,Slides above the S-bend,open,Two small slides on the slope just above the road where it crosses the stream.,438,333,69,176.6,146.5,30.1,52.0,30.1,229,False,False,26.7,0.68,437,0,0,0,0,0
+Ti Zit watershed,WE-01,East-ridge slide complex,open,"Wide scars side by side on the west face of the eastern ridge, merging below into the head of the east valley; 18 ha.",180574,91486,86724,334.6,36.2,298.4,829.1,19.8,29,False,True,21.3,0.82,84222,69587,26651,0,0,0
+Ti Zit watershed,WE-02,Ridge gully network,channel,Gullies scoured south down the ridge below the road.,13170,5981,6965,288.4,133.5,154.9,271.7,29.7,353,False,False,29.2,0.84,9138,3384,640,0,0,0
+Ti Zit watershed,WE-03,Slide below the road,open,A slide down from the road into the valley head.,7831,5407,2009,227.0,90.8,136.2,249.5,28.6,317,False,False,23.0,0.79,5451,2290,86,0,0,0
+Ti Zit watershed,WE-04,Slide below the road bend,open,A slide below the road where it bends.,5999,4745,1098,174.9,84.4,90.5,187.1,25.8,290,False,False,26.0,0.8,4354,1642,0,0,0,0
+Ti Zit watershed,WE-05,East-edge slide,open,A slide at the eastern edge of the survey.,4199,3727,374,209.5,139.0,70.6,123.9,29.7,45,True,True,31.1,0.82,4197,0,0,0,0,0
+Ti Zit watershed,WE-06,Ridge gully,channel,A gully on the east ridge.,2719,1171,1433,300.5,182.7,117.8,141.7,39.7,8,False,False,40.3,0.69,2717,0,0,0,0,0
+Ti Zit watershed,WE-07,Ridge chute,channel,A long narrow chute on the east ridge.,1906,357,1504,304.2,151.4,152.8,197.5,37.7,349,False,False,39.0,0.65,1904,0,0,0,0,0
+Ti Zit watershed,WE-08,Slide beside the road,open,A slide below the road.,1461,748,609,149.2,120.2,29.0,83.6,19.1,300,False,False,17.1,0.85,457,1004,0,0,0,0
+Ti Zit watershed,WE-09,Small slide,open,A small slide below the road.,1370,677,621,171.7,141.7,30.0,71.5,22.8,330,False,False,22.9,0.83,1346,22,0,0,0,0
+Ti Zit watershed,WE-10,Minor scar,minor,Small scar or channel fragment.,541,313,212,123.3,106.0,17.2,68.5,14.1,35,False,True,24.1,0.7,541,0,0,0,0,0
+Ti Zit watershed,WE-11,Minor scar,minor,Small scar or channel fragment.,518,284,172,80.7,68.9,11.9,74.0,9.1,208,False,False,21.3,0.6,495,22,0,0,0,0
+Ti Zit watershed,WE-12,Minor scar,minor,Small scar or channel fragment.,473,62,387,143.4,137.1,6.3,37.8,9.5,169,False,False,9.2,,0,451,22,0,0,0
+Ti Zit watershed,WE-13,Minor scar,minor,Small scar or channel fragment.,472,193,238,184.8,148.5,36.3,71.9,26.8,60,False,True,27.3,0.85,472,0,0,0,0,0
+Ti Zit watershed,WE-14,Minor scar,minor,Small scar or channel fragment.,436,353,66,164.2,141.4,22.8,44.0,27.4,14,False,False,29.2,0.77,436,0,0,0,0,0
+Ti Zit watershed,WE-15,Minor scar,minor,Small scar or channel fragment.,409,170,195,280.4,233.6,46.8,49.5,43.4,28,False,False,41.9,0.85,409,0,0,0,0,0
+Ti Zit watershed,WE-16,Minor scar,minor,Small scar or channel fragment.,362,75,270,221.6,163.2,58.4,88.8,33.3,1,False,False,34.1,0.84,362,0,0,0,0,0
+Ti Zit watershed,WE-17,Minor scar,minor,Small scar or channel fragment.,262,241,10,221.2,197.7,23.6,59.3,21.7,217,False,False,22.6,0.71,262,0,0,0,0,0
+Ti Zit watershed,WM-01,Great slide above the road,open,"A 10 ha slope failure on the hill north of the road over the ridge: a wide scar stripped to orange soil, whose debris ran south over the road.",107209,54551,50818,230.6,48.0,182.6,602.9,16.9,93,False,True,18.0,0.81,43094,38050,26001,0,0,0
+Ti Zit watershed,WM-02,Slide at the road hairpin,open,A slide that came down across the hairpin bend where the road climbs out of the valley.,9163,7378,1559,215.0,152.4,62.6,136.0,24.7,210,False,False,22.5,0.67,4958,4199,0,0,0,0
+Ti Zit watershed,WM-03,Minor scar,minor,Small scar or channel fragment.,917,624,249,178.5,135.2,43.3,92.3,25.1,244,False,False,23.1,0.68,431,485,0,0,0,0
+Ti Zit watershed,WM-04,Minor scar,minor,Small scar or channel fragment.,502,432,44,227.8,211.8,16.0,41.5,21.1,265,False,False,21.1,0.72,359,142,0,0,0,0
+Ti Zit watershed,WM-05,Minor scar,minor,Small scar or channel fragment.,413,325,72,143.4,107.5,36.0,72.8,26.3,115,False,False,29.0,0.79,413,0,0,0,0,0
+Ti Zit watershed,WN-01,Western channel network,channel,"The largest feature: a network of channels scoured south-west down the western half of the basin, joining the valley that the road follows down into Ti Zit.",280271,132657,139308,420.4,23.6,396.8,1476.7,15.0,182,False,False,21.0,0.75,141863,101414,36819,0,1,0
+Ti Zit watershed,WN-02,West-edge slide,open,A wide slide at the western edge of the survey.,6004,1501,4403,263.3,200.2,63.2,142.6,23.9,200,True,True,26.8,0.76,5566,437,0,0,0,0
+Ti Zit watershed,WN-03,North-edge channel,channel,A channel at the northern edge of the survey.,1828,474,1140,470.1,353.6,116.4,161.1,35.9,55,True,False,38.8,0.58,1827,0,0,0,0,0
+Ti Zit watershed,WN-04,Minor scar,minor,Small scar or channel fragment.,945,880,38,103.8,69.6,34.3,74.3,24.8,138,False,False,24.8,0.84,945,0,0,0,0,0
+Ti Zit watershed,WN-05,Minor scar,minor,Small scar or channel fragment.,869,744,59,139.9,112.1,27.9,84.6,18.2,221,False,False,19.9,0.86,179,690,0,0,0,0
+Ti Zit watershed,WN-06,Minor scar,minor,Small scar or channel fragment.,770,299,427,213.9,191.7,22.2,35.2,32.2,116,False,False,31.3,0.61,770,0,0,0,0,0
+Ti Zit watershed,WN-07,Minor scar,minor,Small scar or channel fragment.,659,246,375,374.4,315.1,59.3,84.2,35.2,100,True,False,36.8,0.71,659,0,0,0,0,0
+Ti Zit watershed,WN-08,Minor scar,minor,Small scar or channel fragment.,540,266,236,216.3,144.7,71.6,115.4,31.8,136,False,False,29.5,0.82,540,0,0,0,0,0
+Ti Zit watershed,WN-09,Minor scar,minor,Small scar or channel fragment.,461,151,284,34.9,30.4,4.5,60.3,4.3,207,False,False,4.0,,0,0,461,0,0,0
+Ti Zit watershed,WN-10,Minor scar,minor,Small scar or channel fragment.,367,283,54,406.8,386.1,20.7,29.0,35.6,89,False,True,35.7,0.61,367,0,0,0,0,0
+Ti Zit watershed,WN-11,Minor scar,minor,Small scar or channel fragment.,339,45,271,299.4,272.3,27.1,44.8,31.2,128,False,False,30.1,0.83,339,0,0,0,0,0
+Ti Zit watershed,WN-12,Minor scar,minor,Small scar or channel fragment.,323,105,194,472.1,446.5,25.6,35.4,35.9,117,True,True,35.9,0.58,323,0,0,0,0,0
+Ti Zit watershed,WN-13,Minor scar,minor,Small scar or channel fragment.,261,169,82,210.0,196.3,13.7,32.4,23.0,92,False,False,22.2,0.74,258,4,0,0,0,0
+Ti Zit watershed,WN-14,Minor scar,minor,Small scar or channel fragment.,231,106,107,276.6,268.4,8.2,16.5,26.4,203,False,False,21.6,0.82,142,89,0,0,0,0
+Ti Zit watershed,WN-15,Minor scar,minor,Small scar or channel fragment.,219,177,24,371.7,344.8,26.9,31.5,40.5,149,True,False,40.1,0.74,219,0,0,0,0,0
+Ti Zit watershed,WN-16,Minor scar,minor,Small scar or channel fragment.,201,26,157,291.4,257.9,33.4,49.4,34.1,149,False,False,33.2,0.53,201,0,0,0,0,0
+Ti Zit watershed,WV-01,East valley flow,channel,"A debris flow that scoured the east valley for 1.5 km, from the foot of the east ridge west to the road, and ran on down the road valley into the eastern part of Ti Zit (WS-OW1).",161850,74623,84490,362.5,20.4,342.1,1436.9,13.4,276,True,False,20.2,0.75,86388,49570,25800,0,0,0
+Ti Zit watershed,WV-02,South valley flow,channel,"A debris flow down the south valley from a fan of scars at its head, which came out at the south-east corner of the village.",104147,52459,49843,296.3,9.1,287.3,1150.9,14.0,267,False,False,19.4,0.78,51650,19155,33279,0,0,0
+Ti Zit watershed,WV-03,South-edge slide,open,A slide at the southern edge of the survey.,6659,1380,5181,108.6,28.1,80.5,206.7,21.3,260,False,True,21.4,0.74,4800,1512,344,0,0,0
+Ti Zit watershed,WV-04,Valley-side slide,open,A long slide on the south side of the east valley.,6636,902,5543,343.7,266.9,76.8,295.2,14.6,54,True,True,14.6,0.85,826,5807,0,0,0,0
+Ti Zit watershed,WV-05,East valley slide,open,A slide on the south side of the east valley.,4706,2383,2226,333.6,262.7,70.9,187.1,20.8,106,False,True,20.5,0.87,2531,2172,0,0,0,0
+Ti Zit watershed,WV-06,South slide,open,A slide near the southern edge of the survey.,1745,17,1711,115.3,37.6,77.7,134.8,30.0,247,False,True,30.4,0.75,1738,6,0,0,0,0
+Ti Zit watershed,WV-07,Twin south slide,open,A slide beside WV-06.,1543,158,1366,67.8,32.8,35.0,85.5,22.3,249,False,True,23.3,0.76,1325,217,0,0,0,0
+Ti Zit watershed,WV-08,Valley-side chute,open,A chute on the north side of the lower east valley.,1067,630,414,145.0,73.7,71.3,116.1,31.6,265,False,False,29.8,0.71,1049,18,0,0,0,0
+Ti Zit watershed,WV-09,Valley-side chute,open,A chute on the north side of the lower east valley.,1050,236,786,118.3,35.5,82.8,148.7,29.1,267,False,False,29.8,0.76,940,109,0,0,0,0
+Ti Zit watershed,WV-10,Minor scar,minor,Small scar or channel fragment.,546,413,101,305.2,286.3,18.9,45.3,22.7,233,False,False,24.1,0.81,547,0,0,0,0,0
+Ti Zit watershed,WV-11,Minor scar,minor,Small scar or channel fragment.,411,337,45,247.1,228.7,18.4,47.6,21.1,247,False,False,26.1,0.81,411,0,0,0,0,0
+Ti Zit watershed,WV-12,Minor scar,minor,Small scar or channel fragment.,390,260,112,296.7,258.3,38.4,80.6,25.5,216,False,False,25.0,0.69,390,0,0,0,0,0
+Ti Zit watershed,WV-13,Minor scar,minor,Small scar or channel fragment.,360,0,338,33.0,24.2,8.8,31.4,15.6,323,False,False,14.3,,0,360,0,0,0,0
+Ti Zit watershed,WV-14,Minor scar,minor,Small scar or channel fragment.,276,1,264,34.6,28.3,6.3,31.6,11.3,200,False,True,12.1,,0,276,0,0,0,0
+Ti Zit watershed,WV-15,Minor scar,minor,Small scar or channel fragment.,243,66,170,356.8,346.2,10.6,38.1,15.6,62,True,True,16.5,,69,174,0,0,0,0
 Ti Zit,TN-01,North channel,channel,A channel scoured from the northern hills down through plantation to the track west of the flat.,20809,12752,7255,148.1,8.7,139.5,582.1,13.5,247,False,False,13.4,0.7,4478,9288,7026,0,0,0
 Ti Zit,TN-02,Eastern slide,open,A long slide on the hill east of the flat whose debris ran south-west into the fan at its foot (TZ-OW1).,15384,11364,3412,201.9,87.0,114.9,287.1,21.8,216,True,False,21.9,0.82,10006,5368,0,0,0,0
 Ti Zit,TN-03,Twin slide,open,A wide slide beside TN-02 that fed the same fan.,11774,10188,1177,162.1,66.0,96.2,233.7,22.4,219,False,False,24.0,0.85,9766,1999,0,0,0,0

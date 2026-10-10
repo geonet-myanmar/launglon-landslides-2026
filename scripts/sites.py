@@ -48,6 +48,11 @@ SITES = {
     # Ti Zit, 9 Oct 2026: two flights that meet without overlapping, joined by 01b_merge_flights.py (MERGES); own EE area
     "tzt": {"name": "Ti Zit", "kmz": "Tizit_Plan_1.kmz + Tizit_Plan_2&3.kmz", "flown": "2026-10-09", "exg": 0.048,
             "ee": "ee_tzt", "outwash_minus_buildings": True},
+    # Ti Zit watershed, 10 Oct 2026: one delivery (several flights mosaicked by the provider), 8.5 cm; it overlaps the
+    # 9 Oct Ti Zit flights, which keep the ground they cover; own Earth Engine area (data/ee_tzw/)
+    "tzw": {"name": "Ti Zit watershed", "kmz": "Ti_zit_Watershed_combine.kmz", "bbox": (98.090, 13.900, 98.124, 13.931),
+            "flown": "2026-10-10", "exg": 0.04,
+            "ee": "ee_tzw", "outwash_minus_buildings": True, "minus_sites": ["tzt"]},
 }
 # KMZ deliveries that are mosaicked by step 01 but are not sites of their own
 FLIGHTS = {
@@ -259,8 +264,44 @@ TZT_NAMES = {  # Ti Zit split zones TN (hills east and north of the tidal flat) 
     "TS-15": ("East-edge slide", "open", 98.10758, 13.89594, "A slide at the eastern edge of the flight."),
     "TS-16": ("Twin scars", "open", 98.09941, 13.88920, "Two scars beside TS-06."),
 }
+TZW_NAMES = {  # Ti Zit watershed split zones WN, WM (north-west of the road), WE (east ridge), WV (the two valleys)
+    "WN-01": ("Western channel network", "channel", 98.09909, 13.92061,
+              "The largest feature: a network of channels scoured south-west down the western half of the basin, joining "
+              "the valley that the road follows down into Ti Zit."),
+    "WN-02": ("West-edge slide", "open", 98.09277, 13.91739, "A wide slide at the western edge of the survey."),
+    "WN-03": ("North-edge channel", "channel", 98.09935, 13.92627, "A channel at the northern edge of the survey."),
+    "WM-01": ("Great slide above the road", "open", 98.11070, 13.92191,
+              "A 10 ha slope failure on the hill north of the road over the ridge: a wide scar stripped to orange soil, "
+              "whose debris ran south over the road."),
+    "WM-02": ("Slide at the road hairpin", "open", 98.10657, 13.91974,
+              "A slide that came down across the hairpin bend where the road climbs out of the valley."),
+    "WE-01": ("East-ridge slide complex", "open", 98.11739, 13.91837,
+              "Wide scars side by side on the west face of the eastern ridge, merging below into the head of the east "
+              "valley; 18 ha."),
+    "WE-02": ("Ridge gully network", "channel", 98.11007, 13.91744, "Gullies scoured south down the ridge below the road."),
+    "WE-03": ("Slide below the road", "open", 98.10485, 13.91778, "A slide down from the road into the valley head."),
+    "WE-04": ("Slide below the road bend", "open", 98.10370, 13.91627, "A slide below the road where it bends."),
+    "WE-05": ("East-edge slide", "open", 98.12130, 13.91606, "A slide at the eastern edge of the survey."),
+    "WE-06": ("Ridge gully", "channel", 98.11492, 13.91622, "A gully on the east ridge."),
+    "WE-07": ("Ridge chute", "channel", 98.11381, 13.91643, "A long narrow chute on the east ridge."),
+    "WE-08": ("Slide beside the road", "open", 98.10574, 13.91831, "A slide below the road."),
+    "WE-09": ("Small slide", "open", 98.10665, 13.91814, "A small slide below the road."),
+    "WV-01": ("East valley flow", "channel", 98.10858, 13.91173,
+              "A debris flow that scoured the east valley for 1.5 km, from the foot of the east ridge west to the road, "
+              "and ran on down the road valley into the eastern part of Ti Zit (WS-OW1)."),
+    "WV-02": ("South valley flow", "channel", 98.10603, 13.90670,
+              "A debris flow down the south valley from a fan of scars at its head, which came out at the south-east corner "
+              "of the village."),
+    "WV-03": ("South-edge slide", "open", 98.10300, 13.90316, "A slide at the southern edge of the survey."),
+    "WV-04": ("Valley-side slide", "open", 98.11568, 13.90982, "A long slide on the south side of the east valley."),
+    "WV-05": ("East valley slide", "open", 98.11612, 13.91148, "A slide on the south side of the east valley."),
+    "WV-06": ("South slide", "open", 98.10366, 13.90265, "A slide near the southern edge of the survey."),
+    "WV-07": ("Twin south slide", "open", 98.10298, 13.90271, "A slide beside WV-06."),
+    "WV-08": ("Valley-side chute", "open", 98.10245, 13.91124, "A chute on the north side of the lower east valley."),
+    "WV-09": ("Valley-side chute", "open", 98.10281, 13.91073, "A chute on the north side of the lower east valley."),
+}
 SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES, "kdg": KDG_NAMES, "pgz": PGZ_NAMES, "rbe": RBE_NAMES,
-               "thw": THW_NAMES, "lhl": LHL_NAMES, "tzt": TZT_NAMES}
+               "thw": THW_NAMES, "lhl": LHL_NAMES, "tzt": TZT_NAMES, "tzw": TZW_NAMES}
 # Landslides that enter the survey across its edge: the automatic crown (highest point on the outline) is then not
 # the source, so H, L and the reach angle are minimums. Set by inspection where the 15 m edge test misses it.
 EDGE_OVERRIDE = {"tby": {"TB-01": "crown", "TB-05": "crown"}, "pny": {"PN-06": "crown"}}

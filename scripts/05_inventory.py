@@ -75,6 +75,7 @@ def clean(mask, px_area):
         keep = np.zeros(n + 1, bool)
         keep[1:] = sizes * px_area >= MIN_PART_M2
         mask = keep[lab]
+    del lab  # free the first label array before the second (large split zones)
     lab, n = ndi.label(~mask)
     if n:
         sizes = ndi.sum_labels(np.ones_like(lab, np.uint8), lab, index=np.arange(1, n + 1))
