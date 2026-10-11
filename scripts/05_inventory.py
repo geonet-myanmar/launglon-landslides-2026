@@ -14,7 +14,8 @@ first, so grey roofs are not counted as sediment.
 A `split` envelope is a zone: its cleaned mask is cut into 8-connected components (>= 20 m2),
 components within 6 m of each other are grouped (canopy and fallen trees break a scoured channel
 into pieces), and each group >= 200 m2 becomes its own landslide (ids by area, largest first);
-smaller ones are counted, not mapped.
+smaller ones are counted, not mapped. Where a site is cut into several zones to fit in memory, pieces of one
+landslide on either side of a zone boundary (closer than 6 m) are merged afterwards (merge_across_zones).
 Core filter (sites.py core_filter: Tha Byar, whose valley envelopes border rubber plantation): in a drawn
 landslide envelope only bare components >= 500 m2, and components within 5 m of one, are kept - isolated
 canopy gaps in the plantation (classified bare) are dropped.
@@ -138,11 +139,43 @@ def split_zone(e, mask, cls, wt, pa):
           flush=True)
     out = []
     for k, (_, r) in enumerate(agg.iterrows(), 1):
-        out.append({"id": f"{e['id']}-{k:02d}", "name": "", "kind": "landslide", "description": "",
+        out.append({"id": f"{e['id']}-{k:02d}", "zone": e["id"], "name": "", "kind": "landslide", "description": "",
                     "area_m2": round(r.area, 1), "soil_m2": round(r.soil, 1), "grey_m2": round(r.grey, 1),
                     "envelope_in_survey_m2": None, "geometry": r.geometry.simplify(0.1)})
         print(f"    {out[-1]['id']}: {r.area:,.0f} m2", flush=True)
     return out
+
+
+def merge_across_zones(rows):
+    """A site cut into several split zones (to fit in memory) can have a scar or channel cut by a zone boundary. Pieces
+    in different zones closer than GROUP_M are one landslide, as inside a zone: merge them into the zone holding the
+    larger piece, then renumber each zone's groups by area."""
+    split = [r for r in rows if r.get("zone")]
+    if len({r["zone"] for r in split}) < 2:
+        return [{k: v for k, v in r.items() if k != "zone"} for r in rows]
+    merged = True
+    while merged:
+        merged = False
+        for i in range(len(split)):
+            for j in range(i + 1, len(split)):
+                a, b = split[i], split[j]
+                if a["zone"] != b["zone"] and a["geometry"].distance(b["geometry"]) < GROUP_M:
+                    big, small = (a, b) if a["area_m2"] >= b["area_m2"] else (b, a)
+                    print(f"    merged {small['id']} ({small['area_m2']:,.0f} m2) into {big['id']} across the zone boundary", flush=True)
+                    for k in ("area_m2", "soil_m2", "grey_m2"):
+                        big[k] = round(big[k] + small[k], 1)
+                    big["geometry"] = unary_union([big["geometry"], small["geometry"]])
+                    split.remove(small)
+                    merged = True
+                    break
+            if merged:
+                break
+    out = [r for r in rows if not r.get("zone")]
+    for z in sorted({r["zone"] for r in split}):
+        for k, r in enumerate(sorted([r for r in split if r["zone"] == z], key=lambda r: -r["area_m2"]), 1):
+            r["id"] = f"{z}-{k:02d}"
+            out.append(r)
+    return [{k: v for k, v in r.items() if k != "zone"} for r in out]
 
 
 def footprints_ll(site):
@@ -193,6 +226,7 @@ def run(site):
                          "envelope_in_survey_m2": round(gpd.GeoSeries([g], crs=4326).to_crs(32647).area.iloc[0], 1),
                          "geometry": poly})
             print(f"  {site} {e['id']} ({e['kind']}): {area:,.0f} m2 (vector {poly.area:,.0f} m2), window {w.width}x{w.height}", flush=True)
+    rows = merge_across_zones(rows)
     out = gpd.GeoDataFrame(rows, crs=32647).sort_values("id")
     out.to_file(inv / "landslides_utm.gpkg", driver="GPKG")
     out.to_crs(4326).to_file(inv / "landslides.geojson", driver="GeoJSON")

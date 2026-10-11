@@ -1,0 +1,24 @@
+{
+ "alpha_open": 19.1,
+ "alpha_channel": 14.0,
+ "open_ids": [],
+ "channel_id": "",
+ "alpha_from": "tzw",
+ "src_slope": 20.0,
+ "clip_m": 250,
+ "zoneA_ha": 191.69,
+ "zoneB_ha": 97.99,
+ "calibration_share_inside": {},
+ "buildings_surveyed_by_status_reach": {
+  "clear": {
+   "": 584,
+   "A": 62,
+   "B": 173
+  },
+  "outwash": {
+   "": 1,
+   "A": 0,
+   "B": 1
+  }
+ }
+}

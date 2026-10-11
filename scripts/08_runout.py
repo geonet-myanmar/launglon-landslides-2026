@@ -28,11 +28,15 @@ from sites import SITES, d, ee_dir
 
 SRC_SLOPE = 20.0
 CHANNEL = {"kdnh": "KD-01", "nmt": "NM-04", "tby": ("TB-03", "TB-01"), "pny": "PN-01", "kdg": "KGN-02", "pgz": ("PG-04", "PG-03"), "rbe": "RZ-04",
-           "thw": "TZ-02", "lhl": "LL-01", "tzt": "TS-07", "tzw": "WV-02"}  # tuple: crown of one, toe of the other
+           "thw": "TZ-02", "lhl": "LL-01", "tzt": "TS-07", "tzw": "WV-02", "ykt": "YN-03"}  # tuple: crown of one, toe of the other
 CLIP_M = 250
 # open slides left out of the calibration: drop within the DEM's error (TS-16: two scars with a 15 m drop on a low
 # coastal hill, whose 12 deg "reach angle" is noise on a 30 m DEM that carries roughly +-10 m)
 CALIB_SKIP = {"tzt": ["TS-16"]}
+# sites with no usable calibration flow borrow both angles from a neighbour: Ti Zit village (whose few hillside scars
+# all run off the flight) and San Hlan (two scars with 10 m drops) take the Ti Zit watershed's, the hills that drain
+# into Ti Zit and lie 2 km south-east of San Hlan
+ALPHA_FROM = {"tzv": "tzw", "snh": "tzw"}
 
 
 def reach(z, slope, res, alpha_deg):
@@ -62,9 +66,16 @@ def run(site, z, slope, T, prof):
     terr = {t["id"]: t for t in json.load(open(d(site, "inventory", "terrain.json")))}
     open_ids = [i for i, t in terr.items() if t["type"] == "open" and not t["crown_at_edge"] and not t["toe_at_edge"]
                 and i not in CALIB_SKIP.get(site, [])]
-    a_open = min(terr[i]["reach_angle_deg"] for i in open_ids)
-    ch = CHANNEL[site]
-    if isinstance(ch, tuple):
+    ch = CHANNEL.get(site)
+    if site in ALPHA_FROM:
+        src = json.load(open(d(ALPHA_FROM[site], "hazard", "runout_summary.json")))
+        a_open, a_chan, open_ids, ch = src["alpha_open"], src["alpha_channel"], [], ()
+        print(f"{site}: angles borrowed from {ALPHA_FROM[site]}: open {a_open}, channel {a_chan} deg")
+    else:
+        a_open = min(terr[i]["reach_angle_deg"] for i in open_ids)
+    if site in ALPHA_FROM:
+        pass
+    elif isinstance(ch, tuple):
         c, t = terr[ch[0]], terr[ch[1]]
         from pyproj import Geod
         L = Geod(ellps="WGS84").inv(*c["crown_lonlat"], *t["toe_lonlat"])[2]
@@ -74,6 +85,8 @@ def run(site, z, slope, T, prof):
     else:
         a_chan = terr[ch]["reach_angle_deg"]
     ch_ids = list(ch) if isinstance(ch, tuple) else [ch]
+    if site in ALPHA_FROM:
+        ch_ids = []
     fp = gpd.read_file(d(site, "inventory", "footprint.geojson")).to_crs(32647).geometry.iloc[0]
     clip = fp.buffer(CLIP_M)
     if "tawkye" in SITES[site].get("minus_sites", []):  # Tha Win surrounds the 2 Oct Taw Kye survey, which keeps its own zones
@@ -110,6 +123,7 @@ def run(site, z, slope, T, prof):
     tab = surv.groupby(["status", "reach"]).size().unstack(fill_value=0)
     print(tab.to_string())
     json.dump({"alpha_open": a_open, "alpha_channel": a_chan, "open_ids": open_ids, "channel_id": "+".join(ch_ids),
+               "alpha_from": ALPHA_FROM.get(site),
                "src_slope": SRC_SLOPE, "clip_m": CLIP_M,
                "zoneA_ha": round(zA.area / 1e4, 2), "zoneB_ha": round(zB.area / 1e4, 2),
                "calibration_share_inside": calib,

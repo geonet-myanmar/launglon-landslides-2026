@@ -53,6 +53,15 @@ SITES = {
     "tzw": {"name": "Ti Zit watershed", "kmz": "Ti_zit_Watershed_combine.kmz", "bbox": (98.090, 13.900, 98.124, 13.931),
             "flown": "2026-10-10", "exg": 0.04,
             "ee": "ee_tzw", "outwash_minus_buildings": True, "minus_sites": ["tzt"]},
+    # 11 Oct 2026, three deliveries. Ti Zit village: the village centre, in the gap between the 9 Oct flights; the ground
+    # those flights and the 10 Oct watershed survey already cover stays with them
+    "tzv": {"name": "Ti Zit village", "kmz": "Ti_zit_village.kmz", "flown": "2026-10-11", "exg": 0.045, "ee": "ee_1011",
+            "outwash_minus_buildings": True, "minus_sites": ["tzt", "tzw"]},
+    "snh": {"name": "San Hlan", "kmz": "SannLan_Village.kmz", "flown": "2026-10-11", "exg": 0.05, "ee": "ee_1011",
+            "outwash_minus_buildings": True},
+    "ykt": {"name": "Yan Kin Taung", "kmz": "YanKinTaung.kmz", "bbox": (98.110, 13.885, 98.131, 13.912),
+            "flown": "2026-10-11", "exg": 0.048, "footprint_shift": (0.0, 0.0),  # one footprint in the survey: no fit "ee": "ee_1011",
+            "outwash_minus_buildings": True, "minus_sites": ["nmt", "kdnh", "tzw"]},
 }
 # KMZ deliveries that are mosaicked by step 01 but are not sites of their own
 FLIGHTS = {
@@ -300,8 +309,43 @@ TZW_NAMES = {  # Ti Zit watershed split zones WN, WM (north-west of the road), W
     "WV-08": ("Valley-side chute", "open", 98.10245, 13.91124, "A chute on the north side of the lower east valley."),
     "WV-09": ("Valley-side chute", "open", 98.10281, 13.91073, "A chute on the north side of the lower east valley."),
 }
+TZV_NAMES = {  # Ti Zit village zone TV (the hillside at its eastern tip)
+    "TV-01": ("Plantation slide", "open", 98.10180, 13.90249, "A slide through plantation on the low hill east of the village."),
+    "TV-02": ("Twin chutes", "open", 98.10266, 13.90212, "Two chutes on the same hill, beside TV-01."),
+    "TV-03": ("Edge slide", "open", 98.10575, 13.90173, "A slide at the eastern edge of the flight."),
+}
+SNH_NAMES = {  # San Hlan zones SN (hills north of the village) and SS (hills south-east)
+    "SN-01": ("North chute", "open", 98.07953, 13.94673, "A narrow chute in the forest north of the creek valley."),
+    "SS-01": ("Slide below the hill track", "open", 98.08248, 13.93765,
+              "A slope failure in orange soil below the track on the hill south-east of the village."),
+    "SS-02": ("Rocky channel", "channel", 98.08469, 13.93849, "A small channel scoured to grey rock."),
+}
+YKT_NAMES = {  # Yan Kin Taung zones YN, YM, YS (pieces cut by a zone boundary are merged in step 05)
+    "YS-01": ("Western channel network", "channel", 98.11584, 13.90007,
+              "The largest feature: branching channels scoured west and south-west across the middle and south of the "
+              "hills, with the wide slides that fed them; 38 ha."),
+    "YN-01": ("Northern channel network", "channel", 98.12020, 13.90713,
+              "Parallel channels and slides scoured west down the northern hills."),
+    "YM-01": ("Central flow", "channel", 98.12144, 13.90265, "A wide debris flow scoured west down the middle of the hills."),
+    "YN-02": ("North-east flow", "channel", 98.12424, 13.90529,
+              "A flow from the plantation at the east edge, with the slides at its head."),
+    "YN-03": ("North channel", "channel", 98.12218, 13.90589, "A channel scoured west beside YN-01."),
+    "YS-02": ("South-east slides", "open", 98.12748, 13.89466, "Wide scars side by side at the south-east edge of the flight."),
+    "YN-04": ("North-west slide", "open", 98.11512, 13.90866, "A wide slide in the north-west of the hills."),
+    "YN-05": ("North-edge flow", "channel", 98.11973, 13.90995, "A flow along the northern edge of the flight."),
+    "YM-02": ("Central chute", "open", 98.12005, 13.90309, "A chute beside the central flow."),
+    "YM-03": ("Western chute", "open", 98.11673, 13.89748, "A long chute in the west of the hills."),
+    "YN-06": ("West-edge slide", "open", 98.11324, 13.90631, "A slide at the western edge of the flight."),
+    "YN-07": ("East-edge chute", "open", 98.12517, 13.90875, "A chute at the eastern edge of the flight."),
+    "YS-03": ("South chute", "open", 98.11625, 13.89570, "A chute in the south of the hills."),
+    "YS-04": ("South gully", "channel", 98.11937, 13.89597, "A gully in the south of the hills."),
+    "YN-08": ("Small slide", "open", 98.11404, 13.90867, "A small slide in the north-west."),
+    "YM-04": ("Side chute", "open", 98.11764, 13.89815, "A chute on the west of the hills."),
+    "YS-05": ("South-east slide", "open", 98.12557, 13.89338, "A slide in the south-east."),
+}
 SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES, "kdg": KDG_NAMES, "pgz": PGZ_NAMES, "rbe": RBE_NAMES,
-               "thw": THW_NAMES, "lhl": LHL_NAMES, "tzt": TZT_NAMES, "tzw": TZW_NAMES}
+               "thw": THW_NAMES, "lhl": LHL_NAMES, "tzt": TZT_NAMES, "tzw": TZW_NAMES,
+               "tzv": TZV_NAMES, "snh": SNH_NAMES, "ykt": YKT_NAMES}
 # Landslides that enter the survey across its edge: the automatic crown (highest point on the outline) is then not
 # the source, so H, L and the reach angle are minimums. Set by inspection where the 15 m edge test misses it.
 EDGE_OVERRIDE = {"tby": {"TB-01": "crown", "TB-05": "crown"}, "pny": {"PN-06": "crown"}}

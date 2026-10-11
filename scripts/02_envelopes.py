@@ -666,6 +666,85 @@ ENV["tzw"] = [
      "Rejected on chip review: plantation rows."),
 ]
 
+# 11 Oct 2026, three deliveries.
+# Ti Zit village: the village centre, the tidal flat and the beach, in the gap between the 9 Oct Ti Zit flights and the
+# 10 Oct watershed survey (both keep the ground they cover). Sand from the watershed's valley flows spread through the
+# south of the village, which was gardens and houses on 10 Jan 2026 (TV-OW1). The tidal flat and the beach were bare
+# sand and mud in January and are left out. Only the channel pieces at the eastern tip are hillside (zone TV).
+ENV["tzv"] = [
+    ("TV-OW1", "South Ti Zit under sediment", "outwash", 3, P, [
+        (98.0912, 13.9062), (98.0935, 13.9068), (98.0950, 13.9062), (98.0965, 13.9065), (98.0980, 13.9064),
+        (98.0982, 13.9058), (98.0965, 13.9055), (98.0952, 13.9050), (98.0950, 13.9040), (98.0958, 13.9035),
+        (98.0962, 13.9025), (98.0960, 13.9010), (98.0955, 13.9002), (98.0940, 13.8998), (98.0925, 13.8997),
+        (98.0917, 13.9002), (98.0915, 13.9030), (98.0912, 13.9050)], 0,
+     "Gardens, yards and houses in the south of Ti Zit, green on 10 Jan 2026, now crossed by streams of sand from the "
+     "watershed's valley flows on their way to the tidal flat."),
+    ("TV", "Hillside at the eastern tip", "landslide", 5, P, box_ll(98.0995, 13.9010, 98.1060, 13.9060), 0,
+     "Zone split into connected scars and scoured channels."),
+    ("VX-1", "Tidal flat and beach", "exclude", 0, P, [
+        (98.0800, 13.9140), (98.0885, 13.9075), (98.0912, 13.9050), (98.0915, 13.9000), (98.0935, 13.8985),
+        (98.0950, 13.8960), (98.0950, 13.8900), (98.0800, 13.8900)], 0,
+     "The tidal flat, beach and sea, bare sand, mud or water on 10 Jan 2026 (fresh sediment lies on the flat now)."),
+    ("VX-2", "Dark ground", "exclude", 0, P, box_ll(98.09950, 13.90350, 98.10054, 13.90425), 0,
+     "Rejected on chip review: dark ground, as on 10 Jan 2026."),
+    ("VX-3", "Houses", "exclude", 0, P, box_ll(98.09947, 13.90113, 98.09991, 13.90145), 0,
+     "Rejected on chip review: houses and yards."),
+]
+# San Hlan: a beach village on a bay north of Ti Zit. Sand spread over the grassy creek valley north of the village and
+# along the creek through it (SN-OW1); the hills north and south-east of the village are split zones. The village,
+# beach, bay and the creek mouth (mud on 10 Jan) are left out.
+ENV["snh"] = [
+    ("SN-OW1", "Creek valley under sand", "outwash", 3, P, [
+        (98.0740, 13.9445), (98.0770, 13.9440), (98.0790, 13.9446), (98.0810, 13.9440), (98.0818, 13.9433),
+        (98.0815, 13.9424), (98.0805, 13.9418), (98.0790, 13.9412), (98.0760, 13.9413), (98.0740, 13.9416)], 0,
+     "The grassy, marshy valley of the creek north of San Hlan, green on 10 Jan 2026, now under a sheet of sand washed "
+     "down from the hills, and the creek banks through the village."),
+    ("SN", "Hills north of the village", "landslide", 5, P, [
+        (98.0690, 13.9445), (98.0740, 13.9447), (98.0790, 13.9450), (98.0825, 13.9450), (98.0825, 13.9500),
+        (98.0690, 13.9500)], 0, "Zone split into connected scars and scoured channels."),
+    ("SS", "Hills south-east of the village", "landslide", 5, P, [
+        (98.0760, 13.9310), (98.0910, 13.9310), (98.0910, 13.9395), (98.0870, 13.9395), (98.0830, 13.9380),
+        (98.0800, 13.9372), (98.0775, 13.9365)], 0, "Zone split into connected scars and scoured channels."),
+    ("SX-1", "Creek mouth", "exclude", 0, P, box_ll(98.0650, 13.9405, 98.0740, 13.9450), 0,
+     "The creek mouth and its mud banks, bare or water on 10 Jan 2026."),    ("SX-2", "Rocky shore", "exclude", 0, P, box_ll(98.07075, 13.94497, 98.07282, 13.94717), 0,
+     "Rejected on chip review: the rocky shore of the bay."),
+    ("SX-3", "Dark rock", "exclude", 0, P, box_ll(98.08128, 13.94737, 98.0817, 13.94771), 0,
+     "Rejected on chip review: dark rock, as on 10 Jan 2026."),
+    ("SX-4", "Rocky shore", "exclude", 0, P, box_ll(98.07633, 13.93171, 98.07736, 13.93464), 0,
+     "Rejected on chip review: the rocky shore south of the bay."),
+    ("SX-5", "Pagoda compound and track", "exclude", 0, P, box_ll(98.07807, 13.93514, 98.07951, 13.93693), 0,
+     "Rejected on chip review: a pagoda compound, its yard and track, bare on 10 Jan 2026."),
+    ("SX-6", "Earthworks", "exclude", 0, P, box_ll(98.08007, 13.93687, 98.08074, 13.93742), 0,
+     "Rejected on chip review: earthworks, already bare on 10 Jan 2026."),
+    ("SX-7", "Dark rock and burnt ground", "exclude", 0, P, box_ll(98.082, 13.93546, 98.084, 13.93724), 0,
+     "Rejected on chip review: dark rock and burnt ground, as on 10 Jan 2026."),
+    ("SX-8", "Cultivated plot", "exclude", 0, P, box_ll(98.07761, 13.93359, 98.07785, 13.93381), 0,
+     "Rejected on chip review: a cultivated plot."),
+]
+# Yan Kin Taung: forested hills between the Ti Zit watershed and Ngone Min Taung, scoured by channel networks. Ground
+# already mapped by Ngone Min Taung, Ka Det Nge Htein and the Ti Zit watershed stays with them. Three split zones (one
+# zone at 7 cm does not fit in memory), cut where the fewest bare pixels cross; pieces cut by a zone boundary
+# are merged again in step 05.
+ENV["ykt"] = [
+    ("YN", "Yan Kin Taung, north", "landslide", 5, P, box_ll(98.110, 13.9042, 98.131, 13.912), 0,
+     "Zone split into connected scars and scoured channels."),
+    ("YM", "Yan Kin Taung, middle", "landslide", 5, P, box_ll(98.110, 13.8967, 98.131, 13.9042), 0,
+     "Zone split into connected scars and scoured channels."),
+    ("YS", "Yan Kin Taung, south", "landslide", 5, P, box_ll(98.110, 13.885, 98.131, 13.8967), 0,
+     "Zone split into connected scars and scoured channels."),    ("YX-1", "Palm shade", "exclude", 0, P, box_ll(98.12629, 13.90417, 98.12677, 13.90460), 0,
+     "Rejected on chip review: dark ground under palms, as on 10 Jan 2026."),
+    ("YX-2", "Dark rock", "exclude", 0, P, box_ll(98.11636, 13.90536, 98.11673, 13.90566), 0,
+     "Rejected on chip review: a dark rock slab, as on 10 Jan 2026."),
+    ("YX-3", "Dark rock", "exclude", 0, P, box_ll(98.11826, 13.90453, 98.11866, 13.90489), 0,
+     "Rejected on chip review: dark rock, as on 10 Jan 2026."),
+    ("YX-4", "Dark ground", "exclude", 0, P, box_ll(98.11519, 13.90716, 98.11559, 13.90743), 0,
+     "Rejected on chip review: dark ground, as on 10 Jan 2026."),
+    ("YX-5", "Dark rock", "exclude", 0, P, box_ll(98.12292, 13.89622, 98.12323, 13.89651), 0,
+     "Rejected on chip review: a dark rock slab, as on 10 Jan 2026."),
+    ("YX-6", "Plantation edge track", "exclude", 0, P, box_ll(98.12171, 13.90869, 98.12498, 13.90948), 0,
+     "Rejected on chip review: a track along the plantation edge, there on 10 Jan 2026."),
+]
+
 
 def build(site):
     rows = []

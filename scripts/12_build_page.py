@@ -1,8 +1,8 @@
-"""Collect the twelve drone-surveyed sites into one payload, export GIS deliverables, render the dashboard.
+"""Collect the fifteen drone-surveyed sites into one payload, export GIS deliverables, render the dashboard.
 
 Outputs
   outputs/launglon_landslides_2026.gpkg   per site: landslides, outwash, buildings, reach zones, exclusions, crown/toe
-  outputs/landslides.csv, outputs/buildings.csv, outputs/summary.json   (all twelve sites, `site` column)
+  outputs/landslides.csv, outputs/buildings.csv, outputs/summary.json   (all fifteen sites, `site` column)
   index.html                              standalone page (doctype + head) for GitHub Pages / local use
   dist/artifact-body.html                 the same body fragment without the wrapper
 src/template.html is the single source of truth for the page; never hand-edit index.html.
@@ -123,6 +123,20 @@ REPORTS["tzt"] = {
               "Two people died because the blocked roads kept them from hospital in time: a woman over 50 on the night of "
               "28 Sep (30 Sep) and an elderly man (2 Oct). No one is reported killed by the landslides themselves.",
               "Ti Zit was one of the villages the authorities designated red-level disaster areas (28 Sep)."]}
+# The 11 Oct Ti Zit village survey covers the village centre, so the village's reports move to it
+REPORTS["tzv"] = dict(REPORTS["tzt"])
+REPORTS["tzt"] = {"source": "Dawei Watch, 28 Sep - 2 Oct 2026", "deaths": None, "houses": None,
+                  "houses_note": "reported for the village (see Ti Zit village)",
+                  "lines": ["Ti Zit's reports (8 houses destroyed, nearly 40 buried, the village cut off) describe the village "
+                            "centre, which is mapped by the 11 Oct Ti Zit village survey and given there."]}
+REPORTS["snh"] = {"source": "Dawei Watch, 26 Sep - 2 Oct 2026", "deaths": None, "houses": None,
+                  "houses_note": "no report",
+                  "lines": ["No report in Dawei Watch coverage to 2 Oct names San Hlan or its neighbours Pin Lel Kan and "
+                            "Kyone Ga Nan, beach villages north of Ti Zit reached over the same hills from Nyin Maw."]}
+REPORTS["ykt"] = {"source": "Dawei Watch, 26 Sep - 2 Oct 2026", "deaths": None, "houses": None,
+                  "houses_note": "no houses in the survey",
+                  "lines": ["No report names Yan Kin Taung, the forested hills between the Ti Zit watershed and Ka Det Nge "
+                            "Htein; the nearest village, Pein Hne Taw, is 0.8 km east of the survey."]}
 REPORTS["tzw"] = {
     "source": "Dawei Watch, 28 Sep - 2 Oct 2026", "deaths": None, "houses": None,
     "houses_note": "reported for Ti Zit as a whole (see Ti Zit)",
@@ -166,7 +180,14 @@ META["tzt"] = {"mmr": "တီဇစ်", "gsd_cm": 10.0, "file": "Tizit_Plan_1.k
                "mimu": [("Ti Zit", "177147", "340 m beyond the survey, in the gap between the two flights")]}
 META["tzw"] = {"mmr": "တီဇစ် ရေဝေ", "gsd_cm": 8.5, "file": "Ti_zit_Watershed_combine.kmz", "tiles": "tizitws",
                "mimu": [("Ti Zit", "177147", "90 m beyond the survey's south-west edge")]}
-SITE_ORDER = ("tby", "pny", "tzw", "tzt", "nmt", "kdnh", "kdg", "tawkye", "thw", "lhl", "rbe", "pgz")  # north to south
+META["tzv"] = {"mmr": "တီဇစ်", "gsd_cm": 12.0, "file": "Ti_zit_village.kmz", "tiles": "oct11",
+               "mimu": [("Ti Zit", "177147", "inside")]}
+META["snh"] = {"mmr": "စမ်းလှမ်း", "gsd_cm": 11.3, "file": "SannLan_Village.kmz", "tiles": "oct11",
+               "mimu": [("San Hlan", "177148", "inside"), ("Pin Lel Kan", "177149", "inside"),
+                        ("Kyone Ga Nan", "177150", "0.6 km north of the survey")]}
+META["ykt"] = {"mmr": "ရန်ကင်းတောင်", "gsd_cm": 7.1, "file": "YanKinTaung.kmz", "tiles": "yankin",
+               "mimu": [("Pein Hne Taw", "177155", "0.8 km east of the survey")]}
+SITE_ORDER = ("tby", "pny", "snh", "tzw", "tzv", "tzt", "ykt", "nmt", "kdnh", "kdg", "tawkye", "thw", "lhl", "rbe", "pgz")  # north to south
 TK_TYPES = {"LS-01": "channel", "LS-04": "channel"}
 TK_EDGE = {"LS-01": ("crown", "Mud fan fed by a channel entering from outside the survey."),
            "LS-09": ("toe", "Continues beyond the surveyed area.")}
@@ -397,10 +418,10 @@ def main():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Launglon Landslides 2026</title>
-<meta name="description" content="Drone-orthomosaic analysis of the 26-27 Sep 2026 landslides at Tha Byar, the road to Pa Nyit, Ngone Min Taung, Ka Det Nge Htein, Ka Det Gyi, Taw Kye, Tha Win, Lel Hla, Ra Be, Pyin Gyi - Za Lut, Ti Zit and the Ti Zit watershed, Launglon Township, Tanintharyi Region, Myanmar.">
+<meta name="description" content="Drone-orthomosaic analysis of the 26-27 Sep 2026 landslides at Tha Byar, the road to Pa Nyit, Ngone Min Taung, Ka Det Nge Htein, Ka Det Gyi, Taw Kye, Tha Win, Lel Hla, Ra Be, Pyin Gyi - Za Lut, Ti Zit, the Ti Zit watershed, Ti Zit village, San Hlan and Yan Kin Taung, Launglon Township, Tanintharyi Region, Myanmar.">
 <link rel="canonical" href="{SITE}">
 <meta property="og:url" content="{SITE}">
-<meta property="og:title" content="Launglon landslides, 26-27 Sep 2026: twelve drone surveys">
+<meta property="og:title" content="Launglon landslides, 26-27 Sep 2026: fifteen drone surveys">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 28 L13 8 L19 18 L23 13 L30 28 Z' fill='%23b8742a'/%3E%3C/svg%3E">
 </head>
 <body>

@@ -1,0 +1,98 @@
+[
+ {
+  "id": "SN-01",
+  "name": "North chute",
+  "type": "open",
+  "description": "A narrow chute in the forest north of the creek valley.",
+  "crown_z": 83.6,
+  "toe_z": 63.3,
+  "H_m": 20.3,
+  "L_m": 71.1,
+  "H_over_L": 0.286,
+  "reach_angle_deg": 16.0,
+  "azimuth_deg": 143,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 19.7,
+  "slope_p90_deg": 23.2,
+  "crown_lonlat": [
+   98.07931989677387,
+   13.946932015053843
+  ],
+  "toe_lonlat": [
+   98.0797145358486,
+   13.946417731185294
+  ],
+  "ndvi_pre_mean": 0.86,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 152.3,
+   "transport": 338.1,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "SS-01",
+  "name": "Slide below the hill track",
+  "type": "open",
+  "description": "A slope failure in orange soil below the track on the hill south-east of the village.",
+  "crown_z": 31.7,
+  "toe_z": 21.4,
+  "H_m": 10.3,
+  "L_m": 48.4,
+  "H_over_L": 0.213,
+  "reach_angle_deg": 12.0,
+  "azimuth_deg": 323,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 13.6,
+  "slope_p90_deg": 16.4,
+  "crown_lonlat": [
+   98.08256336113352,
+   13.93746376049091
+  ],
+  "toe_lonlat": [
+   98.08229160441287,
+   13.93781168480356
+  ],
+  "ndvi_pre_mean": 0.39,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 52.8,
+   "transport": 836.7,
+   "runout": 33.7
+  }
+ },
+ {
+  "id": "SS-02",
+  "name": "Rocky channel",
+  "type": "channel",
+  "description": "A small channel scoured to grey rock.",
+  "crown_z": 59.8,
+  "toe_z": 49.8,
+  "H_m": 10.0,
+  "L_m": 31.7,
+  "H_over_L": 0.316,
+  "reach_angle_deg": 17.5,
+  "azimuth_deg": 320,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 21.9,
+  "slope_p90_deg": 23.0,
+  "crown_lonlat": [
+   98.08472376902864,
+   13.93835613774504
+  ],
+  "toe_lonlat": [
+   98.08453576773981,
+   13.938575823389298
+  ],
+  "ndvi_pre_mean": 0.61,
+  "ndvi_pre_source": 0.61,
+  "zone_m2": {
+   "source": 245.7,
+   "transport": 1.5,
+   "runout": 0.0
+  }
+ }
+]

@@ -29,6 +29,9 @@ Pa Nyit road,PN-04,Hairpin slides,open,A cluster of slope failures on and below 
 Pa Nyit road,PN-05,East channel,channel,A gully scoured down the slope east of the main stream.,5914,2096,3600,323.8,195.3,128.5,333.9,21.0,196,False,False,20.3,0.77,3286,1898,730,0,0,0
 Pa Nyit road,PN-06,North-east channel,channel,A wide scoured channel at the north-east edge of the survey; it continues beyond the flight.,5466,597,4725,301.3,199.2,102.1,180.6,29.5,50,True,True,28.8,0.81,5404,64,0,0,0,0
 Pa Nyit road,PN-07,Slides above the S-bend,open,Two small slides on the slope just above the road where it crosses the stream.,438,333,69,176.6,146.5,30.1,52.0,30.1,229,False,False,26.7,0.68,437,0,0,0,0,0
+San Hlan,SN-01,North chute,open,A narrow chute in the forest north of the creek valley.,491,21,456,83.6,63.3,20.3,71.1,16.0,143,True,False,19.7,0.86,152,338,0,0,0,0
+San Hlan,SS-01,Slide below the hill track,open,A slope failure in orange soil below the track on the hill south-east of the village.,924,851,21,31.7,21.4,10.3,48.4,12.0,323,False,False,13.6,,53,837,34,0,0,0
+San Hlan,SS-02,Rocky channel,channel,A small channel scoured to grey rock.,247,5,239,59.8,49.8,10.0,31.7,17.5,320,False,False,21.9,0.61,246,2,0,0,0,0
 Ti Zit watershed,WE-01,East-ridge slide complex,open,"Wide scars side by side on the west face of the eastern ridge, merging below into the head of the east valley; 18 ha.",180574,91486,86724,334.6,36.2,298.4,829.1,19.8,29,False,True,21.3,0.82,84222,69587,26651,0,0,0
 Ti Zit watershed,WE-02,Ridge gully network,channel,Gullies scoured south down the ridge below the road.,13170,5981,6965,288.4,133.5,154.9,271.7,29.7,353,False,False,29.2,0.84,9138,3384,640,0,0,0
 Ti Zit watershed,WE-03,Slide below the road,open,A slide down from the road into the valley head.,7831,5407,2009,227.0,90.8,136.2,249.5,28.6,317,False,False,23.0,0.79,5451,2290,86,0,0,0
@@ -82,6 +85,9 @@ Ti Zit watershed,WV-12,Minor scar,minor,Small scar or channel fragment.,390,260,
 Ti Zit watershed,WV-13,Minor scar,minor,Small scar or channel fragment.,360,0,338,33.0,24.2,8.8,31.4,15.6,323,False,False,14.3,,0,360,0,0,0,0
 Ti Zit watershed,WV-14,Minor scar,minor,Small scar or channel fragment.,276,1,264,34.6,28.3,6.3,31.6,11.3,200,False,True,12.1,,0,276,0,0,0,0
 Ti Zit watershed,WV-15,Minor scar,minor,Small scar or channel fragment.,243,66,170,356.8,346.2,10.6,38.1,15.6,62,True,True,16.5,,69,174,0,0,0,0
+Ti Zit village,TV-01,Plantation slide,open,A slide through plantation on the low hill east of the village.,2678,2126,405,30.2,20.7,9.5,93.7,5.8,203,True,True,4.7,,0,0,2676,0,0,0
+Ti Zit village,TV-02,Twin chutes,open,"Two chutes on the same hill, beside TV-01.",1831,1050,750,52.7,21.3,31.3,111.9,15.6,245,True,True,13.1,0.75,323,967,540,0,0,0
+Ti Zit village,TV-03,Edge slide,open,A slide at the eastern edge of the flight.,491,86,399,133.7,122.7,11.1,33.6,18.2,216,True,True,18.5,,0,491,0,0,0,0
 Ti Zit,TN-01,North channel,channel,A channel scoured from the northern hills down through plantation to the track west of the flat.,20809,12752,7255,148.1,8.7,139.5,582.1,13.5,247,False,False,13.4,0.7,4478,9288,7026,0,0,0
 Ti Zit,TN-02,Eastern slide,open,A long slide on the hill east of the flat whose debris ran south-west into the fan at its foot (TZ-OW1).,15384,11364,3412,201.9,87.0,114.9,287.1,21.8,216,True,False,21.9,0.82,10006,5368,0,0,0,0
 Ti Zit,TN-03,Twin slide,open,A wide slide beside TN-02 that fed the same fan.,11774,10188,1177,162.1,66.0,96.2,233.7,22.4,219,False,False,24.0,0.85,9766,1999,0,0,0,0
@@ -129,6 +135,32 @@ Ti Zit,TS-31,Minor scar,minor,Small scar or channel fragment.,234,113,109,19.6,1
 Ti Zit,TS-32,Minor scar,minor,Small scar or channel fragment.,228,141,50,154.0,140.8,13.2,34.3,21.1,256,False,False,20.6,0.86,193,36,0,0,0,0
 Ti Zit,TS-33,Minor scar,minor,Small scar or channel fragment.,222,214,1,15.4,11.4,4.0,28.1,8.0,285,False,False,7.8,,0,0,222,0,0,0
 Ti Zit,TS-34,Minor scar,minor,Small scar or channel fragment.,217,130,70,112.9,96.0,16.9,27.3,31.7,280,False,False,30.1,0.85,217,0,0,0,0,0
+Yan Kin Taung,YM-01,Central flow,channel,A wide debris flow scoured west down the middle of the hills.,29573,7909,21244,207.2,41.9,165.3,335.4,26.2,96,False,True,23.3,0.8,19974,9580,0,0,0,0
+Yan Kin Taung,YM-02,Central chute,open,A chute beside the central flow.,3472,404,2992,222.4,71.5,150.9,226.9,33.6,85,False,False,32.6,0.8,2852,617,0,0,0,0
+Yan Kin Taung,YM-03,Western chute,open,A long chute in the west of the hills.,2618,920,1556,391.8,322.0,69.7,164.2,23.0,157,False,False,22.8,0.85,1486,1131,0,0,0,0
+Yan Kin Taung,YM-04,Side chute,open,A chute on the west of the hills.,1278,90,1121,315.5,200.3,115.1,131.1,41.3,54,False,False,42.3,0.74,1277,0,0,0,0,0
+Yan Kin Taung,YM-05,Minor scar,minor,Small scar or channel fragment.,494,209,258,262.4,236.9,25.6,37.1,34.6,190,False,False,32.7,0.81,493,0,0,0,0,0
+Yan Kin Taung,YM-06,Minor scar,minor,Small scar or channel fragment.,375,107,245,268.2,243.3,24.9,39.4,32.3,143,False,False,31.6,0.85,374,0,0,0,0,0
+Yan Kin Taung,YM-07,Minor scar,minor,Small scar or channel fragment.,364,50,222,204.1,191.7,12.5,35.1,19.6,51,False,False,24.4,0.87,364,0,0,0,0,0
+Yan Kin Taung,YM-08,Minor scar,minor,Small scar or channel fragment.,316,2,283,296.9,253.1,43.9,42.8,45.7,32,False,False,44.2,0.74,316,0,0,0,0,0
+Yan Kin Taung,YM-09,Minor scar,minor,Small scar or channel fragment.,228,0,204,307.5,256.7,50.8,48.5,46.3,49,False,False,46.9,0.65,228,0,0,0,0,0
+Yan Kin Taung,YN-01,Northern channel network,channel,Parallel channels and slides scoured west down the northern hills.,63882,11860,51003,388.8,61.2,327.7,742.9,23.8,85,True,False,26.1,0.79,49324,13950,571,0,0,0
+Yan Kin Taung,YN-02,North-east flow,channel,"A flow from the plantation at the east edge, with the slides at its head.",26758,1066,24756,60.7,12.2,48.6,441.1,6.3,124,False,True,5.7,,0,3645,23095,0,0,0
+Yan Kin Taung,YN-03,North channel,channel,A channel scoured west beside YN-01.,25306,7182,17429,382.1,36.1,346.1,750.1,24.8,87,False,False,26.7,0.71,16634,8625,30,0,0,0
+Yan Kin Taung,YN-04,North-west slide,open,A wide slide in the north-west of the hills.,12962,2185,10564,387.6,292.7,94.8,267.9,19.5,42,False,True,20.5,0.77,7511,4934,510,0,0,0
+Yan Kin Taung,YN-05,North-edge flow,channel,A flow along the northern edge of the flight.,9426,3383,5938,223.2,130.9,92.3,259.9,19.5,93,True,True,20.1,0.8,5103,3538,782,0,0,0
+Yan Kin Taung,YN-06,West-edge slide,open,A slide at the western edge of the flight.,2084,1259,694,395.7,354.4,41.2,81.8,26.8,247,False,True,26.2,0.85,2083,0,0,0,0,0
+Yan Kin Taung,YN-07,East-edge chute,open,A chute at the eastern edge of the flight.,1806,836,940,63.0,32.5,30.5,81.0,20.6,163,True,True,16.6,0.74,681,1124,0,0,0,0
+Yan Kin Taung,YN-08,Small slide,open,A small slide in the north-west.,1545,174,1318,372.4,334.3,38.1,88.3,23.4,49,False,True,21.3,0.85,1146,398,0,0,0,0
+Yan Kin Taung,YS-01,Western channel network,channel,"The largest feature: branching channels scoured west and south-west across the middle and south of the hills, with the wide slides that fed them; 38 ha.",377560,60709,308824,413.9,59.9,354.0,786.3,24.2,107,True,True,24.1,0.81,223495,138148,15701,0,0,0
+Yan Kin Taung,YS-02,South-east slides,open,Wide scars side by side at the south-east edge of the flight.,18383,7740,10181,314.5,179.7,134.8,278.8,25.8,54,True,True,31.3,0.83,18370,0,0,0,0,0
+Yan Kin Taung,YS-03,South chute,open,A chute in the south of the hills.,1801,111,1643,323.8,269.6,54.2,121.5,24.1,125,True,False,24.5,0.88,1559,242,0,0,0,0
+Yan Kin Taung,YS-04,South gully,channel,A gully in the south of the hills.,1750,7,1650,230.2,140.0,90.2,136.1,33.5,125,False,False,32.6,0.86,1749,0,0,0,0,0
+Yan Kin Taung,YS-05,South-east slide,open,A slide in the south-east.,1232,760,405,313.4,275.5,37.9,85.7,23.9,283,True,False,23.4,0.76,1070,160,0,0,0,0
+Yan Kin Taung,YS-06,Minor scar,minor,Small scar or channel fragment.,810,75,668,283.6,246.7,37.0,74.8,26.3,101,True,False,26.6,0.85,811,0,0,0,0,0
+Yan Kin Taung,YS-07,Minor scar,minor,Small scar or channel fragment.,403,30,352,240.1,215.1,25.0,40.2,31.9,94,False,False,29.4,0.87,403,0,0,0,0,0
+Yan Kin Taung,YS-08,Minor scar,minor,Small scar or channel fragment.,322,2,300,267.6,228.0,39.7,60.3,33.3,46,True,True,31.8,0.87,321,0,0,0,0,0
+Yan Kin Taung,YS-09,Minor scar,minor,Small scar or channel fragment.,268,1,236,112.6,96.5,16.1,42.3,20.8,113,False,False,21.2,0.88,240,27,0,0,0,0
 Ngone Min Taung,NM-01,West river channel,channel,"The largest scoured channel: a stream bed stripped to sand and boulders from the south-west hills to the north edge of the survey, with its south-east tributary.",61092,4073,55862,211.3,10.7,200.5,918.3,12.3,9,True,False,10.1,0.82,8887,12368,39799,0,1,0
 Ngone Min Taung,NM-02,North-west channels,channel,"Tributary channels in young plantation west of the monastery, scoured and buried in sand.",37842,11172,25581,72.5,11.8,60.7,496.8,7.0,48,True,False,6.5,0.85,1255,7925,28633,0,0,0
 Ngone Min Taung,NM-03,Central channel,channel,A forested stream scoured from the foot of the southern hill north to the monastery road.,27362,2899,24018,208.2,21.5,186.6,640.9,16.2,4,True,False,16.3,0.87,9181,12280,5884,0,0,0

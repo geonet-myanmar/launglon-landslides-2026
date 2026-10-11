@@ -241,6 +241,121 @@
    "n_exclusions": 4,
    "nearest_standing_m": 203.7
   },
+  "snh": {
+   "key": "snh",
+   "name": "San Hlan",
+   "mmr": "စမ်းလှမ်း",
+   "flown": "2026-10-11",
+   "gsd_cm": 11.3,
+   "file": "SannLan_Village.kmz",
+   "survey_ha": 310.6,
+   "tiles": "oct11",
+   "n_landslides": 3,
+   "n_by_type": {
+    "open": 2,
+    "channel": 1,
+    "minor": 0
+   },
+   "area_total_m2": 1662,
+   "area_by_type_m2": {
+    "open": 1415,
+    "channel": 247,
+    "minor": 0
+   },
+   "area_runout_flat_m2": 34,
+   "outwash_m2": 106828,
+   "largest": "SS-01",
+   "buildings_surveyed": 821,
+   "buildings_status": {
+    "clear": 819,
+    "outwash": 2
+   },
+   "not_building": 4,
+   "overrides": 13,
+   "reach": {
+    "standing_in_A": 62,
+    "standing_in_B": 174,
+    "standing_outside": 585,
+    "affected": 0,
+    "affected_in_AB": 0
+   },
+   "runout": {
+    "alpha_open": 19.1,
+    "alpha_channel": 14.0,
+    "open_ids": [],
+    "channel_id": "",
+    "alpha_from": "tzw",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 191.69,
+    "zoneB_ha": 97.99,
+    "calibration_share_inside": {},
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 584,
+      "A": 62,
+      "B": 173
+     },
+     "outwash": {
+      "": 1,
+      "A": 0,
+      "B": 1
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": -0.5,
+    "dN": -3.0,
+    "grey_before": 0.574,
+    "grey_after": 0.607,
+    "n_used": 825
+   },
+   "report": {
+    "source": "Dawei Watch, 26 Sep - 2 Oct 2026",
+    "deaths": null,
+    "houses": null,
+    "houses_note": "no report",
+    "lines": [
+     "No report in Dawei Watch coverage to 2 Oct names San Hlan or its neighbours Pin Lel Kan and Kyone Ga Nan, beach villages north of Ti Zit reached over the same hills from Nyin Maw."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "San Hlan",
+     "pcode": "177148",
+     "where": "inside",
+     "mmr": "စမ်းလှမ်း",
+     "lon": 98.07759,
+     "lat": 13.93941
+    },
+    {
+     "name": "Pin Lel Kan",
+     "pcode": "177149",
+     "where": "inside",
+     "mmr": "ပင်လယ်ကမ်း",
+     "lon": 98.07189,
+     "lat": 13.94258
+    },
+    {
+     "name": "Kyone Ga Nan",
+     "pcode": "177150",
+     "where": "0.6 km north of the survey",
+     "mmr": "ကျုံးဂဏန်း",
+     "lon": 98.06963,
+     "lat": 13.95211
+    }
+   ],
+   "vt": "San Hlan",
+   "vt_pcode": "MMR006002013",
+   "bounds": [
+    98.06555403520001,
+    13.93154534134054,
+    98.09042196736003,
+    13.949370995433691
+   ],
+   "n_exclusions": 8,
+   "nearest_standing_m": 172.9
+  },
   "tzw": {
    "key": "tzw",
    "name": "Ti Zit watershed",
@@ -369,6 +484,116 @@
    "n_exclusions": 20,
    "nearest_standing_m": 35.2
   },
+  "tzv": {
+   "key": "tzv",
+   "name": "Ti Zit village",
+   "mmr": "တီဇစ်",
+   "flown": "2026-10-11",
+   "gsd_cm": 12.0,
+   "file": "Ti_zit_village.kmz",
+   "survey_ha": 139.8,
+   "tiles": "oct11",
+   "n_landslides": 3,
+   "n_by_type": {
+    "open": 3,
+    "channel": 0,
+    "minor": 0
+   },
+   "area_total_m2": 5000,
+   "area_by_type_m2": {
+    "open": 5000,
+    "channel": 0,
+    "minor": 0
+   },
+   "area_runout_flat_m2": 3216,
+   "outwash_m2": 161484,
+   "largest": "TV-01",
+   "buildings_surveyed": 324,
+   "buildings_status": {
+    "clear": 263,
+    "outwash": 56,
+    "destroyed": 5
+   },
+   "not_building": 2,
+   "overrides": 5,
+   "reach": {
+    "standing_in_A": 1,
+    "standing_in_B": 178,
+    "standing_outside": 140,
+    "affected": 5,
+    "affected_in_AB": 0
+   },
+   "runout": {
+    "alpha_open": 19.1,
+    "alpha_channel": 14.0,
+    "open_ids": [],
+    "channel_id": "",
+    "alpha_from": "tzw",
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 48.75,
+    "zoneB_ha": 70.52,
+    "calibration_share_inside": {},
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 84,
+      "A": 1,
+      "B": 178
+     },
+     "destroyed": {
+      "": 5,
+      "A": 0,
+      "B": 0
+     },
+     "outwash": {
+      "": 56,
+      "A": 0,
+      "B": 0
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": -1.5,
+    "dN": -0.5,
+    "grey_before": 0.58,
+    "grey_after": 0.604,
+    "n_used": 316
+   },
+   "report": {
+    "source": "Dawei Watch, 28 Sep - 2 Oct 2026",
+    "deaths": null,
+    "houses": "8",
+    "houses_n": 8,
+    "houses_label": "8 houses destroyed, nearly 40 buried in sediment",
+    "deaths_note": "two deaths reported after the road was cut, not in the landslides",
+    "lines": [
+     "On the night of 26 Sep the hills all round Ti Zit failed: earth and boulders covered parts of the village and the roads over the hills, and the village was cut off. 8 houses were completely destroyed, nearly 40 were buried in sediment, and many orchards were buried (29 Sep).",
+     "Ti Zit, a beach village of nearly 600 households and more than 1,000 people about four miles south-west of Launglon, is reached only over the hills from Nyin Maw; villagers were short of food and fuel for the phone tower (29 Sep). Clearing of the Yin Bok - Ti Zit road began on 30 Sep.",
+     "Two people died because the blocked roads kept them from hospital in time: a woman over 50 on the night of 28 Sep (30 Sep) and an elderly man (2 Oct). No one is reported killed by the landslides themselves.",
+     "Ti Zit was one of the villages the authorities designated red-level disaster areas (28 Sep)."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Ti Zit",
+     "pcode": "177147",
+     "where": "inside",
+     "mmr": "တီဇစ်",
+     "lon": 98.09427,
+     "lat": 13.90819
+    }
+   ],
+   "vt": "Ti Zit",
+   "vt_pcode": "MMR006002012",
+   "bounds": [
+    98.0840531878135,
+    13.89674336635416,
+    98.10604920710767,
+    13.912323468101361
+   ],
+   "n_exclusions": 3,
+   "nearest_standing_m": 182.9
+  },
   "tzt": {
    "key": "tzt",
    "name": "Ti Zit",
@@ -467,15 +692,10 @@
    "report": {
     "source": "Dawei Watch, 28 Sep - 2 Oct 2026",
     "deaths": null,
-    "houses": "8",
-    "houses_n": 8,
-    "houses_label": "8 houses destroyed, nearly 40 buried in sediment",
-    "deaths_note": "two deaths reported after the road was cut, not in the landslides",
+    "houses": null,
+    "houses_note": "reported for the village (see Ti Zit village)",
     "lines": [
-     "On the night of 26 Sep the hills all round Ti Zit failed: earth and boulders covered parts of the village and the roads over the hills, and the village was cut off. 8 houses were completely destroyed, nearly 40 were buried in sediment, and many orchards were buried (29 Sep).",
-     "Ti Zit, a beach village of nearly 600 households and more than 1,000 people about four miles south-west of Launglon, is reached only over the hills from Nyin Maw; villagers were short of food and fuel for the phone tower (29 Sep). Clearing of the Yin Bok - Ti Zit road began on 30 Sep.",
-     "Two people died because the blocked roads kept them from hospital in time: a woman over 50 on the night of 28 Sep (30 Sep) and an elderly man (2 Oct). No one is reported killed by the landslides themselves.",
-     "Ti Zit was one of the villages the authorities designated red-level disaster areas (28 Sep)."
+     "Ti Zit's reports (8 houses destroyed, nearly 40 buried, the village cut off) describe the village centre, which is mapped by the 11 Oct Ti Zit village survey and given there."
     ]
    },
    "mimu": [
@@ -498,6 +718,109 @@
    ],
    "n_exclusions": 15,
    "nearest_standing_m": 0.0
+  },
+  "ykt": {
+   "key": "ykt",
+   "name": "Yan Kin Taung",
+   "mmr": "ရန်ကင်းတောင်",
+   "flown": "2026-10-11",
+   "gsd_cm": 7.1,
+   "file": "YanKinTaung.kmz",
+   "survey_ha": 219.8,
+   "tiles": "yankin",
+   "n_landslides": 26,
+   "n_by_type": {
+    "open": 10,
+    "channel": 7,
+    "minor": 9
+   },
+   "area_total_m2": 585016,
+   "area_by_type_m2": {
+    "open": 47181,
+    "channel": 534255,
+    "minor": 3580
+   },
+   "area_runout_flat_m2": 40689,
+   "outwash_m2": 0,
+   "largest": "YS-01",
+   "buildings_surveyed": 1,
+   "buildings_status": {
+    "clear": 1
+   },
+   "not_building": 0,
+   "overrides": 0,
+   "reach": {
+    "standing_in_A": 0,
+    "standing_in_B": 0,
+    "standing_outside": 1,
+    "affected": 0,
+    "affected_in_AB": 0
+   },
+   "runout": {
+    "alpha_open": 23.0,
+    "alpha_channel": 24.8,
+    "open_ids": [
+     "YM-02",
+     "YM-03",
+     "YM-04"
+    ],
+    "channel_id": "YN-03",
+    "alpha_from": null,
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 320.06,
+    "zoneB_ha": 0.0,
+    "calibration_share_inside": {
+     "YM-02": 1.0,
+     "YM-03": 1.0,
+     "YM-04": 1.0,
+     "YN-03": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 1
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": 0.0,
+    "dN": 0.0,
+    "grey_before": 0.0,
+    "grey_after": 0.093,
+    "n_used": 1,
+    "auto_dE": -0.5,
+    "auto_dN": 8.0,
+    "manual": true
+   },
+   "report": {
+    "source": "Dawei Watch, 26 Sep - 2 Oct 2026",
+    "deaths": null,
+    "houses": null,
+    "houses_note": "no houses in the survey",
+    "lines": [
+     "No report names Yan Kin Taung, the forested hills between the Ti Zit watershed and Ka Det Nge Htein; the nearest village, Pein Hne Taw, is 0.8 km east of the survey."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Pein Hne Taw",
+     "pcode": "177155",
+     "where": "0.8 km east of the survey",
+     "mmr": "ပိန္နဲတော",
+     "lon": 98.13263,
+     "lat": 13.90934
+    }
+   ],
+   "vt": "Auk Yae Hpyu",
+   "vt_pcode": "MMR006002015",
+   "bounds": [
+    98.113116827762,
+    13.887643678734332,
+    98.12841418856202,
+    13.910471821077437
+   ],
+   "n_exclusions": 6,
+   "nearest_standing_m": 93.5
   },
   "nmt": {
    "key": "nmt",
@@ -1514,16 +1837,16 @@
   }
  },
  "total": {
-  "n_landslides": 265,
-  "area_m2": 4163318,
-  "destroyed": 75,
+  "n_landslides": 297,
+  "area_m2": 4754996,
+  "destroyed": 80,
   "damaged": 28,
-  "standing_in_A": 516,
-  "standing_in_B": 545,
+  "standing_in_A": 579,
+  "standing_in_B": 897,
   "deaths": 26,
-  "survey_ha": 3641.3,
-  "outwash_m2": 894129,
-  "in_sediment": 63
+  "survey_ha": 4311.5,
+  "outwash_m2": 1162441,
+  "in_sediment": 121
  },
  "regional": {
   "launglon_deaths": 31,

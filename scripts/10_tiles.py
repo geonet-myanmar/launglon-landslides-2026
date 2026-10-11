@@ -11,7 +11,9 @@
   ../launglon-landslides-tiles/thawin/  Tha Win and Lel Hla, the two blocks of one 10.0 cm delivery - same tile repo
   ../launglon-landslides-tiles-2/tizit/ the joined Ti Zit flights, 10.0 cm - a second tile repo (the first is near 1 GB)
   ../launglon-landslides-tiles-2/tizitws/ the Ti Zit watershed, 8.5 cm - second tile repo
-usage: python 10_tiles.py [kadet|thabyar|panyit|kadetgyi|zalut|rabe|thawin|tizit|tizitws]
+  ../launglon-landslides-tiles-3/oct11/  San Hlan and Ti Zit village (11 Oct), 11.3 / 12.0 cm - third tile repo
+  ../launglon-landslides-tiles-3/yankin/ Yan Kin Taung (11 Oct), 7.1 cm, to z21 (z20 is 7.3 cm) - third tile repo
+usage: python 10_tiles.py [kadet|thabyar|panyit|kadetgyi|zalut|rabe|thawin|tizit|tizitws|oct11|yankin]
 The deepest level, z20 in 512 px tiles, is 7.3 cm/px at 13.9 N - finer than both flights (10.1 and
 8.0 cm), so nothing is reduced. Lower levels are 2x2 averages of their children. Where the flights meet,
 the finer Ka Det Nge Htein flight is drawn over Ngone Min Taung. Blank tiles are skipped.
@@ -27,12 +29,13 @@ from PIL import Image
 from sites import ROOT, d
 
 SETS = {"kadet": ("nmt", "kdnh"), "thabyar": ("tby",), "panyit": ("pny",), "kadetgyi": ("kdg",), "zalut": ("pgz",), "rabe": ("rbe",),
-        "thawin": ("thw", "lhl"), "tizit": ("tzt",), "tizitws": ("tzw",)}  # later sites drawn on top
+        "thawin": ("thw", "lhl"), "tizit": ("tzt",), "tizitws": ("tzw",), "oct11": ("snh", "tzv"), "yankin": ("ykt",)}  # later sites drawn on top
 # tile sets published from a separate repo to keep this Pages site under GitHub's 1 GB limit (the page loads them by URL)
 EXTERNAL = {"zalut": ROOT.parent / "launglon-landslides-tiles", "rabe": ROOT.parent / "launglon-landslides-tiles",
             "thawin": ROOT.parent / "launglon-landslides-tiles",
-            "tizit": ROOT.parent / "launglon-landslides-tiles-2", "tizitws": ROOT.parent / "launglon-landslides-tiles-2"}  # the first tile repo is near its 1 GB limit  # -> geonet-myanmar/launglon-landslides-tiles
-ZMAX_SET = {"panyit": 21}  # Pa Nyit is 7.0 cm: z20 (7.2 cm) would reduce it, z21 is 3.6 cm
+            "tizit": ROOT.parent / "launglon-landslides-tiles-2", "tizitws": ROOT.parent / "launglon-landslides-tiles-2",
+            "oct11": ROOT.parent / "launglon-landslides-tiles-3", "yankin": ROOT.parent / "launglon-landslides-tiles-3"}  # the first tile repo is near its 1 GB limit  # -> geonet-myanmar/launglon-landslides-tiles
+ZMAX_SET = {"panyit": 21, "yankin": 21}  # Yan Kin Taung is 7.1 cm  # Pa Nyit is 7.0 cm: z20 (7.2 cm) would reduce it, z21 is 3.6 cm
 ZMAX_DEFAULT, ZMIN, TS = 20, 13, 512
 R = 20037508.342789244
 

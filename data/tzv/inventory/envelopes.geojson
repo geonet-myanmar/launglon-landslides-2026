@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "envelopes",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": "TV-OW1", "name": "South Ti Zit under sediment", "kind": "outwash", "priority": 3, "split": 0, "description": "Gardens, yards and houses in the south of Ti Zit, green on 10 Jan 2026, now crossed by streams of sand from the watershed's valley flows on their way to the tidal flat." }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 98.0912, 13.9062 ], [ 98.0935, 13.9068 ], [ 98.095, 13.9062 ], [ 98.0965, 13.9065 ], [ 98.098, 13.9064 ], [ 98.0982, 13.9058 ], [ 98.0965, 13.9055 ], [ 98.0952, 13.905 ], [ 98.095, 13.904 ], [ 98.0958, 13.9035 ], [ 98.0962, 13.9025 ], [ 98.096, 13.901 ], [ 98.0955, 13.9002 ], [ 98.094, 13.8998 ], [ 98.0925, 13.8997 ], [ 98.0917, 13.9002 ], [ 98.0915, 13.903 ], [ 98.0912, 13.905 ], [ 98.0912, 13.9062 ] ] ] } },
+{ "type": "Feature", "properties": { "id": "TV", "name": "Hillside at the eastern tip", "kind": "landslide", "priority": 5, "split": 1, "description": "Zone split into connected scars and scoured channels." }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 98.0995, 13.901 ], [ 98.106, 13.901 ], [ 98.106, 13.906 ], [ 98.0995, 13.906 ], [ 98.0995, 13.901 ] ] ] } },
+{ "type": "Feature", "properties": { "id": "VX-1", "name": "Tidal flat and beach", "kind": "exclude", "priority": 0, "split": 0, "description": "The tidal flat, beach and sea, bare sand, mud or water on 10 Jan 2026 (fresh sediment lies on the flat now)." }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 98.08, 13.914 ], [ 98.0885, 13.9075 ], [ 98.0912, 13.905 ], [ 98.0915, 13.9 ], [ 98.0935, 13.8985 ], [ 98.095, 13.896 ], [ 98.095, 13.89 ], [ 98.08, 13.89 ], [ 98.08, 13.914 ] ] ] } },
+{ "type": "Feature", "properties": { "id": "VX-2", "name": "Dark ground", "kind": "exclude", "priority": 0, "split": 0, "description": "Rejected on chip review: dark ground, as on 10 Jan 2026." }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 98.0995, 13.9035 ], [ 98.10054, 13.9035 ], [ 98.10054, 13.90425 ], [ 98.0995, 13.90425 ], [ 98.0995, 13.9035 ] ] ] } },
+{ "type": "Feature", "properties": { "id": "VX-3", "name": "Houses", "kind": "exclude", "priority": 0, "split": 0, "description": "Rejected on chip review: houses and yards." }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 98.09947, 13.90113 ], [ 98.09991, 13.90113 ], [ 98.09991, 13.90145 ], [ 98.09947, 13.90145 ], [ 98.09947, 13.90113 ] ] ] } }
+]
+}

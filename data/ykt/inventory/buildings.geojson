@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "buildings",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "bid": "YKT-B0000", "source": "VIDA/microsoft", "src_id": "00220000000000022a0a", "area_m2": 30.0, "overlap": 0.0, "overlap_outwash": 0.0, "dist_m": 93.5, "landslide": "", "f_veg": 1.0, "f_soil": 0.0, "f_grey": 0.0, "f_dark": 0.0, "status": "clear", "status_auto": "clear", "note": "", "reach": "" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 98.121571627506796, 13.908593939742396 ], [ 98.121613541191252, 13.908622923928803 ], [ 98.121642705797058, 13.908583056176049 ], [ 98.121600708768398, 13.908554162579639 ], [ 98.121571627506796, 13.908593939742396 ] ] ] } }
+]
+}

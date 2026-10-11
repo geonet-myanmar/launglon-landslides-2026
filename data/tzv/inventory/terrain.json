@@ -1,0 +1,98 @@
+[
+ {
+  "id": "TV-01",
+  "name": "Plantation slide",
+  "type": "open",
+  "description": "A slide through plantation on the low hill east of the village.",
+  "crown_z": 30.2,
+  "toe_z": 20.7,
+  "H_m": 9.5,
+  "L_m": 93.7,
+  "H_over_L": 0.101,
+  "reach_angle_deg": 5.8,
+  "azimuth_deg": 203,
+  "crown_at_edge": true,
+  "toe_at_edge": true,
+  "slope_mean_deg": 4.7,
+  "slope_p90_deg": 6.6,
+  "crown_lonlat": [
+   98.10230596233315,
+   13.902749996418937
+  ],
+  "toe_lonlat": [
+   98.10196306596399,
+   13.901971509000003
+  ],
+  "ndvi_pre_mean": 0.68,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 0.0,
+   "runout": 2675.8
+  }
+ },
+ {
+  "id": "TV-02",
+  "name": "Twin chutes",
+  "type": "open",
+  "description": "Two chutes on the same hill, beside TV-01.",
+  "crown_z": 52.7,
+  "toe_z": 21.3,
+  "H_m": 31.3,
+  "L_m": 111.9,
+  "H_over_L": 0.28,
+  "reach_angle_deg": 15.6,
+  "azimuth_deg": 245,
+  "crown_at_edge": true,
+  "toe_at_edge": true,
+  "slope_mean_deg": 13.1,
+  "slope_p90_deg": 25.8,
+  "crown_lonlat": [
+   98.10324957195338,
+   13.9023022003309
+  ],
+  "toe_lonlat": [
+   98.1023160280535,
+   13.901863772253291
+  ],
+  "ndvi_pre_mean": 0.71,
+  "ndvi_pre_source": 0.75,
+  "zone_m2": {
+   "source": 323.0,
+   "transport": 966.6,
+   "runout": 539.7
+  }
+ },
+ {
+  "id": "TV-03",
+  "name": "Edge slide",
+  "type": "open",
+  "description": "A slide at the eastern edge of the flight.",
+  "crown_z": 133.7,
+  "toe_z": 122.7,
+  "H_m": 11.1,
+  "L_m": 33.6,
+  "H_over_L": 0.329,
+  "reach_angle_deg": 18.2,
+  "azimuth_deg": 216,
+  "crown_at_edge": true,
+  "toe_at_edge": true,
+  "slope_mean_deg": 18.5,
+  "slope_p90_deg": 19.2,
+  "crown_lonlat": [
+   98.10588766827068,
+   13.901824352186178
+  ],
+  "toe_lonlat": [
+   98.10570676676289,
+   13.901577072075481
+  ],
+  "ndvi_pre_mean": 0.75,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 490.6,
+   "runout": 0.0
+  }
+ }
+]
