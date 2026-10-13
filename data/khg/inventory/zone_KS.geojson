@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "zone_KS",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "KS" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 98.084, 14.047 ], [ 98.084, 14.062 ], [ 98.11, 14.062 ], [ 98.11, 14.047 ], [ 98.084, 14.047 ] ] ] } }
+]
+}

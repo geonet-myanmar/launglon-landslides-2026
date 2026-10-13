@@ -60,8 +60,19 @@ SITES = {
     "snh": {"name": "San Hlan", "kmz": "SannLan_Village.kmz", "flown": "2026-10-11", "exg": 0.05, "ee": "ee_1011",
             "outwash_minus_buildings": True},
     "ykt": {"name": "Yan Kin Taung", "kmz": "YanKinTaung.kmz", "bbox": (98.110, 13.885, 98.131, 13.912),
-            "flown": "2026-10-11", "exg": 0.048, "footprint_shift": (0.0, 0.0),  # one footprint in the survey: no fit "ee": "ee_1011",
+            "flown": "2026-10-11", "exg": 0.048, "footprint_shift": (0.0, 0.0), "ee": "ee_1011",  # one footprint: no fit
             "outwash_minus_buildings": True, "minus_sites": ["nmt", "kdnh", "tzw"]},
+    # 13 Oct 2026, five deliveries in four places. Launglon Town: two flights merged by 01b_merge_flights.py (MERGES)
+    "lgt": {"name": "Launglon Town", "kmz": "LaungLone_Plan_1.kmz + LaungLone_Plan_2.kmz", "flown": "2026-10-13", "exg": 0.045,
+            "ee": "ee_1013n", "outwash_minus_buildings": True, "minus_sites": ["tby"]},
+    "knr": {"name": "Kan Pa Ni - Pa Nyit road", "kmz": "Kanpani_Panyit_RD.kmz", "flown": "2026-10-13", "exg": 0.045, "ee": "ee_1013n",
+            "outwash_minus_buildings": True},
+    "khg": {"name": "Kayin Gyi", "kmz": "Kayingyi_combine.kmz", "flown": "2026-10-13", "exg": 0.045, "ee": "ee_1013n",
+            "outwash_minus_buildings": True},
+    "cpg": {"name": "Chaung Hpyar Gyi", "kmz": "ChaungPhyarGyi_Village.kmz", "flown": "2026-10-13", "exg": 0.04,
+            "ee": "ee_1013s", "outwash_minus_buildings": True},
+    "ktr": {"name": "Kyauk Twin road", "kmz": "Kyauktwin_RD.kmz", "flown": "2026-10-13", "exg": 0.04, "ee": "ee_1013s",
+            "outwash_minus_buildings": True, "minus_sites": ["rbe", "pgz"]},
 }
 # KMZ deliveries that are mosaicked by step 01 but are not sites of their own
 FLIGHTS = {
@@ -75,10 +86,13 @@ FLIGHTS = {
     "rb2": {"kmz": "Yabae_KyaukTwin_RD_2.kmz"},  # 9.2 cm
     "tz1": {"kmz": "Tizit_Plan_1.kmz"},  # Ti Zit village and the hills around it, 11.1 cm
     "tz2": {"kmz": "Tizit_Plan_2&3.kmz"},  # the hills to the south-east, 10.0 cm (two flights mosaicked by the provider)
+    "lg1": {"kmz": "LaungLone_Plan_1.kmz"},  # Launglon Town, south, 11.3 cm
+    "lg2": {"kmz": "LaungLone_Plan_2.kmz"},  # Launglon Town, north, 11.0 cm
 }
-MERGES = {"tby": ("tb1", "tb2"), "kdg": ("kg1", "kg2"), "pgz": ("pg1", "pg2"), "rbe": ("rb1", "rb2"), "tzt": ("tz1", "tz2")}  # site: (flight 1, flight 2), merged by 01b_merge_flights.py
+MERGES = {"tby": ("tb1", "tb2"), "kdg": ("kg1", "kg2"), "pgz": ("pg1", "pg2"), "rbe": ("rb1", "rb2"), "tzt": ("tz1", "tz2"), "lgt": ("lg1", "lg2")}  # site: (flight 1, flight 2), merged by 01b_merge_flights.py
 # metres to move flight 1 onto flight 2 before merging (phase correlation in the overlap; omitted = no shift)
-MERGE_SHIFT = {"kdg": (1.32, 0.36), "pgz": (0.16, -2.2), "rbe": (-4.9, 1.04)}
+MERGE_SHIFT = {"kdg": (1.32, 0.36), "pgz": (0.16, -2.2), "rbe": (-4.9, 1.04),
+               "lgt": (1.0, -0.1)}  # Launglon Town: a gradient, 0 m E in the east to 2 m in the west - the middle value
 
 
 def ee_dir(site):
@@ -343,9 +357,59 @@ YKT_NAMES = {  # Yan Kin Taung zones YN, YM, YS (pieces cut by a zone boundary a
     "YM-04": ("Side chute", "open", 98.11764, 13.89815, "A chute on the west of the hills."),
     "YS-05": ("South-east slide", "open", 98.12557, 13.89338, "A slide in the south-east."),
 }
+LGT_NAMES = {  # Launglon Town zone LT (rubber-planted hills north and west of the town)
+    "LT-01": ("North-west channel network", "channel", 98.11016, 13.98727,
+              "The largest feature: slides on the hills north-west of the town that joined a channel scoured south-west "
+              "through the plantation."),
+    "LT-02": ("Slides on the north-west hill", "open", 98.10867, 13.99127, "Wide slides side by side in orange soil."),
+    "LT-03": ("Slide above the town", "open", 98.11789, 13.98575, "A wide slide on the hill directly north of the town."),
+    "LT-04": ("North-west edge slides", "open", 98.10749, 13.99248, "Slides at the north-west edge of the flight."),
+    "LT-05": ("Northern channel", "channel", 98.11478, 13.99022, "A channel scoured west through the plantation."),
+    "LT-06": ("Western creek scour", "channel", 98.10392, 13.97563, "The creek west of the town scoured and filled with sand."),
+    "LT-07": ("Western creek, upper", "channel", 98.10754, 13.97829, "The creek scoured down from the north-west channels."),
+    "LT-08": ("North-east slides", "open", 98.11915, 13.99273, "Parallel slides on the north-east hill."),
+    "LT-09": ("Long chute", "open", 98.11551, 13.98472, "A long chute down the hill north of the town."),
+    "LT-10": ("Chute beside it", "open", 98.11713, 13.98483, "A chute beside LT-09."),
+    "LT-11": ("East slide", "open", 98.11909, 13.98751, "A slide on the eastern hill."),
+    "LT-12": ("Slide above the houses", "open", 98.11379, 13.98406, "A slide whose toe is just above the northern houses."),
+    "LT-13": ("Northern slide", "open", 98.11797, 13.99133, "A slide on the north-east hill."),
+}
+KHG_NAMES = {  # Kayin Gyi zones KN, KS (merged across their boundary)
+    "KS-01": ("Main valley channel", "channel", 98.09649, 14.05646,
+              "The stream scoured down the main valley from the south to the village, where its sediment spread between "
+              "the houses (KG-OW1)."),
+    "KS-02": ("South-east channel", "channel", 98.10047, 14.06275,
+              "A channel scoured north-west from the south-east hills to join the main valley at the village."),
+    "KS-03": ("Side channel", "channel", 98.10347, 14.05969, "A side channel joining KS-02."),
+    "KS-04": ("Eastern channel", "channel", 98.10597, 14.06190, "A channel on the eastern hills."),
+    "KS-05": ("Valley slide", "open", 98.10160, 14.05328, "A slide on the side of the south-east valley."),
+    "KS-06": ("South slide", "open", 98.09641, 14.05057, "A slide near the south edge of the flight."),
+    "KN-01": ("Slide east of the village", "open", 98.10332, 14.07324, "A slide on the hill east of the village."),
+}
+CPG_NAMES = {  # Chaung Hpyar Gyi zone CZ
+    "CZ-01": ("Great slide and its channels", "channel", 98.10054, 13.75547,
+              "A 20 ha slope failure in closed forest, with the channels it fed running south-east down the valleys."),
+    "CZ-02": ("Eastern channel", "channel", 98.10843, 13.75223, "A channel scoured down the eastern valley."),
+}
+KTR_NAMES = {  # Kyauk Twin road zone KT
+    "KT-01": ("Debris flow across the road", "channel", 98.14023, 13.70944,
+              "A debris flow scoured west down a valley from slides at its head, which crossed the road and spread a fan "
+              "towards the tidal creek."),
+    "KT-02": ("North slides", "open", 98.13572, 13.71334, "Slides on the hill north of the road."),
+}
+KNR_NAMES = {  # Kan Pa Ni - Pa Nyit road zone KR
+    "KR-01": ("Slide east of the road", "open", 98.07833, 14.02948, "A long slide down to the road from the east."),
+    "KR-02": ("Slide at the road bend", "open", 98.07754, 14.02382, "A wide slide across the road at the southern bend."),
+    "KR-03": ("Slides above the road", "open", 98.07407, 14.03144, "Slides on the slope above the road."),
+    "KR-04": ("Gully below the road", "channel", 98.06926, 14.03527,
+              "A gully scoured down below the road in the north, its bed broken by fallen trees."),
+    "KR-05": ("Slide to the road", "open", 98.07831, 14.02717, "A slide that reached the road."),
+    "KR-06": ("North-east slide", "open", 98.07219, 14.03722, "A slide near the north edge of the flight."),
+}
 SPLIT_NAMES = {"nmt": NMT_NAMES, "tby": TBY_NAMES, "kdg": KDG_NAMES, "pgz": PGZ_NAMES, "rbe": RBE_NAMES,
                "thw": THW_NAMES, "lhl": LHL_NAMES, "tzt": TZT_NAMES, "tzw": TZW_NAMES,
-               "tzv": TZV_NAMES, "snh": SNH_NAMES, "ykt": YKT_NAMES}
+               "tzv": TZV_NAMES, "snh": SNH_NAMES, "ykt": YKT_NAMES,
+               "lgt": LGT_NAMES, "khg": KHG_NAMES, "cpg": CPG_NAMES, "ktr": KTR_NAMES, "knr": KNR_NAMES}
 # Landslides that enter the survey across its edge: the automatic crown (highest point on the outline) is then not
 # the source, so H, L and the reach angle are minimums. Set by inspection where the 15 m edge test misses it.
 EDGE_OVERRIDE = {"tby": {"TB-01": "crown", "TB-05": "crown"}, "pny": {"PN-06": "crown"}}

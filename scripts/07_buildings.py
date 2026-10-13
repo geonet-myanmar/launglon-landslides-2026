@@ -65,6 +65,8 @@ def class_grid(site, bounds):
 
 def best_shift(site, b, slides, fp):
     sel = b[b.geometry.within(fp) & (b.geometry.distance(slides) > 20)]
+    if len(sel) < 3:  # too few roofs to fit a shift
+        return {"dE": 0.0, "dN": 0.0, "grey_before": None, "grey_after": None, "n_used": int(len(sel))}
     x0, y0, x1, y1 = sel.total_bounds
     cls, T = class_grid(site, (x0 - 10, y0 - 10, x1 + 10, y1 + 10))
     grey = (cls == 3).astype(np.float32)
@@ -107,8 +109,11 @@ def run(site):
     sl_union = slides.union_all()
     ow = out[out.kind == "outwash"]
     ow_union = ow.union_all() if len(ow) else None
-    shift = best_shift(site, b, sl_union, fp_in)
-    if SITES[site].get("footprint_shift") is not None:  # set by eye where the automatic fit is biased
+    if len(b) == 0:  # no footprints in or near the survey (forest only)
+        shift = {"dE": 0.0, "dN": 0.0, "grey_before": None, "grey_after": None, "n_used": 0}
+    else:
+        shift = best_shift(site, b, sl_union, fp_in)
+    if len(b) and SITES[site].get("footprint_shift") is not None:  # set by eye where the automatic fit is biased
         shift["auto_dE"], shift["auto_dN"] = shift["dE"], shift["dN"]
         shift["dE"], shift["dN"] = SITES[site]["footprint_shift"]
         shift["manual"] = True
@@ -152,7 +157,9 @@ def run(site):
             else:
                 rec["status"] = "clear"
             rows.append((rec, g))
-    df = gpd.GeoDataFrame([r for r, _ in rows], geometry=[g for _, g in rows], crs=32647)
+    cols = ["bid", "source", "src_id", "area_m2", "overlap", "overlap_outwash", "dist_m", "landslide", "status"]
+    df = gpd.GeoDataFrame([r for r, _ in rows] if rows else {c: [] for c in cols},
+                          geometry=[g for _, g in rows], crs=32647)
     df["status_auto"] = df["status"]
     df["note"] = ""
     ov_p = inv / "building_overrides.csv"

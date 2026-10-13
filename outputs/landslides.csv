@@ -1,4 +1,55 @@
 site,id,name,type,description,area_m2,soil_m2,grey_m2,crown_z,toe_z,H_m,L_m,reach_angle_deg,azimuth_deg,crown_at_edge,toe_at_edge,slope_mean_deg,ndvi_pre_source,source_m2,transport_m2,runout_m2,destroyed,damaged,edge
+Kayin Gyi,KN-01,Slide east of the village,open,A slide on the hill east of the village.,1607,598,914,25.4,22.6,2.8,73.1,2.2,303,True,False,2.6,,0,0,1606,0,0,0
+Kayin Gyi,KN-02,Minor scar,minor,Small scar or channel fragment.,1402,151,1183,79.5,62.0,17.5,68.0,14.4,128,False,False,20.1,0.76,545,856,0,0,0,0
+Kayin Gyi,KN-03,Minor scar,minor,Small scar or channel fragment.,1164,687,416,87.0,45.1,41.8,141.9,16.4,291,False,False,17.2,0.84,258,905,0,0,0,0
+Kayin Gyi,KN-04,Minor scar,minor,Small scar or channel fragment.,1112,898,150,111.7,66.6,45.1,93.4,25.8,241,False,False,25.5,0.84,721,390,0,0,0,0
+Kayin Gyi,KN-05,Minor scar,minor,Small scar or channel fragment.,1048,541,400,148.7,91.2,57.6,141.1,22.2,279,True,False,22.6,0.81,730,318,0,0,0,0
+Kayin Gyi,KN-06,Minor scar,minor,Small scar or channel fragment.,548,176,361,72.7,61.9,10.8,34.0,17.7,356,True,True,18.2,0.76,103,445,0,0,0,0
+Kayin Gyi,KN-07,Minor scar,minor,Small scar or channel fragment.,415,210,168,8.0,4.4,3.6,32.0,6.5,290,False,True,6.7,,0,228,187,0,0,0
+Kayin Gyi,KN-08,Minor scar,minor,Small scar or channel fragment.,283,73,128,122.0,92.3,29.7,48.0,31.8,247,False,False,29.3,0.84,283,0,0,0,0,0
+Kayin Gyi,KN-09,Minor scar,minor,Small scar or channel fragment.,282,179,87,58.0,52.4,5.6,19.5,15.9,143,False,False,14.1,,0,281,0,0,0,0
+Kayin Gyi,KN-10,Minor scar,minor,Small scar or channel fragment.,212,9,192,41.9,37.3,4.6,16.1,16.0,52,False,False,15.9,,0,212,0,0,0,0
+Kayin Gyi,KN-11,Minor scar,minor,Small scar or channel fragment.,212,135,65,25.8,22.9,2.9,30.0,5.6,299,False,False,5.9,,0,0,211,0,1,0
+Kayin Gyi,KS-01,Main valley channel,channel,"The stream scoured down the main valley from the south to the village, where its sediment spread between the houses (KG-OW1).",165218,82266,79303,94.3,12.6,81.7,1598.7,2.9,339,True,False,4.4,0.76,386,16567,148170,0,5,1
+Kayin Gyi,KS-02,South-east channel,channel,A channel scoured north-west from the south-east hills to join the main valley at the village.,146311,58234,83713,178.3,15.4,162.9,1398.1,6.6,336,False,False,7.6,0.84,8825,35968,101427,0,0,0
+Kayin Gyi,KS-03,Side channel,channel,A side channel joining KS-02.,7987,5413,2186,121.1,31.1,90.0,313.8,16.0,265,False,False,15.4,0.79,3321,1768,2892,0,0,0
+Kayin Gyi,KS-04,Eastern channel,channel,A channel on the eastern hills.,6311,2853,3261,157.4,37.2,120.2,333.0,19.8,280,True,False,22.2,0.75,3468,1863,976,0,0,0
+Kayin Gyi,KS-05,Valley slide,open,A slide on the side of the south-east valley.,2475,2021,345,109.1,62.2,46.8,180.6,14.5,300,False,False,16.6,0.86,722,1751,0,0,0,0
+Kayin Gyi,KS-06,South slide,open,A slide near the south edge of the flight.,2018,1018,796,110.1,63.3,46.8,127.5,20.1,41,False,False,18.5,0.86,1190,289,537,0,0,0
+Kayin Gyi,KS-07,Minor scar,minor,Small scar or channel fragment.,649,470,152,62.9,55.9,7.0,48.7,8.1,296,True,False,9.6,,0,587,62,0,0,0
+Kayin Gyi,KS-08,Minor scar,minor,Small scar or channel fragment.,546,178,315,91.6,67.6,24.0,67.3,19.6,299,False,False,18.9,0.83,275,270,0,0,0,0
+Kayin Gyi,KS-09,Minor scar,minor,Small scar or channel fragment.,542,343,112,148.5,117.6,30.9,50.6,31.4,304,False,False,29.5,0.85,542,0,0,0,0,0
+Kayin Gyi,KS-10,Minor scar,minor,Small scar or channel fragment.,386,180,164,63.9,56.2,7.6,32.8,13.1,110,False,False,11.1,,0,385,0,0,0,0
+Kayin Gyi,KS-11,Minor scar,minor,Small scar or channel fragment.,302,16,263,76.6,61.2,15.3,33.6,24.5,52,False,False,27.8,0.87,302,0,0,0,0,0
+Kayin Gyi,KS-12,Minor scar,minor,Small scar or channel fragment.,227,171,42,25.2,24.4,0.8,14.2,3.4,222,False,False,3.2,,0,0,227,0,0,0
+Kayin Gyi,KS-13,Minor scar,minor,Small scar or channel fragment.,207,178,18,60.3,50.7,9.6,37.6,14.4,309,False,False,14.5,,0,207,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-01,Slide east of the road,open,A long slide down to the road from the east.,29671,15336,12914,297.7,78.8,218.9,579.8,20.7,261,True,False,21.9,0.82,13285,11798,4568,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-02,Slide at the road bend,open,A wide slide across the road at the southern bend.,19812,15812,3633,224.0,126.6,97.3,252.3,21.1,42,False,False,18.5,0.87,10347,5616,3837,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-03,Slides above the road,open,Slides on the slope above the road.,16324,9653,5367,137.0,45.7,91.3,421.4,12.2,287,False,False,13.7,0.88,3945,8234,4136,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-04,Gully below the road,channel,"A gully scoured down below the road in the north, its bed broken by fallen trees.",11971,5426,5765,64.4,21.6,42.9,550.5,4.5,338,False,False,5.5,,0,1205,10756,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-05,Slide to the road,open,A slide that reached the road.,11221,4746,5785,246.3,118.1,128.2,306.5,22.7,252,False,False,22.9,0.8,5924,4528,762,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-06,North-east slide,open,A slide near the north edge of the flight.,7699,3735,3448,152.9,52.5,100.4,209.5,25.6,294,False,False,25.3,0.68,7156,538,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-07,Minor scar,minor,Small scar or channel fragment.,2884,1896,758,134.1,100.6,33.5,85.3,21.5,5,False,False,20.9,0.85,2093,789,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-08,Minor scar,minor,Small scar or channel fragment.,2394,1637,651,176.9,117.7,59.2,129.4,24.6,271,False,False,25.8,0.87,2337,56,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-09,Minor scar,minor,Small scar or channel fragment.,1945,419,1426,240.4,144.6,95.8,138.0,34.8,53,False,False,35.7,0.89,1917,28,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-10,Minor scar,minor,Small scar or channel fragment.,1679,1497,110,153.0,123.3,29.6,80.0,20.3,27,False,False,21.1,0.88,862,817,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-11,Minor scar,minor,Small scar or channel fragment.,1593,116,1440,284.9,182.6,102.4,126.9,38.9,39,False,False,38.5,0.83,1354,237,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-12,Minor scar,minor,Small scar or channel fragment.,1382,831,487,244.1,204.4,39.7,78.6,26.8,220,False,False,29.4,0.66,1381,0,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-13,Minor scar,minor,Small scar or channel fragment.,1146,615,419,127.1,118.7,8.3,66.8,7.1,327,False,False,7.6,,0,267,878,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-14,Minor scar,minor,Small scar or channel fragment.,1061,850,150,28.2,21.2,7.0,51.9,7.7,70,False,False,5.5,,15,78,967,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-15,Minor scar,minor,Small scar or channel fragment.,967,334,532,152.7,128.2,24.5,124.4,11.1,256,False,False,10.6,0.81,10,580,375,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-16,Minor scar,minor,Small scar or channel fragment.,848,359,398,75.3,71.4,3.9,57.8,3.9,23,False,False,5.3,,0,84,764,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-17,Minor scar,minor,Small scar or channel fragment.,644,518,82,166.3,151.7,14.6,55.0,14.9,3,False,False,16.3,,0,644,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-18,Minor scar,minor,Small scar or channel fragment.,639,54,559,17.4,15.2,2.2,59.3,2.1,341,False,True,1.7,,0,0,639,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-19,Minor scar,minor,Small scar or channel fragment.,624,502,85,119.5,109.9,9.6,49.2,11.1,302,False,False,17.3,0.87,272,327,25,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-20,Minor scar,minor,Small scar or channel fragment.,500,443,24,132.3,116.8,15.6,46.7,18.4,235,False,False,17.5,,1,499,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-21,Minor scar,minor,Small scar or channel fragment.,447,274,133,175.8,158.2,17.6,40.3,23.5,35,False,False,24.0,0.89,446,1,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-22,Minor scar,minor,Small scar or channel fragment.,433,14,373,247.8,222.5,25.3,40.4,32.1,204,False,False,36.2,0.82,432,0,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-23,Minor scar,minor,Small scar or channel fragment.,395,327,52,24.6,21.8,2.8,43.8,3.7,284,False,False,4.9,,0,14,380,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-24,Minor scar,minor,Small scar or channel fragment.,354,222,100,143.1,135.3,7.8,34.2,12.8,181,False,False,14.5,,16,336,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-25,Minor scar,minor,Small scar or channel fragment.,249,87,136,114.5,110.3,4.2,31.4,7.7,308,False,False,11.5,,0,248,1,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-26,Minor scar,minor,Small scar or channel fragment.,213,122,65,154.4,142.7,11.7,26.2,24.1,40,False,False,21.5,0.88,96,116,0,0,0,0
+Kan Pa Ni - Pa Nyit road,KR-27,Minor scar,minor,Small scar or channel fragment.,208,94,102,207.9,184.5,23.5,33.7,34.9,47,False,False,30.8,0.86,207,0,0,0,0,0
 Tha Byar,TB-01,Main valley debris flow,channel,"The debris flow of the main valley: the forested stream from the northern hills was scoured into a channel 30-60 m wide over 1.3 km, and it dumped a fan of boulders, sand and logs at the head of Tha Byar, where January's image shows forest and orchards.",190930,162826,24904,36.9,7.2,29.7,1322.2,1.3,146,True,False,4.7,0.7,1132,25274,164402,1,4,2
 Tha Byar,TB-02,North-west tributary flow,channel,A tributary from the north-west hills scoured into a wide braided bed of sand and gravel that joins the main valley flow at the north edge of the survey.,44656,23672,20785,79.8,22.3,57.5,436.4,7.5,68,True,False,8.1,0.77,1748,16944,25941,0,0,0
 Tha Byar,TB-03,Long slide,open,"A 500 m open-slope failure on the east face of the ridge: it broke away at about 165 m and ran north-east down to the floor of the main valley, stripping the forest to bare soil.",40275,27786,12136,167.4,16.6,150.8,440.8,18.9,51,False,False,22.2,0.83,24231,10847,5173,0,0,0
@@ -29,6 +80,36 @@ Pa Nyit road,PN-04,Hairpin slides,open,A cluster of slope failures on and below 
 Pa Nyit road,PN-05,East channel,channel,A gully scoured down the slope east of the main stream.,5914,2096,3600,323.8,195.3,128.5,333.9,21.0,196,False,False,20.3,0.77,3286,1898,730,0,0,0
 Pa Nyit road,PN-06,North-east channel,channel,A wide scoured channel at the north-east edge of the survey; it continues beyond the flight.,5466,597,4725,301.3,199.2,102.1,180.6,29.5,50,True,True,28.8,0.81,5404,64,0,0,0,0
 Pa Nyit road,PN-07,Slides above the S-bend,open,Two small slides on the slope just above the road where it crosses the stream.,438,333,69,176.6,146.5,30.1,52.0,30.1,229,False,False,26.7,0.68,437,0,0,0,0,0
+Launglon Town,LT-01,North-west channel network,channel,The largest feature: slides on the hills north-west of the town that joined a channel scoured south-west through the plantation.,158182,132254,24107,264.4,14.1,250.2,1014.3,13.9,216,False,False,17.2,0.75,55951,51138,50999,0,0,0
+Launglon Town,LT-02,Slides on the north-west hill,open,Wide slides side by side in orange soil.,45330,37255,6735,301.5,64.1,237.4,553.3,23.2,230,True,True,25.6,0.83,36273,9017,12,0,0,0
+Launglon Town,LT-03,Slide above the town,open,A wide slide on the hill directly north of the town.,39755,35819,3274,119.8,11.2,108.5,461.8,13.2,88,False,False,13.4,0.8,12584,11788,15357,5,0,0
+Launglon Town,LT-04,North-west edge slides,open,Slides at the north-west edge of the flight.,35775,30698,4324,271.9,63.7,208.2,423.1,26.2,228,True,True,28.5,0.82,32526,3224,0,0,0,0
+Launglon Town,LT-05,Northern channel,channel,A channel scoured west through the plantation.,33453,25280,7602,227.1,26.5,200.7,663.6,16.8,112,False,False,21.3,0.83,19688,11193,2549,0,0,0
+Launglon Town,LT-06,Western creek scour,channel,The creek west of the town scoured and filled with sand.,29022,17006,10495,28.6,10.9,17.7,305.7,3.3,55,False,False,4.7,,0,3306,25700,0,0,0
+Launglon Town,LT-07,"Western creek, upper",channel,The creek scoured down from the north-west channels.,25003,18477,5606,18.4,10.8,7.7,533.7,0.8,158,False,False,2.6,,0,434,24552,0,1,1
+Launglon Town,LT-08,North-east slides,open,Parallel slides on the north-east hill.,22142,17269,4421,105.1,20.0,85.1,310.3,15.3,123,False,False,16.4,0.88,8916,5730,7481,0,0,0
+Launglon Town,LT-09,Long chute,open,A long chute down the hill north of the town.,18965,17155,1612,156.5,22.3,134.2,523.0,14.4,172,False,False,12.6,0.83,4023,8600,6331,0,0,0
+Launglon Town,LT-10,Chute beside it,open,A chute beside LT-09.,12652,10972,1487,106.0,24.3,81.6,229.8,19.6,146,False,False,16.7,0.84,4778,4997,2870,0,0,0
+Launglon Town,LT-11,East slide,open,A slide on the eastern hill.,12326,8757,3346,116.7,23.9,92.8,273.7,18.7,97,False,False,15.2,0.84,4624,2775,4919,0,0,0
+Launglon Town,LT-12,Slide above the houses,open,A slide whose toe is just above the northern houses.,11552,9237,2120,127.3,23.2,104.0,446.5,13.1,184,False,False,15.2,0.84,3339,5940,2265,0,0,0
+Launglon Town,LT-13,Northern slide,open,A slide on the north-east hill.,6063,3002,3000,96.3,31.3,64.9,207.7,17.4,133,False,False,19.3,0.81,3176,1008,1876,0,4,0
+Launglon Town,LT-14,Minor scar,minor,Small scar or channel fragment.,4522,3497,947,151.1,66.8,84.3,233.7,19.8,189,False,False,24.5,0.82,3360,1160,0,0,0,0
+Launglon Town,LT-15,Minor scar,minor,Small scar or channel fragment.,4282,3779,358,226.9,153.9,73.0,199.4,20.1,67,True,True,20.9,0.8,2580,1289,411,0,0,0
+Launglon Town,LT-16,Minor scar,minor,Small scar or channel fragment.,4104,3267,765,253.5,142.8,110.8,193.0,29.8,213,False,False,30.6,0.66,4102,0,0,0,0,0
+Launglon Town,LT-17,Minor scar,minor,Small scar or channel fragment.,3013,2516,422,133.6,108.3,25.3,88.7,15.9,28,False,True,18.5,0.87,1138,1872,0,0,0,0
+Launglon Town,LT-18,Minor scar,minor,Small scar or channel fragment.,2725,1602,1053,106.2,31.3,74.9,205.6,20.0,120,False,False,19.8,0.85,1456,384,882,0,0,0
+Launglon Town,LT-19,Minor scar,minor,Small scar or channel fragment.,2448,1871,486,26.2,13.8,12.5,96.9,7.3,137,False,False,8.1,,0,1723,723,0,0,0
+Launglon Town,LT-20,Minor scar,minor,Small scar or channel fragment.,2042,1457,523,86.0,31.2,54.9,157.8,19.2,117,False,False,19.2,0.84,1039,200,802,0,0,0
+Launglon Town,LT-21,Minor scar,minor,Small scar or channel fragment.,1076,954,96,183.5,155.5,28.0,64.5,23.4,26,False,False,21.4,0.88,652,423,0,0,0,0
+Launglon Town,LT-22,Minor scar,minor,Small scar or channel fragment.,990,763,208,131.0,88.6,42.4,80.3,27.9,210,False,False,28.2,0.85,947,42,0,0,0,0
+Launglon Town,LT-23,Minor scar,minor,Small scar or channel fragment.,900,630,233,11.5,11.0,0.5,30.9,0.9,304,False,False,0.5,,0,0,900,0,0,0
+Launglon Town,LT-24,Minor scar,minor,Small scar or channel fragment.,484,215,240,43.5,39.4,4.1,48.2,4.9,212,True,True,6.3,,0,0,483,0,0,0
+Launglon Town,LT-25,Minor scar,minor,Small scar or channel fragment.,311,299,1,251.3,232.6,18.8,40.7,24.7,64,False,False,26.1,0.79,311,0,0,0,0,0
+Launglon Town,LT-26,Minor scar,minor,Small scar or channel fragment.,275,179,83,18.6,15.8,2.8,19.8,8.1,277,True,True,4.3,,0,0,274,0,0,0
+Launglon Town,LT-27,Minor scar,minor,Small scar or channel fragment.,274,189,81,31.5,26.5,5.0,29.7,9.6,221,False,False,7.2,,0,108,166,0,0,0
+Launglon Town,LT-28,Minor scar,minor,Small scar or channel fragment.,246,62,170,72.2,63.8,8.5,46.2,10.4,239,False,False,11.2,,0,240,6,0,0,0
+Launglon Town,LT-29,Minor scar,minor,Small scar or channel fragment.,222,125,80,26.0,18.8,7.1,26.9,14.9,184,False,False,11.9,,0,222,0,0,0,0
+Launglon Town,LT-30,Minor scar,minor,Small scar or channel fragment.,208,155,47,88.5,79.2,9.3,43.8,12.0,199,False,False,15.4,,0,209,0,0,0,0
 San Hlan,SN-01,North chute,open,A narrow chute in the forest north of the creek valley.,491,21,456,83.6,63.3,20.3,71.1,16.0,143,True,False,19.7,0.86,152,338,0,0,0,0
 San Hlan,SS-01,Slide below the hill track,open,A slope failure in orange soil below the track on the hill south-east of the village.,924,851,21,31.7,21.4,10.3,48.4,12.0,323,False,False,13.6,,53,837,34,0,0,0
 San Hlan,SS-02,Rocky channel,channel,A small channel scoured to grey rock.,247,5,239,59.8,49.8,10.0,31.7,17.5,320,False,False,21.9,0.61,246,2,0,0,0,0
@@ -263,6 +344,18 @@ Lel Hla,LZ-01,Long gully,channel,A gully scoured south-east down the hills south
 Lel Hla,LZ-02,Slide and chute,open,A slide on the southern hills and the chute below it.,3574,2651,636,152.3,85.4,66.9,188.6,19.5,118,False,False,20.6,0.85,1250,2323,0,0,0,0
 Lel Hla,LZ-03,North chute,open,A long narrow chute on the hill north of LL-01.,2848,215,2566,133.2,27.4,105.9,305.7,19.1,112,False,False,19.3,0.76,1664,1183,0,0,0,0
 Lel Hla,LZ-04,North-edge slide,open,A slide at the north edge of the block.,1220,434,760,171.9,138.9,32.9,70.9,24.9,132,True,False,24.5,0.76,1218,0,0,0,0,0
+Chaung Hpyar Gyi,CZ-01,Great slide and its channels,channel,"A 20 ha slope failure in closed forest, with the channels it fed running south-east down the valleys.",288125,196895,86096,353.6,28.8,324.8,1262.0,14.4,118,False,False,15.6,0.88,85802,139103,63044,0,0,0
+Chaung Hpyar Gyi,CZ-02,Eastern channel,channel,A channel scoured down the eastern valley.,14853,9200,5307,155.8,38.4,117.4,502.9,13.1,212,False,False,17.0,0.84,4683,7851,2310,0,0,0
+Chaung Hpyar Gyi,CZ-03,Minor scar,minor,Small scar or channel fragment.,1444,1329,78,169.9,148.6,21.3,104.4,11.5,159,True,False,13.6,,138,1158,147,0,0,0
+Chaung Hpyar Gyi,CZ-04,Minor scar,minor,Small scar or channel fragment.,1388,4,1264,102.1,68.8,33.3,141.8,13.2,211,False,False,20.3,0.83,545,842,0,0,0,0
+Chaung Hpyar Gyi,CZ-05,Minor scar,minor,Small scar or channel fragment.,1165,3,1113,139.2,107.8,31.3,99.7,17.4,234,True,False,22.7,0.76,722,443,0,0,0,0
+Chaung Hpyar Gyi,CZ-06,Minor scar,minor,Small scar or channel fragment.,901,622,249,224.2,163.4,60.8,107.7,29.5,273,True,False,31.4,0.85,900,0,0,0,0,0
+Chaung Hpyar Gyi,CZ-07,Minor scar,minor,Small scar or channel fragment.,687,540,93,313.2,264.2,49.0,83.8,30.3,22,True,False,29.2,0.87,687,0,0,0,0,0
+Chaung Hpyar Gyi,CZ-08,Minor scar,minor,Small scar or channel fragment.,588,167,377,181.6,146.1,35.5,82.0,23.4,216,False,False,24.6,0.84,588,0,0,0,0,0
+Chaung Hpyar Gyi,CZ-09,Minor scar,minor,Small scar or channel fragment.,228,0,223,34.4,31.1,3.3,19.6,9.7,236,False,False,12.6,,0,217,10,0,0,0
+Chaung Hpyar Gyi,CZ-10,Minor scar,minor,Small scar or channel fragment.,222,54,137,218.3,211.7,6.6,22.4,16.5,240,False,False,15.6,,0,222,0,0,0,0
+Chaung Hpyar Gyi,CZ-11,Minor scar,minor,Small scar or channel fragment.,219,23,162,199.7,188.4,11.3,25.2,24.1,209,False,False,23.1,0.89,219,0,0,0,0,0
+Chaung Hpyar Gyi,CZ-12,Minor scar,minor,Small scar or channel fragment.,206,22,161,249.8,237.3,12.5,31.6,21.6,218,False,False,20.6,0.81,206,0,0,0,0,0
 Ra Be,RB-01,Debris flow across the road,open,"The longest open-slope flow: it broke away on the hillside west of the road, ran 400 m east, buried the road and spread debris along it and sand over the fields beyond it (RB-OW).",42484,13508,28140,173.0,5.0,168.0,501.8,18.5,70,False,False,12.7,0.8,6458,18711,17297,0,0,1
 Ra Be,RZ-01,South-central channel network,channel,A network of scoured channels and one wide flow east of the road that converge south-east towards the edge of the survey; it continues beyond the flight.,89641,50854,37659,243.5,33.1,210.4,676.5,17.3,311,False,False,15.4,0.84,31064,37773,20754,0,0,0
 Ra Be,RZ-02,West slide,open,"The largest single slide: a 4.5 ha scar on the west hill, stripped to orange and grey soil, with a channel below it.",45276,32653,12246,178.5,48.5,129.9,400.7,18.0,234,False,True,24.7,0.81,30478,12291,2478,0,0,0
@@ -284,6 +377,12 @@ Ra Be,RZ-17,Minor scar,minor,Small scar or channel fragment.,365,290,64,125.8,90
 Ra Be,RZ-18,Minor scar,minor,Small scar or channel fragment.,285,77,200,105.3,94.6,10.6,35.8,16.6,290,False,False,18.4,0.81,147,138,0,0,0,0
 Ra Be,RZ-19,Minor scar,minor,Small scar or channel fragment.,240,15,218,127.5,98.3,29.3,39.4,36.6,85,False,False,36.3,0.84,239,0,0,0,0,0
 Ra Be,RZ-20,Minor scar,minor,Small scar or channel fragment.,235,80,151,55.7,48.0,7.6,27.3,15.6,67,False,False,18.7,0.87,0,234,0,0,0,0
+Kyauk Twin road,KT-01,Debris flow across the road,channel,"A debris flow scoured west down a valley from slides at its head, which crossed the road and spread a fan towards the tidal creek.",79606,62250,16777,244.2,10.2,234.0,821.1,15.9,223,False,False,15.8,0.83,32142,22198,25216,0,0,0
+Kyauk Twin road,KT-02,North slides,open,Slides on the hill north of the road.,12610,2935,9385,121.1,30.7,90.4,293.3,17.1,251,False,False,19.9,0.84,6997,4302,1301,0,0,0
+Kyauk Twin road,KT-03,Minor scar,minor,Small scar or channel fragment.,1817,277,1512,186.3,84.4,101.9,163.7,31.9,102,False,False,32.4,0.85,1816,0,0,0,0,0
+Kyauk Twin road,KT-04,Minor scar,minor,Small scar or channel fragment.,716,0,689,6.5,2.7,3.8,148.5,1.5,274,False,False,1.5,,0,0,715,0,0,0
+Kyauk Twin road,KT-05,Minor scar,minor,Small scar or channel fragment.,419,400,5,199.5,165.7,33.7,51.5,33.2,28,False,False,33.0,0.87,419,0,0,0,0,0
+Kyauk Twin road,KT-06,Minor scar,minor,Small scar or channel fragment.,206,7,195,83.9,76.3,7.5,25.3,16.6,54,False,False,19.3,0.87,107,100,0,0,0,0
 Pyin Gyi - Za Lut,PG-01,Village debris flow,open,A debris flow off the hill west of the road that crossed the road and buried the block of houses between the road and the paddies in the middle of the village; the ground was being dug out with machinery on 7 Oct.,17232,14073,2706,81.5,3.9,77.5,316.5,13.8,93,False,False,14.1,0.83,3789,10506,2926,8,2,2
 Pyin Gyi - Za Lut,PG-03,Road debris flow,channel,"The main channel flow: fed by the scars at the head of the valley (PG-04), it scoured a channel of grey sand and boulders north-east down the valley, spread across the road north of the village and ran on as a fan beyond it.",48173,7778,39119,120.3,5.3,115.1,838.5,7.8,41,False,False,7.4,0.87,271,14650,33219,0,0,0
 Pyin Gyi - Za Lut,PG-04,South-west channels,channel,"Two broad scars at the head of the valley and a third channel from the south, which joined and fed the road debris flow (PG-03); their upper parts run beyond the flight.",33883,9013,23754,284.5,118.2,166.4,428.0,21.2,78,False,False,26.3,0.79,23029,9292,1542,0,0,0

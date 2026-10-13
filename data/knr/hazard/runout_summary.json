@@ -1,0 +1,23 @@
+{
+ "alpha_open": 12.2,
+ "alpha_channel": 12.2,
+ "open_ids": [
+  "KR-02",
+  "KR-03",
+  "KR-05",
+  "KR-06"
+ ],
+ "channel_id": "",
+ "alpha_from": null,
+ "src_slope": 20.0,
+ "clip_m": 250,
+ "zoneA_ha": 297.42,
+ "zoneB_ha": 0.0,
+ "calibration_share_inside": {
+  "KR-02": 1.0,
+  "KR-03": 0.989,
+  "KR-05": 1.0,
+  "KR-06": 0.983
+ },
+ "buildings_surveyed_by_status_reach": {}
+}

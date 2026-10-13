@@ -1,11 +1,12 @@
-# Launglon landslides, 26-27 Sep 2026: fifteen drone surveys
+# Launglon landslides, 26-27 Sep 2026: twenty drone surveys
 
-Dashboard and analysis of the landslides at **Tha Byar** (သဗျာ), the **road to Pa Nyit** (ပညစ်), **San Hlan** (စမ်းလှမ်း), **Ti Zit** (တီဇစ်) with the **Ti Zit watershed** and **Ti Zit village**, **Yan Kin Taung** (ရန်ကင်းတောင်), **Ngone Min Taung** (the slopes south of Htein Gyi),
+Dashboard and analysis of the landslides at **Kayin Gyi** (ကရင်ကြီး), the **Kan Pa Ni - Pa Nyit road**, **Launglon town**, **Chaung Hpyar Gyi** (ချောင်းဖျားကြီး), the **Kyauk Twin road**, **Tha Byar** (သဗျာ), the **road to Pa Nyit** (ပညစ်), **San Hlan** (စမ်းလှမ်း), **Ti Zit** (တီဇစ်) with the **Ti Zit watershed** and **Ti Zit village**, **Yan Kin Taung** (ရန်ကင်းတောင်), **Ngone Min Taung** (the slopes south of Htein Gyi),
 **Ka Det Nge Htein** (ကဒက်ငယ်ထိန်), **Ka Det Gyi** (ကဒက်ကြီး, with Nyaungdon and Wet Thar Kin) **Taw Kye** (တောကျဲ), **Tha Win** (သဝင်), **Lel Hla** (လယ်လှ), the **Ra Be - Kyauk Twin road** (ရဘဲ) and **Pyin Gyi - Za Lut** (ပြင်ကြီး - ဇလွတ်), Launglon Township, Tanintharyi Region, Myanmar, from
 post-event drone orthomosaics, with MIMU, Copernicus DEM, Sentinel-2, Esri Vantor imagery of 10 Jan 2026,
 OSM/Microsoft footprints, Open-Meteo rainfall and Dawei Watch reports.
 
-Open `index.html` (it needs `tiles/`, `assets/` and `outputs/` beside it).
+Open `index.html` (it needs `tiles/`, `assets/` and `outputs/` beside it, and loads the other tile sets from the
+launglon-landslides-tiles* repos by URL).
 
 ## Results (from `outputs/summary.json`)
 | | Tha Byar | Pa Nyit road | San Hlan | Ti Zit watershed | Ti Zit village | Ti Zit | Yan Kin Taung | Ngone Min Taung | Ka Det Nge Htein | Ka Det Gyi | Taw Kye | Tha Win | Lel Hla | Pyin Gyi - Za Lut | Ra Be road |
@@ -18,6 +19,17 @@ Open `index.html` (it needs `tiles/`, `assets/` and `outputs/` beside it).
 | reach angle open / channel | 14.0 / 8.0 deg | 20.6 / 16.4 deg | 19.1 / 14.0 deg (borrowed from the watershed) | 19.1 / 14.0 deg | 19.1 / 14.0 deg (borrowed from the watershed) | 14.0 / 9.2 deg | 23.0 / 24.8 deg (zone B empty) | 14.8 / 11.6 deg | 16.2 / 13.2 deg | 12.6 / 18.1 deg (zone B empty) | 17.6 / 13.4 deg | 18.2 / 12.2 deg | 19.1 / 15.5 deg | 13.8 / 13.1 deg | 12.8 / 15.0 deg (zone B empty) |
 | standing buildings in runout zone A | 1 (model fails here, see below) | 1 | 62 (174 in zone B) | 12 (107 in zone B) | 1 (178 in zone B) | 127 | 0 | 29 | 39 | 142 | 101 | 6 (192 in zone B) | 4 (47 in zone B) | 51 | 3 |
 
+## 13 Oct 2026 surveys (from `outputs/summary.json`)
+
+| | Kayin Gyi | Kan Pa Ni - Pa Nyit road | Launglon Town | Chaung Hpyar Gyi | Kyauk Twin road |
+|---|---|---|---|---|---|
+| flown / resolution | 13 Oct, 11.0 cm | 13 Oct, 9.5 cm | 13 Oct, 11.0 cm | 13 Oct, 7.6 cm | 13 Oct, 10.0 cm |
+| landslides (area) | 24 (34.1 ha) | 27 (11.7 ha) | 30 (47.8 ha) | 12 (31.0 ha) | 6 (9.5 ha) |
+| + ground under sediment | 18.5 ha | - | - | - | 5.4 ha |
+| buildings destroyed / damaged / in sediment | 12 / 6 / 42 | 0 / 0 / 0 | 5 / 5 / 0 | 0 / 0 / 0 | 0 / 0 / 0 |
+| reach angle open / channel | 14.5 / 6.6 deg | 12.2 / 12.2 deg | 13.1 / 13.9 deg | 14.4 / 14.4 deg | 17.1 / 15.9 deg |
+| standing buildings in zone A / only B | 11 / 231 | 0 / 0 | 16 / 0 | 0 / 0 | 0 / 0 |
+
 **Tha Byar runout:** the flows that reached the village ran along a valley floor that the 30 m DEM shows as flat and
 lumpy (forest canopy). The energy-line model only moves debris downhill, so it stalls there at any angle (even 3 deg
 covers 55 % of TB-01) and none of the 47 destroyed, damaged or in-sediment buildings fall in its zones. The page says
@@ -27,16 +39,16 @@ so; the zones were not tuned to hide it (back-analysis in the `08_runout.py` doc
 | step | script | does |
 |---|---|---|---|---|---|
 | 01 | `01_mosaic_kmz.py` | KML super-overlay -> GeoTIFF at native resolution (KMZs read from `../`); a site `bbox` takes one block of a delivery (Tha Win, Lel Hla) |
-| 01b | `01b_merge_flights.py` | merges the two flights of Tha Byar, Ka Det Gyi, Pyin Gyi - Za Lut, Ra Be and Ti Zit onto the finer grid; the sharper flight wins in the overlap |
+| 01b | `01b_merge_flights.py` | merges the two flights of Tha Byar, Ka Det Gyi, Pyin Gyi - Za Lut, Ra Be, Ti Zit and Launglon Town onto the finer grid; the sharper flight wins in the overlap |
 | 02 | `02_envelopes.py` | interpreter envelopes, outwash, exclusions -> `data/<site>/inventory/envelopes.geojson` |
-| 03 | `03_fetch_ee.py south\|north\|west\|southeast\|zalut\|rabe\|thawin\|tizit\|tizitws\|oct11` (set `EE_PROJECT`) | GLO-30 DEM, Sentinel-2 NDVI, VIDA + OSM footprints -> `data/ee/`, `data/ee_tby/`, `data/ee_pny/`, `data/ee_kdg/`, `data/ee_pgz/`, `data/ee_rbe/`, `data/ee_thw/`, `data/ee_tzt/`, `data/ee_tzw/`, `data/ee_1011/` |
+| 03 | `03_fetch_ee.py south\|north\|west\|southeast\|zalut\|rabe\|thawin\|tizit\|tizitws\|oct11\|oct13n\|oct13s` (set `EE_PROJECT`) | GLO-30 DEM, Sentinel-2 NDVI, VIDA + OSM footprints -> `data/ee/`, `data/ee_tby/`, `data/ee_pny/`, `data/ee_kdg/`, `data/ee_pgz/`, `data/ee_rbe/`, `data/ee_thw/`, `data/ee_tzt/`, `data/ee_tzw/`, `data/ee_1011/`, `data/ee_1013n/`, `data/ee_1013s/` |
 | 04 | `04_classify.py` | per-pixel classes + 1 m majority bare mask; ExG threshold at each flight's histogram valley |
 | 05 | `05_inventory.py` | outlines = bare mask inside envelopes minus exclusions; split zones -> grouped components |
 | 06 | `06_terrain.py` | crown, toe, H, L, reach angle, edge flags, slope zones, pre-event NDVI |
 | 07 | `07_buildings.py` | footprint shift, native-pixel fractions, status (+ `building_overrides.csv`) |
 | 08 | `08_runout.py` | energy-line runout reach calibrated per site |
 | 09 | `09_rainfall.py` | Open-Meteo model rainfall (cached; an existing cache is kept) |
-| 10 | `10_tiles.py kadet\|thabyar\|panyit\|kadetgyi\|zalut\|rabe\|thawin\|tizit\|tizitws\|oct11\|yankin` | 512 px WebP XYZ tiles to z20 (7.3 cm/px) in `tiles/kadet/`, `tiles/thabyar/`, `tiles/kadetgyi/`; to z21 in `tiles/panyit/` (the flight is 7.0 cm) |
+| 10 | `10_tiles.py kadet\|thabyar\|panyit\|kadetgyi\|zalut\|rabe\|thawin\|tizit\|tizitws\|oct11\|yankin\|launglon\|kayingyi\|kanpani\|chaunghpyar\|kyauktwin` | 512 px WebP XYZ tiles to z20 (7.3 cm/px) in `tiles/kadet/`, `tiles/thabyar/`, `tiles/kadetgyi/`; to z21 in `tiles/panyit/` (the flight is 7.0 cm) |
 | 11 | `11_import_tawkye.py` | copies the Taw Kye products, tiles and photos from `../tawkye-landslide-2026` |
 | 12 | `12_build_page.py` | `outputs/` (GeoPackage, CSV, summary) and `index.html` from `src/template.html` |
 
@@ -105,6 +117,17 @@ flow that can calibrate the runout model and borrow the watershed's angles (`08_
 (7.1 cm) is three split zones; pieces cut by a zone boundary are merged afterwards (`05_inventory.py`
 merge_across_zones). **Tiles are in a third tile repo**, geonet-myanmar/launglon-landslides-tiles-3 (`oct11/`, and
 `yankin/` to z21).
+
+13 Oct specifics (Launglon Town, Kayin Gyi, Kan Pa Ni - Pa Nyit road, Chaung Hpyar Gyi, Kyauk Twin road): two shared Earth
+Engine areas (`data/ee_1013n/`, `data/ee_1013s/`). Launglon Town's flights disagree by a gradient (0-2 m E across the
+overlap), so Plan 1 is moved by the middle value, 1.0 m. Split-zone groups rejected on image chips are kept with their
+reasons in `data/<site>/inventory/rejected.geojson` (written by `data/qa/reject.py`, excluded by step 02 as envelope XR).
+Through Kayin Gyi village only the stream channel is mapped, as sediment (`village_channel.geojson`, the large bare
+patches after a 2 m opening). Road exclusions for the two road sites come from OpenStreetMap (`road_osm.geojson`, 8 m).
+Step 08 now copes with a site that has no open slide wholly inside it (Chaung Hpyar Gyi) or no channel flow (Kan Pa Ni
+road): one angle stands for both zones. Step 07 copes with a survey that has no footprints. Tiles: geonet-myanmar/
+launglon-landslides-tiles-4 (Launglon Town, Kayin Gyi, Kan Pa Ni road, Kyauk Twin road) and launglon-landslides-tiles-5
+(Chaung Hpyar Gyi, and Taw Kye's tiles, moved out of this repo on 13 Oct 2026 to keep it under the 1 GB Pages limit).
 
 ## Not in this repository
 The KMZ deliveries and the native-resolution rasters built from them (`data/*/ortho/`, `data/*/class/`) are kept out

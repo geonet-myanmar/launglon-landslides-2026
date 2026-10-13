@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "buildings",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "bid": "KNR-B0000", "source": "VIDA/microsoft", "src_id": "0022000000000000d2fd", "area_m2": 23.9, "overlap": 1.0, "overlap_outwash": 0.0, "dist_m": 0.0, "landslide": "KR-02", "f_veg": 0.0, "f_soil": 0.995, "f_grey": 0.005, "f_dark": 0.0, "status": "not_building", "status_auto": "destroyed", "note": "Chip review: canopy on 10 Jan, no roof; inside a slide now.", "reach": "A" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 98.077617711993767, 14.023175429832976 ], [ 98.077567912345344, 14.023167951438566 ], [ 98.07756166657245, 14.023207092517481 ], [ 98.077611382939565, 14.023214661574507 ], [ 98.077617711993767, 14.023175429832976 ] ] ] } }
+]
+}

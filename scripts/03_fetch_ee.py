@@ -10,8 +10,9 @@ whole catchments:  south = Ka Det Nge Htein + Ngone Min Taung (data/ee/), north 
 west = the road to Pa Nyit (data/ee_pny/), southeast = Ka Det Gyi (data/ee_kdg/),
 zalut = Pyin Gyi - Za Lut (data/ee_pgz/), rabe = Ra Be (data/ee_rbe/),
 thawin = Tha Win and Lel Hla (data/ee_thw/), tizit = Ti Zit (data/ee_tzt/), tizitws = Ti Zit watershed (data/ee_tzw/),
-oct11 = the three 11 Oct surveys: Ti Zit village, San Hlan, Yan Kin Taung (data/ee_1011/).
-usage: python 03_fetch_ee.py [south|north|west|southeast|zalut|rabe|thawin|tizit|tizitws|oct11]   (default: both). Existing files are kept.
+oct11 = the three 11 Oct surveys: Ti Zit village, San Hlan, Yan Kin Taung (data/ee_1011/),
+oct13n = Launglon Town, Kayin Gyi and Kan Pa Ni road (data/ee_1013n/), oct13s = Chaung Hpyar Gyi and Kyauk Twin road (data/ee_1013s/).
+usage: python 03_fetch_ee.py [south|north|west|southeast|zalut|rabe|thawin|tizit|tizitws|oct11|oct13n|oct13s]   (default: both). Existing files are kept.
 """
 import json, os, sys, urllib.parse, urllib.request
 import ee
@@ -27,7 +28,9 @@ AREAS = {"south": ("data/ee", (98.100, 13.860, 98.165, 13.922)),
          "thawin": ("data/ee_thw", (98.125, 13.740, 98.185, 13.825)),
          "tizit": ("data/ee_tzt", (98.058, 13.858, 98.125, 13.937)),
          "tizitws": ("data/ee_tzw", (98.075, 13.885, 98.140, 13.945)),
-         "oct11": ("data/ee_1011", (98.050, 13.875, 98.145, 13.965))}
+         "oct11": ("data/ee_1011", (98.050, 13.875, 98.145, 13.965)),
+         "oct13n": ("data/ee_1013n", (98.050, 13.955, 98.145, 14.090)),
+         "oct13s": ("data/ee_1013s", (98.085, 13.690, 98.165, 13.770))}
 
 
 def download(img, name, scale, crs="EPSG:32647"):

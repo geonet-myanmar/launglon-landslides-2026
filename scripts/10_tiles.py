@@ -13,11 +13,13 @@
   ../launglon-landslides-tiles-2/tizitws/ the Ti Zit watershed, 8.5 cm - second tile repo
   ../launglon-landslides-tiles-3/oct11/  San Hlan and Ti Zit village (11 Oct), 11.3 / 12.0 cm - third tile repo
   ../launglon-landslides-tiles-3/yankin/ Yan Kin Taung (11 Oct), 7.1 cm, to z21 (z20 is 7.3 cm) - third tile repo
-usage: python 10_tiles.py [kadet|thabyar|panyit|kadetgyi|zalut|rabe|thawin|tizit|tizitws|oct11|yankin]
+  ../launglon-landslides-tiles-4/{launglon,kayingyi,kanpani,kyauktwin}/ and ../launglon-landslides-tiles-5/chaunghpyar/ (7.6 cm, to z21): the 13 Oct surveys
+usage: python 10_tiles.py [kadet|thabyar|panyit|kadetgyi|zalut|rabe|thawin|tizit|tizitws|oct11|yankin|launglon|kayingyi|kanpani|chaunghpyar|kyauktwin]
 The deepest level, z20 in 512 px tiles, is 7.3 cm/px at 13.9 N - finer than both flights (10.1 and
 8.0 cm), so nothing is reduced. Lower levels are 2x2 averages of their children. Where the flights meet,
 the finer Ka Det Nge Htein flight is drawn over Ngone Min Taung. Blank tiles are skipped.
-Taw Kye keeps the pyramid of its own pipeline (tiles/tawkye/, copied by step 11).
+Taw Kye keeps the pyramid of its own pipeline (copied by step 11 to tiles/tawkye/, which is gitignored; it is published
+from ../launglon-landslides-tiles-5/tawkye/ since 13 Oct 2026, so the main site stays under 1 GB).
 """
 import math
 import numpy as np, rasterio
@@ -29,13 +31,16 @@ from PIL import Image
 from sites import ROOT, d
 
 SETS = {"kadet": ("nmt", "kdnh"), "thabyar": ("tby",), "panyit": ("pny",), "kadetgyi": ("kdg",), "zalut": ("pgz",), "rabe": ("rbe",),
-        "thawin": ("thw", "lhl"), "tizit": ("tzt",), "tizitws": ("tzw",), "oct11": ("snh", "tzv"), "yankin": ("ykt",)}  # later sites drawn on top
+        "thawin": ("thw", "lhl"), "tizit": ("tzt",), "tizitws": ("tzw",), "oct11": ("snh", "tzv"), "yankin": ("ykt",),
+        "launglon": ("lgt",), "kayingyi": ("khg",), "kanpani": ("knr",), "chaunghpyar": ("cpg",), "kyauktwin": ("ktr",)}  # later sites drawn on top
 # tile sets published from a separate repo to keep this Pages site under GitHub's 1 GB limit (the page loads them by URL)
 EXTERNAL = {"zalut": ROOT.parent / "launglon-landslides-tiles", "rabe": ROOT.parent / "launglon-landslides-tiles",
             "thawin": ROOT.parent / "launglon-landslides-tiles",
             "tizit": ROOT.parent / "launglon-landslides-tiles-2", "tizitws": ROOT.parent / "launglon-landslides-tiles-2",
-            "oct11": ROOT.parent / "launglon-landslides-tiles-3", "yankin": ROOT.parent / "launglon-landslides-tiles-3"}  # the first tile repo is near its 1 GB limit  # -> geonet-myanmar/launglon-landslides-tiles
-ZMAX_SET = {"panyit": 21, "yankin": 21}  # Yan Kin Taung is 7.1 cm  # Pa Nyit is 7.0 cm: z20 (7.2 cm) would reduce it, z21 is 3.6 cm
+            "oct11": ROOT.parent / "launglon-landslides-tiles-3", "yankin": ROOT.parent / "launglon-landslides-tiles-3",
+            **{k: ROOT.parent / "launglon-landslides-tiles-4" for k in ("launglon", "kayingyi", "kanpani", "kyauktwin")},
+            "chaunghpyar": ROOT.parent / "launglon-landslides-tiles-5"}  # the first tile repo is near its 1 GB limit  # -> geonet-myanmar/launglon-landslides-tiles
+ZMAX_SET = {"panyit": 21, "yankin": 21, "chaunghpyar": 21}  # Yan Kin Taung is 7.1 cm  # Pa Nyit is 7.0 cm: z20 (7.2 cm) would reduce it, z21 is 3.6 cm
 ZMAX_DEFAULT, ZMIN, TS = 20, 13, 512
 R = 20037508.342789244
 

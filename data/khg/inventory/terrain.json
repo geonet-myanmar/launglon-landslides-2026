@@ -1,0 +1,770 @@
+[
+ {
+  "id": "KN-01",
+  "name": "Slide east of the village",
+  "type": "open",
+  "description": "A slide on the hill east of the village.",
+  "crown_z": 25.4,
+  "toe_z": 22.6,
+  "H_m": 2.8,
+  "L_m": 73.1,
+  "H_over_L": 0.038,
+  "reach_angle_deg": 2.2,
+  "azimuth_deg": 303,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 2.6,
+  "slope_p90_deg": 4.1,
+  "crown_lonlat": [
+   98.1035680660108,
+   14.07302390625724
+  ],
+  "toe_lonlat": [
+   98.10299972831622,
+   14.073382271888963
+  ],
+  "ndvi_pre_mean": 0.6,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 0.0,
+   "runout": 1605.8
+  }
+ },
+ {
+  "id": "KN-02",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 79.5,
+  "toe_z": 62.0,
+  "H_m": 17.5,
+  "L_m": 68.0,
+  "H_over_L": 0.258,
+  "reach_angle_deg": 14.4,
+  "azimuth_deg": 128,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 20.1,
+  "slope_p90_deg": 22.5,
+  "crown_lonlat": [
+   98.09166508956791,
+   14.062980531834151
+  ],
+  "toe_lonlat": [
+   98.09216250201487,
+   14.062603951486311
+  ],
+  "ndvi_pre_mean": 0.81,
+  "ndvi_pre_source": 0.76,
+  "zone_m2": {
+   "source": 545.0,
+   "transport": 856.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KN-03",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 87.0,
+  "toe_z": 45.1,
+  "H_m": 41.8,
+  "L_m": 141.9,
+  "H_over_L": 0.295,
+  "reach_angle_deg": 16.4,
+  "azimuth_deg": 291,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 17.2,
+  "slope_p90_deg": 24.3,
+  "crown_lonlat": [
+   98.10529786476467,
+   14.06295475881197
+  ],
+  "toe_lonlat": [
+   98.1040674101751,
+   14.063404215253453
+  ],
+  "ndvi_pre_mean": 0.83,
+  "ndvi_pre_source": 0.84,
+  "zone_m2": {
+   "source": 258.3,
+   "transport": 905.4,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KN-04",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 111.7,
+  "toe_z": 66.6,
+  "H_m": 45.1,
+  "L_m": 93.4,
+  "H_over_L": 0.483,
+  "reach_angle_deg": 25.8,
+  "azimuth_deg": 241,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 25.5,
+  "slope_p90_deg": 33.1,
+  "crown_lonlat": [
+   98.10552742764126,
+   14.065483983941014
+  ],
+  "toe_lonlat": [
+   98.10477264148814,
+   14.06507207186395
+  ],
+  "ndvi_pre_mean": 0.84,
+  "ndvi_pre_source": 0.84,
+  "zone_m2": {
+   "source": 720.7,
+   "transport": 390.4,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KN-05",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 148.7,
+  "toe_z": 91.2,
+  "H_m": 57.6,
+  "L_m": 141.1,
+  "H_over_L": 0.408,
+  "reach_angle_deg": 22.2,
+  "azimuth_deg": 279,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 22.6,
+  "slope_p90_deg": 24.5,
+  "crown_lonlat": [
+   98.10663674963327,
+   14.062671254862973
+  ],
+  "toe_lonlat": [
+   98.10534485769377,
+   14.062865064385495
+  ],
+  "ndvi_pre_mean": 0.81,
+  "ndvi_pre_source": 0.81,
+  "zone_m2": {
+   "source": 729.8,
+   "transport": 318.3,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KN-06",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 72.7,
+  "toe_z": 61.9,
+  "H_m": 10.8,
+  "L_m": 34.0,
+  "H_over_L": 0.318,
+  "reach_angle_deg": 17.7,
+  "azimuth_deg": 356,
+  "crown_at_edge": true,
+  "toe_at_edge": true,
+  "slope_mean_deg": 18.2,
+  "slope_p90_deg": 21.3,
+  "crown_lonlat": [
+   98.10590479112588,
+   14.069049380340696
+  ],
+  "toe_lonlat": [
+   98.10588356216256,
+   14.069355943059529
+  ],
+  "ndvi_pre_mean": 0.77,
+  "ndvi_pre_source": 0.76,
+  "zone_m2": {
+   "source": 102.7,
+   "transport": 444.8,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KN-07",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 8.0,
+  "toe_z": 4.4,
+  "H_m": 3.6,
+  "L_m": 32.0,
+  "H_over_L": 0.114,
+  "reach_angle_deg": 6.5,
+  "azimuth_deg": 290,
+  "crown_at_edge": false,
+  "toe_at_edge": true,
+  "slope_mean_deg": 6.7,
+  "slope_p90_deg": 7.8,
+  "crown_lonlat": [
+   98.08806044131677,
+   14.073151286335799
+  ],
+  "toe_lonlat": [
+   98.08778177970648,
+   14.073250439005946
+  ],
+  "ndvi_pre_mean": 0.64,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 227.6,
+   "runout": 187.4
+  }
+ },
+ {
+  "id": "KN-08",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 122.0,
+  "toe_z": 92.3,
+  "H_m": 29.7,
+  "L_m": 48.0,
+  "H_over_L": 0.619,
+  "reach_angle_deg": 31.8,
+  "azimuth_deg": 247,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 29.3,
+  "slope_p90_deg": 31.2,
+  "crown_lonlat": [
+   98.10615049838412,
+   14.06239500846704
+  ],
+  "toe_lonlat": [
+   98.10574300658627,
+   14.062221295862766
+  ],
+  "ndvi_pre_mean": 0.84,
+  "ndvi_pre_source": 0.84,
+  "zone_m2": {
+   "source": 282.9,
+   "transport": 0.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KN-09",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 58.0,
+  "toe_z": 52.4,
+  "H_m": 5.6,
+  "L_m": 19.5,
+  "H_over_L": 0.285,
+  "reach_angle_deg": 15.9,
+  "azimuth_deg": 143,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 14.1,
+  "slope_p90_deg": 14.5,
+  "crown_lonlat": [
+   98.0917442529858,
+   14.065110606199102
+  ],
+  "toe_lonlat": [
+   98.09185381977541,
+   14.064970238990208
+  ],
+  "ndvi_pre_mean": 0.82,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 281.1,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KN-10",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 41.9,
+  "toe_z": 37.3,
+  "H_m": 4.6,
+  "L_m": 16.1,
+  "H_over_L": 0.286,
+  "reach_angle_deg": 16.0,
+  "azimuth_deg": 52,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 15.9,
+  "slope_p90_deg": 18.1,
+  "crown_lonlat": [
+   98.09268853374333,
+   14.062718732897205
+  ],
+  "toe_lonlat": [
+   98.0928051433303,
+   14.062809976642283
+  ],
+  "ndvi_pre_mean": 0.83,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 211.9,
+   "runout": 0.2
+  }
+ },
+ {
+  "id": "KN-11",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 25.8,
+  "toe_z": 22.9,
+  "H_m": 2.9,
+  "L_m": 30.0,
+  "H_over_L": 0.098,
+  "reach_angle_deg": 5.6,
+  "azimuth_deg": 299,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 5.9,
+  "slope_p90_deg": 6.0,
+  "crown_lonlat": [
+   98.09033978006518,
+   14.074681398258674
+  ],
+  "toe_lonlat": [
+   98.0900969419529,
+   14.074813690790231
+  ],
+  "ndvi_pre_mean": 0.91,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 0.0,
+   "runout": 211.3
+  }
+ },
+ {
+  "id": "KS-01",
+  "name": "Main valley channel",
+  "type": "channel",
+  "description": "The stream scoured down the main valley from the south to the village, where its sediment spread between the houses (KG-OW1).",
+  "crown_z": 94.3,
+  "toe_z": 12.6,
+  "H_m": 81.7,
+  "L_m": 1598.7,
+  "H_over_L": 0.051,
+  "reach_angle_deg": 2.9,
+  "azimuth_deg": 339,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 4.4,
+  "slope_p90_deg": 7.8,
+  "crown_lonlat": [
+   98.10170034679605,
+   14.050031079841714
+  ],
+  "toe_lonlat": [
+   98.09632958725085,
+   14.06350022964351
+  ],
+  "ndvi_pre_mean": 0.64,
+  "ndvi_pre_source": 0.76,
+  "zone_m2": {
+   "source": 386.5,
+   "transport": 16566.7,
+   "runout": 148169.8
+  }
+ },
+ {
+  "id": "KS-02",
+  "name": "South-east channel",
+  "type": "channel",
+  "description": "A channel scoured north-west from the south-east hills to join the main valley at the village.",
+  "crown_z": 178.3,
+  "toe_z": 15.4,
+  "H_m": 162.9,
+  "L_m": 1398.1,
+  "H_over_L": 0.117,
+  "reach_angle_deg": 6.6,
+  "azimuth_deg": 336,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 7.6,
+  "slope_p90_deg": 16.5,
+  "crown_lonlat": [
+   98.10461082419405,
+   14.051936988425162
+  ],
+  "toe_lonlat": [
+   98.09938034233524,
+   14.063500229624168
+  ],
+  "ndvi_pre_mean": 0.73,
+  "ndvi_pre_source": 0.84,
+  "zone_m2": {
+   "source": 8825.2,
+   "transport": 35968.5,
+   "runout": 101427.3
+  }
+ },
+ {
+  "id": "KS-03",
+  "name": "Side channel",
+  "type": "channel",
+  "description": "A side channel joining KS-02.",
+  "crown_z": 121.1,
+  "toe_z": 31.1,
+  "H_m": 90.0,
+  "L_m": 313.8,
+  "H_over_L": 0.287,
+  "reach_angle_deg": 16.0,
+  "azimuth_deg": 265,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 15.4,
+  "slope_p90_deg": 28.3,
+  "crown_lonlat": [
+   98.10592587795118,
+   14.059777815699519
+  ],
+  "toe_lonlat": [
+   98.10303103476677,
+   14.059529511961717
+  ],
+  "ndvi_pre_mean": 0.71,
+  "ndvi_pre_source": 0.79,
+  "zone_m2": {
+   "source": 3320.8,
+   "transport": 1767.6,
+   "runout": 2891.9
+  }
+ },
+ {
+  "id": "KS-04",
+  "name": "Eastern channel",
+  "type": "channel",
+  "description": "A channel on the eastern hills.",
+  "crown_z": 157.4,
+  "toe_z": 37.2,
+  "H_m": 120.2,
+  "L_m": 333.0,
+  "H_over_L": 0.361,
+  "reach_angle_deg": 19.8,
+  "azimuth_deg": 280,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 22.2,
+  "slope_p90_deg": 33.7,
+  "crown_lonlat": [
+   98.10664403044338,
+   14.061699991460653
+  ],
+  "toe_lonlat": [
+   98.10360700644836,
+   14.062225863068626
+  ],
+  "ndvi_pre_mean": 0.78,
+  "ndvi_pre_source": 0.75,
+  "zone_m2": {
+   "source": 3468.3,
+   "transport": 1863.2,
+   "runout": 975.5
+  }
+ },
+ {
+  "id": "KS-05",
+  "name": "Valley slide",
+  "type": "open",
+  "description": "A slide on the side of the south-east valley.",
+  "crown_z": 109.1,
+  "toe_z": 62.2,
+  "H_m": 46.8,
+  "L_m": 180.6,
+  "H_over_L": 0.259,
+  "reach_angle_deg": 14.5,
+  "azimuth_deg": 300,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 16.6,
+  "slope_p90_deg": 26.5,
+  "crown_lonlat": [
+   98.10223957969978,
+   14.053008802869844
+  ],
+  "toe_lonlat": [
+   98.10078401946771,
+   14.053812527187288
+  ],
+  "ndvi_pre_mean": 0.83,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 722.5,
+   "transport": 1750.7,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KS-06",
+  "name": "South slide",
+  "type": "open",
+  "description": "A slide near the south edge of the flight.",
+  "crown_z": 110.1,
+  "toe_z": 63.3,
+  "H_m": 46.8,
+  "L_m": 127.5,
+  "H_over_L": 0.367,
+  "reach_angle_deg": 20.1,
+  "azimuth_deg": 41,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 18.5,
+  "slope_p90_deg": 25.3,
+  "crown_lonlat": [
+   98.09584901697099,
+   14.050155094200045
+  ],
+  "toe_lonlat": [
+   98.09662122319675,
+   14.051027222340341
+  ],
+  "ndvi_pre_mean": 0.86,
+  "ndvi_pre_source": 0.86,
+  "zone_m2": {
+   "source": 1189.6,
+   "transport": 289.3,
+   "runout": 537.1
+  }
+ },
+ {
+  "id": "KS-07",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 62.9,
+  "toe_z": 55.9,
+  "H_m": 7.0,
+  "L_m": 48.7,
+  "H_over_L": 0.143,
+  "reach_angle_deg": 8.1,
+  "azimuth_deg": 296,
+  "crown_at_edge": true,
+  "toe_at_edge": false,
+  "slope_mean_deg": 9.6,
+  "slope_p90_deg": 11.5,
+  "crown_lonlat": [
+   98.09941947691537,
+   14.049686392910367
+  ],
+  "toe_lonlat": [
+   98.0990140566083,
+   14.049880256216765
+  ],
+  "ndvi_pre_mean": 0.72,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 587.1,
+   "runout": 61.7
+  }
+ },
+ {
+  "id": "KS-08",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 91.6,
+  "toe_z": 67.6,
+  "H_m": 24.0,
+  "L_m": 67.3,
+  "H_over_L": 0.357,
+  "reach_angle_deg": 19.6,
+  "azimuth_deg": 299,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 18.9,
+  "slope_p90_deg": 25.6,
+  "crown_lonlat": [
+   98.10569855690197,
+   14.061056264327398
+  ],
+  "toe_lonlat": [
+   98.10515450443211,
+   14.061353906899878
+  ],
+  "ndvi_pre_mean": 0.82,
+  "ndvi_pre_source": 0.83,
+  "zone_m2": {
+   "source": 275.1,
+   "transport": 270.3,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KS-09",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 148.5,
+  "toe_z": 117.6,
+  "H_m": 30.9,
+  "L_m": 50.6,
+  "H_over_L": 0.611,
+  "reach_angle_deg": 31.4,
+  "azimuth_deg": 304,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 29.5,
+  "slope_p90_deg": 31.3,
+  "crown_lonlat": [
+   98.10275733726715,
+   14.05276249929739
+  ],
+  "toe_lonlat": [
+   98.10236650102931,
+   14.053014740084496
+  ],
+  "ndvi_pre_mean": 0.85,
+  "ndvi_pre_source": 0.85,
+  "zone_m2": {
+   "source": 541.8,
+   "transport": 0.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KS-10",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 63.9,
+  "toe_z": 56.2,
+  "H_m": 7.6,
+  "L_m": 32.8,
+  "H_over_L": 0.233,
+  "reach_angle_deg": 13.1,
+  "azimuth_deg": 110,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 11.1,
+  "slope_p90_deg": 11.4,
+  "crown_lonlat": [
+   98.0958994631265,
+   14.052190314102855
+  ],
+  "toe_lonlat": [
+   98.09618480656769,
+   14.052089285345032
+  ],
+  "ndvi_pre_mean": 0.88,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 385.4,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KS-11",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 76.6,
+  "toe_z": 61.2,
+  "H_m": 15.3,
+  "L_m": 33.6,
+  "H_over_L": 0.456,
+  "reach_angle_deg": 24.5,
+  "azimuth_deg": 52,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 27.8,
+  "slope_p90_deg": 28.9,
+  "crown_lonlat": [
+   98.09202455717143,
+   14.061804871776367
+  ],
+  "toe_lonlat": [
+   98.09226847005841,
+   14.06199349824077
+  ],
+  "ndvi_pre_mean": 0.87,
+  "ndvi_pre_source": 0.87,
+  "zone_m2": {
+   "source": 302.5,
+   "transport": 0.0,
+   "runout": 0.0
+  }
+ },
+ {
+  "id": "KS-12",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 25.2,
+  "toe_z": 24.4,
+  "H_m": 0.8,
+  "L_m": 14.2,
+  "H_over_L": 0.06,
+  "reach_angle_deg": 3.4,
+  "azimuth_deg": 222,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 3.2,
+  "slope_p90_deg": 3.9,
+  "crown_lonlat": [
+   98.0972884551865,
+   14.058552088889343
+  ],
+  "toe_lonlat": [
+   98.09720015153297,
+   14.05845675546271
+  ],
+  "ndvi_pre_mean": 0.78,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 0.0,
+   "runout": 226.7
+  }
+ },
+ {
+  "id": "KS-13",
+  "name": "Minor scar",
+  "type": "minor",
+  "description": "Small scar or channel fragment.",
+  "crown_z": 60.3,
+  "toe_z": 50.7,
+  "H_m": 9.6,
+  "L_m": 37.6,
+  "H_over_L": 0.256,
+  "reach_angle_deg": 14.4,
+  "azimuth_deg": 309,
+  "crown_at_edge": false,
+  "toe_at_edge": false,
+  "slope_mean_deg": 14.5,
+  "slope_p90_deg": 15.3,
+  "crown_lonlat": [
+   98.10058853582018,
+   14.05378523972986
+  ],
+  "toe_lonlat": [
+   98.1003173609587,
+   14.053997981212873
+  ],
+  "ndvi_pre_mean": 0.77,
+  "ndvi_pre_source": null,
+  "zone_m2": {
+   "source": 0.0,
+   "transport": 207.1,
+   "runout": 0.0
+  }
+ }
+]

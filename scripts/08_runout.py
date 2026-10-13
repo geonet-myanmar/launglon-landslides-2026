@@ -28,11 +28,13 @@ from sites import SITES, d, ee_dir
 
 SRC_SLOPE = 20.0
 CHANNEL = {"kdnh": "KD-01", "nmt": "NM-04", "tby": ("TB-03", "TB-01"), "pny": "PN-01", "kdg": "KGN-02", "pgz": ("PG-04", "PG-03"), "rbe": "RZ-04",
-           "thw": "TZ-02", "lhl": "LL-01", "tzt": "TS-07", "tzw": "WV-02", "ykt": "YN-03"}  # tuple: crown of one, toe of the other
+           "thw": "TZ-02", "lhl": "LL-01", "tzt": "TS-07", "tzw": "WV-02", "ykt": "YN-03",
+           "lgt": "LT-01", "khg": "KS-02", "cpg": "CZ-01", "ktr": "KT-01"}  # Kan Pa Ni - Pa Nyit road: no channel flow  # tuple: crown of one, toe of the other
 CLIP_M = 250
 # open slides left out of the calibration: drop within the DEM's error (TS-16: two scars with a 15 m drop on a low
 # coastal hill, whose 12 deg "reach angle" is noise on a 30 m DEM that carries roughly +-10 m)
-CALIB_SKIP = {"tzt": ["TS-16"]}
+CALIB_SKIP = {"tzt": ["TS-16"],
+              "khg": ["KN-01"]}  # a real slide east of Kayin Gyi that the 30 m DEM shows as flat (2.8 m drop)
 # sites with no usable calibration flow borrow both angles from a neighbour: Ti Zit village (whose few hillside scars
 # all run off the flight) and San Hlan (two scars with 10 m drops) take the Ti Zit watershed's, the hills that drain
 # into Ti Zit and lie 2 km south-east of San Hlan
@@ -71,10 +73,14 @@ def run(site, z, slope, T, prof):
         src = json.load(open(d(ALPHA_FROM[site], "hazard", "runout_summary.json")))
         a_open, a_chan, open_ids, ch = src["alpha_open"], src["alpha_channel"], [], ()
         print(f"{site}: angles borrowed from {ALPHA_FROM[site]}: open {a_open}, channel {a_chan} deg")
-    else:
+    elif open_ids:
         a_open = min(terr[i]["reach_angle_deg"] for i in open_ids)
+    else:  # no open-slope slide wholly inside the survey: the channel angle stands for both (zone B empty)
+        a_open = None
     if site in ALPHA_FROM:
         pass
+    elif ch is None:  # no channelised flow mapped: the open angle stands for both (zone B empty)
+        a_chan, ch = a_open, ()
     elif isinstance(ch, tuple):
         c, t = terr[ch[0]], terr[ch[1]]
         from pyproj import Geod
@@ -84,6 +90,8 @@ def run(site, z, slope, T, prof):
         print(f"{site} channel path {ch[0]} crown -> {ch[1]} toe: H {H:.1f} m, L {L:.0f} m, alpha {a_chan} deg")
     else:
         a_chan = terr[ch]["reach_angle_deg"]
+    if a_open is None:
+        a_open = a_chan
     ch_ids = list(ch) if isinstance(ch, tuple) else [ch]
     if site in ALPHA_FROM:
         ch_ids = []

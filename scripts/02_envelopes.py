@@ -745,10 +745,60 @@ ENV["ykt"] = [
      "Rejected on chip review: a track along the plantation edge, there on 10 Jan 2026."),
 ]
 
+# 13 Oct 2026, six deliveries in five places.
+# Launglon Town: the town is on flat ground; the slides are on the hills north and west of it. Only the hills are a split
+# zone; the streets and yards of the town, bare in January, are left out.
+ENV["lgt"] = [
+    ("LT", "Hills north and west of the town", "landslide", 5, P, [
+        (98.1000, 13.9725), (98.1080, 13.9725), (98.1080, 13.9790), (98.1130, 13.9800), (98.1170, 13.9822),
+        (98.1220, 13.9830), (98.1250, 13.9860), (98.1250, 13.9970), (98.1000, 13.9970)], 0,
+     "Zone split into connected scars and scoured channels."),
+]
+# Kayin Gyi: a village strung along a valley; a stream scoured down the valley from the south and through the village, a
+# second channel came in from the south-east, with slides on the hill east of the village. In the village (98.092-98.103 E,
+# 14.0635-14.078 N) only the stream channel, as sediment, is mapped (village_channel.geojson: its large bare components);
+# yards and lanes bare in January are left out. The rest is two split zones, north and south of 14.062 (one does not fit in
+# memory); pieces cut by the boundary are merged in step 05.
+ENV["khg"] = [
+    ("KG-OW1", "Stream through the village under sediment", "outwash", 3, F, "village_channel.geojson", 0,
+     "The stream through Kayin Gyi, scoured and filled with sand and boulders between the houses: the large bare patches in "
+     "the village (yards and lanes bare in January, smaller than 3,000 m2, are left out)."),
+    ("KN", "Hills north of 14.062 around the village", "landslide", 5, F, "zone_KN.geojson", 0,
+     "Zone split into connected scars and scoured channels; the village itself is left out."),
+    ("KS", "Valleys south of Kayin Gyi", "landslide", 5, F, "zone_KS.geojson", 0,
+     "Zone split into connected scars and scoured channels."),
+]
+# Chaung Hpyar Gyi: forested hills above the village (in the Kyauk Twin village tract); one split zone.
+ENV["cpg"] = [
+    ("CZ", "Hills around Chaung Hpyar Gyi", "landslide", 5, P, box_ll(98.095, 13.745, 98.113, 13.762), 0,
+     "Zone split into connected scars and scoured channels."),
+]
+# Kyauk Twin road: the hills along the road from Ra Be west to the Kyauk Twin village tract, west of the Ra Be survey (which
+# keeps the ground it covers). The road (OpenStreetMap, on the ortho) and the tidal creek and mangroves are left out.
+ENV["ktr"] = [
+    ("KT-OW1", "Fan west of the road", "outwash", 3, F, "fan.geojson", 0,
+     "The fan of sand and debris KT-01 spread west of the road over scrub and the edge of the mangroves."),
+    ("KT", "Hills along the road", "landslide", 5, P, box_ll(98.127, 13.698, 98.153, 13.721), 0,
+     "Zone split into connected scars and scoured channels."),
+    ("TX-1", "Road", "exclude", 0, F, "road_osm.geojson", 0, "The road and its cut banks, bare on 10 Jan 2026."),
+    ("TX-2", "Tidal creek and mangroves", "exclude", 0, P, box_ll(98.127, 13.698, 98.1335, 13.712), 0,
+     "The tidal creek, its sand banks and mangroves, as on 10 Jan 2026."),
+]
+# Kan Pa Ni - Pa Nyit road: the road over the hills between Kan Pa Ni and Pa Nyit; one split zone, the road left out.
+ENV["knr"] = [
+    ("KR", "Hills along the road", "landslide", 5, P, box_ll(98.064, 14.019, 98.084, 14.040), 0,
+     "Zone split into connected scars and scoured channels."),
+    ("RX-1", "Road", "exclude", 0, F, "road_osm.geojson", 0, "The road and its cut banks, bare on 10 Jan 2026."),
+]
+
 
 def build(site):
     rows = []
-    for i, name, kind, prio, typ, coords, hw, desc in ENV[site]:
+    env = list(ENV[site])
+    if d(site, "inventory", "rejected.geojson").exists():  # split-zone groups rejected on image chips (data/qa/reject.py)
+        env.append(("XR", "Groups rejected on image chips", "exclude", 0, F, "rejected.geojson", 0,
+                    "Split-zone groups rejected on image chips; the reason for each is in rejected.geojson."))
+    for i, name, kind, prio, typ, coords, hw, desc in env:
         split = kind == "landslide" and "-" not in i  # a bare prefix marks a zone
         if typ == F:  # a polygon traced on the ortho and kept as a file beside the envelopes
             g = gpd.read_file(d(site, "inventory", coords)).to_crs(32647).union_all()

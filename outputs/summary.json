@@ -1,5 +1,245 @@
 {
  "sites": {
+  "khg": {
+   "key": "khg",
+   "name": "Kayin Gyi",
+   "mmr": "ကရင်ကြီး",
+   "flown": "2026-10-13",
+   "gsd_cm": 11.0,
+   "file": "Kayingyi_combine.kmz",
+   "survey_ha": 474.2,
+   "tiles": "kayingyi",
+   "n_landslides": 24,
+   "n_by_type": {
+    "open": 3,
+    "channel": 4,
+    "minor": 17
+   },
+   "area_total_m2": 341464,
+   "area_by_type_m2": {
+    "open": 6100,
+    "channel": 325827,
+    "minor": 9537
+   },
+   "area_runout_flat_m2": 256295,
+   "outwash_m2": 184808,
+   "largest": "KS-01",
+   "buildings_surveyed": 284,
+   "buildings_status": {
+    "clear": 223,
+    "outwash": 42,
+    "destroyed": 12,
+    "damaged": 6,
+    "edge": 1
+   },
+   "not_building": 2,
+   "overrides": 12,
+   "reach": {
+    "standing_in_A": 11,
+    "standing_in_B": 231,
+    "standing_outside": 24,
+    "affected": 18,
+    "affected_in_AB": 15
+   },
+   "runout": {
+    "alpha_open": 14.5,
+    "alpha_channel": 6.6,
+    "open_ids": [
+     "KS-05",
+     "KS-06"
+    ],
+    "channel_id": "KS-02",
+    "alpha_from": null,
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 464.1,
+    "zoneB_ha": 178.4,
+    "calibration_share_inside": {
+     "KS-02": 0.983,
+     "KS-05": 1.0,
+     "KS-06": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 24,
+      "A": 11,
+      "B": 188
+     },
+     "damaged": {
+      "": 2,
+      "A": 0,
+      "B": 4
+     },
+     "destroyed": {
+      "": 1,
+      "A": 0,
+      "B": 11
+     },
+     "edge": {
+      "": 0,
+      "A": 0,
+      "B": 1
+     },
+     "outwash": {
+      "": 0,
+      "A": 0,
+      "B": 42
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": 1.25,
+    "dN": -2.25,
+    "grey_before": 0.428,
+    "grey_after": 0.474,
+    "n_used": 275
+   },
+   "report": {
+    "source": "Dawei Watch, 27-30 Sep 2026",
+    "deaths": 0,
+    "houses": "about 30",
+    "houses_n": 30,
+    "houses_label": "about 30 houses buried, more than 80 damaged",
+    "lines": [
+     "At about 9 pm on 26 Sep and 2 am on 27 Sep the hills east of Kayin Gyi failed: nearly 30 houses were buried, with tractors and motorcycles; about 30 households (60 people) moved to the monastery. No one was hurt (27 Sep).",
+     "More of the hills failed on the night of 27 Sep and the whole eastern half of the village was covered: houses, the bridge and village roads destroyed (28 Sep).",
+     "The stream and landslides damaged more than 80 houses on 26-27 Sep; the main road by the bridge in the middle of the village was cut in two, isolating the upper village and Kan Pa Ni (29 Sep). It was patched on 30 Sep.",
+     "Kayin Gyi lies on the Maungmagan - Myaw Yit road to the Myaw Yit pagoda; with Kan Pa Ni nearly 100 houses were destroyed (30 Sep)."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Kayin Gyi",
+     "pcode": "177174",
+     "where": "inside",
+     "mmr": "ကရင်ကြီး",
+     "lon": 98.09908295,
+     "lat": 14.07110977
+    },
+    {
+     "name": "Kan Pa Ni",
+     "pcode": "222696",
+     "where": "1.0 km beyond the survey",
+     "mmr": "ကမ်းပနီ",
+     "lon": 98.08086,
+     "lat": 14.06129
+    }
+   ],
+   "vt": "Kyauk Sin",
+   "vt_pcode": "MMR006002022",
+   "bounds": [
+    98.08653597187083,
+    14.049381575293468,
+    98.1078691749592,
+    14.076557690889222
+   ],
+   "n_exclusions": 1,
+   "nearest_standing_m": 0.0
+  },
+  "knr": {
+   "key": "knr",
+   "name": "Kan Pa Ni - Pa Nyit road",
+   "mmr": "ကမ်းပနီ - ပညစ်လမ်း",
+   "flown": "2026-10-13",
+   "gsd_cm": 9.5,
+   "file": "Kanpani_Panyit_RD.kmz",
+   "survey_ha": 175.5,
+   "tiles": "kanpani",
+   "n_landslides": 27,
+   "n_by_type": {
+    "open": 5,
+    "channel": 1,
+    "minor": 21
+   },
+   "area_total_m2": 117303,
+   "area_by_type_m2": {
+    "open": 84727,
+    "channel": 11971,
+    "minor": 20605
+   },
+   "area_runout_flat_m2": 28088,
+   "outwash_m2": 0,
+   "largest": "KR-01",
+   "buildings_surveyed": 0,
+   "buildings_status": {},
+   "not_building": 1,
+   "overrides": 0,
+   "reach": {
+    "standing_in_A": 0,
+    "standing_in_B": 0,
+    "standing_outside": 0,
+    "affected": 0,
+    "affected_in_AB": 0
+   },
+   "runout": {
+    "alpha_open": 12.2,
+    "alpha_channel": 12.2,
+    "open_ids": [
+     "KR-02",
+     "KR-03",
+     "KR-05",
+     "KR-06"
+    ],
+    "channel_id": "",
+    "alpha_from": null,
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 297.42,
+    "zoneB_ha": 0.0,
+    "calibration_share_inside": {
+     "KR-02": 1.0,
+     "KR-03": 0.989,
+     "KR-05": 1.0,
+     "KR-06": 0.983
+    },
+    "buildings_surveyed_by_status_reach": {}
+   },
+   "footprint_shift": {
+    "dE": 0.0,
+    "dN": 0.0,
+    "grey_before": null,
+    "grey_after": null,
+    "n_used": 0
+   },
+   "report": {
+    "source": "Dawei Watch, 28-30 Sep 2026",
+    "deaths": 0,
+    "houses": null,
+    "houses_note": "no houses in the survey",
+    "lines": [
+     "Earth covered the Kan Pa Ni - Pa Nyit road in about two places (30 Sep); landslides also blocked the road between Pa Nyit and Kan Pa Ni on 27 Sep, cutting off the villages beyond (28 Sep).",
+     "In Pa Nyit, 1.7 km south of the survey, two houses were buried; no one was hurt (28 Sep)."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Pa Nyit",
+     "pcode": "177151",
+     "where": "1.7 km south of the survey",
+     "mmr": "ပညစ်",
+     "lon": 98.06926727,
+     "lat": 14.00734997
+    },
+    {
+     "name": "Kan Pa Ni",
+     "pcode": "222696",
+     "where": "2.7 km north of the survey",
+     "mmr": "ကမ်းပနီ",
+     "lon": 98.08086,
+     "lat": 14.06129
+    }
+   ],
+   "vt": "Pa Nyit",
+   "vt_pcode": "MMR006002014",
+   "bounds": [
+    98.06621849995906,
+    14.021016538887261,
+    98.08156896741303,
+    14.038014679291855
+   ],
+   "n_exclusions": 2,
+   "nearest_standing_m": null
+  },
   "tby": {
    "key": "tby",
    "name": "Tha Byar",
@@ -240,6 +480,130 @@
    ],
    "n_exclusions": 4,
    "nearest_standing_m": 203.7
+  },
+  "lgt": {
+   "key": "lgt",
+   "name": "Launglon Town",
+   "mmr": "လောင်းလုံးမြို့",
+   "flown": "2026-10-13",
+   "gsd_cm": 11.0,
+   "file": "LaungLone_Plan_1.kmz + LaungLone_Plan_2.kmz",
+   "survey_ha": 574.1,
+   "tiles": "launglon",
+   "n_landslides": 30,
+   "n_by_type": {
+    "open": 9,
+    "channel": 4,
+    "minor": 17
+   },
+   "area_total_m2": 478342,
+   "area_by_type_m2": {
+    "open": 204560,
+    "channel": 245660,
+    "minor": 28122
+   },
+   "area_runout_flat_m2": 149558,
+   "outwash_m2": 0,
+   "largest": "LT-01",
+   "buildings_surveyed": 1483,
+   "buildings_status": {
+    "clear": 1472,
+    "damaged": 5,
+    "destroyed": 5,
+    "edge": 1
+   },
+   "not_building": 5,
+   "overrides": 1,
+   "reach": {
+    "standing_in_A": 16,
+    "standing_in_B": 0,
+    "standing_outside": 1457,
+    "affected": 10,
+    "affected_in_AB": 9
+   },
+   "runout": {
+    "alpha_open": 13.1,
+    "alpha_channel": 13.9,
+    "open_ids": [
+     "LT-03",
+     "LT-08",
+     "LT-09",
+     "LT-10",
+     "LT-11",
+     "LT-12",
+     "LT-13"
+    ],
+    "channel_id": "LT-01",
+    "alpha_from": null,
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 295.89,
+    "zoneB_ha": 0.0,
+    "calibration_share_inside": {
+     "LT-01": 0.957,
+     "LT-03": 0.898,
+     "LT-08": 1.0,
+     "LT-09": 0.999,
+     "LT-10": 1.0,
+     "LT-11": 1.0,
+     "LT-12": 1.0,
+     "LT-13": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {
+     "clear": {
+      "": 1456,
+      "A": 16
+     },
+     "damaged": {
+      "": 1,
+      "A": 4
+     },
+     "destroyed": {
+      "": 0,
+      "A": 5
+     },
+     "edge": {
+      "": 1,
+      "A": 0
+     }
+    }
+   },
+   "footprint_shift": {
+    "dE": 1.5,
+    "dN": -0.75,
+    "grey_before": 0.508,
+    "grey_after": 0.52,
+    "n_used": 1460
+   },
+   "report": {
+    "source": "Dawei Watch, 26 Sep - 2 Oct 2026",
+    "deaths": null,
+    "houses": null,
+    "houses_note": "no report for the town",
+    "lines": [
+     "No report in Dawei Watch coverage to 2 Oct describes landslides at Launglon town itself; the town was the base of the rescue teams, which on 28 Sep were still clearing debris from the road between Launglon and Nyin Maw."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Pyin Htein",
+     "pcode": "177121",
+     "where": "0.4 km beyond the survey",
+     "mmr": "ပြင်းထိန်",
+     "lon": 98.13394,
+     "lat": 13.97661
+    }
+   ],
+   "vt": "Pyin Htein",
+   "vt_pcode": "MMR006002001",
+   "bounds": [
+    98.10266361221508,
+    13.969135105247243,
+    98.13044460881508,
+    13.99509836347955
+   ],
+   "n_exclusions": 1,
+   "nearest_standing_m": 9.9
   },
   "snh": {
    "key": "snh",
@@ -1579,6 +1943,93 @@
    "n_exclusions": 9,
    "nearest_standing_m": 0.0
   },
+  "cpg": {
+   "key": "cpg",
+   "name": "Chaung Hpyar Gyi",
+   "mmr": "ချောင်းဖျားကြီး",
+   "flown": "2026-10-13",
+   "gsd_cm": 7.6,
+   "file": "ChaungPhyarGyi_Village.kmz",
+   "survey_ha": 179.3,
+   "tiles": "chaunghpyar",
+   "n_landslides": 12,
+   "n_by_type": {
+    "open": 0,
+    "channel": 2,
+    "minor": 10
+   },
+   "area_total_m2": 310026,
+   "area_by_type_m2": {
+    "open": 0,
+    "channel": 302978,
+    "minor": 7048
+   },
+   "area_runout_flat_m2": 65511,
+   "outwash_m2": 0,
+   "largest": "CZ-01",
+   "buildings_surveyed": 0,
+   "buildings_status": {},
+   "not_building": 0,
+   "overrides": 0,
+   "reach": {
+    "standing_in_A": 0,
+    "standing_in_B": 0,
+    "standing_outside": 0,
+    "affected": 0,
+    "affected_in_AB": 0
+   },
+   "runout": {
+    "alpha_open": 14.4,
+    "alpha_channel": 14.4,
+    "open_ids": [],
+    "channel_id": "CZ-01",
+    "alpha_from": null,
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 304.04,
+    "zoneB_ha": 0.0,
+    "calibration_share_inside": {
+     "CZ-01": 0.991
+    },
+    "buildings_surveyed_by_status_reach": {}
+   },
+   "footprint_shift": {
+    "dE": 0.0,
+    "dN": 0.0,
+    "grey_before": null,
+    "grey_after": null,
+    "n_used": 0
+   },
+   "report": {
+    "source": "Dawei Watch, 29-30 Sep 2026",
+    "deaths": null,
+    "houses": null,
+    "houses_note": "no houses in the survey",
+    "lines": [
+     "Chaung Hpyar Gyi is one of the four villages of the Kyauk Twin village tract (about 350 households, near Sin Htauk beach), reached only by the road west from Ra Be through the forested hills; with the roads buried, no relief had reached the tract five days after they were cut (30 Sep). The village itself is 1.2 km south of the survey."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Chaung Hpyar Gyi",
+     "pcode": "177218",
+     "where": "1.2 km south of the survey",
+     "mmr": "ချောင်းဖျားကြီး",
+     "lon": 98.11456299,
+     "lat": 13.73676968
+    }
+   ],
+   "vt": "Kyauk Twin",
+   "vt_pcode": "MMR006002037",
+   "bounds": [
+    98.09688553553733,
+    13.746333848719999,
+    98.1111897802125,
+    13.760657828191999
+   ],
+   "n_exclusions": 1,
+   "nearest_standing_m": null
+  },
   "rbe": {
    "key": "rbe",
    "name": "Ra Be",
@@ -1703,6 +2154,104 @@
    ],
    "n_exclusions": 15,
    "nearest_standing_m": 0.0
+  },
+  "ktr": {
+   "key": "ktr",
+   "name": "Kyauk Twin road",
+   "mmr": "ကျောက်တွင်းလမ်း",
+   "flown": "2026-10-13",
+   "gsd_cm": 10.0,
+   "file": "Kyauktwin_RD.kmz",
+   "survey_ha": 186.1,
+   "tiles": "kyauktwin",
+   "n_landslides": 6,
+   "n_by_type": {
+    "open": 1,
+    "channel": 1,
+    "minor": 4
+   },
+   "area_total_m2": 95374,
+   "area_by_type_m2": {
+    "open": 12610,
+    "channel": 79606,
+    "minor": 3158
+   },
+   "area_runout_flat_m2": 27232,
+   "outwash_m2": 54050,
+   "largest": "KT-01",
+   "buildings_surveyed": 0,
+   "buildings_status": {},
+   "not_building": 0,
+   "overrides": 0,
+   "reach": {
+    "standing_in_A": 0,
+    "standing_in_B": 0,
+    "standing_outside": 0,
+    "affected": 0,
+    "affected_in_AB": 0
+   },
+   "runout": {
+    "alpha_open": 17.1,
+    "alpha_channel": 15.9,
+    "open_ids": [
+     "KT-02"
+    ],
+    "channel_id": "KT-01",
+    "alpha_from": null,
+    "src_slope": 20.0,
+    "clip_m": 250,
+    "zoneA_ha": 161.31,
+    "zoneB_ha": 9.8,
+    "calibration_share_inside": {
+     "KT-01": 0.919,
+     "KT-02": 1.0
+    },
+    "buildings_surveyed_by_status_reach": {}
+   },
+   "footprint_shift": {
+    "dE": 0.0,
+    "dN": 0.0,
+    "grey_before": null,
+    "grey_after": null,
+    "n_used": 0
+   },
+   "report": {
+    "source": "Dawei Watch, 29-30 Sep 2026",
+    "deaths": null,
+    "houses": null,
+    "houses_note": "no houses in the survey",
+    "lines": [
+     "This is the road west from Ra Be to the Kyauk Twin village tract (Wea Ma Kaik, Kyauk Twin, Sun Gyi, Chaung Hpyar Gyi; about 350 households), cut by landslides from 26 Sep; no relief had reached the tract by 30 Sep. The Ra Be road survey of 8 Oct covers the road nearer Ra Be."
+    ]
+   },
+   "mimu": [
+    {
+     "name": "Sun Gyi",
+     "pcode": "177220",
+     "where": "0.7 km beyond the survey",
+     "mmr": "စွန်ကြီး",
+     "lon": 98.12504,
+     "lat": 13.71329
+    },
+    {
+     "name": "Kyauk Twin",
+     "pcode": "177217",
+     "where": "1.9 km west of the survey",
+     "mmr": "ကျောက်တွင်း",
+     "lon": 98.11498,
+     "lat": 13.71817
+    }
+   ],
+   "vt": "Kyauk Twin",
+   "vt_pcode": "MMR006002037",
+   "bounds": [
+    98.12945587866,
+    13.700413708576678,
+    98.14599235082,
+    13.71873639615853
+   ],
+   "n_exclusions": 3,
+   "nearest_standing_m": null
   },
   "pgz": {
    "key": "pgz",
@@ -1837,16 +2386,16 @@
   }
  },
  "total": {
-  "n_landslides": 297,
-  "area_m2": 4754996,
-  "destroyed": 80,
-  "damaged": 28,
-  "standing_in_A": 579,
-  "standing_in_B": 897,
+  "n_landslides": 396,
+  "area_m2": 6097505,
+  "destroyed": 97,
+  "damaged": 39,
+  "standing_in_A": 606,
+  "standing_in_B": 1128,
   "deaths": 26,
-  "survey_ha": 4311.5,
-  "outwash_m2": 1162441,
-  "in_sediment": 121
+  "survey_ha": 5900.7,
+  "outwash_m2": 1401299,
+  "in_sediment": 163
  },
  "regional": {
   "launglon_deaths": 31,
@@ -1894,6 +2443,16 @@
    "grid": [
     13.743409,
     98.181816
+   ]
+  },
+  "cpg": {
+   "night_26_27": 157.0,
+   "d25_28": 730.1,
+   "sep_total": 1176.7,
+   "fetched": "2026-10-13T10:48Z",
+   "grid": [
+    13.743409,
+    98.099174
    ]
   },
   "pny": {

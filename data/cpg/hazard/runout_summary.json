@@ -1,0 +1,15 @@
+{
+ "alpha_open": 14.4,
+ "alpha_channel": 14.4,
+ "open_ids": [],
+ "channel_id": "CZ-01",
+ "alpha_from": null,
+ "src_slope": 20.0,
+ "clip_m": 250,
+ "zoneA_ha": 304.04,
+ "zoneB_ha": 0.0,
+ "calibration_share_inside": {
+  "CZ-01": 0.991
+ },
+ "buildings_surveyed_by_status_reach": {}
+}

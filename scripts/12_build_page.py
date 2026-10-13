@@ -1,8 +1,8 @@
-"""Collect the fifteen drone-surveyed sites into one payload, export GIS deliverables, render the dashboard.
+"""Collect the twenty drone-surveyed sites into one payload, export GIS deliverables, render the dashboard.
 
 Outputs
   outputs/launglon_landslides_2026.gpkg   per site: landslides, outwash, buildings, reach zones, exclusions, crown/toe
-  outputs/landslides.csv, outputs/buildings.csv, outputs/summary.json   (all fifteen sites, `site` column)
+  outputs/landslides.csv, outputs/buildings.csv, outputs/summary.json   (all twenty sites, `site` column)
   index.html                              standalone page (doctype + head) for GitHub Pages / local use
   dist/artifact-body.html                 the same body fragment without the wrapper
 src/template.html is the single source of truth for the page; never hand-edit index.html.
@@ -137,6 +137,36 @@ REPORTS["ykt"] = {"source": "Dawei Watch, 26 Sep - 2 Oct 2026", "deaths": None, 
                   "houses_note": "no houses in the survey",
                   "lines": ["No report names Yan Kin Taung, the forested hills between the Ti Zit watershed and Ka Det Nge "
                             "Htein; the nearest village, Pein Hne Taw, is 0.8 km east of the survey."]}
+REPORTS["khg"] = {
+    "source": "Dawei Watch, 27-30 Sep 2026", "deaths": 0, "houses": "about 30", "houses_n": 30,
+    "houses_label": "about 30 houses buried, more than 80 damaged",
+    "lines": ["At about 9 pm on 26 Sep and 2 am on 27 Sep the hills east of Kayin Gyi failed: nearly 30 houses were buried, "
+              "with tractors and motorcycles; about 30 households (60 people) moved to the monastery. No one was hurt (27 Sep).",
+              "More of the hills failed on the night of 27 Sep and the whole eastern half of the village was covered: houses, the "
+              "bridge and village roads destroyed (28 Sep).",
+              "The stream and landslides damaged more than 80 houses on 26-27 Sep; the main road by the bridge in the middle of "
+              "the village was cut in two, isolating the upper village and Kan Pa Ni (29 Sep). It was patched on 30 Sep.",
+              "Kayin Gyi lies on the Maungmagan - Myaw Yit road to the Myaw Yit pagoda; with Kan Pa Ni nearly 100 houses were "
+              "destroyed (30 Sep)."]}
+REPORTS["knr"] = {
+    "source": "Dawei Watch, 28-30 Sep 2026", "deaths": 0, "houses": None, "houses_note": "no houses in the survey",
+    "lines": ["Earth covered the Kan Pa Ni - Pa Nyit road in about two places (30 Sep); landslides also blocked the road between "
+              "Pa Nyit and Kan Pa Ni on 27 Sep, cutting off the villages beyond (28 Sep).",
+              "In Pa Nyit, 1.7 km south of the survey, two houses were buried; no one was hurt (28 Sep)."]}
+REPORTS["lgt"] = {
+    "source": "Dawei Watch, 26 Sep - 2 Oct 2026", "deaths": None, "houses": None, "houses_note": "no report for the town",
+    "lines": ["No report in Dawei Watch coverage to 2 Oct describes landslides at Launglon town itself; the town was the base "
+              "of the rescue teams, which on 28 Sep were still clearing debris from the road between Launglon and Nyin Maw."]}
+REPORTS["cpg"] = {
+    "source": "Dawei Watch, 29-30 Sep 2026", "deaths": None, "houses": None, "houses_note": "no houses in the survey",
+    "lines": ["Chaung Hpyar Gyi is one of the four villages of the Kyauk Twin village tract (about 350 households, near Sin Htauk "
+              "beach), reached only by the road west from Ra Be through the forested hills; with the roads buried, no relief "
+              "had reached the tract five days after they were cut (30 Sep). The village itself is 1.2 km south of the survey."]}
+REPORTS["ktr"] = {
+    "source": "Dawei Watch, 29-30 Sep 2026", "deaths": None, "houses": None, "houses_note": "no houses in the survey",
+    "lines": ["This is the road west from Ra Be to the Kyauk Twin village tract (Wea Ma Kaik, Kyauk Twin, Sun Gyi, Chaung Hpyar "
+              "Gyi; about 350 households), cut by landslides from 26 Sep; no relief had reached the tract by 30 Sep. The Ra Be "
+              "road survey of 8 Oct covers the road nearer Ra Be."]}
 REPORTS["tzw"] = {
     "source": "Dawei Watch, 28 Sep - 2 Oct 2026", "deaths": None, "houses": None,
     "houses_note": "reported for Ti Zit as a whole (see Ti Zit)",
@@ -187,7 +217,17 @@ META["snh"] = {"mmr": "စမ်းလှမ်း", "gsd_cm": 11.3, "file": "Sa
                         ("Kyone Ga Nan", "177150", "0.6 km north of the survey")]}
 META["ykt"] = {"mmr": "ရန်ကင်းတောင်", "gsd_cm": 7.1, "file": "YanKinTaung.kmz", "tiles": "yankin",
                "mimu": [("Pein Hne Taw", "177155", "0.8 km east of the survey")]}
-SITE_ORDER = ("tby", "pny", "snh", "tzw", "tzv", "tzt", "ykt", "nmt", "kdnh", "kdg", "tawkye", "thw", "lhl", "rbe", "pgz")  # north to south
+META["lgt"] = {"mmr": "လောင်းလုံးမြို့", "gsd_cm": 11.0, "file": "LaungLone_Plan_1.kmz + LaungLone_Plan_2.kmz", "tiles": "launglon",
+               "mimu": [("Pyin Htein", "177121", "0.4 km beyond the survey")]}
+META["khg"] = {"mmr": "ကရင်ကြီး", "gsd_cm": 11.0, "file": "Kayingyi_combine.kmz", "tiles": "kayingyi",
+               "mimu": [("Kayin Gyi", "177174", "inside"), ("Kan Pa Ni", "222696", "1.0 km beyond the survey")]}
+META["knr"] = {"mmr": "ကမ်းပနီ - ပညစ်လမ်း", "gsd_cm": 9.5, "file": "Kanpani_Panyit_RD.kmz", "tiles": "kanpani",
+               "mimu": [("Pa Nyit", "177151", "1.7 km south of the survey"), ("Kan Pa Ni", "222696", "2.7 km north of the survey")]}
+META["cpg"] = {"mmr": "ချောင်းဖျားကြီး", "gsd_cm": 7.6, "file": "ChaungPhyarGyi_Village.kmz", "tiles": "chaunghpyar",
+               "mimu": [("Chaung Hpyar Gyi", "177218", "1.2 km south of the survey")]}
+META["ktr"] = {"mmr": "ကျောက်တွင်းလမ်း", "gsd_cm": 10.0, "file": "Kyauktwin_RD.kmz", "tiles": "kyauktwin",
+               "mimu": [("Sun Gyi", "177220", "0.7 km beyond the survey"), ("Kyauk Twin", "177217", "1.9 km west of the survey")]}
+SITE_ORDER = ("khg", "knr", "tby", "pny", "lgt", "snh", "tzw", "tzv", "tzt", "ykt", "nmt", "kdnh", "kdg", "tawkye", "thw", "lhl", "cpg", "rbe", "ktr", "pgz")  # north to south
 TK_TYPES = {"LS-01": "channel", "LS-04": "channel"}
 TK_EDGE = {"LS-01": ("crown", "Mud fan fed by a channel entering from outside the survey."),
            "LS-09": ("toe", "Continues beyond the surveyed area.")}
@@ -259,6 +299,9 @@ def build_site(s, gpkg):
     sl, terr, b, zones, runout, fp, excl, shift = load_site(s)
     ls = sl[sl.kind == "landslide"]
     ow = sl[sl.kind == "outwash"]
+    for c in ("bid", "source", "status", "status_auto", "landslide", "overlap", "f_grey", "f_soil", "f_veg", "reach", "note", "dist_m"):
+        if c not in b:  # a survey with no building footprints (forest only)
+            b[c] = pd.Series(dtype="float64" if c in ("overlap", "f_grey", "f_soil", "f_veg", "dist_m") else "object")
     surv = b[~b.status.isin(["not_surveyed", "not_building"])].copy()
     for c in ("note", "reach", "landslide"):
         if c not in surv:
@@ -267,7 +310,7 @@ def build_site(s, gpkg):
     rows = []
     for _, r in ls.iterrows():
         t = terr[r["id"]]
-        hit = surv[surv["landslide"].str.split(",").apply(lambda L: r["id"] in L)]
+        hit = surv[surv["landslide"].str.split(",").apply(lambda L: r["id"] in L).astype(bool)] if len(surv) else surv
         rows.append({
             "id": r["id"], "name": t["name"], "type": t["type"], "description": t["description"],
             "area_m2": round(r["area_m2"]), "soil_m2": round(r["soil_m2"]), "grey_m2": round(r["grey_m2"]),
@@ -373,7 +416,8 @@ def main():
     rain = {"tby": rain_series(ROOT / "data/source/rainfall_openmeteo_tby.json"),
             "pgz": rain_series(ROOT / "data/source/rainfall_openmeteo_pgz.json"),
             "rbe": rain_series(ROOT / "data/source/rainfall_openmeteo_rbe.json"),
-            "thw": rain_series(ROOT / "data/source/rainfall_openmeteo_thw.json"),  # Lel Hla is in the same model cell
+            "thw": rain_series(ROOT / "data/source/rainfall_openmeteo_thw.json"),
+            "cpg": rain_series(ROOT / "data/source/rainfall_openmeteo_cpg.json"),  # its own model cell, the wettest  # Lel Hla is in the same model cell
             "pny": rain_series(ROOT / "data/source/rainfall_openmeteo_pny.json"),
             "kadet": rain_series(ROOT / "data/source/rainfall_openmeteo_kadet.json"),
             "tawkye": rain_series(TK / "rainfall_openmeteo_tawkye.json")}
@@ -418,10 +462,10 @@ def main():
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Launglon Landslides 2026</title>
-<meta name="description" content="Drone-orthomosaic analysis of the 26-27 Sep 2026 landslides at Tha Byar, the road to Pa Nyit, Ngone Min Taung, Ka Det Nge Htein, Ka Det Gyi, Taw Kye, Tha Win, Lel Hla, Ra Be, Pyin Gyi - Za Lut, Ti Zit, the Ti Zit watershed, Ti Zit village, San Hlan and Yan Kin Taung, Launglon Township, Tanintharyi Region, Myanmar.">
+<meta name="description" content="Drone-orthomosaic analysis of the 26-27 Sep 2026 landslides at Tha Byar, the road to Pa Nyit, Ngone Min Taung, Ka Det Nge Htein, Ka Det Gyi, Taw Kye, Tha Win, Lel Hla, Ra Be, Pyin Gyi - Za Lut, Ti Zit, the Ti Zit watershed, Ti Zit village, San Hlan, Yan Kin Taung, Launglon Town, Kayin Gyi, the Kan Pa Ni - Pa Nyit road, Chaung Hpyar Gyi and the Kyauk Twin road, Launglon Township, Tanintharyi Region, Myanmar.">
 <link rel="canonical" href="{SITE}">
 <meta property="og:url" content="{SITE}">
-<meta property="og:title" content="Launglon landslides, 26-27 Sep 2026: fifteen drone surveys">
+<meta property="og:title" content="Launglon landslides, 26-27 Sep 2026: twenty drone surveys">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M2 28 L13 8 L19 18 L23 13 L30 28 Z' fill='%23b8742a'/%3E%3C/svg%3E">
 </head>
 <body>
